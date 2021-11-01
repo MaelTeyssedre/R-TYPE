@@ -1,0 +1,10 @@
+[requires]
+asio/1.19.2
+sfml/2.5.1@bincrafters/stable
+
+[generators]
+cmake
+
+[imports]
+bin, *.dll -> ./bin
+lib, *.dylib* -> ./bin
