@@ -1,4 +1,4 @@
-name: Ubuntu Automatic CI
+name: Ubuntu R-TYPE CI
 
 on:
   push:
