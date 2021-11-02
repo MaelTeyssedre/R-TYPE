@@ -3,6 +3,7 @@
 # Questions pour le FU avec notre APE préféré!!!
 
 - [ ] Fait-on un script pour le comportement des monstres / boss sur chaque client et le serveur sans passer par le réseaux ou tout gérer sur le serveur sans script et faire tout passer par le réseau?
+- [ ] Mettre les requetes ponctuelle (spawn, mort, tirs) en UDP / TCP ?
 - [ ] Combien de litre de redbull faut il prévoir d'acheter pour réussir se projet dans les temps
 
 
