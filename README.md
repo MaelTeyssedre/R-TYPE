@@ -14,5 +14,6 @@
 - [ ] Comment se servir de typeindex comme un index vu que c'est pas un index meme si en fait c'est un index?
 - [ ] A quoi ca sert d'avoir le registre dans les fonctions du registre?
 - [ ] Que dois faire la fonction spawnEntity
+- [ ] Que dois faire la fonction killEntity
 - [ ] comment on fait un ecs ?
 - [ ] pourrais-je te harceler de question sur l'ECS pendant tes vacances ?
