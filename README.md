@@ -4,7 +4,7 @@
 
 - [ ] Fait-on un script pour le comportement des monstres / boss sur chaque client et le serveur sans passer par le réseaux ou tout gérer sur le serveur sans script et faire tout passer par le réseau?
 - [X] Mettre les requetes ponctuelle (spawn, mort, tirs) en UDP / TCP ?
--     Regarder comment fait hallo / overwatch pour pas perdre les requetes
+-     Regarder comment fait halo / overwatch pour pas perdre les requetes
 - [X] Combien de litre de redbull faut il prévoir d'acheter pour réussir se projet dans les temps
 
 
