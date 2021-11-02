@@ -134,7 +134,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 5]
+Epitech R-TYPE project     Realized in November 2021              [Page 10]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -143,7 +143,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 10]
+Epitech R-TYPE project     Realized in November 2021              [Page 11]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -155,4 +155,4 @@ Author's Address
    Alban BODENES <alban.bodenes@epitech.eu>
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 11]
+Epitech R-TYPE project     Realized in November 2021              [Page 12]
