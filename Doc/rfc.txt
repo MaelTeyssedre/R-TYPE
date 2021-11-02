@@ -24,18 +24,18 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
 Table of Contents
 
-   Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . .   2
-   1.  R-TYPE UDP protocol . . . . . . . . . . . . . . . . . . . . .   3
-         1.1.  Reply from server to client request . . . . . . . . .   3
-         1.2.  Requests from client to server  . . . . . . . . . . .   4
-         1.3.  Requests from server to client  . . . . . . . . . . .   5
-         1.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   6
-   2.  R-TYPE TCP protocol . . . . . . . . . . . . . . . . . . . . .   7
-         2.1.  Reply from server to client request . . . . . . . . .   7
-         2.2.  Requests from client to server  . . . . . . . . . . .   8
-         2.3.  Requests from server to client  . . . . . . . . . . .   9
-         2.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   10
-   Contact us  . . . . . . . . . . . . . . . . . . . . . . . . . . .   11
+   Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . .   1
+   1.  R-TYPE UDP protocol . . . . . . . . . . . . . . . . . . . . .   2
+         1.1.  Reply from server to client request . . . . . . . . .   2
+         1.2.  Requests from client to server  . . . . . . . . . . .   3
+         1.3.  Requests from server to client  . . . . . . . . . . .   4
+         1.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   5
+   2.  R-TYPE TCP protocol . . . . . . . . . . . . . . . . . . . . .   6
+         2.1.  Reply from server to client request . . . . . . . . .   6
+         2.2.  Requests from client to server  . . . . . . . . . . .   7
+         2.3.  Requests from server to client  . . . . . . . . . . .   8
+         2.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   9
+   Contact us  . . . . . . . . . . . . . . . . . . . . . . . . . . .   10
 
 Introduction
 
@@ -105,7 +105,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
             |             |            |        |
             +-------------+            +--------+
 
-Epitech R-TYPE project     Realized in November 2021              [Page 7]
+Epitech R-TYPE project     Realized in November 2021              [Page 6]
 
 Epitech project         R-TYPE project RFC protocol           November 2021
 
@@ -116,7 +116,7 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
  
 
-Epitech R-TYPE project     Realized in November 2021              [Page 8]
+Epitech R-TYPE project     Realized in November 2021              [Page 7]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
    
@@ -125,7 +125,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
       
    
-Epitech R-TYPE project     Realized in November 2021              [Page 9]
+Epitech R-TYPE project     Realized in November 2021              [Page 8]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -134,7 +134,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 10]
+Epitech R-TYPE project     Realized in November 2021              [Page 9]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -143,7 +143,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 11]
+Epitech R-TYPE project     Realized in November 2021              [Page 10]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -155,4 +155,4 @@ Author's Address
    Alban BODENES <alban.bodenes@epitech.eu>
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 12]
+Epitech R-TYPE project     Realized in November 2021              [Page 11]
