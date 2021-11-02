@@ -17,4 +17,3 @@ codez pauvres fous !
 - [ ] A quoi ca sert d'avoir le registre dans les fonctions du registre?
 - [ ] comment on fait un ecs ?
 - [ ] pourrais-je te harceler de question sur l'ECS pendant tes vacances ?
-- [ ] pourquoi aucun APE n'est meilleur que julian ?
