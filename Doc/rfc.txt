@@ -26,16 +26,15 @@ Table of Contents
 
    Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . .   1
    1.  R-TYPE UDP protocol . . . . . . . . . . . . . . . . . . . . .   2
-         1.1.  Reply from server to client request . . . . . . . . .   2
-         1.2.  Requests from client to server  . . . . . . . . . . .   3
-         1.3.  Requests from server to client  . . . . . . . . . . .   4
+         1.1.  Requests from client to server  . . . . . . . . . . .   2
+         1.2.  Requests from server to client  . . . . . . . . . . .   3
+         1.3.  Requests from both sides  . . . . . . . . . . . . . .   4
          1.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   5
    2.  R-TYPE TCP protocol . . . . . . . . . . . . . . . . . . . . .   6
-         2.1.  Reply from server to client request . . . . . . . . .   6
-         2.2.  Requests from client to server  . . . . . . . . . . .   7
-         2.3.  Requests from server to client  . . . . . . . . . . .   8
-         2.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   9
-   Contact us  . . . . . . . . . . . . . . . . . . . . . . . . . . .   10
+         2.1.  Requests from client to server  . . . . . . . . . . .   6
+         2.2.  Requests from server to client  . . . . . . . . . . .   7
+         2.3.  Sequence diagram  . . . . . . . . . . . . . . . . . .   8
+   Contact us  . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
 
 Introduction
 
@@ -49,15 +48,21 @@ Introduction
    client and client, for audio transmission, where loosing few requests
    is acceptable.
    
-    Somes informations about requests codes:
+   Somes informations about TCP requests codes:
+   
       The first digit represent the source of the information:
-         1__ - Reply from server to client request
-         2__ - used from client to server
-         3__ - used from server to client
+         0__ - Request from server to client
+         1__ - Request from client to server
+         2__ - Request from both part
 
-      The second digit represent the type of information:
+         The second digit represent the type of information:
+         _0_ - used when the information is about room
+         _1_ - used when the information is about players
+         _2_ - used when the information is about game
+
+      The third digit represent the type of information:
       
-   Every request length is at least x bytes, the size of the request code.
+   Every request length is at least 3 bytes, the size of the request code.
    It could be more with arguments. 
 
 
@@ -67,33 +72,57 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
 1.  R-TYPE UDP protocol
 
-   1.1.  Reply from server to client request
+   1.1.  Requests from client to server
 
-
- 
-
+   
 Epitech R-TYPE project     Realized in November 2021              [Page 3]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
-   1.2.  Requests from client to server
+
+   1.2.  Requests from server to client
 
 
-      
-   
 Epitech R-TYPE project     Realized in November 2021              [Page 4]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
-   1.3.  Requests from server to client
+   1.3.  Requests from both sides
+
+   1<id_player><x_pos, y_pos><hp><type> : Player status -> 12 bytes
+
+      - 1: id of the request -> 1 byte
+      - id_player: id of the player (1-4) -> 1 byte
+      - x_pos: x position player -> 4 bytes
+      - y_pos: y position player -> 4 bytes
+      - hp: health point of the player -> 1 byte
+      - type: weapon type of the player -> 1 byte
 
 
-     
+   2<id_monster><type><x_pos, y_pos><hp> : Monster status -> 14 bytes
+
+      - 2: id of the request -> 1 byte
+      - id_monster: The monster id -> 2 bytes
+      - type: The monster type -> 1 byte
+      - x_pos: x position monster -> 4 bytes
+      - y_pos: y position monster -> 4 bytes
+      - hp: health point of the monster -> 1 byte
+
+
+   3<id_shot><type><x_pos, y_pos><origin> : Shot status -> 13 bytes
+
+      - 3: id of the request -> 1 byte
+      - id_shot: The shot id -> 2 bytes
+      - type: type of shot -> 1 byte
+      - x_pos: x position of the shot -> 4 bytes
+      - y_pos: y position of the shot -> 4 bytes
+      - origin: Is the shot come from monster or player -> 1 byte
+      
 
 Epitech R-TYPE project     Realized in November 2021              [Page 5]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
-   1.4.  Sequence diagram
+   1.3.  Sequence diagram
 
         * Connection - example:
 
@@ -111,39 +140,68 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
 2.  R-TYPE TCP protocol
 
-   2.1.  Reply from server to client request
+   2.1.  Requests from client to server
 
+   110 <room name> : Room Creation -> 48 bytes
+   * room name : The name of the room -> 1 bytes
+      <OK/KO>
 
- 
+   120 <player ID> : Player Connection -> 8 bytes
+   * player ID : Id of the player -> 1 bytes
+      <OK/KO>
 
+   121 <player ID> : Player Deconnection -> 8 bytes
+   * player ID : Id of the player -> 1 bytes
+      <OK/KO>
+
+   122 <player ID> : Player Banned -> 8 bytes
+   * player ID : Id of the player -> 1 bytes
+      <OK/KO>
+
+   130 : Game beginning -> 6 bytes
+      <OK/KO>
+
+   131 : Game ending -> 6 bytes
+      <OK/KO>
+
+   132 <game map> : Load the game -> 1000000 bytes
+   * game map : Map of the game (ex: ".1:x,y.2:x,y" 1/2 = entity type, x = x pos, y = y pos )-> 1000000 bytes
+   //TODO explicite more
+      <OK/KO>
+      
+   
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
-   
-   2.2.  Requests from client to server
+
+   2.2.  Requests from server to client
+
+   210: Room has been created -> 6 bytes
+        <OK/KO>
+   220: Player is connected -> 6 bytes
+        <OK/KO>
+   221: Player has been Deconnected -> 6 bytes
+        <OK/KO>
+   222 <player ID>: Player has been Banned -> 6 bytes
+        <OK/KO>
+   230 Game beginning -> 6 bytes
+        <OK/KO>
+   231 Game ending -> 6 bytes
+        <OK/KO>
+   232 Load the game -> 6 bytes
+        <OK/KO>
 
 
-      
-   
 Epitech R-TYPE project     Realized in November 2021              [Page 8]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
-   2.3.  Requests from server to client
-
-
-
-
-Epitech R-TYPE project     Realized in November 2021              [Page 9]
-
-Epitech project         R-TYPE projet RFC protocol           November 2021
-
-   2.4.  Sequence diagram
+   2.3.  Sequence diagram
    
 
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 10]
+Epitech R-TYPE project     Realized in November 2021              [Page 9]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -155,4 +213,4 @@ Author's Address
    Alban BODENES <alban.bodenes@epitech.eu>
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 11]
+Epitech R-TYPE project     Realized in November 2021              [Page 10]
