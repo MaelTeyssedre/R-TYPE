@@ -16,7 +16,7 @@
 class Registry {
     public:
         template <class Component>
-        void registerComponent(SparseArray<Component> &);
+        SparseArray<Component> &registerComponent();
 
         template <class Component>
         SparseArray<Component> &getComponents();
