@@ -1,0 +1,44 @@
+name: Windows R-TYPE CI
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  pull_request:
+    branches: 
+      - main
+      - develop
+
+jobs:
+  main:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      
+    - name: install pip
+      run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py
+      
+    - name: Install conan
+      run: pip install conan
+      
+    - name: Add conan to PATH
+      run: cd ~/ && ls && echo "$HOME/.local/bin" >> $GITHUB_PATH
+      
+    - name: Setup conan
+      run: conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan && conan config set general.revisions_enabled=1
+      
+    - name: Build
+      run: mkdir build && cd build && conan install --build missing .. && conan install --build missing .. && cmake .. && cmake --build . --config Release
+
+    - name: Check R-TYPE server binary exist
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "build/bin/rtype_server.exe"
+    
+    - name: Check R-TYPE client binary exist
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "build/bin/rtype_client.exe"
