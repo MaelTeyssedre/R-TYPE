@@ -16,5 +16,5 @@
 - [ ] A quoi ca sert d'avoir le registre dans les fonctions du registre?
 - [ ] Que dois faire la fonction spawnEntity
 - [ ] Que dois faire la fonction killEntity
-- [ ] comment on fait un ecs ?
+- [X] comment on fait un ecs ?
 - [X] pourrais-je te harceler de question sur l'ECS pendant tes vacances ?
