@@ -49,6 +49,14 @@ Introduction
    client and client, for audio transmission, where loosing few requests
    is acceptable.
    
+    Somes informations about requests codes:
+      The first digit represent the source of the information:
+         1__ - Reply from server to client request
+         2__ - used from client to server
+         3__ - used from server to client
+
+      The second digit represent the type of information:
+      
    Every request length is at least x bytes, the size of the request code.
    It could be more with arguments. 
 
@@ -87,6 +95,15 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
    1.4.  Sequence diagram
 
+        * Connection - example:
+
+            +-------------+            +--------+
+            |             |   (1)      |        |
+            |             |----------->|        |
+            |   Client    |<-----------| SERVER |
+            |             |   (2)      |        |
+            |             |            |        |
+            +-------------+            +--------+
 
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
 
