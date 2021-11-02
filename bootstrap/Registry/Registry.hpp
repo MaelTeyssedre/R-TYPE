@@ -45,11 +45,11 @@ class Registry {
         }
 
         Entity entityFromIndex(size_t idx) {
-            
+            return Entity(idx);
         }
 
         void killEntity(Entity const &e) {
-
+            
         }
 
         template <typename Component>
