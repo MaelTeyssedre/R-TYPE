@@ -14,7 +14,7 @@
 - [X] Où sont linkés les composant aux entitées?
 - [X] Comment se servir de typeindex comme un index vu que c'est pas un index meme si en fait c'est un index?
 - [X] A quoi ca sert d'avoir le registre dans les fonctions du registre?
-- [ ] Que dois faire la fonction spawnEntity
-- [ ] Que dois faire la fonction killEntity
+- [X] Que dois faire la fonction spawnEntity
+- [X] Que dois faire la fonction killEntity
 - [X] comment on fait un ecs ?
 - [X] pourrais-je te harceler de question sur l'ECS pendant tes vacances ?
