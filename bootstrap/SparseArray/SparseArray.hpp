@@ -31,8 +31,17 @@ class SparseArray
             : _data(sparseArray._data) {}
         explicit SparseArray(SparseArray &&sparseArray) noexcept
             : _data(std::move(sparseArray._data)) {}
+        explicit SparseArray(size_t nbEntity) {
+            for (auto i = 0; i < nbEntity; i++)
+                _data.push_back(std::nullopt);
+        }
 
         ~SparseArray() = default;
+
+        size_t extend(size_t size) {
+            for (auto i = 0; i < size; i++)
+                _data.push_back(std::nullopt);
+        }
 
         SparseArray &operator=(SparseArray const &sparseArray) {
             std::swap(_data, sparseArray._data);
