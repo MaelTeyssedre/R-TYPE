@@ -56,14 +56,14 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
 1.  R-TYPE UDP protocol
 
-   1.1.  Requests from both sides
+   1.1.  Requests from server to client
 
-   1<id_player><x_pos, y_pos><hp><type> : Player status -> 12 bytes
+   1<id_player><<x_pos, y_pos>><hp><type> : Player status -> 12 bytes
 
       - 1: request id -> 1 byte
       - id_player: id of the player (1-4) -> 1 byte
-      - x_pos: x position player -> 4 bytes
-      - y_pos: y position player -> 4 bytes
+      - x_pos: x position monster -> 4 bytes
+      - y_pos: y position monster -> 4 bytes
       - hp: health point of the player -> 1 byte
       - type: weapon type of the player -> 1 byte
 
@@ -112,14 +112,19 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
    2.1.  Requests from server to client
 
-      1: Game beginning -> 1 byte
+      1<room_code>: Game beginning -> 9 byte
 
          - 1: request id -> 1 byte
+         - room_code name of the room -> 8 bytes
 
 
-      2: Game ending -> 1 bytes
+      2<score><score><score><score>: Game ending -> 17 bytes
 
          - 2: request id -> 1 byte
+         - score: scores of the player 1 -> 4 bytes
+         - score: scores of the player 2 -> 4 bytes
+         - score: scores of the player 3 -> 4 bytes
+         - score: scores of the player 4 -> 4 bytes
 
 
       3<size><json>: Load the game -> <size> + 5 bytes
@@ -129,9 +134,20 @@ Epitech project         R-TYPE project RFC protocol           November 2021
          - json: Json file containing the map elements -> <size> bytes
 
 
-      4: Player has been Banned -> 1 bytes
-
+      4<room_code>: Create room -> 9 bytes
          - 4: request id -> 1 byte
+         - room_code name of the room -> 8 bytes
+
+
+      5<room_code>: Join room -> 9 bytes
+         - 5: request id -> 1 byte
+         - room_code name of the room -> 8 bytes
+
+
+      6<room_code>: Leave room -> 9 bytes
+         - 6: request id -> 1 byte
+         - room_code name of the room -> 8 bytes
+
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 5]
