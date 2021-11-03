@@ -41,7 +41,12 @@ class Registry {
         }
 
         Entity spawnEntity() {
-
+            if (_killedEntities.empty()) {
+                _entities++;
+                return Entity(_entities);
+            }
+            _killedEntities.pop_back();
+            return Entity(_killedEntities.size() + 1); 
         }
 
         Entity entityFromIndex(size_t idx) {
@@ -49,16 +54,20 @@ class Registry {
         }
 
         void killEntity(Entity const &e) {
-            
+            for (auto i : _componentsArrays) {
+                
+            }
         }
 
         template <typename Component>
         typename SparseArray<Component>::reference_type addComponent(Entity const &to, Component &&c) {
-
+            SparseArray<Component> *sparseArray = std::any_cast<SparseArray<Component>>(_componentsArrays[to]);
+            return sparseArray->insertAt(to, c);
         }
 
         template <typename Component, typename ...Params>
         typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p) {
+            SparseArray<Component> *sparseArray = std::any_cast<SparseArray<Component>>(_componentsArrays[to]);
 
         }
 
@@ -71,6 +80,8 @@ class Registry {
         std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _constructorArray;
         std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _destructorArray;
         std::map<std::type_index, std::any> _componentsArrays;
+        size_t _entities;
+        std::vector<Entity> _killedEntities;
 };
 
 #endif /* !REGISTRY_HPP_ */

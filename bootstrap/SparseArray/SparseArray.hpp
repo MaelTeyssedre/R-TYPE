@@ -11,13 +11,14 @@
 #include <vector>
 #include <iostream>
 #include <memory>
+#include <optional>
 #include <type_traits>
 
 template <typename Component>
 class SparseArray
 {
     public:
-        using value_type = ???;
+        using value_type = std::optional<Component>;
         using reference_type = value_type &;
         using const_reference_type = value_type const &;
         using container_t = std::vector<value_type>;
@@ -86,14 +87,9 @@ class SparseArray
                 _data.push_back(component);
                 return _data.back();
             }
-            container_t new_container;
-            auto i = 0;
-            for (; i < pos; i++)
-                new_container.push_back(_data[i]);
-            new_container.push_back(component);
-            for (; i < _data.size(); i++)
-                new_container.push_back(_data[i]);
-            _data = new_container;
+            auto alloc = _data.get_allocator();
+            std::allocator_traits<decltype(alloc)>::destroy(alloc, std::addressof(_data[pos]));
+            _data[pos] = component;
             return _data[pos];
         }
 
@@ -104,14 +100,9 @@ class SparseArray
                 _data.push_back(std::move(component));
                 return _data.back();
             }
-            container_t new_container;
-            auto i = 0;
-            for (; i < pos; i++)
-                new_container.push_back(_data[i]);
-            new_container.push_back(std::move(component));
-            for (; i < _data.size(); i++)
-                new_container.push_back(_data[i]);
-            _data = new_container;
+            auto alloc = _data.get_allocator();
+            std::allocator_traits<decltype(alloc)>::destroy(alloc, std::addressof(_data[pos]));
+            _data[pos] = std::move(component);
             return _data[pos];
         }
 
@@ -126,13 +117,10 @@ class SparseArray
         }
 
         void erase(size_type pos) {
-            container_t new_container;
             if (pos >= _data.size())
                 throw std::invalid_argument("pos superior to SparseArray's size");
-            for (auto i = 0; i < _data.size(); i++)
-                if (pos != i)
-                    new_container.push_back(_data[i]);
-            _data = new_container();
+            auto alloc = _data.get_allocator();
+            std::allocator_traits<decltype(alloc)>::destroy(alloc, std::addressof(_data[pos]));
         }
 
         size_type getIndex(value_type const &value) const {

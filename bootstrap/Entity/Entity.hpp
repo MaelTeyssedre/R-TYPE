@@ -8,11 +8,15 @@
 #ifndef ENTITY_HPP_
 #define ENTITY_HPP_
 
+#include "../Registry/Registry.hpp"
+
 class Entity {
     public:
+        operator size_t() const;
+    protected:
+        friend class Registry;
         explicit Entity(size_t id);
         ~Entity() = default;
-        operator size_t() const;
     private:
         size_t _id;
 

@@ -50,6 +50,7 @@
         "xiosbase": "cpp",
         "xlocale": "cpp",
         "xlocinfo": "cpp",
-        "xlocnum": "cpp"
+        "xlocnum": "cpp",
+        "optional": "cpp"
     }
 }
