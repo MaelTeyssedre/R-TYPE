@@ -51,7 +51,7 @@ Introduction
    Every TCP request length is at least 1 bytes, the size of the request code.
    It could be more with arguments.
    
-   Every UDP invalid request is skip by the server andnothing happend.
+   Every UDP invalid request is skip by the server and nothing happend.
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 2]
