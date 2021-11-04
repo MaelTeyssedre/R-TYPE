@@ -13,10 +13,10 @@
 class Entity {
     public:
         operator size_t() const;
+        ~Entity() = default;
     protected:
         friend class Registry;
         explicit Entity(size_t id);
-        ~Entity() = default;
     private:
         size_t _id;
 

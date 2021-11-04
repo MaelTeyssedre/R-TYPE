@@ -17,91 +17,27 @@
 
 class Registry {
     public:
-        template <class Component>
-        explicit Registry() {};
-
-        explicit Registry(size_t nbEntity)
-            : _entities(nbEntity) {}
-
+        explicit Registry() = default;
+        explicit Registry(size_t nbEntity);
         virtual ~Registry() = default;
-
+    public:
+        bool isKilled(Entity const &e);
+        Entity spawnEntity();
+        Entity entityFromIndex(size_t idx);
+        void killEntity(Entity const &e);
+    public:
         template <class Component>
-        SparseArray<Component> &registerComponent(std::function<void(Registry &registry, Entity const &entity)>constructor, std::function<void(Registry &registry, Entity const &entity)>destructor) {
-            _componentsArrays.insert(std::make_pair(std::type_index(Component), SparseArray<Component>(_entities)));
-            _constructorArray.insert(std::make_pair(std::type_index(Component), constructor));
-            _destructorArray.insert(std::make_pair(std::type_index(Component), destructor));
-            return std::any_cast(_componentsArrays[std::type_index(Component)]);
-        }
-
+        SparseArray<Component> &registerComponent(std::function<void(Registry &, Entity const &)> constructor, std::function<void(Registry &, Entity const &)> destructor);
         template <class Component>
-        SparseArray<Component> &getComponents() {
-            return std::any_cast(_componentsArrays[std::type_index(Component)]);
-        }
-
+        SparseArray<Component> &getComponents();
         template <class Component>
-        SparseArray<Component> const &getComponents() const {
-            return std::any_cast(_componentsArrays[std::type_index(Component)]);
-        }
-
-        Entity spawnEntity() {
-            if (_killedEntities.empty()) {
-                _entities++;
-                for (auto i : _componentsArrays)
-                    _constructorArray[i.first](*this, Entity(_entities));
-                return Entity(_entities);
-            }
-            Entity respawnedEntity = _killedEntities.back();
-            _killedEntities.pop_back();
-            for (auto i : _componentsArrays)
-                    _constructorArray[i.first](*this, Entity(respawnedEntity));
-            return respawnedEntity;
-        }
-
-        Entity entityFromIndex(size_t idx) {
-            if (idx >= _entities)
-                throw std::invalid_argument("entity doesn't exit at this index");
-            if (isKilled(Entity(idx)))
-                throw std::invalid_argument("no alive entity at this at this index (killed)");
-            return Entity(idx);
-        }
-
-        void killEntity(Entity const &e) {
-            if (e < _entities && !isKilled(e)) {
-                _killedEntities.push_back(e);
-                for (auto i : _componentsArrays)
-                    _destructorArray[i.first](*this, Entity(e));
-            }
-            if (e >= _entities)
-                throw std::invalid_argument("entity doesn't exist");
-            if (isKilled(e))
-                throw std::invalid_argument("entity already killed");
-        }
-
+        SparseArray<Component> const &getComponents() const;
         template <typename Component>
-        typename SparseArray<Component>::reference_type addComponent(Entity const &to, Component &&c) {
-            SparseArray<Component> array = std::any_cast(_componentsArrays[std::type_index(Component)]);
-            array.insertAt(to, c);
-        }
-
+        typename SparseArray<Component>::reference_type addComponent(Entity const &to, Component &&c);
         template <typename Component, typename ...Params>
-        typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p) {
-            SparseArray<Component> array = std::any_cast(_componentsArrays[std::type_index(Component)]);
-            array.emplaceAt(to, p);
-        }
-
+        typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p);
         template <typename Component>
-        void removeComponent(Entity const &from) {
-            SparseArray<Component> array = std::any_cast(_componentsArrays[std::type_index(Component)]);
-            array.erase(from);
-        }
-
-        bool isKilled(Entity const &e) {
-            for (auto i = 0; i < _killedEntities.size(); i++)
-                if ((size_t)e == (size_t)_killedEntities[i])
-                    return true;
-            return false;
-        }
-
+        void removeComponent(Entity const &from);
     private:
         std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _constructorArray;
         std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _destructorArray;
