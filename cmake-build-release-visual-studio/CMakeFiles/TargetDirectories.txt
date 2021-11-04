@@ -1,0 +1,4 @@
+C:/Users/ratha/rtype/R-TYPE/cmake-build-release-visual-studio/CMakeFiles/rebuild_cache.dir
+C:/Users/ratha/rtype/R-TYPE/cmake-build-release-visual-studio/CMakeFiles/rtype_client.dir
+C:/Users/ratha/rtype/R-TYPE/cmake-build-release-visual-studio/CMakeFiles/rtype_server.dir
+C:/Users/ratha/rtype/R-TYPE/cmake-build-release-visual-studio/CMakeFiles/edit_cache.dir

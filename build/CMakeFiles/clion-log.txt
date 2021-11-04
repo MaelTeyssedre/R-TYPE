@@ -1,0 +1,4 @@
+Cannot generate into C:\Users\ratha\rtype\R-TYPE\build
+It was created with incompatible generator 'Visual Studio 16 2019'
+
+Please either delete it manually or select another generation directory
