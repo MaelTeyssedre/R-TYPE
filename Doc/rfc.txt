@@ -108,12 +108,13 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
       5<up><down><right><left><shoot>: Client inputs -> 6 bytes
 
          - 5: request id -> 1 byte
-         - up: up key state -> 1 byte
-         - down: down key state -> 1 byte
-         - right: right key state -> 1 byte
-         - left: left key state -> 1 byte
-         - shoot: shoot key state -> 1 byte
+         - up: up key state (0/1) -> 1 byte
+         - down: down key state (0/1) -> 1 byte
+         - right: right key state (0/1) -> 1 byte
+         - left: left key state (0/1) -> 1 byte
+         - shoot: shoot key state (0/1) -> 1 byte
       
+
       6: Ping -> 1 byte
 
          - 6: request id -> 1 byte
@@ -145,52 +146,53 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
    2.1.  Requests from server to client
 
-      1<room_code>: Game beginning -> 9 byte
+      7<room_code>: Game beginning -> 9 byte
 
-         - 1: request id -> 1 byte
+         - 7: request id -> 1 byte
          - room_code: name of the room -> 8 bytes
 
 
-      2<score1><score2><score3><score4>: Game ending -> 17 bytes
+      8<score1><score2><score3><score4>: Game ending -> 17 bytes
 
-         - 2: request id -> 1 byte
+         - 8: request id -> 1 byte
          - score1: scores of the player 1 -> 4 bytes
          - score2: scores of the player 2 -> 4 bytes
          - score3: scores of the player 3 -> 4 bytes
          - score4: scores of the player 4 -> 4 bytes
 
 
-      3<size><json>: Load the game -> <size> + 5 bytes
+      9<size><json>: Load the game -> <size> + 5 bytes
 
-         - 3: request id -> 1 byte
+         - 9: request id -> 1 byte
          - size: size of the JSon file passed in parameter -> 4 bytes
          - json: Json file containing the map elements -> <size> bytes
 
 
-      4: Room joined -> 1 bytes
+      10: Room joined -> 1 byte
 
-         - 4: request id -> 1 byte
-         - room_code: name of the room -> 8 bytes
-
-
-      5: Room leaved -> 1 bytes
-
-         - 5: request id -> 1 byte
+         - 10: request id -> 1 byte
 
 
-      6<room_code>: Room created -> 9 bytes
+      11: Room leaved -> 1 byte
 
-         - 6: request id -> 1 byte
+         - 11: request id -> 1 byte
+
+
+      12<room_code>: Room created -> 9 bytes
+
+         - 12: request id -> 1 byte
          - room_code: name of the room -> 8 bytes
       
-      7<id_player>: Player leave / crash -> 2 bytes
 
-         - 7: request id -> 1 byte
+      13<id_player>: Player leave / crash -> 2 bytes
+
+         - 13: request id -> 1 byte
          - id_player: id of the player (1-4) -> 1 byte
       
-      8<request id>: A request crash -> 2 bytes
 
-         - 8: request id -> 1 byte
+      14<request id>: A request crash -> 2 bytes
+
+         - 14: request id -> 1 byte
          - request id: Id of the request that fail -> 1 byte
         
 
@@ -200,21 +202,25 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
    2.2.  Requests from client to server
 
-      9: Create room -> 1 bytes
+      15: Create room -> 1 byte
 
-         - 9: request id -> 1 byte
+         - 15: request id -> 1 byte
       
 
-      10<room_code>: Join room -> 9 bytes
+      16<room_code>: Join room -> 9 bytes
 
-         - 10: request id -> 1 byte
+         - 16: request id -> 1 byte
          - room_code: name of the room -> 8 bytes
       
       
-      11: Leave room -> 1 bytes
+      17: Leave room -> 1 byte
 
-         - 11: request id -> 1 byte
+         - 17: request id -> 1 byte
+      
 
+      18: Loaded -> 1 byte
+
+         - 18: request id -> 1 byte
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
@@ -222,16 +228,73 @@ Epitech R-TYPE project     Realized in November 2021              [Page 7]
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
    2.3.  Sequence diagram
+
+      RC = Room_code
    
-           * Connection - example:
+         * Room creation - example:
 
             +-------------+            +--------+
-            |             |   (1)      |        |
+            |             |   (1) 15   |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
-            |             |   (2)      |        |
+            |             | (2) 12<RC> |        |
             |             |            |        |
             +-------------+            +--------+
+
+
+         * Room joining - example:
+
+            +-------------+            +--------+
+            |             | (1) 16<RC> |        |
+            |             |----------->|        |
+            |   Client    |<-----------| SERVER |
+            |             |   (2) 10   |        |
+            |             |            |        |
+            +-------------+            +--------+
+
+
+         * Room leaving - example:
+
+            +-------------+            +--------+
+            |             |   (1) 17   |        |
+            |             |----------->|        |
+            |   Client    |<-----------| SERVER |
+            |             |   (2) 11   |        |
+            |             |            |        |
+            +-------------+            +--------+
+            
+
+         * Game loading - example:
+
+            +-------------+                +--------+
+            |             |(1)9<Size><JSON>|        |
+            |             |--------------->|        |
+            |   Client    |<---------------| SERVER |
+            |             |     (2) 18     |        |
+            |             |                |        |
+            +-------------+                +--------+
+
+         
+         * Game starting (only when all players in room are loaded) - example:
+
+            +-------------+                +--------+
+            |             |     (1) 7      |        |
+            |             |--------------->|        |
+            |   Client    |                | SERVER |
+            |             |                |        |
+            |             |                |        |
+            +-------------+                +--------+
+            
+
+         * Game ending - example:
+
+            +-------------+                                    +--------+
+            |             |(1)8<score1><score2><score3><score4>|        |
+            |             |----------------------------------->|        |
+            |   Client    |                                    | SERVER |
+            |             |                                    |        |
+            |             |                                    |        |
+            +-------------+                                    +--------+
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 8]
