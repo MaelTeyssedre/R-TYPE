@@ -93,20 +93,30 @@ Epitech project         R-TYPE project RFC protocol           November 2021
          - origin: Is the shot come from monster or player -> 1 byte
       
 
+      4: Ping -> 1 byte
+
+         - 4: request id -> 1 byte
+
+
+
 Epitech R-TYPE project     Realized in November 2021              [Page 3]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
    1.2.  Requests from client to server
 
-      4<up><down><right><left><shoot>: Client inputs -> 6 bytes
+      5<up><down><right><left><shoot>: Client inputs -> 6 bytes
 
-         - 4: request id -> 1 byte
+         - 5: request id -> 1 byte
          - up: up key state -> 1 byte
          - down: down key state -> 1 byte
          - right: right key state -> 1 byte
          - left: left key state -> 1 byte
          - shoot: shoot key state -> 1 byte
+      
+      6: Ping -> 1 byte
+
+         - 6: request id -> 1 byte
 
 
 
@@ -177,6 +187,11 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
          - 7: request id -> 1 byte
          - id_player: id of the player (1-4) -> 1 byte
+      
+      8<request id>: A request crash -> 2 bytes
+
+         - 8: request id -> 1 byte
+         - request id: Id of the request that fail -> 1 byte
         
 
 Epitech R-TYPE project     Realized in November 2021              [Page 6]
@@ -185,20 +200,20 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
    2.2.  Requests from client to server
 
-      8: Create room -> 1 bytes
-
-         - 8: request id -> 1 byte
-      
-
-      9<room_code>: Join room -> 9 bytes
+      9: Create room -> 1 bytes
 
          - 9: request id -> 1 byte
+      
+
+      10<room_code>: Join room -> 9 bytes
+
+         - 10: request id -> 1 byte
          - room_code: name of the room -> 8 bytes
       
       
-      10: Leave room -> 1 bytes
+      11: Leave room -> 1 bytes
 
-         - 10: request id -> 1 byte
+         - 11: request id -> 1 byte
 
 
 
