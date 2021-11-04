@@ -8,10 +8,10 @@
 #ifndef REGISTRY_HPP_
 #define REGISTRY_HPP_
 
-#include "../SparseArray/SparseArray.hpp"
+#include "SparseArray.hpp"
 #include <map>
 #include <typeindex>
-#include "../Entity/Entity.hpp"
+#include "Entity.hpp"
 #include <any>
 #include <functional>
 
@@ -26,7 +26,7 @@ class Registry {
         virtual ~Registry() = default;
 
         template <class Component>
-        SparseArray<Component> &registerComponent(std::function<void(Registry &, Entity const &)>constructor, std::function<void(Registry &, Entity const &)>destructor) {
+        SparseArray<Component> &registerComponent(std::function<void(Registry &registry, Entity const &entity)>constructor, std::function<void(Registry &registry, Entity const &entity)>destructor) {
             _componentsArrays.insert(std::make_pair(std::type_index(Component), SparseArray<Component>(_entities)));
             _constructorArray.insert(std::make_pair(std::type_index(Component), constructor));
             _destructorArray.insert(std::make_pair(std::type_index(Component), destructor));

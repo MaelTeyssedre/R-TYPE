@@ -8,7 +8,7 @@
 #ifndef ENTITY_HPP_
 #define ENTITY_HPP_
 
-#include "../Registry/Registry.hpp"
+#include "Registry.hpp"
 
 class Entity {
     public:
