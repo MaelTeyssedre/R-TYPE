@@ -6,10 +6,19 @@
 */
 
 #include <iostream>
-#include <asio.hpp>
+#include "RoomManager.hpp"
 
 int main()
 {
-    std::cout << "Server" << std::endl;
+    std::string data;
+    std::string bufferIn;
+    std::string bufferOut;
+    RoomManager manager(bufferIn, bufferOut);
+
+    while (1) {
+        std::cin >> data;
+        manager.fillBufferIn(data);
+        manager.isRoomNeedeed();
+    }
     return (0);
 }
