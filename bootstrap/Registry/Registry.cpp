@@ -35,11 +35,10 @@ Entity Registry::spawnEntity() {
             _constructorArray[i.first](*this, Entity(_entities));
         return Entity(_entities);
     }
-    Entity respawnedEntity = _killedEntities.back();
-    _killedEntities.pop_back();
     for (auto i : _componentsArrays)
-            _constructorArray[i.first](*this, Entity(respawnedEntity));
-    return respawnedEntity;
+            _constructorArray[i.first](*this, Entity(_entities));
+    _killedEntities.pop_back();
+    return Entity(_killedEntities.size());
 }
 
 Entity Registry::entityFromIndex(size_t idx) {
