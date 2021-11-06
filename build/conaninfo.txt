@@ -1,0 +1,69 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=Visual Studio
+    compiler.runtime=MD
+    compiler.version=16
+    os=Windows
+
+[requires]
+    asio/1.Y.Z
+    sfml/2.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    arch_build=x86_64
+    build_type=Release
+    compiler=Visual Studio
+    compiler.runtime=MD
+    compiler.version=16
+    os=Windows
+    os_build=Windows
+
+[full_requires]
+    asio/1.19.2:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    brotli/1.0.9:3fb49604f9c2f729b85ba3115852006824e72cab
+    bzip2/1.0.8:d16a91eadaaf5829b928b12d2f836ff7680d3df5
+    flac/1.3.3:becff00909fb3d957c6b4ca60fa64d4e6a32a540
+    freetype/2.10.4:27b2733304cef577b19f699fec3a5bdbefb36d16
+    libpng/1.6.37:ce650d9f1f1c1c0839cf0694a55c1351ddbed859
+    ogg/1.3.4:3fb49604f9c2f729b85ba3115852006824e72cab
+    openal/1.21.0:3fb49604f9c2f729b85ba3115852006824e72cab
+    opengl/system:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    sfml/2.5.1@bincrafters/stable:0ef0596dda67009438ddf62cf64d905a8c92d376
+    stb/20200203:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    vorbis/1.3.7:becff00909fb3d957c6b4ca60fa64d4e6a32a540
+    zlib/1.2.11:3fb49604f9c2f729b85ba3115852006824e72cab
+
+[full_options]
+    brotli:shared=False
+    bzip2:build_executable=True
+    bzip2:shared=False
+    flac:shared=False
+    freetype:shared=False
+    freetype:with_brotli=True
+    freetype:with_bzip2=True
+    freetype:with_png=True
+    freetype:with_zlib=True
+    libpng:api_prefix=
+    libpng:shared=False
+    libpng:sse=True
+    ogg:shared=False
+    openal:shared=False
+    sfml:audio=True
+    sfml:graphics=True
+    sfml:network=True
+    sfml:shared=False
+    sfml:window=True
+    vorbis:shared=False
+    zlib:minizip=deprecated
+    zlib:shared=False
+
+[recipe_hash]
+
+
+[env]
+

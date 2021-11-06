@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D5F1B5AF-6FBD-3931-993F-78C580BB36AF}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>rtype_client</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\ratha\rtype\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rtype_client.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rtype_client</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\ratha\rtype\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rtype_client.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rtype_client</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\ratha\rtype\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">rtype_client.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">rtype_client</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\ratha\rtype\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">rtype_client.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">rtype_client</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-network-s.lib;sfml-audio-s.lib;sfml-system-s.lib;freetype.lib;OpenAL32.lib;FLAC++.lib;FLAC.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;libpng16.lib;bz2.lib;brotlidec-static.lib;brotlienc-static.lib;brotlicommon-static.lib;ogg.lib;zlib.lib;gdi32.lib;ws2_32.lib;winmm.lib;ole32.lib;shell32.lib;User32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib;C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib/$(Configuration);C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib;C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib/$(Configuration);C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib;C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib/$(Configuration);C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib;C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib/$(Configuration);C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ratha/rtype/R-TYPE/build/lib/rtype_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ratha/rtype/R-TYPE/build/bin/rtype_client.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-network-s.lib;sfml-audio-s.lib;sfml-system-s.lib;freetype.lib;OpenAL32.lib;FLAC++.lib;FLAC.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;libpng16.lib;bz2.lib;brotlidec-static.lib;brotlienc-static.lib;brotlicommon-static.lib;ogg.lib;zlib.lib;gdi32.lib;ws2_32.lib;winmm.lib;ole32.lib;shell32.lib;User32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib;C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib/$(Configuration);C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib;C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib/$(Configuration);C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib;C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib/$(Configuration);C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib;C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib/$(Configuration);C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ratha/rtype/R-TYPE/build/lib/rtype_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ratha/rtype/R-TYPE/build/bin/rtype_client.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-network-s.lib;sfml-audio-s.lib;sfml-system-s.lib;freetype.lib;OpenAL32.lib;FLAC++.lib;FLAC.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;libpng16.lib;bz2.lib;brotlidec-static.lib;brotlienc-static.lib;brotlicommon-static.lib;ogg.lib;zlib.lib;gdi32.lib;ws2_32.lib;winmm.lib;ole32.lib;shell32.lib;User32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib;C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib/$(Configuration);C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib;C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib/$(Configuration);C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib;C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib/$(Configuration);C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib;C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib/$(Configuration);C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ratha/rtype/R-TYPE/build/lib/rtype_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ratha/rtype/R-TYPE/build/bin/rtype_client.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;FLAC__NO_DLL;AL_LIBTYPE_STATIC;STB_TEXTEDIT_KEYTYPE=unsigned;SFML_STATIC;ASIO_STANDALONE;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ratha\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\sfml\2.5.1\bincrafters\stable\package\0ef0596dda67009438ddf62cf64d905a8c92d376\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include;C:\Users\ratha\.conan\data\freetype\2.10.4\_\_\package\27b2733304cef577b19f699fec3a5bdbefb36d16\include\freetype2;C:\Users\ratha\.conan\data\stb\20200203\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\openal\1.21.0\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\AL;C:\Users\ratha\.conan\data\flac\1.3.3\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\vorbis\1.3.7\_\_\package\becff00909fb3d957c6b4ca60fa64d4e6a32a540\include;C:\Users\ratha\.conan\data\libpng\1.6.37\_\_\package\ce650d9f1f1c1c0839cf0694a55c1351ddbed859\include;C:\Users\ratha\.conan\data\bzip2\1.0.8\_\_\package\d16a91eadaaf5829b928b12d2f836ff7680d3df5\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\brotli\1.0.9\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include\brotli;C:\Users\ratha\.conan\data\ogg\1.3.4\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;C:\Users\ratha\.conan\data\zlib\1.2.11\_\_\package\3fb49604f9c2f729b85ba3115852006824e72cab\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-network-s.lib;sfml-audio-s.lib;sfml-system-s.lib;freetype.lib;OpenAL32.lib;FLAC++.lib;FLAC.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;libpng16.lib;bz2.lib;brotlidec-static.lib;brotlienc-static.lib;brotlicommon-static.lib;ogg.lib;zlib.lib;gdi32.lib;ws2_32.lib;winmm.lib;ole32.lib;shell32.lib;User32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib;C:/Users/ratha/.conan/data/sfml/2.5.1/bincrafters/stable/package/0ef0596dda67009438ddf62cf64d905a8c92d376/lib/$(Configuration);C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib;C:/Users/ratha/.conan/data/freetype/2.10.4/_/_/package/27b2733304cef577b19f699fec3a5bdbefb36d16/lib/$(Configuration);C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/openal/1.21.0/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/flac/1.3.3/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib;C:/Users/ratha/.conan/data/vorbis/1.3.7/_/_/package/becff00909fb3d957c6b4ca60fa64d4e6a32a540/lib/$(Configuration);C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib;C:/Users/ratha/.conan/data/libpng/1.6.37/_/_/package/ce650d9f1f1c1c0839cf0694a55c1351ddbed859/lib/$(Configuration);C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib;C:/Users/ratha/.conan/data/bzip2/1.0.8/_/_/package/d16a91eadaaf5829b928b12d2f836ff7680d3df5/lib/$(Configuration);C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/brotli/1.0.9/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/ogg/1.3.4/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib;C:/Users/ratha/.conan/data/zlib/1.2.11/_/_/package/3fb49604f9c2f729b85ba3115852006824e72cab/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ratha/rtype/R-TYPE/build/lib/rtype_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ratha/rtype/R-TYPE/build/bin/rtype_client.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ratha\rtype\R-TYPE\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/ratha/rtype/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ratha/rtype/R-TYPE -BC:/Users/ratha/rtype/R-TYPE/build --check-stamp-file C:/Users/ratha/rtype/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\ratha\rtype\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/ratha/rtype/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ratha/rtype/R-TYPE -BC:/Users/ratha/rtype/R-TYPE/build --check-stamp-file C:/Users/ratha/rtype/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\ratha\rtype\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/ratha/rtype/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ratha/rtype/R-TYPE -BC:/Users/ratha/rtype/R-TYPE/build --check-stamp-file C:/Users/ratha/rtype/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\ratha\rtype\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/ratha/rtype/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ratha/rtype/R-TYPE -BC:/Users/ratha/rtype/R-TYPE/build --check-stamp-file C:/Users/ratha/rtype/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\ratha\rtype\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ratha\rtype\R-TYPE\Client\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\ratha\rtype\R-TYPE\build\ZERO_CHECK.vcxproj">
+      <Project>{2729ED13-C9DD-3613-B885-3A868CC69C20}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

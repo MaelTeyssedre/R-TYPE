@@ -18,6 +18,8 @@ class Room {
         Room(int id);
         ~Room();
         void addPlayer(Player &);
+        std::vector<Player> getPlayerList() const;
+        int getId() const;
     protected:
     private:
         std::vector<std::pair<std::string, std::string>> _roomBuffers;
