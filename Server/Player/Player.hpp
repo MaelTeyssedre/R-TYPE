@@ -8,7 +8,7 @@
 #ifndef PLAYER_HPP_
 #define PLAYER_HPP_
 
-class Player {
+class Player { // Pas fini j'imagine // en effet, le .cpp est vide... // oui je répond a mes commentaires et alors?
     public:
         Player() = default;
         ~Player() = default;

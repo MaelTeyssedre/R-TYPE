@@ -12,23 +12,22 @@
 
 std::mutex mtx;
 
-void RoomManager::manageRoom(int roomId, IPC &ipc)
+void RoomManager::manageRoom(int roomId)
 {
-    std::lock_guard<std::mutex> lock(mtx);
     std::string code = "Connect";
     std::string data;
     Room room(roomId);
 
     while (room.getPlayerList().size() != 4) {
-        data = ipc.takeData(code.size());
         if (data.find(code) != std::string::npos)
             room.addPlayer(Player());
         std::cout << "Room " << room.getId() << " has " << room.getPlayerList().size() << "players" << std::endl;
     }
 }
 
-RoomManager::RoomManager(std::string &bufferIn, std::string &bufferOut)
+RoomManager::RoomManager(std::string &bufferIn, std::string &bufferOut) // les buffers ne sont pas des Mutexs??
 {
+    std::lock_guard<std::mutex> lock(mtx);
     _bufferIn = bufferIn;
     _bufferOut = bufferOut;
     _roomList.clear();
@@ -58,9 +57,9 @@ RoomManager::~RoomManager()
         room.second.join();
 }
 
-void RoomManager::createRoom(IPC &ipc)
+void RoomManager::createRoom()
 {
-    std::thread room(&RoomManager::manageRoom, this, _lastRoomId, ipc);
+    std::thread room(&RoomManager::manageRoom, this, _lastRoomId);
 
     _roomList.push_back(std::make_pair(0, move(room)));
     _lastRoomId++;
@@ -68,14 +67,12 @@ void RoomManager::createRoom(IPC &ipc)
 
 void RoomManager::isRoomNeedeed()
 {
-    IPC ipc("test");
     std::string code = "Connect";
     size_t pos = 0;
 
     while ((pos = _bufferIn.find(code)) != std::string::npos) {
-        ipc.sendData(code);
         if (_roomList.size() == 0 || _roomList.back().first == 4)
-            createRoom(ipc);
+            createRoom();
         _roomList.back().first += 1;
         _bufferIn.erase(pos, pos + code.length());
     }

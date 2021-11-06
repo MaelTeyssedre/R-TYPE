@@ -13,12 +13,12 @@
 #include <vector>
 #include "Player.hpp"
 
-class Room {
+class Room { //pense a mettre une loop dans la room
     public:
         Room(int id);
         ~Room();
-        void addPlayer(Player &);
-        std::vector<Player> getPlayerList() const;
+        void addPlayer(Player &); // comment tu comptes récupérer le player?
+        std::vector<Player> getPlayerList() const; // je crois que la room va etre le "main" du thread , c'est bien ca?
         int getId() const;
     protected:
     private:

@@ -11,7 +11,6 @@
 #include <string>
 #include <thread>
 #include <vector>
-#include "IPC.hpp"
 
 class RoomManager {
     public:
@@ -20,16 +19,16 @@ class RoomManager {
         RoomManager(RoomManager &);
         RoomManager& operator=(RoomManager &);
         ~RoomManager();
-        void manageRoom(int, IPC &);
+        void manageRoom(int);
         void isRoomNeedeed();
-        void createRoom(IPC &ipc);
+        void createRoom();
         void fillBufferIn(std::string &);
     protected:
     private:
-    int _lastRoomId;
-    std::string _bufferIn;
-    std::string _bufferOut;
-    std::vector<std::pair<int, std::thread>> _roomList;
+        int _lastRoomId;
+        std::string _bufferIn;
+        std::string _bufferOut;
+        std::vector<std::pair<int, std::thread>> _roomList;
 };
 
 #endif /* !ROOMMANAGER_HPP_ */

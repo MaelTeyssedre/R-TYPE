@@ -20,5 +20,6 @@ target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Server/Play
 target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Server/Room/)
 target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Server/RoomManager/)
 target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Server/IPC/)
+target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Shared/Buffer/)
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})
