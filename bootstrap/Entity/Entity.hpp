@@ -19,7 +19,6 @@ class Entity {
         explicit Entity(size_t id);
     private:
         size_t _id;
-
 };
 
 #endif /* !ENTITY_HPP_ */
