@@ -24,17 +24,16 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
 Table of Contents
 
-   Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . .   1
-   1.  R-TYPE UDP protocol . . . . . . . . . . . . . . . . . . . . .   2
-         1.1.  Reply from server to client request . . . . . . . . .   2
-         1.2.  Requests from client to server  . . . . . . . . . . .   3
-         1.3.  Requests from server to client  . . . . . . . . . . .   4
-         1.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   5
-   2.  R-TYPE TCP protocol . . . . . . . . . . . . . . . . . . . . .   6
-         2.1.  Reply from server to client request . . . . . . . . .   6
-         2.2.  Requests from client to server  . . . . . . . . . . .   7
-         2.3.  Requests from server to client  . . . . . . . . . . .   8
-         2.4.  Sequence diagram  . . . . . . . . . . . . . . . . . .   9
+   Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . .   2
+   1. R-TYPE UDP protocol  . . . . . . . . . . . . . . . . . . . . .   3
+      1.1.  Requests from server to client . . . . . . . . . . . . .   3
+      1.2.  Requests from client to server . . . . . . . . . . . . .   4
+      1.3.  Sequence diagram . . . . . . . . . . . . . . . . . . . .   5
+   2. R-TYPE TCP protocol  . . . . . . . . . . . . . . . . . . . . .   6
+      2.1.  Requests from server to client . . . . . . . . . . . . .   6
+      2.2.  Requests from client to server . . . . . . . . . . . . .   7
+      2.3.  Sequence diagram . . . . . . . . . . . . . . . . . . . .   8
+   3. JSON Grammar . . . . . . . . . . . . . . . . . . . . . . . . .   9
    Contact us  . . . . . . . . . . . . . . . . . . . . . . . . . . .   10
 
 Introduction
@@ -46,19 +45,13 @@ Introduction
    TCP is a slow and reliable methode using for communication between 
    server and client, where there is few but important informations.
    UDP is a fast unreliable methode using for communication between
-   client and client, for audio transmission, where loosing few requests
+   client and client, for data transmission, where loosing few requests
    is acceptable.
-   
-    Somes informations about requests codes:
-      The first digit represent the source of the information:
-         1__ - Reply from server to client request
-         2__ - used from client to server
-         3__ - used from server to client
-
-      The second digit represent the type of information:
       
-   Every request length is at least x bytes, the size of the request code.
-   It could be more with arguments. 
+   Every TCP request length is at least 1 bytes, the size of the request code.
+   It could be more with arguments.
+   
+   Every UDP invalid request is skip by the server and nothing happend.
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 2]
@@ -67,33 +60,72 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
 1.  R-TYPE UDP protocol
 
-   1.1.  Reply from server to client request
+   1.1.  Requests from server to client
+
+      1<id_player><<x_pos, y_pos>><hp><type><score>: Player status -> 16 bytes
+
+         - 1: request id -> 1 byte
+         - id_player: id of the player (1-4) -> 1 byte
+         - x_pos: x position monster -> 4 bytes
+         - y_pos: y position monster -> 4 bytes
+         - hp: health point of the player -> 1 byte
+         - type: weapon type of the player -> 1 byte
+         - score: score of the player -> 4 bytes
 
 
- 
+      2<id_monster><type><x_pos, y_pos><hp>: Monster status -> 14 bytes
+
+         - 2: request id -> 1 byte
+         - id_monster: The monster id -> 2 bytes
+         - type: The monster type -> 1 byte
+         - x_pos: x position monster -> 4 bytes
+         - y_pos: y position monster -> 4 bytes
+         - hp: health point of the monster -> 1 byte
+
+
+      3<id_shot><type><x_pos, y_pos><origin>: Shot status -> 13 bytes
+
+         - 3: request id -> 1 byte
+         - id_shot: The shot id -> 2 bytes
+         - type: type of shot -> 1 byte
+         - x_pos: x position of the shot -> 4 bytes
+         - y_pos: y position of the shot -> 4 bytes
+         - origin: Is the shot come from monster or player -> 1 byte
+      
+
+      4: Ping -> 1 byte
+
+         - 4: request id -> 1 byte
+
+
 
 Epitech R-TYPE project     Realized in November 2021              [Page 3]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
+
    1.2.  Requests from client to server
 
+      5<up><down><right><left><shoot>: Client inputs -> 6 bytes
 
+         - 5: request id -> 1 byte
+         - up: up key state (0/1) -> 1 byte
+         - down: down key state (0/1) -> 1 byte
+         - right: right key state (0/1) -> 1 byte
+         - left: left key state (0/1) -> 1 byte
+         - shoot: shoot key state (0/1) -> 1 byte
       
-   
+
+      6: Ping -> 1 byte
+
+         - 6: request id -> 1 byte
+
+
+
 Epitech R-TYPE project     Realized in November 2021              [Page 4]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
-   1.3.  Requests from server to client
-
-
-     
-
-Epitech R-TYPE project     Realized in November 2021              [Page 5]
-
-Epitech project         R-TYPE projet RFC protocol           November 2021
-
-   1.4.  Sequence diagram
+   1.3.  Sequence diagram
 
         * Connection - example:
 
@@ -105,45 +137,191 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
             |             |            |        |
             +-------------+            +--------+
 
-Epitech R-TYPE project     Realized in November 2021              [Page 6]
+
+Epitech R-TYPE project     Realized in November 2021              [Page 5]
 
 Epitech project         R-TYPE project RFC protocol           November 2021
 
 2.  R-TYPE TCP protocol
 
-   2.1.  Reply from server to client request
+   2.1.  Requests from server to client
+
+      7<room_code>: Game beginning -> 9 byte
+
+         - 7: request id -> 1 byte
+         - room_code: name of the room -> 8 bytes
 
 
- 
+      8<score1><score2><score3><score4>: Game ending -> 17 bytes
+
+         - 8: request id -> 1 byte
+         - score1: scores of the player 1 -> 4 bytes
+         - score2: scores of the player 2 -> 4 bytes
+         - score3: scores of the player 3 -> 4 bytes
+         - score4: scores of the player 4 -> 4 bytes
+
+
+      9<size><json>: Load the game -> <size> + 5 bytes
+
+         - 9: request id -> 1 byte
+         - size: size of the JSon file passed in parameter -> 4 bytes
+         - json: Json file containing the map elements -> <size> bytes
+
+
+      10: Room joined -> 1 byte
+
+         - 10: request id -> 1 byte
+
+
+      11: Room leaved -> 1 byte
+
+         - 11: request id -> 1 byte
+
+
+      12<room_code>: Room created -> 9 bytes
+
+         - 12: request id -> 1 byte
+         - room_code: name of the room -> 8 bytes
+      
+
+      13<id_player>: Player leave / crash -> 2 bytes
+
+         - 13: request id -> 1 byte
+         - id_player: id of the player (1-4) -> 1 byte
+      
+
+      14<request id>: A request crash -> 2 bytes
+
+         - 14: request id -> 1 byte
+         - request id: Id of the request that fail -> 1 byte
+        
+
+Epitech R-TYPE project     Realized in November 2021              [Page 6]
+
+Epitech project         R-TYPE project RFC protocol           November 2021 
+
+   2.2.  Requests from client to server
+
+      15: Create room -> 1 byte
+
+         - 15: request id -> 1 byte
+      
+
+      16<room_code>: Join room -> 9 bytes
+
+         - 16: request id -> 1 byte
+         - room_code: name of the room -> 8 bytes
+      
+      
+      17: Leave room -> 1 byte
+
+         - 17: request id -> 1 byte
+      
+
+      18: Loaded -> 1 byte
+
+         - 18: request id -> 1 byte
+
 
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
+
+   2.3.  Sequence diagram
+
+      RC = Room_code
    
-   2.2.  Requests from client to server
+         * Room creation - example:
+
+            +-------------+            +--------+
+            |             |   (1) 15   |        |
+            |             |----------->|        |
+            |   Client    |<-----------| SERVER |
+            |             | (2) 12<RC> |        |
+            |             |            |        |
+            +-------------+            +--------+
 
 
-      
-   
+         * Room joining - example:
+
+            +-------------+            +--------+
+            |             | (1) 16<RC> |        |
+            |             |----------->|        |
+            |   Client    |<-----------| SERVER |
+            |             |   (2) 10   |        |
+            |             |            |        |
+            +-------------+            +--------+
+
+
+         * Room leaving - example:
+
+            +-------------+            +--------+
+            |             |   (1) 17   |        |
+            |             |----------->|        |
+            |   Client    |<-----------| SERVER |
+            |             |   (2) 11   |        |
+            |             |            |        |
+            +-------------+            +--------+
+            
+
+         * Game loading - example:
+
+            +-------------+                +--------+
+            |             |(1)9<Size><JSON>|        |
+            |             |--------------->|        |
+            |   Client    |<---------------| SERVER |
+            |             |     (2) 18     |        |
+            |             |                |        |
+            +-------------+                +--------+
+
+         
+         * Game starting (only when all players in room are loaded) - example:
+
+            +-------------+                +--------+
+            |             |     (1) 7      |        |
+            |             |--------------->|        |
+            |   Client    |                | SERVER |
+            |             |                |        |
+            |             |                |        |
+            +-------------+                +--------+
+            
+
+         * Game ending - example:
+
+            +-------------+                                    +--------+
+            |             |(1)8<score1><score2><score3><score4>|        |
+            |             |----------------------------------->|        |
+            |   Client    |                                    | SERVER |
+            |             |                                    |        |
+            |             |                                    |        |
+            +-------------+                                    +--------+
+
+
 Epitech R-TYPE project     Realized in November 2021              [Page 8]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
-   2.3.  Requests from server to client
+3. JSON Grammar
 
-
+   {"monster": {
+      "id": int8,
+      "pos": [int,int],
+      "strength": int8,
+      "hp": int8,
+      "loot": bool,
+      "type": int8
+   },"wall": {
+      "pos": [int, int],
+      "type": int8
+   },"player": {
+      "id": int8,
+      "pos": [int,int],
+      "hp": int8,
+      "strength": int8
+   }}
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 9]
-
-Epitech project         R-TYPE projet RFC protocol           November 2021
-
-   2.4.  Sequence diagram
-   
-
-
-
-Epitech R-TYPE project     Realized in November 2021              [Page 10]
 
 Epitech project         R-TYPE projet RFC protocol           November 2021
 
@@ -155,4 +333,4 @@ Author's Address
    Alban BODENES <alban.bodenes@epitech.eu>
 
 
-Epitech R-TYPE project     Realized in November 2021              [Page 11]
+Epitech R-TYPE project     Realized in November 2021              [Page 10]
