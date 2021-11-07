@@ -19,13 +19,18 @@ namespace component
     };
 
     struct velocity_s {
-        int x;
-        int y;
+        int vx;
+        int vy;
     };
 
     struct drawable_s {
         sf::Texture texture;
         sf::Sprite sprite;
+        sf::RenderWindow *window;
+    };
+
+    struct controllable_s {
+
     };
 }
 
