@@ -7,6 +7,9 @@
     <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\Room\Room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\RoomData\RoomData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\RoomManager\RoomManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -22,6 +25,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\Room\Room.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\RoomData\RoomData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\RoomManager\RoomManager.hpp">

@@ -14,14 +14,14 @@
 
 class PlayerData {
     public:
-        PlayerData() = default;
+        //PlayerData();
         PlayerData(size_t);
         ~PlayerData() = default;
         size_t getId(void) const;
         //mutable std::mutex _mutexIn;
         //mutable std::mutex _mutexOut;
-        Buffer _bufferIn;
-        Buffer _bufferOut;
+        //Buffer _bufferIn;
+        //Buffer _bufferOut;
     protected:
     private:
         size_t _id;

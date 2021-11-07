@@ -8,7 +8,7 @@
 #include <iostream>
 #include "PlayerData.hpp"
 
-PlayerData::PlayerData(size_t id) : _id(id),/* _mutexIn(), _mutexOut(),*/_bufferIn(360), _bufferOut(360) 
+PlayerData::PlayerData(size_t id) : _id(id)//,/* _mutexIn(), _mutexOut(),*//*_bufferIn(360), _bufferOut(360) */
 {
 
 }

@@ -19,6 +19,7 @@
 
 class RoomManager {
     public:
+        //RoomManager(std::vector<std::pair<std::thread, RoomData>> , Buffer,);
         RoomManager() = default;
         RoomManager(RoomManager &);
         RoomManager& operator=(RoomManager &);
