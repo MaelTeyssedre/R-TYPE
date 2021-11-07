@@ -84,8 +84,9 @@ void RoomManager::addressToVec(Buffer &buffOut)
 
     ss << address;  
     addressStr = ss.str();
+    std::cout << "The _roomList address is " << addressStr << std::endl;
     vec.assign(addressStr.begin(), addressStr.end());
-    buffOut.putInBuffer(vec.size(), vec);
+    buffOut.putInBuffer(static_cast<uint16_t>(vec.size()), vec);
 }
 
 void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList, Buffer &buffOut)
@@ -101,7 +102,7 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList, Buffer &bu
             result = joinRoom(packet);
             std::cout << "We're exactly: " << _roomList[0].second.size() << std::endl;
             vec.assign(result.begin(), result.end());
-            buffOut.putInBuffer(vec.size(), vec);
+            buffOut.putInBuffer(static_cast<uint16_t>(vec.size()), vec);
         } else if (packet.find("Create") != std::string::npos) {
             std::cout << "I'm Creating: " << std::endl;
             createRoom(packet);
@@ -110,7 +111,7 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList, Buffer &bu
         } else {
             result = "KO";
             vec.assign(result.begin(), result.end());
-            buffOut.putInBuffer(vec.size(), vec);
+            buffOut.putInBuffer(static_cast<uint16_t>(vec.size()), vec);
         }
     }
 }
