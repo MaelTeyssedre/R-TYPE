@@ -11,7 +11,7 @@
 #include "RoomManager.hpp"
 #include "Room.hpp"
 
-RoomManager::RoomManager(std::vector<std::pair<std::thread, RoomData>> roomList,  std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
+RoomManager::RoomManager(std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> roomList,  std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
 {
     _roomList = roomList;
     _bufferIn = bufferIn;
@@ -32,8 +32,8 @@ RoomManager::RoomManager(RoomManager &roomManager)
 
 RoomManager::~RoomManager()
 {
-    for (auto &room : _roomList)
-        room.first.join();
+    for (size_t i = 0; i != _roomList->size(); i++)
+        _roomList->at(i).first.join();
 }
 
 void RoomManager::isRoom(size_t id)
@@ -48,7 +48,7 @@ void RoomManager::createRoom(std::string &packet)
     std::vector<std::string> parsed;
     std::shared_ptr<Buffer> buffIn(new Buffer(8192));
     std::shared_ptr<Buffer> buffOut(new Buffer(8192));
-    std::thread room(&RoomManager::isRoom, this, _roomList.size());
+    std::thread room(&RoomManager::isRoom, this, _roomList->size());
     std::vector<PlayerData> playerData;
     RoomData roomData;
 
@@ -61,8 +61,8 @@ void RoomManager::createRoom(std::string &packet)
         packet.erase(0, packet.size());
     playerId = std::stoi(parsed[1]);
     playerData.push_back(PlayerData(playerId, buffIn, buffOut));
-    roomData.setRoomData(std::make_pair(_roomList.size(), playerData));
-    _roomList.push_back(std::make_pair(move(room), roomData));
+    roomData.setRoomData(std::make_pair(_roomList->size(), playerData));
+    _roomList->push_back(std::make_pair(move(room), roomData));
 }
 
 std::string RoomManager::joinRoom(std::string &packet)
@@ -83,7 +83,7 @@ std::string RoomManager::joinRoom(std::string &packet)
         packet.erase(0, packet.size());
     playerId = std::stoi(parsed[2]);
     roomId = std::stoi(parsed[1]);
-    _roomList[roomId].second.getRoomData().second.push_back(PlayerData(playerId, buffIn, buffOut));
+    _roomList->at(roomId).second.getRoomData().second.push_back(PlayerData(playerId, buffIn, buffOut));
     result = std::to_string(playerId) + " OK " + std::to_string(roomId);
     return (result);
 }
@@ -113,14 +113,14 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
         if (packet.find("Join") != std::string::npos) {
             std::cout << "I'm Joining" << std::endl;
             result = joinRoom(packet);
-            std::cout << "We're exactly: " << _roomList[0].second.getRoomData().second.size() << std::endl;
+            std::cout << "We're exactly: " << _roomList->at(0).second.getRoomData().second.size() << std::endl;
             vec.assign(result.begin(), result.end());
             _bufferOut->putInBuffer(static_cast<uint16_t>(vec.size()), vec);
         } else if (packet.find("Create") != std::string::npos) {
             std::cout << "I'm Creating: " << std::endl;
             createRoom(packet);
 
-            std::cout << "I'm the RoomListSize: " << _roomList.size() << std::endl;
+            std::cout << "I'm the RoomListSize: " << _roomList->size() << std::endl;
         } else {
             result = "KO";
             vec.assign(result.begin(), result.end());

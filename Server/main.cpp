@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     //Buffer buffOut(360);
     std::shared_ptr<Buffer> buffIn(new Buffer(8192));
     std::shared_ptr<Buffer> buffOut(new Buffer(8192));
-    std::vector<std::pair<std::thread, RoomData>> listRoom;
+    std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> listRoom;
     RoomManager manager(listRoom, buffIn, buffOut); // Penser a inverser buffin//buffout pour le PacketInterpreter
     std::vector<uint8_t> vec;
 

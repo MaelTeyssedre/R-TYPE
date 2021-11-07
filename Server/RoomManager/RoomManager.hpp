@@ -19,7 +19,7 @@
 
 class RoomManager {
     public:
-        RoomManager(std::vector<std::pair<std::thread, RoomData>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
+        RoomManager(std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
         //RoomManager() = default;
         RoomManager(RoomManager &);
         RoomManager& operator=(RoomManager &);
@@ -32,7 +32,7 @@ class RoomManager {
         //void RoomManager::addressToVec(Buffer &);
     protected:
     private:
-        std::vector<std::pair<std::thread, RoomData>> _roomList;
+        std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> _roomList;
         std::shared_ptr<Buffer> _bufferIn;
         std::shared_ptr<Buffer> _bufferOut;
         //std::vector<roomInfo> _roomList;
