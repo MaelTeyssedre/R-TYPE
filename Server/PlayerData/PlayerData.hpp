@@ -15,13 +15,13 @@
 class PlayerData {
     public:
         //PlayerData();
-        PlayerData(size_t);
+        PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>);
         ~PlayerData() = default;
         size_t getId(void) const;
         //mutable std::mutex _mutexIn;
         //mutable std::mutex _mutexOut;
-        //Buffer _bufferIn;
-        //Buffer _bufferOut;
+        std::shared_ptr<Buffer> _bufferIn;
+        std::shared_ptr<Buffer> _bufferOut;
     protected:
     private:
         size_t _id;

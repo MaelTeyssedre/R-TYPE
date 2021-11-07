@@ -19,20 +19,22 @@
 
 class RoomManager {
     public:
-        //RoomManager(std::vector<std::pair<std::thread, RoomData>> , Buffer,);
-        RoomManager() = default;
+        RoomManager(std::vector<std::pair<std::thread, RoomData>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
+        //RoomManager() = default;
         RoomManager(RoomManager &);
         RoomManager& operator=(RoomManager &);
         ~RoomManager();
         std::string joinRoom(std::string &);
-        void manageRoom(Buffer &, Buffer &);
-        void isRoomNeedeed(std::vector<std::string> &, Buffer &);
+        void manageRoom();
+        void isRoomNeedeed(std::vector<std::string> &);
         void createRoom(std::string &packet);
         void isRoom(size_t id);
-        void RoomManager::addressToVec(Buffer &);
+        //void RoomManager::addressToVec(Buffer &);
     protected:
     private:
         std::vector<std::pair<std::thread, RoomData>> _roomList;
+        std::shared_ptr<Buffer> _bufferIn;
+        std::shared_ptr<Buffer> _bufferOut;
         //std::vector<roomInfo> _roomList;
         // Vector de -> int nb_players_in_room, std::thread room thread, mutex buffIn, Buffer buffIn, mutex buffOut, Buffer buffOut
         //std::vector<std::pair<int, std::thread>> _roomList;
