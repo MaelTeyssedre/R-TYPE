@@ -11,8 +11,6 @@
 #include "ITCPClient.hpp"
 #include "ITCPServer.hpp"
 #include "IUDPSocket.hpp"
-#include "IPacket.hpp"
-
 
 class INetworkManager {
     public:

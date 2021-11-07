@@ -8,7 +8,7 @@
 #ifndef PACKET_HPP_
 #define PACKET_HPP_
 
-#include "NetworkManager.hpp"
+#include "IPacket.hpp"
 
 class Packet : public IPacket{
     public:

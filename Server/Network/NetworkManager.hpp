@@ -9,10 +9,9 @@
 #define NETWORKMANAGER_HPP_
 
 #include "INetworkManager.hpp"
-#include "UDPSocket.hpp"
+#include "IUDPSocket.hpp"
 #include "ITCPClient.hpp"
-#include "TCPServer.hpp"
-#include "tcpUser.hpp"
+#include "ITCPServer.hpp"
 #include <asio.hpp>
 #include <thread>
 

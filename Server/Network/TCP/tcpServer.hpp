@@ -8,7 +8,8 @@
 #ifndef TCPSERVER_HPP_
 #define TCPSERVER_HPP_
 
-#include "NetworkManager.hpp"
+#include "IPacket.hpp"
+#include "tcpUser.hpp"
 #include <map>
 
 class TCPServer : public ITCPServer{

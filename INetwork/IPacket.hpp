@@ -8,10 +8,10 @@
 #ifndef IPACKET_HPP_
 #define IPACKET_HPP_
 
+#include "INetworkManager.hpp"
 #include <iostream>
 #include <vector>
 #include <any>
-#include "INetworkManager.hpp"
 
 class IPacket {
     public:
