@@ -11,24 +11,29 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <mutex>
+#include <memory>
+#include "Buffer.hpp"
+#include "PlayerData.hpp"
 
 class RoomManager {
     public:
         RoomManager() = default;
-        RoomManager(std::string &, std::string &);
         RoomManager(RoomManager &);
         RoomManager& operator=(RoomManager &);
         ~RoomManager();
-        void manageRoom(int);
-        void isRoomNeedeed();
-        void createRoom();
-        void fillBufferIn(std::string &);
+        std::string joinRoom(std::string &);
+        void manageRoom(Buffer &, Buffer &);
+        void isRoomNeedeed(std::vector<std::string> &, Buffer &);
+        void createRoom(std::string &packet);
+        void isRoom(size_t id);
+        void RoomManager::addressToVec(Buffer &);
     protected:
     private:
-        int _lastRoomId;
-        std::string _bufferIn;
-        std::string _bufferOut;
-        std::vector<std::pair<int, std::thread>> _roomList;
+        std::vector<std::pair<std::thread, std::vector<PlayerData>>> _roomList;
+        //std::vector<roomInfo> _roomList;
+        // Vector de -> int nb_players_in_room, std::thread room thread, mutex buffIn, Buffer buffIn, mutex buffOut, Buffer buffOut
+        //std::vector<std::pair<int, std::thread>> _roomList;
 };
 
 #endif /* !ROOMMANAGER_HPP_ */

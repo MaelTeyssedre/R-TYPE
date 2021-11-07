@@ -10,15 +10,14 @@
 
 int main(int argc, char **argv)
 {
-    std::string data;
-    std::string bufferIn;
-    std::string bufferOut;
-    RoomManager manager(bufferIn, bufferOut);
-    int nbConnect = atoi(argv[1]);
+    std::string data = argv[1];
+    Buffer buffIn(360);
+    Buffer buffOut(360);
+    RoomManager manager;
+    std::vector<uint8_t> vec;
 
-    for (int i = 0; i != nbConnect; i++)
-        data.append("Connect");
-    manager.fillBufferIn(data);
-    manager.isRoomNeedeed();
+    vec.assign(data.begin(), data.end());
+    buffIn.putInBuffer(vec.size(), vec);
+    manager.manageRoom(buffIn, buffOut);
     return (0);
 }

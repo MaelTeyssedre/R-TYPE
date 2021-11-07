@@ -7,23 +7,13 @@
 
 #include "Room.hpp"
 
-Room::Room(int id)
+Room::Room(size_t id)
 {
     _id = id;
 }
 
 Room::~Room()
 {
-}
-
-void Room::addPlayer(Player &player)
-{
-    _playerList.push_back(player);
-}
-
-std::vector<Player> Room::getPlayerList() const
-{
-    return (_playerList);
 }
 
 int Room::getId() const

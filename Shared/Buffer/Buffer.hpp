@@ -100,7 +100,7 @@ class Buffer {
         uint16_t getReadCursor() const;
 
         /**
-         * @brief delete all data un the buffer
+         * @brief delete all data in the buffer
          */
         void cleanBuffer();
 

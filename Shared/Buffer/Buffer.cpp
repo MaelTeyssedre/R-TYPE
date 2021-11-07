@@ -32,7 +32,7 @@ void Buffer::putInBuffer(uint16_t size, void *data)
 {
     uint8_t *castedData;
 
-    std::cout << "je POUTE " << size << " " << "oui" << std::endl;
+    //std::cout << "je POUTE " << size << " " << "oui" << std::endl;
     if (!data || size < 1) {
         std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
         return;
@@ -66,7 +66,7 @@ void Buffer::readFromBuffer(uint16_t size, void *data)
 
 void Buffer::putInBuffer(uint16_t size, std::vector<uint8_t> &data)
 {
-    std::cout << "je POUTE " << size << " . " << data.size() << std::endl;
+    //std::cout << "je POUTE " << size << " . " << data.size() << std::endl;
     if (data.size() < size || size < 1) {
         std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
         return;
@@ -81,17 +81,17 @@ void Buffer::putInBuffer(uint16_t size, std::vector<uint8_t> &data)
 
 void Buffer::readFromBuffer(uint16_t size, std::vector<uint8_t> &data)
 {
-    std::cout << "je suis ici" << std::endl;
+    //std::cout << "je suis ici" << std::endl;
     if (!_usedSize) {
         std::cerr << "ERROR: readFromBuffer() invalid arguments! (!usedSize)" << std::endl;
         return;
     }
-    std::cout << "je suis la " << data.size() << " | " << _size << " | " << size << std::endl;
+    //std::cout << "je suis la " << data.size() << " | " << _size << " | " << size << std::endl;
     if (data.size() < size || size < 1) {
         std::cerr << "ERROR: readFromBuffer() invalid arguments!" << std::endl;
         return;
     }
-    std::cout << "je suis encore la" << std::endl;
+    //std::cout << "je suis encore la" << std::endl;
     for (auto i = 0; i < size; i++) {
         data[i] = _byteList[_readCursor];
         _readCursor = ((_readCursor + 1) == _size) ? 0 : _readCursor + 1;

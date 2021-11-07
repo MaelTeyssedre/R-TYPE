@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2021 4:14:04 PM.
+Build started 11/7/2021 9:56:33 AM.
 Project "C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -35,7 +35,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:01.82
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -54,7 +54,7 @@ The output was:
 Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2021 4:14:05 PM.
+Build started 11/7/2021 9:56:36 AM.
 Project "C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -80,7 +80,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.04
+Time Elapsed 00:00:01.34
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -99,7 +99,7 @@ The output was:
 Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2021 4:16:26 PM.
+Build started 11/7/2021 9:59:39 AM.
 Project "C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -125,7 +125,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:02.67
+Time Elapsed 00:00:02.11
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -144,7 +144,7 @@ The output was:
 Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 11/5/2021 4:16:30 PM.
+Build started 11/7/2021 9:59:42 AM.
 Project "C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\3.21.3\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -170,7 +170,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:03.47
+Time Elapsed 00:00:00.83
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -182,28 +182,28 @@ The CXX compiler identification is MSVC, found in "C:/Users/ratha/rtype/R-TYPE/b
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/ratha/rtype/R-TYPE/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_c1096.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_1482e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30133 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   CMakeCCompilerABI.c
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c1096.dir\Debug\\" /Fd"cmTC_c1096.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCCompilerABI.c"
-  cmTC_c1096.vcxproj -> C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\CMakeTmp\Debug\cmTC_c1096.exe
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1482e.dir\Debug\\" /Fd"cmTC_1482e.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCCompilerABI.c"
+  cmTC_1482e.vcxproj -> C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\CMakeTmp\Debug\cmTC_1482e.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/ratha/rtype/R-TYPE/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_e374a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_6f255.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.0+0538acc04 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30133 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   CMakeCXXCompilerABI.cpp
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e374a.dir\Debug\\" /Fd"cmTC_e374a.dir\Debug\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXCompilerABI.cpp"
-  cmTC_e374a.vcxproj -> C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\CMakeTmp\Debug\cmTC_e374a.exe
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f255.dir\Debug\\" /Fd"cmTC_6f255.dir\Debug\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXCompilerABI.cpp"
+  cmTC_6f255.vcxproj -> C:\Users\ratha\rtype\R-TYPE\build\CMakeFiles\CMakeTmp\Debug\cmTC_6f255.exe
 
 
 
