@@ -41,6 +41,7 @@ void RoomManager::createRoom(std::string &packet)
     std::vector<std::string> parsed;
     std::thread room(&RoomManager::isRoom, this, _roomList.size());
     std::vector<PlayerData> playerData;
+    RoomData roomData;
 
     
     while ((pos = packet.find(" ")) != std::string::npos) {
@@ -50,8 +51,9 @@ void RoomManager::createRoom(std::string &packet)
     parsed.push_back(packet.substr(0, packet.size()));
         packet.erase(0, packet.size());
     playerData.push_back(PlayerData(playerId));
+    roomData.setRoomData(std::make_pair(_roomList.size(), playerData));
     playerId = std::stoi(parsed[1]);
-    _roomList.push_back(std::make_pair(move(room), playerData));
+    _roomList.push_back(std::make_pair(move(room), roomData));
 }
 
 std::string RoomManager::joinRoom(std::string &packet)
@@ -70,7 +72,7 @@ std::string RoomManager::joinRoom(std::string &packet)
         packet.erase(0, packet.size());
     playerId = std::stoi(parsed[2]);
     roomId = std::stoi(parsed[1]);
-    _roomList[roomId].second.push_back(PlayerData(playerId));
+    _roomList[roomId].second.getRoomData().second.push_back(PlayerData(playerId));
     result = std::to_string(playerId) + " OK " + std::to_string(roomId);
     return (result);
 }
@@ -100,7 +102,7 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList, Buffer &bu
         if (packet.find("Join") != std::string::npos) {
             std::cout << "I'm Joining" << std::endl;
             result = joinRoom(packet);
-            std::cout << "We're exactly: " << _roomList[0].second.size() << std::endl;
+            std::cout << "We're exactly: " << _roomList[0].second.getRoomData().second.size() << std::endl;
             vec.assign(result.begin(), result.end());
             buffOut.putInBuffer(static_cast<uint16_t>(vec.size()), vec);
         } else if (packet.find("Create") != std::string::npos) {
@@ -125,7 +127,7 @@ void RoomManager::manageRoom(Buffer &buffIn, Buffer &buffOut)
     buffIn.readFromBuffer(readSize, buff);
     std::string str(buff.begin(), buff.end());
 
-     while ((pos = str.find(";")) != std::string::npos) {
+    while ((pos = str.find(";")) != std::string::npos) {
         packetList.push_back(str.substr(0, pos + 1));
         str.erase(0, pos + 1);
 

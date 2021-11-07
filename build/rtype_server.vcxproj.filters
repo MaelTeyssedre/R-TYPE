@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\ratha\rtype\R-TYPE\Server\PlayerData\PlayerData.cpp">
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\PlayerData\PlayerData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ratha\rtype\R-TYPE\Server\Room\Room.cpp">
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\Room\Room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ratha\rtype\R-TYPE\Server\RoomManager\RoomManager.cpp">
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\RoomManager\RoomManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ratha\rtype\R-TYPE\Server\main.cpp">
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ratha\rtype\R-TYPE\Shared\Buffer\Buffer.cpp">
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Shared\Buffer\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\ratha\rtype\R-TYPE\Server\PlayerData\PlayerData.hpp">
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\PlayerData\PlayerData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\ratha\rtype\R-TYPE\Server\Room\Room.hpp">
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\Room\Room.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\ratha\rtype\R-TYPE\Server\RoomManager\RoomManager.hpp">
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Server\RoomManager\RoomManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\ratha\rtype\R-TYPE\Shared\Buffer\Buffer.hpp">
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Shared\Buffer\Buffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\ratha\rtype\R-TYPE\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{D8DE258A-A51A-3F18-92D2-AAFEB60859BD}</UniqueIdentifier>
+      <UniqueIdentifier>{53093E4C-0B80-38CA-BADA-BADC7B78B4BA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D21337CD-7984-3357-9EE2-932EC4179170}</UniqueIdentifier>
+      <UniqueIdentifier>{33A4E950-B5FB-300E-BABC-B8661087FF53}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

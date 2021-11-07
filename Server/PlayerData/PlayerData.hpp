@@ -9,6 +9,7 @@
 #define PLAYERDATA_HPP_
 
 #include <mutex>
+#include <vector>
 #include "Buffer.hpp"
 
 class PlayerData {

@@ -3,3 +3,4 @@ If(!(test-path build)) {
 }
 Set-Location build
 conan install --build missing ..
+Set-Location ..

@@ -15,6 +15,7 @@
 #include <memory>
 #include "Buffer.hpp"
 #include "PlayerData.hpp"
+#include "RoomData.hpp"
 
 class RoomManager {
     public:
@@ -30,7 +31,7 @@ class RoomManager {
         void RoomManager::addressToVec(Buffer &);
     protected:
     private:
-        std::vector<std::pair<std::thread, std::vector<PlayerData>>> _roomList;
+        std::vector<std::pair<std::thread, RoomData>> _roomList;
         //std::vector<roomInfo> _roomList;
         // Vector de -> int nb_players_in_room, std::thread room thread, mutex buffIn, Buffer buffIn, mutex buffOut, Buffer buffOut
         //std::vector<std::pair<int, std::thread>> _roomList;

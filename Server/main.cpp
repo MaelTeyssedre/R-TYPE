@@ -10,6 +10,7 @@
 
 int main(int argc, char **argv)
 {
+    std::cout << "Server" << std::endl;
     std::string data = argv[1];
     Buffer buffIn(360);
     Buffer buffOut(360);
