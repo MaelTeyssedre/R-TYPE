@@ -15,7 +15,7 @@
 class TCPServer : public ITCPServer{
     public:
         TCPServer();
-        ~TCPServer();
+        ~TCPServer() override;
         void send(IPacket &data) override;
         void send(std::vector<size_t> targets, IPacket &data) override;
         void sendToAll(IPacket &data) override;

@@ -11,9 +11,6 @@
 TCPServer::TCPServer()
 {}
 
-TCPServer::~TCPServer()
-{}
-
 void TCPServer::accept()
 {
     

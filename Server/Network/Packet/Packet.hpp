@@ -13,7 +13,7 @@
 class Packet : public IPacket{
     public:
         Packet();
-        ~Packet();
+        ~Packet() override;
         size_t pack(std::vector<int8_t> &data) override;
         size_t pack(int8_t *data, size_t size) override;
         std::vector<int8_t> unpack() override;

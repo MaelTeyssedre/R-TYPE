@@ -9,12 +9,12 @@
 #define UDPSOCKET_HPP_
 
 #include "IUDPSocket.hpp"
-#include "IPacket.hpp"
+#include "Packet.hpp"
 
 class UDPSocket : public IUDPSocket{
     public:
         UDPSocket();
-        ~UDPSocket();
+        ~UDPSocket() = default;
         void send(IPacket &data) override;
         void send(std::vector<size_t>, IPacket &data) override;
         void sendToAll(IPacket &data) override;

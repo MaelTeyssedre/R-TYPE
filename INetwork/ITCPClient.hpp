@@ -8,7 +8,7 @@
 #ifndef ITCPCLIENT_HPP_
 #define ITCPCLIENT_HPP_
 
-#include "INetworkManager.hpp"
+#include "IPacket.hpp"
 
 class ITCPClient {
     public:

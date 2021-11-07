@@ -4,5 +4,5 @@ If(!(test-path build)) {
 Set-Location build
 conan install --build missing ..
 cmake ..
-cmake --build . --config Release
+cmake --build . --config debug
 Set-Location ..

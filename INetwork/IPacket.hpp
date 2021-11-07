@@ -8,9 +8,10 @@
 #ifndef IPACKET_HPP_
 #define IPACKET_HPP_
 
-#include "INetworkManager.hpp"
-#include <iostream>
+//#include "ITCPServer.hpp"
+//#include "ITCPClient.hpp"
 #include <vector>
+#include <iostream>
 #include <any>
 
 class IPacket {
@@ -20,7 +21,7 @@ class IPacket {
          * @brief Destroy the IPacket object
          * 
          */
-        virtual ~IPacket() = 0;
+        virtual ~IPacket() {};
 
         /**
          * @brief Serialize data
@@ -49,8 +50,8 @@ class IPacket {
         virtual std::vector<int8_t> unpack() = 0;
 
         protected:
-            friend class ITCPServer;
-            friend class ITCPClient;
+          //  friend class ITCPServer;
+          //  friend class ITCPClient;
 };
 
 #endif /* !IPACKET_HPP_ */

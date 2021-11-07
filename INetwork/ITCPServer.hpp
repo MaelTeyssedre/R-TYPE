@@ -8,7 +8,7 @@
 #ifndef ITCPSERVER_HPP_
 #define ITCPSERVER_HPP_
 
-#include "INetworkManager.hpp"
+#include "IPacket.hpp"
 
 class ITCPServer {
     public:

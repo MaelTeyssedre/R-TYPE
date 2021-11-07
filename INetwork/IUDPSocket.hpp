@@ -8,7 +8,7 @@
 #ifndef IUDPSOCKET_HPP_
 #define IUDPSOCKET_HPP_
 
-#include "INetworkManager.hpp"
+#include "IPacket.hpp"
 
 class IUDPSocket {
     public:

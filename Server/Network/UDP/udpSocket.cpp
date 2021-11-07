@@ -11,10 +11,6 @@ UDPSocket::UDPSocket()
 {
 }
 
-UDPSocket::~UDPSocket()
-{
-}
-
 void UDPSocket::send(IPacket &data)
 {}
 
@@ -25,7 +21,11 @@ void UDPSocket::sendToAll(IPacket &data)
 {}
 
 IPacket &UDPSocket::receiver()
-{}
+{
+    Packet tmp;
+
+    return (tmp);
+}
 
 void UDPSocket::start(std::uint16_t port)
 {}

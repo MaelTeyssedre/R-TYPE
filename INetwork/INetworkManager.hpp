@@ -11,6 +11,8 @@
 #include "ITCPClient.hpp"
 #include "ITCPServer.hpp"
 #include "IUDPSocket.hpp"
+#include <vector>
+#include <memory>
 
 class INetworkManager {
     public:
@@ -38,21 +40,21 @@ class INetworkManager {
          * 
          * @return ITCPServer* 
          */
-        virtual ITCPServer &createTCPServer() =  0;
+        virtual std::shared_ptr<ITCPServer> createTCPServer() =  0;
 
         /**
          * @brief create a TCP client
          * 
          * @return ITCPClient* 
          */
-        virtual ITCPClient &createTCPClient() = 0;
+        virtual std::shared_ptr<ITCPClient> createTCPClient() = 0;
 
         /**
          * @brief Create a UDP connection
          * 
          * @return UDPSocket* 
-         */
-        virtual IUDPSocket &createSocketUDP() = 0;
+         */ 
+        virtual std::shared_ptr<IUDPSocket> createSocketUDP() = 0;
 
         /**
          * @brief delete a specified UDP connection
@@ -60,21 +62,21 @@ class INetworkManager {
          * @param udp server to delete
          * 
          */
-        virtual void deleteSocketUDP(IUDPSocket &udp) = 0;
+        virtual void deleteSocketUDP(std::shared_ptr<IUDPSocket> socket) = 0;
 
         /**
          * @brief delete a specified TCP clie
          * 
          * @param tcp server to delete
          */
-        virtual void deleteTCPServer(ITCPServer &tcp) = 0;
+        virtual void deleteTCPServer(std::shared_ptr<ITCPServer> tcp) = 0;
 
         /**
          * @brief delete tpc client
          * 
          * @param the tcp client to delete
          */
-        virtual void deleteTCPClient(ITCPClient &tcp) = 0;
+        virtual void deleteTCPClient(std::shared_ptr<ITCPClient> tcp) = 0;
 };
 
 #endif /* !INETWORKMANAGER_HPP_ */

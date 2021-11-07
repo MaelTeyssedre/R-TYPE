@@ -8,12 +8,10 @@
 #include "tcpUser.hpp"
 
 tcpUser::tcpUser()
-{}
+{
+}
 
-tcpUser::~tcpUser()
-{}
-
-asio::ip::tcp::socket tcpUser::getSocket()
+std::shared_ptr<asio::ip::tcp::socket> tcpUser::getSocket()
 {
     return (_socket);
 }
