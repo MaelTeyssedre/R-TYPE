@@ -46,13 +46,12 @@ void RoomManager::createRoom(std::string &packet)
     size_t pos = 0;
     size_t playerId = 0;
     std::vector<std::string> parsed;
-    std::shared_ptr<Buffer> buffIn(new Buffer(8192));
-    std::shared_ptr<Buffer> buffOut(new Buffer(8192));
+    std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
+    std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
     std::thread room(&RoomManager::isRoom, this, _roomList->size());
     std::vector<PlayerData> playerData;
     RoomData roomData;
 
-    
     while ((pos = packet.find(" ")) != std::string::npos) {
         parsed.push_back(packet.substr(0, pos + 1));
         packet.erase(0, pos + 1);
@@ -60,6 +59,7 @@ void RoomManager::createRoom(std::string &packet)
     parsed.push_back(packet.substr(0, packet.size()));
         packet.erase(0, packet.size());
     playerId = std::stoi(parsed[1]);
+    std::cout << playerId << std::endl;
     playerData.push_back(PlayerData(playerId, buffIn, buffOut));
     roomData.setRoomData(std::make_pair(_roomList->size(), playerData));
     _roomList->push_back(std::make_pair(move(room), roomData));
@@ -141,7 +141,6 @@ void RoomManager::manageRoom()
     while ((pos = str.find(";")) != std::string::npos) {
         packetList.push_back(str.substr(0, pos + 1));
         str.erase(0, pos + 1);
-
     }
     isRoomNeedeed(packetList);
 }
