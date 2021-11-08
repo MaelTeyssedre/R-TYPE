@@ -72,8 +72,8 @@ std::string RoomManager::joinRoom(std::string &packet)
     size_t roomId = 0;
     size_t playerId = 0;
     std::vector<std::string> parsed;
-    std::shared_ptr<Buffer> buffIn(new Buffer(8192));
-    std::shared_ptr<Buffer> buffOut(new Buffer(8192));
+    std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
+    std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
     std::string result = "";
 
     while ((pos = packet.find(" ")) != std::string::npos) {
@@ -135,8 +135,8 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
 void RoomManager::manageRoom()
 {
     size_t pos = 0;
-    uint16_t readSize = 27;
-    std::vector<uint8_t> buff(27);
+    uint16_t readSize = 4096;
+    std::vector<uint8_t> buff(8192);
     std::vector<std::string> packetList;
     _bufferIn->readFromBuffer(readSize, buff);
     std::string str(buff.begin(), buff.end());

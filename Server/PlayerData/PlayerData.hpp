@@ -14,12 +14,14 @@
 
 class PlayerData {
     public:
-        //PlayerData();
+        PlayerData() = default;
         PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>);
+        PlayerData(PlayerData &);
         ~PlayerData() = default;
         size_t getId(void) const;
-        //mutable std::mutex _mutexIn;
-        //mutable std::mutex _mutexOut;
+        PlayerData& operator=(PlayerData &PlayerData);
+        std::shared_ptr<std::mutex> _mutexIn;
+        std::shared_ptr<std::mutex> _mutexOut;
         std::shared_ptr<Buffer> _bufferIn;
         std::shared_ptr<Buffer> _bufferOut;
     protected:
