@@ -11,6 +11,9 @@
 TCPClient::TCPClient()
 {}
 
+TCPClient::~TCPClient()
+{}
+
 void TCPClient::send(IPacket &data)
 {}
 

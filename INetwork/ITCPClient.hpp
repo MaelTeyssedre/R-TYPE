@@ -17,7 +17,7 @@ class ITCPClient {
          * @brief Destroy the ITCPClient object
          * 
          */
-        virtual ~ITCPClient() = 0;
+        virtual ~ITCPClient() {};
 
         /**
          * @brief send data

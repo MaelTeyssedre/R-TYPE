@@ -541,6 +541,8 @@ CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpClient.cpp.o: ../Server/Networ
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpClient.cpp.o: ../Server/Network/TCP/tcpClient.hpp
 
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../INetwork/IPacket.hpp
+CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../INetwork/ITCPServer.hpp
+CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../Server/Network/Packet/Packet.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../Server/Network/User/tcpUser.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/any_io_executor.hpp
@@ -1059,8 +1061,8 @@ CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: /home/rgabet/.co
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/windows/stream_handle.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/write.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/write_at.hpp
-CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../Server/Network/TCP/TCPServer.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../Server/Network/TCP/tcpServer.cpp
+CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o: ../Server/Network/TCP/tcpServer.hpp
 
 CMakeFiles/rtype_server.dir/Server/Network/UDP/udpSocket.cpp.o: ../INetwork/IPacket.hpp
 CMakeFiles/rtype_server.dir/Server/Network/UDP/udpSocket.cpp.o: ../INetwork/IUDPSocket.hpp

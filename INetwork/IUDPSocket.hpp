@@ -17,7 +17,7 @@ class IUDPSocket {
          * @brief Destroy the IUDPSocket object
          * 
          */
-        virtual ~IUDPSocket() = 0;
+        virtual ~IUDPSocket() {};
 
         /**
          * @brief send data

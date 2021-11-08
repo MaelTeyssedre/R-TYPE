@@ -47,10 +47,12 @@ ITCPClient.hpp
 ../Server/Network/TCP/ITCPClient.hpp
 
 ../Server/Network/TCP/tcpServer.hpp
-IPacket.hpp
-../Server/Network/TCP/IPacket.hpp
+Packet.hpp
+../Server/Network/TCP/Packet.hpp
 tcpUser.hpp
 ../Server/Network/TCP/tcpUser.hpp
+ITCPServer.hpp
+../Server/Network/TCP/ITCPServer.hpp
 map
 -
 
@@ -9296,5 +9298,21 @@ ITCPServer.hpp
 asio.hpp
 -
 thread
+-
+
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpServer.cpp
+tcpServer.hpp
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpServer.hpp
+asio.hpp
+-
+
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpServer.hpp
+Packet.hpp
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/Packet.hpp
+tcpUser.hpp
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpUser.hpp
+ITCPServer.hpp
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/ITCPServer.hpp
+map
 -
 

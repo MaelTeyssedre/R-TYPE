@@ -12,10 +12,6 @@
 
 //TODO add loger
 
-NetworkManager::NetworkManager()
-{
-}
-
 NetworkManager::~NetworkManager()
 {
 }
@@ -44,25 +40,25 @@ void NetworkManager::startNetworkThread(asio::io_context &ioContext,std::vector<
 std::shared_ptr<ITCPClient> NetworkManager::createTCPClient()
 {
     std::shared_ptr<TCPClient> client;
-    _tcpClients.push_back(std::make_shared<TCPClient>(client));
+    _tcpClients.push_back(client);
     return (client);
 }
 
 std::shared_ptr<ITCPServer> NetworkManager::createTCPServer()
 {
     std::shared_ptr<TCPServer> server;
-    _tcpServers.push_back(std::make_shared<TCPServer>(server));
+    _tcpServers.push_back(server);
     return (server);
 }
 
 std::shared_ptr<IUDPSocket> NetworkManager::createSocketUDP()
 {
     std::shared_ptr<UDPSocket> socket;
-    _udpSockets.push_back(std::make_shared<UDPSocket>(socket));
+    _udpSockets.push_back(socket);
     return (socket);
 }
 
-void NetworkManager::deleteSocketUDP(std::shared_ptr<IUDPSocket> tcp)
+void NetworkManager::deleteSocketUDP(std::shared_ptr<IUDPSocket> socket)
 {
     auto it = std::find(_udpSockets.begin(), _udpSockets.end(), socket);
 
@@ -71,14 +67,14 @@ void NetworkManager::deleteSocketUDP(std::shared_ptr<IUDPSocket> tcp)
 
 void NetworkManager::deleteTCPClient(std::shared_ptr<ITCPClient> tcp)
 {
-    auto it = std::find(_tcpClients.begin(), _tcpClients.end(), socket);
+    auto it = std::find(_tcpClients.begin(), _tcpClients.end(), tcp);
 
     _tcpClients.erase(it);
 }
 
 void NetworkManager::deleteTCPServer(std::shared_ptr<ITCPServer> tcp)
 {
-    auto it = std::find(_tcpServers.begin(), _tcpServers.end(), socket);
+    auto it = std::find(_tcpServers.begin(), _tcpServers.end(), tcp);
 
     _tcpServers.erase(it);
 }

@@ -17,7 +17,7 @@ class ITCPServer {
          * @brief Destroy the ITCPServer object
          * 
          */
-        virtual ~ITCPServer() = 0;
+        virtual ~ITCPServer() {};
 
         /**
          * @brief send data 
@@ -46,7 +46,7 @@ class ITCPServer {
          * 
          * @return return data in packet
          */
-        virtual IPacket &receive() = 0;
+      //  virtual IPacket &receive() = 0;
 
         /**
          * @brief start the server and accept incoming connection

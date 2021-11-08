@@ -17,7 +17,7 @@
 
 class NetworkManager : public INetworkManager{
     public:
-        NetworkManager();
+        NetworkManager() = default;
         ~NetworkManager() override;
         void start() override;
         void stop() override;

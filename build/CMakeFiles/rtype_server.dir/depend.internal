@@ -542,6 +542,8 @@ CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpClient.cpp.o
  /mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpClient.hpp
 CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o
  ../INetwork/IPacket.hpp
+ ../INetwork/ITCPServer.hpp
+ ../Server/Network/Packet/Packet.hpp
  ../Server/Network/User/tcpUser.hpp
  /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio.hpp
  /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/any_io_executor.hpp
@@ -1060,8 +1062,8 @@ CMakeFiles/rtype_server.dir/Server/Network/TCP/tcpServer.cpp.o
  /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/windows/stream_handle.hpp
  /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/write.hpp
  /home/rgabet/.conan/data/asio/1.19.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/asio/write_at.hpp
- /mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/TCPServer.hpp
  /mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpServer.cpp
+ /mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/Server/Network/TCP/tcpServer.hpp
 CMakeFiles/rtype_server.dir/Server/Network/UDP/udpSocket.cpp.o
  ../INetwork/IPacket.hpp
  ../INetwork/IUDPSocket.hpp

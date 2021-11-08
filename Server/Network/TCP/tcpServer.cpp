@@ -5,10 +5,13 @@
 ** TCPServer
 */
 
-#include "TCPServer.hpp"
+#include "tcpServer.hpp"
 #include <asio.hpp>
 
 TCPServer::TCPServer()
+{}
+
+TCPServer::~TCPServer()
 {}
 
 void TCPServer::accept()
@@ -29,8 +32,12 @@ void TCPServer::sendToAll(IPacket &data)
 void TCPServer::doWrite()
 {}
 
-IPacket &receive()
-{}
+/*IPacket &receive()
+{
+    Packet tmp;
+
+    return (tmp);
+}*/
 
 void TCPServer::doRead()
 {} 
