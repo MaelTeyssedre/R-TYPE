@@ -18,7 +18,7 @@ NetworkManager::~NetworkManager()
 
 void NetworkManager::start()
 {
- //   _thread = std::thread(startNetworkThread, _ioContext, _udpSockets, _tcpClients, _tcpServers);
+  //  _thread = std::thread(NetworkManager::startNetworkThread, _ioContext, _udpSockets, _tcpClients, _tcpServers);
 }
 
 void NetworkManager::stop()
@@ -32,7 +32,7 @@ void NetworkManager::stop()
    // _thread.join();
 }
 
-void NetworkManager::startNetworkThread(asio::io_context &ioContext,std::vector<std::shared_ptr<IUDPSocket>> &udpSockets, std::vector<std::shared_ptr<ITCPClient>>  &tcpClients,  std::vector<std::shared_ptr<ITCPServer>> &tcpServer)
+void NetworkManager::startNetworkThread(asio::io_context &ioContext,std::vector<std::shared_ptr<IUDPSocket>> udpSockets, std::vector<std::shared_ptr<ITCPClient>>  tcpClients,  std::vector<std::shared_ptr<ITCPServer>> tcpServer)
 {
     ioContext.run();
 }
