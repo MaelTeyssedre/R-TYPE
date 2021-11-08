@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> listRoom(std::make_shared<std::vector<std::pair<std::thread, RoomData>>>());
-    std::cout << "Second " << listRoom.get()->size() << std::endl;
+    //std::cout << "Second " << listRoom.get()->size() << std::endl;
     RoomManager manager(listRoom, buffIn, buffOut); // Penser a inverser buffin//buffout pour le PacketInterpreter
     std::vector<uint8_t> vec;
 

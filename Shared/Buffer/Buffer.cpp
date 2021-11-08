@@ -71,7 +71,7 @@ void Buffer::putInBuffer(uint16_t size, std::vector<uint8_t> &data)
         std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
         return;
     }
-    std::cout << data.size() << std::endl;
+    //std::cout << data.size() << std::endl;
     _usedSize = ((_usedSize + size) > _size) ? size : _usedSize + size;
     for (auto i = 0; i < size; i++) {
         _byteList[_writeCursor] = data[i];
