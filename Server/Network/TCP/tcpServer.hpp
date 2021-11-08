@@ -15,23 +15,29 @@
 
 class TCPServer : public ITCPServer {
     public:
-        TCPServer();
+        TCPServer() = default;
+        TCPServer(asio::io_context context, asio::ip::tcp::acceptor accept, asio::ip::tcp::socket sock);
         ~TCPServer() override;
         void send(IPacket &data) override;
+        void send(tcpUser &user, IPacket &data);
         void send(std::vector<size_t> targets, IPacket &data) override;
         void sendToAll(IPacket &data) override;
-       // IPacket &receive() override;
+        std::shared_ptr<IPacket> receive() override;
         void start() override;
         void stop() override;
         void eject(size_t client) override;
         asio::ip::tcp::socket getUserSocket(int id);
+        void accept();
 
     protected:
     private:
+        void doAccept();
         void doRead();
-        void doWrite();
-        void accept();
-        std::map<int, tcpUser> _users;
+        void doWrite(const std::error_code &ec, size_t bytes);
+        std::map<size_t, tcpUser> _users;
+        asio::io_context &_context;
+        asio::ip::tcp::acceptor &_acceptor;
+        asio::ip::tcp::socket &_socket;
 };
 
 #endif /* !TCPSERVER_HPP_ */

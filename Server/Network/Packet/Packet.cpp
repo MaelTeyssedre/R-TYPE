@@ -15,7 +15,7 @@ Packet::~Packet()
 {
 }
 
-size_t Packet::pack(std::vector<int8_t> &data)
+size_t Packet::pack(std::shared_ptr<std::vector<int8_t>> data)
 {
     size_t tmp = 0;
 

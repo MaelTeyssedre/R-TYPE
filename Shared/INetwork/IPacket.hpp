@@ -11,6 +11,7 @@
 //#include "ITCPServer.hpp"
 //#include "ITCPClient.hpp"
 #include <vector>
+#include <memory>
 #include <iostream>
 #include <any>
 
@@ -30,7 +31,7 @@ class IPacket {
          * @param size size of data to serialize
          * @return size of data serialized
          */
-        virtual size_t pack(std::vector<int8_t> &data) = 0;
+        virtual size_t pack(std::shared_ptr<std::vector<int8_t>> data) = 0;
 
         /**
          * @brief Serialize data

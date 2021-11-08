@@ -46,7 +46,7 @@ class ITCPServer {
          * 
          * @return return data in packet
          */
-      //  virtual IPacket &receive() = 0;
+        virtual std::shared_ptr<IPacket> receive() = 0;
 
         /**
          * @brief start the server and accept incoming connection
