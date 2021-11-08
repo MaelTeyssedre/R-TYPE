@@ -1,4 +1,4 @@
 # R-TYPE
 
-- Project done in C+=1
+- Project done in C++
 - Work In Progress
