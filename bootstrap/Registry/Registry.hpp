@@ -27,17 +27,41 @@ class Registry {
         void killEntity(Entity const &e);
     public:
         template <class Component>
-        SparseArray<Component> &registerComponent(std::function<void(Registry &, Entity const &)> constructor, std::function<void(Registry &, Entity const &)> destructor);
+        SparseArray<Component> &registerComponent(std::function<void(Registry &, Entity const &)> constructor, std::function<void(Registry &, Entity const &)> destructor) {
+            _componentsArrays.insert(std::make_pair(std::type_index(typeid(Component)), SparseArray<Component>(_entities)));
+            _constructorArray.insert(std::make_pair(std::type_index(typeid(Component)), constructor));
+            _destructorArray.insert(std::make_pair(std::type_index(typeid(Component)), destructor));
+            return std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))]);
+        }
+
         template <class Component>
-        SparseArray<Component> &getComponents();
+        SparseArray<Component> &getComponents() {
+            return std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))]);
+        }
+
         template <class Component>
-        SparseArray<Component> const &getComponents() const;
+        SparseArray<Component> const &getComponents() const {
+            return std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))]);
+        }
+
         template <typename Component>
-        typename SparseArray<Component>::reference_type addComponent(Entity const &to, Component &&c);
+        typename SparseArray<Component>::reference_type addComponent(Entity const &to, Component &&c) {
+            SparseArray<Component> array = std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))]);
+            array.insertAt(to, c);
+        }
+
         template <typename Component, typename ...Params>
-        typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p);
+        typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p) {
+            SparseArray<Component> array = std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))]);
+            array.emplaceAt(to, p);
+        }
+
         template <typename Component>
-        void removeComponent(Entity const &from);
+        void removeComponent(Entity const &from) {
+            SparseArray<Component> array = std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))]);
+            array.erase(from);
+        }
+
     private:
         std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _constructorArray;
         std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _destructorArray;

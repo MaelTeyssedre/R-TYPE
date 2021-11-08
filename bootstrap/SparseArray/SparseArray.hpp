@@ -27,9 +27,8 @@ class SparseArray
         using const_iterator = typename container_t::const_iterator;
 
         SparseArray() = default;
-        // TODO copy ctor
-        // SparseArray(SparseArray const &sparceArray)
-            // : _data(sparseArray._data) {}
+        SparseArray(SparseArray const &sparceArray) = delete;
+        //     : _data(sparseArray._data) {}
         SparseArray(SparseArray &&sparseArray) noexcept
             : _data(std::move(sparseArray._data)) {}
         SparseArray(size_t nbEntity) {

@@ -13,10 +13,10 @@ int main() {
     sprite.sprite.setTexture(sprite.texture, true);
     sprite.window = &window;
     component::controllable_s ctrl = {};
-    registry.registerComponent<component::position_s>(std::function([&](Registry &, Entity const &){}), std::function([&](Registry &, Entity const &){}));
-    registry.registerComponent<component::velocity_s>(std::function([&](Registry &, Entity const &){}), std::function([&](Registry &, Entity const &){}));
-    registry.registerComponent<component::drawable_s>(std::function([&](Registry &, Entity const &){}), std::function([&](Registry &, Entity const &){}));
-    registry.registerComponent<component::controllable_s>(std::function([&](Registry &, Entity const &){}), std::function([&](Registry &, Entity const &){}));
+    registry.registerComponent<component::position_s>([](Registry &, Entity const &){}, [](Registry &, Entity const &){});
+    registry.registerComponent<component::velocity_s>([](Registry &, Entity const &){}, [](Registry &, Entity const &){});
+    registry.registerComponent<component::drawable_s>([](Registry &, Entity const &){}, [](Registry &, Entity const &){});
+    registry.registerComponent<component::controllable_s>([](Registry &, Entity const &){}, [](Registry &, Entity const &){});
     registry.addComponent<component::position_s>(registry.entityFromIndex(0), std::move(pos));
     registry.addComponent<component::velocity_s>(registry.entityFromIndex(0), std::move(vel));
     registry.addComponent<component::controllable_s>(registry.entityFromIndex(0), std::move(ctrl));

@@ -10,24 +10,6 @@
 Registry::Registry(size_t nbEntity)
     : _entities(nbEntity) {}
 
-template <class Component>
-SparseArray<Component> &Registry::registerComponent(std::function<void(Registry &, Entity const &)> constructor, std::function<void(Registry &, Entity const &)> destructor) {
-    _componentsArrays.insert(std::make_pair(std::type_index(Component), SparseArray<Component>(_entities)));
-    _constructorArray.insert(std::make_pair(std::type_index(Component), constructor));
-    _destructorArray.insert(std::make_pair(std::type_index(Component), destructor));
-    return std::any_cast(_componentsArrays[std::type_index(Component)]);
-}
-
-template <class Component>
-SparseArray<Component> &Registry::getComponents() {
-    return std::any_cast(_componentsArrays[std::type_index(Component)]);
-}
-
-template <class Component>
-SparseArray<Component> const &Registry::getComponents() const {
-    return std::any_cast(_componentsArrays[std::type_index(Component)]);
-}
-
 Entity Registry::spawnEntity() {
     if (_killedEntities.empty()) {
         _entities++;
@@ -59,24 +41,6 @@ void Registry::killEntity(Entity const &e) {
         throw std::invalid_argument("entity doesn't exist");
     if (isKilled(e))
         throw std::invalid_argument("entity already killed");
-}
-
-template <typename Component>
-typename SparseArray<Component>::reference_type Registry::addComponent(Entity const &to, Component &&c) {
-    SparseArray<Component> array = std::any_cast(_componentsArrays[std::type_index(Component)]);
-    array.insertAt(to, c);
-}
-
-template <typename Component, typename ...Params>
-typename SparseArray<Component>::reference_type Registry::emplaceComponent(Entity const &to, Params &&...p) {
-    SparseArray<Component> array = std::any_cast(_componentsArrays[std::type_index(Component)]);
-    array.emplaceAt(to, p);
-}
-
-template <typename Component>
-void Registry::removeComponent(Entity const &from) {
-    SparseArray<Component> array = std::any_cast(_componentsArrays[std::type_index(Component)]);
-    array.erase(from);
 }
 
 bool Registry::isKilled(Entity const &e) {
