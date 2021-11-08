@@ -6,7 +6,7 @@
 */
 
 #include "tcpClient.hpp"
-#include "IPacket.hpp"
+#include "Packet.hpp"
 
 TCPClient::TCPClient()
 {}
@@ -18,7 +18,11 @@ void TCPClient::send(IPacket &data)
 {}
 
 IPacket &TCPClient::receive()
-{}
+{
+    Packet tmp;
+
+    return (tmp);
+}
 
 void TCPClient::connect(std::string &ip, std::uint16_t port)
 {}
