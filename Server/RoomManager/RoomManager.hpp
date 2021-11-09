@@ -17,7 +17,6 @@
 #include <optional>
 #include "Buffer.hpp"
 #include "PlayerData.hpp"
-//#include "RoomData.hpp"
 
 class RoomManager {
     public:
@@ -36,7 +35,6 @@ class RoomManager {
         std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList;
         std::shared_ptr<Buffer> _bufferIn;
         std::shared_ptr<Buffer> _bufferOut;
-        //std::vector<std::pair<int, std::thread>> _roomList;
 };
 
 #endif /* !ROOMMANAGER_HPP_ */

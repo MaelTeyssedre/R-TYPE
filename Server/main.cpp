@@ -15,9 +15,6 @@ int main(int argc, char **argv)
     std::cout << "Server" << std::endl;
     std::string data = argv[1];
     std::vector<PlayerData> playerData;
-    //RoomData roomData;
-    //Buffer buffIn(360);
-    //Buffer buffOut(360);
     std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<std::vector<std::vector<PlayerData>>> listRoom(std::make_shared<std::vector<std::vector<PlayerData>>>());
