@@ -107,7 +107,7 @@ std::string RoomManager::joinRoom(std::string &packet)
     return (result);
 }
 
-void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
+void RoomManager::redirectRequest(std::vector<std::string> &packetList)
 {
     std::vector<uint8_t> vec;
     std::string result = "";
@@ -138,7 +138,7 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
 void RoomManager::manageRoom()
 {
     size_t pos = 0;
-    uint16_t readSize = 4096;
+    uint16_t readSize = 64;
     std::vector<uint8_t> buff(8192);
     std::vector<std::string> packetList;
     _bufferIn->readFromBuffer(readSize, buff);
@@ -148,5 +148,5 @@ void RoomManager::manageRoom()
         packetList.push_back(str.substr(0, pos + 1));
         str.erase(0, pos + 1);
     }
-    isRoomNeedeed(packetList);
+    redirectRequest(packetList);
 }

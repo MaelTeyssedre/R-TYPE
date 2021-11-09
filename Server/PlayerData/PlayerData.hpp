@@ -21,10 +21,10 @@ class PlayerData {
         ~PlayerData() = default;
         size_t getId(void) const;
         //PlayerData& operator=(PlayerData &PlayerData) = delete;
-        std::shared_ptr<std::mutex> _mutexIn;
-        std::shared_ptr<std::mutex> _mutexOut;
-        std::shared_ptr<Buffer> _bufferIn;
-        std::shared_ptr<Buffer> _bufferOut;
+        std::shared_ptr<std::mutex> mutexIn;
+        std::shared_ptr<std::mutex> mutexOut;
+        std::shared_ptr<Buffer> bufferIn;
+        std::shared_ptr<Buffer> bufferOut;
     protected:
     private:
         size_t _id;

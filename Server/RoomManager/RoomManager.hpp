@@ -26,7 +26,7 @@ class RoomManager {
         ~RoomManager();
         std::string joinRoom(std::string &);
         void manageRoom();
-        void isRoomNeedeed(std::vector<std::string> &);
+        void redirectRequest(std::vector<std::string> &);
         void createRoom(std::string &packet);
         void isRoom(size_t id);
     protected:
