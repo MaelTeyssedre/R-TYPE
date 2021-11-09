@@ -9,6 +9,8 @@
 #include "RoomManager.hpp"
 #include "Room.hpp"
 
+
+// * debug main
 int main(int argc, char **argv)
 {
     (void)argc;
