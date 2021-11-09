@@ -13,16 +13,17 @@
 #include <vector>
 #include <mutex>
 #include <memory>
+#include <array>
+#include <optional>
 #include "Buffer.hpp"
 #include "PlayerData.hpp"
-#include "RoomData.hpp"
+//#include "RoomData.hpp"
 
 class RoomManager {
     public:
-        RoomManager(std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
-        //RoomManager() = default;
-        RoomManager(RoomManager &);
-        RoomManager& operator=(RoomManager &);
+        RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
+        //RoomManager(RoomManager &);
+        //RoomManager& operator=(RoomManager &);
         ~RoomManager();
         std::string joinRoom(std::string &);
         void manageRoom();
@@ -32,7 +33,8 @@ class RoomManager {
         //void RoomManager::addressToVec(Buffer &);
     protected:
     private:
-        std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> _roomList;
+        std::vector<std::thread> _threadList;
+        std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList;
         std::shared_ptr<Buffer> _bufferIn;
         std::shared_ptr<Buffer> _bufferOut;
         //std::vector<roomInfo> _roomList;

@@ -10,6 +10,7 @@
 
 #include <mutex>
 #include <vector>
+#include <memory>
 #include "Buffer.hpp"
 
 class PlayerData {
