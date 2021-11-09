@@ -36,8 +36,6 @@ class RoomManager {
         std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList;
         std::shared_ptr<Buffer> _bufferIn;
         std::shared_ptr<Buffer> _bufferOut;
-        //std::vector<roomInfo> _roomList;
-        // Vector de -> int nb_players_in_room, std::thread room thread, mutex buffIn, Buffer buffIn, mutex buffOut, Buffer buffOut
         //std::vector<std::pair<int, std::thread>> _roomList;
 };
 
