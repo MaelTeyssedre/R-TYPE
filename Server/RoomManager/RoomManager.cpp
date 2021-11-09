@@ -11,15 +11,18 @@
 #include "RoomManager.hpp"
 #include "Room.hpp"
 
-RoomManager::RoomManager(std::shared_ptr<std::vector<std::pair<std::thread, RoomData>>> roomList,  std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
+RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList,  std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
 {
     _roomList = roomList;
     _bufferIn = bufferIn;
     _bufferOut = bufferOut;
 }
-
+/*
 RoomManager& RoomManager::operator=(RoomManager &roomManager)
 {
+    _bufferIn = roomManager._bufferIn;
+    _bufferOut = roomManager._bufferOut;
+    _roomList = roomManager._roomList;
 //    _bufferIn = roomManager._bufferIn;
 //    _bufferOut = roomManager._bufferOut;
     return(*this);
@@ -27,13 +30,16 @@ RoomManager& RoomManager::operator=(RoomManager &roomManager)
 
 RoomManager::RoomManager(RoomManager &roomManager)
 {
+    _roomList = roomManager._roomList;
+    _bufferIn = roomManager._bufferIn;
+    _bufferOut = roomManager._bufferOut;
 //    _bufferIn = roomManager._bufferIn;
 }
-
+*/
 RoomManager::~RoomManager()
 {
-    for (size_t i = 0; i != _roomList->size(); i++)
-        _roomList->at(i).first.join();
+    for (size_t i = 0; i != _threadList.size(); i++)
+        _threadList.at(i).join();
 }
 
 void RoomManager::isRoom(size_t id)
@@ -50,7 +56,7 @@ void RoomManager::createRoom(std::string &packet)
     std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
     std::thread room(&RoomManager::isRoom, this, _roomList->size());
     std::vector<PlayerData> playerData;
-    RoomData roomData;
+    //RoomData roomData;
     std::string request = "Join ";
 
     while ((pos = packet.find(" ")) != std::string::npos) {
@@ -60,9 +66,11 @@ void RoomManager::createRoom(std::string &packet)
     parsed.push_back(packet.substr(0, packet.size()));
         packet.erase(0, packet.size());
     playerId = std::stoi(parsed[1]);
-    request += std::to_string(0) + " " + std::to_string(playerId);
-    roomData.setRoomData(std::make_pair(_roomList->size(), playerData));
-    _roomList->push_back(std::make_pair(move(room), roomData));
+    request += std::to_string(_roomList->size()) + " " + std::to_string(playerId);
+    //roomData.setRoomData(std::make_pair(_roomList->size(), playerData));
+    _threadList.push_back(move(room));
+    _roomList->push_back(playerData);
+    //_roomList->push_back(std::make_pair(move(room), roomData));
     joinRoom(request);
 }
 
@@ -72,10 +80,13 @@ std::string RoomManager::joinRoom(std::string &packet)
     size_t roomId = 0;
     size_t playerId = 0;
     std::vector<std::string> parsed;
-    std::shared_ptr<Buffer> buffIn(new Buffer(8192));
-    std::shared_ptr<Buffer> buffOut(new Buffer(8192));
+    std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
+    std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
+    std::shared_ptr<std::mutex> mutexIn(std::make_shared<std::mutex>());
+    std::shared_ptr<std::mutex> mutexOut(std::make_shared<std::mutex>());
     std::string result = "";
 
+    //std::cout << std::endl << "Join Packet " << packet << std::endl;
     while ((pos = packet.find(" ")) != std::string::npos) {
         parsed.push_back(packet.substr(0, pos + 1));
         packet.erase(0, pos + 1);
@@ -85,24 +96,16 @@ std::string RoomManager::joinRoom(std::string &packet)
     playerId = std::stoi(parsed[2]);
     roomId = std::stoi(parsed[1]);
     //std::cout << "RoomList Size = " << _roomList->size() << std::endl;
-    _roomList->at(roomId).second.getRoomData().second.push_back(PlayerData(playerId, buffIn, buffOut));
+    if (_roomList->at(roomId).size() > 3) {
+        return ("KO");
+    }
+    //std::cout << "" << std::endl; 
+    _roomList->at(roomId).push_back(PlayerData(playerId, buffIn, buffOut, mutexIn, mutexOut));
+    //std::cout << "Players in room: " << _roomList->at(roomId).size() << std::endl;
+//    _roomList->at(roomId).second.getRoomData().second.push_back(PlayerData(playerId, buffIn, buffOut));
     result = std::to_string(playerId) + " OK " + std::to_string(roomId);
     return (result);
 }
-/*
-void RoomManager::addressToVec(Buffer &buffOut)
-{
-    std::vector<uint8_t> vec;
-    std::string addressStr;
-    void *address = static_cast<void*>(&_roomList);
-    std::stringstream ss;
-
-    ss << address;  
-    addressStr = ss.str();
-    std::cout << "The _roomList address is " << addressStr << std::endl;
-    vec.assign(addressStr.begin(), addressStr.end());
-    buffOut.putInBuffer(static_cast<uint16_t>(vec.size()), vec);
-}*/
 
 void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
 {
@@ -115,13 +118,13 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
         if (packet.find("Join") != std::string::npos) {
             //std::cout << "I'm Joining" << std::endl;
             result = joinRoom(packet);
-            //std::cout << "We're exactly: " << _roomList->at(0).second.getRoomData().second.size() << std::endl;
+            //std::cout << "We're exactly: " << _roomList->at(0).size() << std::endl;
             vec.assign(result.begin(), result.end());
             _bufferOut->putInBuffer(static_cast<uint16_t>(vec.size()), vec);
         } else if (packet.find("Create") != std::string::npos) {
             //std::cout << "I'm Creating: " << std::endl;
+            //std::cout << "RoomList Size = " << _roomList->size() << std::endl;
             createRoom(packet);
-            //std::cout << "We're exactly: " << _roomList->at(0).second.getRoomData().second.size() << std::endl;
 
             //std::cout << "I'm the RoomListSize: " << _roomList->size() << std::endl;
         } else {
@@ -135,8 +138,8 @@ void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
 void RoomManager::manageRoom()
 {
     size_t pos = 0;
-    uint16_t readSize = 27;
-    std::vector<uint8_t> buff(27);
+    uint16_t readSize = 4096;
+    std::vector<uint8_t> buff(8192);
     std::vector<std::string> packetList;
     _bufferIn->readFromBuffer(readSize, buff);
     std::string str(buff.begin(), buff.end());
