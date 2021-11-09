@@ -16,11 +16,11 @@ class Packet : public IPacket{
         ~Packet() override;
         size_t pack(std::shared_ptr<std::vector<int8_t>> data) override;
         size_t pack(int8_t *data, size_t size) override;
-        std::vector<int8_t> unpack() override;        
+        std::shared_ptr<std::vector<int8_t>> unpack() override;        
 
     protected:
     private:
-        std::vector<int8_t> _rawData;
+        std::shared_ptr<std::vector<int8_t>> _rawData;
         std::string _data;
 };
 

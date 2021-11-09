@@ -25,5 +25,5 @@ IPacket &PacketManager::serialise(std::shared_ptr<std::vector<int8_t>> rawData)
 
 std::shared_ptr<std::vector<int8_t>> PacketManager::unserialise(IPacket &packet)
 {
-    return (packe.unpack());
+    return (packet.unpack());
 }

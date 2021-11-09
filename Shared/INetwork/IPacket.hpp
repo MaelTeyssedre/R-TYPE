@@ -48,7 +48,7 @@ class IPacket {
          * @param size of packet to deserialize
          * @return data deserialised
          */
-        virtual std::vector<int8_t> unpack() = 0;
+        virtual std::shared_ptr<std::vector<int8_t>> unpack() = 0;
 
         protected:
           //  friend class ITCPServer;
