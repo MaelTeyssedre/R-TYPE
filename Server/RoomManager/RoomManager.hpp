@@ -30,7 +30,6 @@ class RoomManager {
         void isRoomNeedeed(std::vector<std::string> &);
         void createRoom(std::string &packet);
         void isRoom(size_t id);
-        //void RoomManager::addressToVec(Buffer &);
     protected:
     private:
         std::vector<std::thread> _threadList;

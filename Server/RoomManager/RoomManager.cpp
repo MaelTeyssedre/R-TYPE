@@ -106,20 +106,6 @@ std::string RoomManager::joinRoom(std::string &packet)
     result = std::to_string(playerId) + " OK " + std::to_string(roomId);
     return (result);
 }
-/*
-void RoomManager::addressToVec(Buffer &buffOut)
-{
-    std::vector<uint8_t> vec;
-    std::string addressStr;
-    void *address = static_cast<void*>(&_roomList);
-    std::stringstream ss;
-
-    ss << address;  
-    addressStr = ss.str();
-    std::cout << "The _roomList address is " << addressStr << std::endl;
-    vec.assign(addressStr.begin(), addressStr.end());
-    buffOut.putInBuffer(static_cast<uint16_t>(vec.size()), vec);
-}*/
 
 void RoomManager::isRoomNeedeed(std::vector<std::string> &packetList)
 {
