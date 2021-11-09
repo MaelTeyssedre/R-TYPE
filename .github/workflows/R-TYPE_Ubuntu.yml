@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v2
       
     - name: install pip
-      run: sudo apt update && sudo apt install python3-pip && sudo apt install libgl-dev
+      run: sudo apt update && sudo apt install python3-pip && sudo apt install libgl-dev && sudo apt install libudev-dev
       
     - name: Install conan
       run: pip install conan
