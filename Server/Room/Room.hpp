@@ -11,15 +11,22 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include "Buffer.hpp"
 
 class Room { //pense a mettre une loop dans la room
     public:
+        Room() = default;
         Room(size_t id);
+        Room(Room &);
         ~Room();
         int getId() const;
+        std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> getRoomBuffer() const;
+        Room& operator=(Room &room);
+        void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &);
+
     protected:
     private:
-        std::vector<std::pair<std::string, std::string>> _roomBuffers;
+        std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> _roomBuffers;
         int _id;
 
 };
