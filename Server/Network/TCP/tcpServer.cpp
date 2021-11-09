@@ -11,6 +11,7 @@
 
 TCPServer::TCPServer(asio::io_context context, asio::ip::tcp::acceptor accept, asio::ip::tcp::socket sock) : _context(context), _acceptor(accept), _socket(sock)
 {
+ //   accept();
 }
 
 TCPServer::~TCPServer()
@@ -26,6 +27,7 @@ void TCPServer::accept()
 void TCPServer::doAccept()
 {
     std::cout << "new Client" << std::endl;
+    accept();
 }
 
 void TCPServer::send(IPacket &data)
@@ -74,6 +76,7 @@ void TCPServer::doRead()
 void TCPServer::start()
 {
     _context.run();
+    accept();
     std::cout << "start" << std::endl;
 }
 
