@@ -13,7 +13,7 @@
     #include <vector>
     #include "Buffer.hpp"
 
-    class Room { //pense a mettre une loop dans la room
+    class Room { // * pense a mettre une loop dans la room
         public:
             Room() = default;
             Room(size_t id);
@@ -23,8 +23,6 @@
             std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> getRoomBuffer() const;
             Room& operator=(Room &room);
             void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &);
-
-        protected:
         private:
             std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> _roomBuffers;
             int _id;
