@@ -82,6 +82,8 @@ std::string RoomManager::joinRoom(std::string &packet)
     std::vector<std::string> parsed;
     std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
+    std::shared_ptr<std::mutex> mutexIn(std::make_shared<std::mutex>());
+    std::shared_ptr<std::mutex> mutexOut(std::make_shared<std::mutex>());
     std::string result = "";
 
     //std::cout << std::endl << "Join Packet " << packet << std::endl;
@@ -98,9 +100,9 @@ std::string RoomManager::joinRoom(std::string &packet)
         return ("KO");
     }
     //std::cout << "" << std::endl; 
-    _roomList->at(roomId).push_back(PlayerData(playerId, buffIn, buffOut));
+    _roomList->at(roomId).push_back(PlayerData(playerId, buffIn, buffOut, mutexIn, mutexOut));
     //std::cout << "Players in room: " << _roomList->at(roomId).size() << std::endl;
-    //_roomList->at(roomId).second.getRoomData().second.push_back(PlayerData(playerId, buffIn, buffOut));
+//    _roomList->at(roomId).second.getRoomData().second.push_back(PlayerData(playerId, buffIn, buffOut));
     result = std::to_string(playerId) + " OK " + std::to_string(roomId);
     return (result);
 }
