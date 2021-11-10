@@ -6,12 +6,23 @@
 */
 
 #include "tcpUser.hpp"
+#include <iostream>
 
-tcpUser::tcpUser()
+tcpUser::tcpUser(asio::ip::tcp::socket &&socket) : _socket(std::move(socket))
+{}
+
+asio::ip::tcp::socket tcpUser::getSocket()
 {
+   // return (_socket);
 }
 
-std::shared_ptr<asio::ip::tcp::socket> tcpUser::getSocket()
+void tcpUser::start()
 {
-    return (_socket);
+    std::cout << "hello" << std::endl;
+    asio::async_write(_socket, asio::buffer("test"), std::bind(&tcpUser::handleWrite, this));
+}
+
+void tcpUser::handleWrite()
+{
+    std::cout << "write somethinf" << std::endl;
 }

@@ -11,14 +11,15 @@
 
 int main()
 {
-    std::cout << "Server" << std::endl;
-    //NetworkManager net;
+   // NetworkManager net(1342);
 
-   // asio::io_context context;
-    //asio::ip::tpc::acceptor accept(context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), 1000));    
-    //asio::ip::tcp::socket sock;
 
-    //std::shared_ptr<TCPServer> server = net.createTCPServer(context, accept, sock);
-    //server->start();
+   // net.createTCPServer();
+
+    asio::io_context context;
+    TCPServer server(context);
+    server.accept();
+   // server.start();
+    context.run();
     return (0);
 }

@@ -7,7 +7,7 @@
 
 #include "NetworkManager.hpp"
 #include "TCPClient.hpp"
-#include "tcpServer.hpp"
+//#include "tcpServer.hpp"
 #include "udpSocket.hpp"
 
 //TODO add loger
@@ -16,6 +16,13 @@ NetworkManager::~NetworkManager()
 {
 }
 
+NetworkManager::NetworkManager(std::uint16_t port): _server(new TCPServer(_ioContext))
+{
+    std::cout << "create net manager" << std::endl;
+    _ioContext.run();
+}
+
+/*
 void NetworkManager::start()
 {
   //  _thread = std::thread(NetworkManager::startNetworkThread, _ioContext, _udpSockets, _tcpClients, _tcpServers);
@@ -44,11 +51,16 @@ std::shared_ptr<ITCPClient> NetworkManager::createTCPClient()
     return (client);
 }
 
-std::shared_ptr<ITCPServer> NetworkManager::createTCPServer()
+ITCPServer &NetworkManager::createTCPServer()
 {
-    std::shared_ptr<TCPServer> server;
-    _tcpServers.push_back(server);
-    return (server);
+    asio::io_context context;
+
+    TCPServer server(context);
+  //  server.start();
+    std::cout << "here" << std::endl;
+    context.run();
+   // _tcpServers.push_back(server);
+   // return (server);
 }
 
 std::shared_ptr<IUDPSocket> NetworkManager::createSocketUDP()
@@ -77,4 +89,4 @@ void NetworkManager::deleteTCPServer(std::shared_ptr<ITCPServer> tcp)
     auto it = std::find(_tcpServers.begin(), _tcpServers.end(), tcp);
 
     _tcpServers.erase(it);
-}
+}*/

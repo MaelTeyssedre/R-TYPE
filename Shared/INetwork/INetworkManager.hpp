@@ -40,7 +40,7 @@ class INetworkManager {
          * 
          * @return ITCPServer* 
          */
-        virtual std::shared_ptr<ITCPServer> createTCPServer() =  0;
+        virtual ITCPServer &createTCPServer() =  0;
 
         /**
          * @brief create a TCP client

@@ -13,12 +13,15 @@
 class tcpUser
 {
     public: 
-        tcpUser();
+        tcpUser() = default;
+        tcpUser(asio::ip::tcp::socket &&socket);
         ~tcpUser() = default;
-        std::shared_ptr<asio::ip::tcp::socket> getSocket();
+        asio::ip::tcp::socket getSocket();
+        void start();
+        void handleWrite();
 
     private:
-        std::shared_ptr<asio::ip::tcp::socket> _socket;
+        asio::ip::tcp::socket _socket;
 };
 
 

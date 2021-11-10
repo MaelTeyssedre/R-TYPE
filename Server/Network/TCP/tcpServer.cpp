@@ -9,25 +9,31 @@
 #include <asio.hpp>
 #include <functional>
 
-TCPServer::TCPServer(asio::io_context context, asio::ip::tcp::acceptor accept, asio::ip::tcp::socket sock) : _context(context), _acceptor(accept), _socket(sock)
+TCPServer::TCPServer(asio::io_context &context) : _context(context), _acceptor(context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), 1342))
 {
- //   accept();
+    std::cout << "create tcp server" << std::endl;
+  //  accept();
 }
-
-TCPServer::~TCPServer()
-{}
 
 void TCPServer::accept()
 {
-    asio::ip::tcp::socket sock(_context);
+    std::cout << "before accept" << std::endl;
+    _acceptor.async_accept([this](std::error_code ec, asio::ip::tcp::socket socket)
+    {
+        std::cout << "inside accept" << std::endl;
+        /*if (!ec) {
+            std::make_shared<tcpUser>(std::move(socket))->start();
+        }*/
+        accept();
+    });
+    std::cout << "after accept" << std::endl;
 
-    _acceptor.async_accept(sock, std::bind(&TCPServer::doAccept, this));
 }
-
+/*
 void TCPServer::doAccept()
 {
     std::cout << "new Client" << std::endl;
-    accept();
+   // accept();
 }
 
 void TCPServer::send(IPacket &data)
@@ -37,7 +43,7 @@ void TCPServer::send(IPacket &data)
 
 void TCPServer::send(tcpUser &user, IPacket &data)
 {
-    user.getSocket()->async_send(asio::buffer(data.unpack(), 10), std::bind(&TCPServer::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+   // user.getSocket()->async_send(asio::buffer(data.unpack(), 10), std::bind(&TCPServer::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void TCPServer::send(std::vector<size_t> target, IPacket &data)
@@ -63,8 +69,8 @@ std::shared_ptr<IPacket> TCPServer::receive()
     std::shared_ptr<std::vector<int8_t>> rawData;
     size_t size;
 
-    asio::async_read(_socket, asio::buffer(&rawData->at(0), 10), std::bind(&TCPServer::doRead, this));
-    size = packet->pack(rawData);
+   // asio::async_read(_socket, asio::buffer(&rawData->at(0), 10), std::bind(&TCPServer::doRead, this));
+   // size = packet->pack(rawData);
     return (packet);
 }
 
@@ -75,14 +81,14 @@ void TCPServer::doRead()
 
 void TCPServer::start()
 {
-    _context.run();
-    accept();
     std::cout << "start" << std::endl;
+    accept();
+  //  receive();
 }
 
 void TCPServer::stop()
 {
-    _context.stop();
+    //_context.stop();
     std::cout << "stop" << std::endl;
 }
 
@@ -90,4 +96,4 @@ void TCPServer::eject(size_t client)
 {
     _users.erase(client);
     std::cout << "eject player" << std::endl;
-}
+}*/
