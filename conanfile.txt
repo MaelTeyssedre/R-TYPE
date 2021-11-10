@@ -1,6 +1,6 @@
 [requires]
 asio/1.19.2
-sfml/2.5.1@bincrafters/stable
+sfml/2.5.1
 
 [generators]
 cmake
