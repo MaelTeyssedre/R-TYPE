@@ -20,6 +20,7 @@
         public:
             ~ILib() = default;
 
+
             virtual void setName(std::string) = 0;
             virtual std::string getName() = 0;
 
@@ -28,7 +29,6 @@
 
             virtual void setHealPoint(size_t) = 0;
             virtual size_t getHealPoint() = 0;
-
 
             virtual void setFireFrequence(size_t) = 0;
             virtual size_t getFireFrequence() = 0;
