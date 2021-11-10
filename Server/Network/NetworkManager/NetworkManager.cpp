@@ -16,7 +16,7 @@ NetworkManager::~NetworkManager()
 {
 }
 
-NetworkManager::NetworkManager(std::uint16_t port): _server(new TCPServer(_ioContext))
+NetworkManager::NetworkManager(std::uint16_t port): _server(new TCPServer(_ioContext, 1342))
 {
     std::cout << "create net manager" << std::endl;
     _ioContext.run();

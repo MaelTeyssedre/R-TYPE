@@ -6,10 +6,9 @@
 */
 
 #include "tcpServer.hpp"
-#include <asio.hpp>
 #include <functional>
 
-TCPServer::TCPServer(asio::io_context &context) : _context(context), _acceptor(context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), 1342))
+TCPServer::TCPServer(asio::io_context &context, std::uint16_t port) : _context(context), _acceptor(context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port))
 {
     std::cout << "create tcp server" << std::endl;
   //  accept();
@@ -21,9 +20,9 @@ void TCPServer::accept()
     _acceptor.async_accept([this](std::error_code ec, asio::ip::tcp::socket socket)
     {
         std::cout << "inside accept" << std::endl;
-        /*if (!ec) {
+        if (!ec) {
             std::make_shared<tcpUser>(std::move(socket))->start();
-        }*/
+        }
         accept();
     });
     std::cout << "after accept" << std::endl;

@@ -11,18 +11,57 @@
 tcpUser::tcpUser(asio::ip::tcp::socket &&socket) : _socket(std::move(socket))
 {}
 
-asio::ip::tcp::socket tcpUser::getSocket()
-{
-   // return (_socket);
-}
-
 void tcpUser::start()
 {
-    std::cout << "hello" << std::endl;
-    asio::async_write(_socket, asio::buffer("test"), std::bind(&tcpUser::handleWrite, this));
+    std::vector<uint8_t> vec;
+    std::string str = "hello from server";
+
+    vec.assign(str.begin(), str.end());
+    std::cout << "Connection start" << std::endl;
+    addToQueue(vec);
+    write();
+    read();}
+
+void tcpUser::addToQueue(std::vector<uint8_t> message)
+{
+    message.push_back('\n');
+    _queue.push(message);
 }
 
-void tcpUser::handleWrite()
+
+void tcpUser::read()
 {
-    std::cout << "write somethinf" << std::endl;
+    asio::async_read_until(_socket, _input, "\n", std::bind(&tcpUser::doRead, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+}
+
+void tcpUser::doRead(const std::error_code &ec, size_t bytes)
+{
+
+    if (!ec) {
+        std::istream stream(&_input);
+        std::string line;
+        std::getline(stream, line);
+        _input.consume(bytes);
+        if (!line.empty())
+           // core.manageApplicationPart(line, this);
+        read();
+    } else
+        std::cerr << ec.message() << std::endl;
+}
+
+void tcpUser::write()
+{
+    asio::async_write(_socket, asio::buffer(_queue.front()), std::bind(&tcpUser::doWrite, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+}
+
+void tcpUser::doWrite(const std::error_code &ec, size_t bytes)
+{
+    (void)bytes;
+    if (!ec) {
+      _queue.pop();
+      if (!_queue.empty())
+        write();
+    } else {
+        std::cerr << ec.message() << std::endl;
+    }
 }
