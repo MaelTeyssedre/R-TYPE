@@ -16,7 +16,15 @@
     #include "dirent.h"
 #endif
 
+#ifdef __linux__
+    #include "LibLoaderUnix.hpp"
+#endif
+#ifdef _WIN32
+    #include "DlLoaderWindows.hpp"
+#endif
+
 #include <memory>
+#include <filesystem>
 
 class ILib;
 
@@ -27,9 +35,16 @@ class ILib;
     #define LIBS_PATH "./dynlibsWindows/"
 #endif
 
+
 class LibLoader {
     public:
-        LibLoader(DlLoader loader);
+        #ifdef __linux__
+            LibLoader(DlLoaderUnix loader);
+        #endif
+        #ifdef _WIN32
+            LibLoader(DlLoaderWindows loader);
+        #endif
+        
         ~LibLoader();
         std::vector<std::shared_ptr<ILib>> getLibs() const;
     
@@ -38,10 +53,16 @@ class LibLoader {
         void listLibDirectory(std::string path);
 
         std::vector<std::shared_ptr<ILib>> _libs;
-        std::vector<void *> _libsPtr;
         std::vector<std::string> _libsfiles;
-        DlLoader _dlLoader;
-        
+        #ifdef __linux__
+            DlLoaderUnix _dlLoaderUnix;
+            std::vector<void *> _libsPtrUnix;
+        #endif
+        #ifdef _WIN32
+            DlLoaderWindows _dlLoaderWindows;
+            std::vector<HMODULE> _libsPtrWindows;
+        #endif
+
         // ? wtf le target
         int _target;
 };

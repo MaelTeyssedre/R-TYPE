@@ -5,21 +5,37 @@
 ** LibLoader
 */
 
+
 #include "LibLoader.hpp"
 
-LibLoader::LibLoader(DlLoader loader)
-    : _dlLoader()
-{
-    listLibDirectory(LIBS_PATH);
-    loadLibs();
-}
+#ifdef __linux__
+    LibLoader::LibLoader(DlLoaderUnix loader)
+        : _dlLoaderUnix()
+    {
+        listLibDirectory(LIBS_PATH);
+        loadLibs();
+    }
+#endif
+#ifdef _WIN32
+    LibLoader::LibLoader(DlLoaderWindows loader)
+        : _dlLoaderWindows()
+    {
+        listLibDirectory(LIBS_PATH);
+        loadLibs();
+    }
+#endif
 
 LibLoader::~LibLoader() {
-    for (void *ptr : _libsPtr) {
-        #ifdef __linux__
-            _dlLoader.closelib(ptr);
-        #endif
-    }
+    #ifdef __linux__
+        for (void *ptr : _libsPtrUnix) {
+            _dlLoaderUnix.closeLib(ptr);
+        }
+    #endif
+    #ifdef _WIN32
+        for (HMODULE ptr : _libsPtrWindows) {
+            _dlLoaderWindows.closeLib(ptr);
+        }
+    #endif
 }
 
 std::vector<std::shared_ptr<ILib>> LibLoader::getLibs() const {
@@ -29,8 +45,13 @@ std::vector<std::shared_ptr<ILib>> LibLoader::getLibs() const {
 void LibLoader::loadLibs() {
     for (size_t i = 0; i < _libsfiles.size(); i++) {
         #ifdef __linux__
-            _libsPtr.push_back(_dlLoader.loadLib(LIBS_PATH + _libsfiles[i]));
-            _libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoader("Creator", _libsPtr[i]))());
+            _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(LIBS_PATH + _libsfiles[i]));
+            _libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderUnix.loadFunc("Creator", _libsPtrUnix[i]))());
+        #endif
+        #ifdef _WIN32
+            _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(LIBS_PATH + _libsfiles[i]));
+            //_libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderWindows.loadFunc("Creator", _libsPtrWindows[i]))());
+            // ! Upline, Pakonpri
         #endif
     }
 }
@@ -44,5 +65,12 @@ void LibLoader::listLibDirectory(std::string path) {
         while ((dir_stats = readdir(dir)))
             _libsfiles.push_back(std::string(dir_stats->d_name));
         closedir(dir);
+    #endif
+    #ifdef _WIN32
+        // ? Work on linux?
+        //std::string path = "/path/to/directory";
+        for (const auto & entry : std::filesystem::directory_iterator(path))
+            _libsfiles.push_back(entry.path().string());
+            //std::cout << entry.path().string() << std::endl;
     #endif
 }

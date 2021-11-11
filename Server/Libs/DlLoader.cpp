@@ -25,6 +25,7 @@
 #endif
 
 #ifdef _WIN32
+    // ? Rajouter des throw?
     HMODULE DlLoader::loadLib(std::string path)
     {
         std::wstring widestr = std::wstring(path.begin(), path.end());
