@@ -31,7 +31,7 @@ class IPacket {
          * @param size size of data to serialize
          * @return size of data serialized
          */
-        virtual size_t pack(std::shared_ptr<std::vector<int8_t>> data) = 0;
+        virtual size_t pack(std::shared_ptr<std::vector<uint8_t>> data) = 0;
 
         /**
          * @brief Serialize data
@@ -40,7 +40,7 @@ class IPacket {
          * @param size of data to serialize
          * @return size_t 
          */
-        virtual size_t pack(int8_t *data, size_t size) = 0;
+        virtual size_t pack(uint8_t *data, size_t size) = 0;
 
         /**
          * @brief deserialize packet
@@ -48,7 +48,7 @@ class IPacket {
          * @param size of packet to deserialize
          * @return data deserialised
          */
-        virtual std::shared_ptr<std::vector<int8_t>> unpack() = 0;
+        virtual std::shared_ptr<std::vector<uint8_t>> unpack() = 0;
 
         protected:
           //  friend class ITCPServer;

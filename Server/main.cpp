@@ -18,12 +18,8 @@ int main()
     server = net.createTCPServer();
     net.start();
     while (1) {
-    server->startAccept();
-    if (server->getUsers().size() != 0) {
-        //server->send(1, packet);
+      server->startAccept();
+      std::this_thread::sleep_for(std::chrono::nanoseconds(10));
     }
-    }
-
-
     return (0);
 }

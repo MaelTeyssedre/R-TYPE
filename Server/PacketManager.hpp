@@ -14,8 +14,8 @@ class PacketManager {
     public:
         PacketManager();
         ~PacketManager();
-        IPacket &serialise(std::shared_ptr<std::vector<int8_t>> data);
-        std::shared_ptr<std::vector<int8_t>> unserialise(IPacket &packet);
+        IPacket &serialise(std::shared_ptr<std::vector<uint8_t>> data);
+        std::shared_ptr<std::vector<uint8_t>> unserialise(IPacket &packet);
 
     protected:
     private:

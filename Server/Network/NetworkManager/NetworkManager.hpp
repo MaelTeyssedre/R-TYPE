@@ -22,18 +22,18 @@ class NetworkManager : public INetworkManager{
         void start() override;
         void stop() override;
         TCPServer *createTCPServer() override;
-        std::shared_ptr<ITCPClient> createTCPClient() override;
-        std::shared_ptr<IUDPSocket> createSocketUDP() override;
-        void deleteTCPServer(std::shared_ptr<ITCPServer> tcp) override;
-        void deleteTCPClient(std::shared_ptr<ITCPClient> tcp) override;
-        void deleteSocketUDP(std::shared_ptr<IUDPSocket> socket) override;
+        ITCPClient *createTCPClient() override;
+       IUDPSocket *createSocketUDP() override;
+        void deleteTCPServer(ITCPServer *tcp) override;
+        void deleteTCPClient(ITCPClient *tcp) override;
+        void deleteSocketUDP(IUDPSocket *socket) override;
         static void startNetworkThread(NetworkManager *netManager);
 
     private:
         asio::io_context _context;
         asio::io_context::work *_worker;
-        std::vector<std::shared_ptr<IUDPSocket>> _udpSockets;
-        std::vector<std::shared_ptr<ITCPClient>> _tcpClients;
+        std::vector<IUDPSocket *> _udpSockets;
+        std::vector<ITCPClient *> _tcpClients;
         std::vector<ITCPServer *> _tcpServers;
         std::thread _thread;
         bool _started;

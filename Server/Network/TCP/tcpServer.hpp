@@ -25,18 +25,17 @@ class TCPServer : public ITCPServer {
         void start() override;
         void stop() override;
         void eject(size_t client) override;
-      //  asio::ip::tcp::socket &getUserSocket(size_t id);
-      //  void accept();
-         void startAccept();
-          std::map<size_t, std::shared_ptr<tcpUser>> getUsers() {return (mapUser);};
+        void startAccept();
+        std::map<size_t, std::shared_ptr<tcpUser>> getUsers() {return (mapUser);};
 
     private:
 
-         void handleAccept(std::shared_ptr<tcpUser> newUser);
+        void handleAccept(std::shared_ptr<tcpUser> newUser);
 
         asio::io_context &_context;
         asio::ip::tcp::acceptor _acceptor;
         std::map<size_t, std::shared_ptr<tcpUser>> mapUser;
+        int _nbUsers;
 };
 
 #endif /* !TCPSERVER_HPP_ */
