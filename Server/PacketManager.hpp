@@ -19,7 +19,7 @@ class PacketManager {
 
     protected:
     private:
-      //  std::shared_ptr<std::vector<std::array<int, 4>>>> _players;
+       // std::shared_ptr<std::vector<std::vector</*playerData*/int>>>> _players;
 };
 
 #endif /* !PACKETMANAGER_HPP_ */

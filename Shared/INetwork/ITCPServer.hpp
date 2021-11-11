@@ -17,21 +17,7 @@ class ITCPServer {
          * @brief Destroy the ITCPServer object
          * 
          */
-        virtual ~ITCPServer() {};
-
-        /**
-         * @brief send data 
-         * 
-         * @param data to send
-         */
-        virtual void send(IPacket &data) = 0;
-
-        /**
-         * @brief 
-         * 
-         * @param data 
-         */
-        virtual void sendToAll(IPacket &data) = 0;
+        virtual ~ITCPServer() = default;
 
         /**
          * @brief 
@@ -42,11 +28,19 @@ class ITCPServer {
         virtual void send(std::vector<size_t> targets, IPacket &data) = 0;
 
         /**
+         * @brief 
+         * 
+         * @param target
+         * @param data 
+         */
+        virtual void send(size_t target, IPacket &data) = 0;
+
+        /**
          * @brief receive data
          * 
          * @return return data in packet
          */
-        virtual std::shared_ptr<IPacket> receive() = 0;
+        virtual std::vector<uint8_t> receive() = 0;
 
         /**
          * @brief start the server and accept incoming connection

@@ -20,7 +20,8 @@ void tcpUser::start()
     std::cout << "Connection start" << std::endl;
     addToQueue(vec);
     write();
-    read();}
+    read();
+}
 
 void tcpUser::addToQueue(std::vector<uint8_t> message)
 {
@@ -42,8 +43,6 @@ void tcpUser::doRead(const std::error_code &ec, size_t bytes)
         std::string line;
         std::getline(stream, line);
         _input.consume(bytes);
-        if (!line.empty())
-           // core.manageApplicationPart(line, this);
         read();
     } else
         std::cerr << ec.message() << std::endl;

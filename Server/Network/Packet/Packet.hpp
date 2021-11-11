@@ -10,7 +10,7 @@
 
 #include "IPacket.hpp"
 
-class Packet : public IPacket{
+class Packet : public IPacket {
     public:
         Packet();
         ~Packet() override;

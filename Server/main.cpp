@@ -11,15 +11,19 @@
 
 int main()
 {
-   // NetworkManager net(1342);
+    NetworkManager net;
+    TCPServer *server;
+    Packet packet;
+
+    server = net.createTCPServer();
+    net.start();
+    while (1) {
+    server->startAccept();
+    if (server->getUsers().size() != 0) {
+        //server->send(1, packet);
+    }
+    }
 
 
-   // net.createTCPServer();
-
-    asio::io_context context;
-    TCPServer server(context, 1342);
-    server.accept();
-   // server.start();
-    context.run();
     return (0);
 }
