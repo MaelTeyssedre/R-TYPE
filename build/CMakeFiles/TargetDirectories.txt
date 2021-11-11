@@ -1,0 +1,4 @@
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/build/CMakeFiles/rtype_server.dir
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/romai/Documents/Epitech/C++/R-TYPE/build/CMakeFiles/rtype_client.dir

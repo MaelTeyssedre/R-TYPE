@@ -24,41 +24,42 @@ class IUDPSocket {
          * 
          * @param data to send
          */
-        virtual void send(IPacket &data) = 0;
+        virtual void send(std::vector<size_t> targets, IPacket &data) = 0;
 
         /**
          * @brief 
          * 
          * @param data 
          */
-        virtual void send(std::vector<size_t>, IPacket &data) = 0;
+        virtual void send(size_t target, IPacket &data) = 0;
 
         /**
          * @brief 
          * 
          * @param data 
          */
-        virtual void sendToAll(IPacket &data) = 0;
+        virtual std::vector<uint8_t> receive() = 0;
 
         /**
          * @brief receive data
          * 
          * @return return data in packet
          */
-        virtual IPacket &receiver() = 0;
 
         /**
          * @brief start the connection
          * 
          * @param port to accept connection
          */
-        virtual void start(std::uint16_t port) = 0;
+        virtual void start() = 0;
 
         /**
          * @brief stop connection
          * 
          */
+        virtual void eject(size_t client) = 0;
         virtual void stop() = 0;
+
 };
 
 #endif /* !IUDPSOCKET_HPP_ */
