@@ -41,6 +41,8 @@ class LibLoader {
         std::vector<void *> _libsPtr;
         std::vector<std::string> _libsfiles;
         DlLoader _dlLoader;
+        
+        // ? wtf le target
         int _target;
 };
 
