@@ -16,5 +16,6 @@ file(GLOB_RECURSE SOURCES_SERVER ${PROJECT_SOURCE_DIR}/Server/*.hpp ${PROJECT_SO
 file(GLOB_RECURSE SOURCES_CLIENT ${PROJECT_SOURCE_DIR}/Client/*.hpp ${PROJECT_SOURCE_DIR}/Client/*.cpp)
 add_executable(rtype_client ${SOURCES_CLIENT})
 add_executable(rtype_server ${SOURCES_SERVER})
+target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Server/JsonWrapper/)
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})
