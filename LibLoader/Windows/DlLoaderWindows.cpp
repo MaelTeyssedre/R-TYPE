@@ -10,8 +10,12 @@
 // ? Rajouter des throw?
 HMODULE DlLoaderWindows::loadLib(std::string path)
 {
-    std::wstring widestr = std::wstring(path.begin(), path.end());
-    return (_hDLL = LoadLibrary(widestr.c_str()));
+    std::wstring sw = std::wstring(path.begin(), path.end());
+    //LPCWSTR sw = stemp.c_str();
+    //std::wstring widestr = std::wstring(path.begin(), path.end());
+    //LPCWSTR csw = sw.c_str();
+    //CStringA strA(path.c_str());
+    return (_hDLL = LoadLibrary(path.c_str()));
 }
 
 HANDLE DlLoaderWindows::loadFunc(std::string &function, HMODULE hDLL)

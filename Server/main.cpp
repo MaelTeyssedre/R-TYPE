@@ -6,10 +6,16 @@
 */
 
 #include <iostream>
-#include <asio.hpp>
+//#include <asio.hpp>
+#include "LibLoader.hpp"
+
 
 int main()
 {
     std::cout << "Server" << std::endl;
+    LibLoader lib;
+
+    
+    //lib.getLibs();
     return (0);
 }

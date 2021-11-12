@@ -7,7 +7,7 @@
 
 
 #include "LibLoader.hpp"
-
+/*
 #ifdef __linux__
     LibLoader::LibLoader(DlLoaderUnix loader)
         : _dlLoaderUnix()
@@ -23,7 +23,20 @@
         listLibDirectory(LIBS_PATH);
         loadLibs();
     }
-#endif
+#endif*/
+
+LibLoader::LibLoader()
+{
+    #ifdef _WIN32
+        _dlLoaderWindows = DlLoaderWindows();
+    #endif
+    #ifdef __linux__
+        _dlLoaderUnix = DlLoaderUnix();
+    #endif
+
+    listLibDirectory(LIBS_PATH);
+    loadLibs();
+}
 
 LibLoader::~LibLoader() {
     #ifdef __linux__
@@ -46,10 +59,12 @@ void LibLoader::loadLibs() {
     for (size_t i = 0; i < _libsfiles.size(); i++) {
         #ifdef __linux__
             _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(LIBS_PATH + _libsfiles[i]));
-            _libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderUnix.loadFunc("Creator", _libsPtrUnix[i]))());
+            //_libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderUnix.loadFunc("Creator", _libsPtrUnix[i]))());
+            // ! Upline, A mon avis, ca marche pas
         #endif
         #ifdef _WIN32
             _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(LIBS_PATH + _libsfiles[i]));
+            //_libs.push_back(std::make_shared<ILib>(_dlLoaderWindows.loadFunc("Creator", _libsPtrWindows[i]))()));
             //_libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderWindows.loadFunc("Creator", _libsPtrWindows[i]))());
             // ! Upline, Pakonpri
         #endif

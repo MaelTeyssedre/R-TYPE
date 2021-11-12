@@ -8,19 +8,17 @@
 #ifndef LIBLOADER_HPP_
 #define LIBLOADER_HPP_
 
-#include "DlLoader.hpp"
+//#include "DlLoader.hpp"
 #include <string>
 #include <vector>
 
 #ifdef __linux__
     #include "dirent.h"
-#endif
-
-#ifdef __linux__
     #include "LibLoaderUnix.hpp"
 #endif
 #ifdef _WIN32
-    #include "DlLoaderWindows.hpp"
+    //#include "DlLoaderWindows.hpp"
+    #include "../../LibLoader/Windows/DlLoaderWindows.hpp"
 #endif
 
 #include <memory>
@@ -38,14 +36,16 @@ class ILib;
 
 class LibLoader {
     public:
-        #ifdef __linux__
+        /*#ifdef __linux__
             LibLoader(DlLoaderUnix loader);
         #endif
         #ifdef _WIN32
             LibLoader(DlLoaderWindows loader);
-        #endif
-        
+        #endif*/
+
+        LibLoader();
         ~LibLoader();
+        
         std::vector<std::shared_ptr<ILib>> getLibs() const;
     
     private:

@@ -21,10 +21,10 @@
             ~DlLoaderWindows() = default;
 
             HMODULE _hDLL = NULL;
-            HANDLE  _Proc;
+            void *_Proc;
 
             HMODULE loadLib(std::string path);
-            HANDLE loadFunc(std::string &function, HMODULE hDLL);
+            void *loadFunc(std::string &function, HMODULE hDLL);
             void closeLib(HMODULE hDLL);
         protected:
         private:
