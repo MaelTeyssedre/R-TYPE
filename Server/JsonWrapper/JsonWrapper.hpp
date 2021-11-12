@@ -30,7 +30,8 @@
             void addPlayer();
             void addMonster();
             void addWall();
-            virtual bool isNewElementType(std::vector<std::vector<composant_s>> _composantList, std::string type);
+            bool isNewElementType(std::vector<std::vector<composant_s>> _composantList, std::string type);
+            std::vector<std::vector<composant_s>> getComposantList() const;
         protected:
         private:
         std::string _filename;

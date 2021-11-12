@@ -55,13 +55,13 @@ bool JsonWrapper::isNewElementType(std::vector<std::vector<composant_s>> _compos
 JsonWrapper::composant_s JsonWrapper::createComposant(int id, std::pair<int, int> pos, int strength, int hp, bool loot, std::string &type)
 {
     JsonWrapper::composant_s element;
+
     element.id = id;
     element.pos = pos;
     element.strength = strength;
     element.hp = hp;
     element.loot = loot;
     element.type = type;
-    std::cout << element.type << std::endl;
     return (element);
 }
 
@@ -70,7 +70,7 @@ void JsonWrapper::addPlayer()
     std::vector<composant_s> playerList;
 
     for (const auto &it: _json["player"].items()) {
-        playerList.push_back(createComposant(5, std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), false, std::string("player")));
+        playerList.push_back(createComposant(it.value()["id"].get<int>(), std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), false, std::string("player")));
     }
     _composantList.push_back(playerList);
 }
@@ -85,7 +85,7 @@ void JsonWrapper::addMonster()
             monsterList.push_back(std::vector<composant_s>());
             monsterList.back().push_back(createComposant(it.value()["id"].get<int>(), std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), it.value()["loot"].get<bool>(), it.value()["type"].get<std::string>())); 
         } else {
-            for (auto & monster: monsterList) {
+            for (auto &monster: monsterList) {
                 if (it.value()["type"].get<std::string>() == monster.front().type)
                     monster.push_back(createComposant(it.value()["id"].get<int>(),  std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), it.value()["loot"].get<bool>(), it.value()["type"].get<std::string>())); 
             }
@@ -102,9 +102,9 @@ void JsonWrapper::addWall()
     for (const auto &it: _json["wall"].items()) {
         if (wallList.size() == 0 || isNewElementType(wallList, it.value()["type"].get<std::string>()) == true) {
             wallList.push_back(std::vector<composant_s>());
-            wallList.back().push_back(createComposant(it.value()["id"].get<int>(),  std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), false, it.value()["type"].get<std::string>()));
+            wallList.back().push_back(createComposant(0,  std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), 0, 0, false, it.value()["type"].get<std::string>()));
         } else {
-            for (auto & wall: wallList) {
+            for (auto &wall: wallList) {
                 if (it.value()["type"].get<std::string>() == wall.front().type)
                     wall.push_back(createComposant(0,  std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), 0, 0, false, it.value()["type"].get<std::string>()));
             }
@@ -113,15 +113,14 @@ void JsonWrapper::addWall()
     _composantList.insert(_composantList.end(), wallList.begin(), wallList.end());
 }
 
+std::vector<std::vector<JsonWrapper::composant_s>> JsonWrapper::getComposantList() const
+{
+    return (_composantList);
+}
+
 void JsonWrapper::fillComposantList()
 {
-    std::cout << "Before Player" << std::endl;
     addPlayer();
-    std::cout << "Before Monster" << std::endl;
     addMonster();
-    std::cout << "Before Wall" << std::endl;
     addWall();
-    for (auto &it: _composantList) {
-        std::cout << "Type:" << it.front().hp << std::endl;
-    }
 }
