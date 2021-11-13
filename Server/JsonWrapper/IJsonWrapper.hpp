@@ -14,7 +14,7 @@
     class IJsonWrapper {
         public:
              ~IJsonWrapper() = default;
-            virtual std::string jsonToString() = 0;
+            virtual std::string &jsonToString() = 0;
             virtual void fillComposantList() = 0;
             virtual void addPlayer() = 0;
             virtual void addMonster() = 0;
