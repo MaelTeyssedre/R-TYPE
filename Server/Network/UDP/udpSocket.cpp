@@ -6,10 +6,6 @@
 */
 
 #include "udpSocket.hpp"
-
-UDPSocket::UDPSocket(asio::io_context &context, std::uint16_t port) : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port))
-{}
-
 void UDPSocket::send(IPacket &data)
 {
   _socket.async_send_to(asio::buffer(*data.unpack()), _endpoint, std::bind(&UDPSocket::handleSend, this));
