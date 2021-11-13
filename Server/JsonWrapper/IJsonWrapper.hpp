@@ -5,13 +5,13 @@
 ** IJsonWRAPPER
 */
 
-/*!
-* \file IJsonWrapper.hpp
-*
-* \class IJsonWrapper
-*
-* \brief Interface of JsonWrapper
-*/
+/**
+ * \file IJsonWrapper.hpp
+ *
+ * \class IJsonWrapper
+ *
+ * \brief Interface of JsonWrapper
+ */
 #ifndef IJSONWRAPPER_HPP_
 #define IJSONWRAPPER_HPP_
 
@@ -22,47 +22,47 @@
         public:
 
             /**
-            * \fn ~IJsonWrapper()
-            * 
-            * \brief Destruct an IJson object
-            */
+             * \fn ~IJsonWrapper() = default
+             * 
+             * \brief Destruct an IJson object
+             */
              ~IJsonWrapper() = default;
 
             /**
-            * \fn std::string &jsonToString()
-            * 
-            * \brief Convert and return content of a json file as a string
-            * 
-            * \return std::string & Le contenu du file .json
-            */ 
+             * \fn virtual std::string &jsonToString() = 0
+             * 
+             * \brief Convert and return content of a json file as a string
+             * 
+             * \return std::string & Le contenu du file .json
+             */ 
             virtual std::string &jsonToString() = 0;
             
             /**
-            * \fn void fillComposantList() override
-            * 
-            * \brief Fill a object list with the content of a JSON file
-            */
+             * \fn virtual void fillComposantList() = 0
+             * 
+             * \brief Fill a object list with the content of a JSON file
+             */
             virtual void fillComposantList() = 0;
             
              /**
-            * \fn void addPlayer()
-            * 
-            * \brief Fill a object list with a player object
-            */
+              * \fn virtual void addPlayer() = 0
+              * 
+              * \brief Fill a object list with a player object
+              */
             virtual void addPlayer() = 0;
 
             /**
-            * \fn void addMonster()
-            * 
-            * \brief Fill a object list with a monster object
-            */
+             * \fn virtual void addMonster() = 0
+             * 
+             * \brief Fill a object list with a monster object
+             */
             virtual void addMonster() = 0;
             
             /**
-            * \fn void addWall()
-            * 
-            * \brief Fill a object list with a wall object
-            */
+             * \fn virtual void addWall() = 0
+             * 
+             * \brief Fill a object list with a wall object
+             */
             virtual void addWall() = 0;
     };
 
