@@ -22,11 +22,9 @@ class TCPServer : public ITCPServer {
         void send(size_t target, IPacket &data) override;
         void send(std::vector<size_t> targets, IPacket &data) override;
         std::vector<uint8_t> receive() override;
-        void start() override;
-        void stop() override;
         void eject(size_t client) override;
         void startAccept();
-        std::map<size_t, std::shared_ptr<tcpUser>> getUsers() {return (mapUser);};
+        std::map<size_t, std::shared_ptr<tcpUser>> getUsers() {return (_mapUser);};
 
     private:
 
@@ -34,7 +32,7 @@ class TCPServer : public ITCPServer {
 
         asio::io_context &_context;
         asio::ip::tcp::acceptor _acceptor;
-        std::map<size_t, std::shared_ptr<tcpUser>> mapUser;
+        std::map<size_t, std::shared_ptr<tcpUser>> _mapUser;
         int _nbUsers;
 };
 

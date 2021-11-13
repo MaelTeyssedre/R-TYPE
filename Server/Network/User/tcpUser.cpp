@@ -38,16 +38,19 @@ void tcpUser::addToQueue(std::vector<uint8_t> message)
 
 void tcpUser::read()
 {
-    asio::async_read_until(_socket, _input, "\n", std::bind(&tcpUser::doRead, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+    std::cout << "bofore: " << std::endl;
+   // asio::async_read(_socket, _input, std::bind(&tcpUser::doRead, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+    std::cout << "after: " << std::endl;
 }
 
 void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
-
+    std::cout << "in doread: " << std::endl;
     if (!ec) {
         std::istream stream(&_input);
         std::string line;
         std::getline(stream, line);
+      //  std::cout << "receive: " << line << std::endl;
         _input.consume(bytes);
         read();
     } else
