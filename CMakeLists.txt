@@ -22,6 +22,9 @@ endif (WIN32)
 file(GLOB_RECURSE SOURCES_CLIENT ${PROJECT_SOURCE_DIR}/Client/*.hpp ${PROJECT_SOURCE_DIR}/Client/*.cpp)
 add_executable(rtype_client ${SOURCES_CLIENT})
 add_executable(rtype_server ${SOURCES_SERVER})
+
+add_library(BasicMonster SHARED ${PROJECT_SOURCE_DIR}/Server/Libs/IElement.hpp ${PROJECT_SOURCE_DIR}/DynamicLibraries/BasicMonster.hpp ${PROJECT_SOURCE_DIR}/DynamicLibraries/BasicMonster.cpp)
+
 if (UNIX)
     target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/LibLoader/Unix)
 endif (UNIX)
@@ -30,11 +33,11 @@ if (WIN32)
 endif (WIN32)
 target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/DynamicLibraries)
 target_include_directories(rtype_server PUBLIC ${PROJECT_SOURCE_DIR}/Server/Libs/)
+target_include_directories(BasicMonster PUBLIC ${PROJECT_SOURCE_DIR}/Server/Libs/)
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})
 
 #add_library(BasicMonster ${LIB_TYPE} ${PROJECT_SOURCE_DIR}/DynamicLibraries/BasicMonster.cpp ${PROJECT_SOURCE_DIR}/DynamicLibraries/BasicMonster.hpp ${PROJECT_SOURCE_DIR}/Server/Element/IElement.hpp)
-add_library(BasicMonster SHARED ${PROJECT_SOURCE_DIR}/DynamicLibraries/BasicMonster.hpp ${PROJECT_SOURCE_DIR}/DynamicLibraries/BasicMonster.cpp)
 
 
 

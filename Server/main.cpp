@@ -8,14 +8,16 @@
 #include <iostream>
 //#include <asio.hpp>
 #include "LibLoader.hpp"
+#include "windows.h"
 
 
 int main()
 {
     std::cout << "Server" << std::endl;
-    LibLoader lib;
+    LibLoader lib = LibLoader();
 
-    
+    ///GetProcAddress(LoadLibrary("BasicMonster.dll"), "allocator")();
+
     //lib.getLibs();
     return (0);
 }

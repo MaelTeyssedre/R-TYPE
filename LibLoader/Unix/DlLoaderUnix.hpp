@@ -12,6 +12,11 @@
     #include <exception>
     #include <dlfcn.h>
 
+    #include "IElement.hpp"
+    /*namespace component {
+        class IElement;
+    };*/
+
     class DlLoaderUnix {
         public:
             DlLoaderUnix();

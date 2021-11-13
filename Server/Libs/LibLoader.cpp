@@ -7,23 +7,6 @@
 
 
 #include "LibLoader.hpp"
-/*
-#ifdef __linux__
-    LibLoader::LibLoader(DlLoaderUnix loader)
-        : _dlLoaderUnix()
-    {
-        listLibDirectory(LIBS_PATH);
-        loadLibs();
-    }
-#endif
-#ifdef _WIN32
-    LibLoader::LibLoader(DlLoaderWindows loader)
-        : _dlLoaderWindows()
-    {
-        listLibDirectory(LIBS_PATH);
-        loadLibs();
-    }
-#endif*/
 
 LibLoader::LibLoader()
 {
@@ -40,18 +23,16 @@ LibLoader::LibLoader()
 
 LibLoader::~LibLoader() {
     #ifdef __linux__
-        for (void *ptr : _libsPtrUnix) {
+        for (void *ptr : _libsPtrUnix)
             _dlLoaderUnix.closeLib(ptr);
-        }
     #endif
     #ifdef _WIN32
-        for (HMODULE ptr : _libsPtrWindows) {
+        for (HMODULE ptr : _libsPtrWindows)
             _dlLoaderWindows.closeLib(ptr);
-        }
     #endif
 }
 
-std::vector<std::shared_ptr<ILib>> LibLoader::getLibs() const {
+std::vector<IElement *> LibLoader::getLibs() const {
     return _libs;
 }
 
@@ -59,14 +40,11 @@ void LibLoader::loadLibs() {
     for (size_t i = 0; i < _libsfiles.size(); i++) {
         #ifdef __linux__
             _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(LIBS_PATH + _libsfiles[i]));
-            //_libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderUnix.loadFunc("Creator", _libsPtrUnix[i]))());
-            // ! Upline, A mon avis, ca marche pas
+            _libs.push_back((std::shared_ptr<IElement>)((IElement *(*)())_dlLoaderUnix.loadFunc("Creator", _libsPtrUnix[i]))());
         #endif
         #ifdef _WIN32
-            _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(LIBS_PATH + _libsfiles[i]));
-            //_libs.push_back(std::make_shared<ILib>(_dlLoaderWindows.loadFunc("Creator", _libsPtrWindows[i]))()));
-            //_libs.push_back((std::shared_ptr<ILib>)((ILib *(*)())_dlLoaderWindows.loadFunc("Creator", _libsPtrWindows[i]))());
-            // ! Upline, Pakonpri
+            _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(_libsfiles[i]));
+            _libs.push_back(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])());
         #endif
     }
 }
@@ -82,10 +60,7 @@ void LibLoader::listLibDirectory(std::string path) {
         closedir(dir);
     #endif
     #ifdef _WIN32
-        // ? Work on linux?
-        //std::string path = "/path/to/directory";
-        for (const auto & entry : std::filesystem::directory_iterator(path))
+        for (const auto entry : std::filesystem::directory_iterator(path))
             _libsfiles.push_back(entry.path().string());
-            //std::cout << entry.path().string() << std::endl;
     #endif
 }
