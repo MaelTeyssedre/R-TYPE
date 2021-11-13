@@ -11,32 +11,31 @@
     #include <vector>
     #include "IJsonWrapper.hpp"
 
-    class JsonWrapper{
+    namespace composant {
+        struct composant_s {
+            int id;
+            std::pair<int, int> pos;
+            int strength;
+            int hp;
+            std::string type;
+        };
+    }
+    class JsonWrapper : public IJsonWrapper {
         public:
-            struct composant_s {
-                int id;
-                std::pair<int, int> pos;
-                int strength;
-                int hp;
-                bool loot;
-                std::string type;
-            };
+            
             JsonWrapper(std::string filename);
-            ~JsonWrapper();
             std::string jsonToString();
-            std::string getJsonValue(std::string &composantType, std::string &id, std::string &element);
             void fillComposantList();
-            composant_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, bool loot, std::string &type);
+            composant::composant_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type);
             void addPlayer();
             void addMonster();
             void addWall();
-            bool isNewElementType(std::vector<std::vector<composant_s>> _composantList, std::string type);
-            std::vector<std::vector<composant_s>> getComposantList() const;
-        protected:
+            bool isNewElementType(std::vector<std::vector<composant::composant_s>> _composantList, std::string type);
+            std::vector<std::vector<composant::composant_s>> getComposantList() const;
         private:
-        std::string _filename;
-        nlohmann::json _json;
-        std::vector<std::vector<composant_s>> _composantList;
+            std::string _filename;
+            nlohmann::json _json;
+            std::vector<std::vector<composant::composant_s>> _composantList;
     };
 
 #endif /* !IJSONWRAPPER_HPP_ */
