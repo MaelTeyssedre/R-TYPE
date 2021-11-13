@@ -1,3 +1,9 @@
+/**
+ * \file systems.hpp
+ *
+ * \brief file where exemples systems are defined
+ */
+
 #ifndef SYSTEMS_HPP_
     #define SYSTEMS_HPP_
 
