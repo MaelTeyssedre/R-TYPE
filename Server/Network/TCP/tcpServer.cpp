@@ -20,16 +20,14 @@ void TCPServer::send(size_t target, IPacket &data)
 
 void TCPServer::send(std::vector<size_t> targets, IPacket &data)
 {
-    for (int i = 0; i <= targets.size(); i++) {
+    for (int i = 0; i <= targets.size(); i++)
         _mapUser[targets.at(i)]->addToQueue(*data.unpack());
-    }
 }
 
 std::vector<uint8_t> TCPServer::receive()
 {
-    for (int i = 0; i <= _mapUser.size(); i++) {
+    for (int i = 0; i <= _mapUser.size(); i++)
         _mapUser[i]->read();
-    }
 }
 
 void TCPServer::eject(size_t client)
