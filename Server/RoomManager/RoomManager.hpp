@@ -29,7 +29,6 @@
             void redirectRequest(std::vector<std::string> &);
             void createRoom(std::string &packet);
             void isRoom(size_t id);
-        protected:
         private:
             std::vector<std::thread> _threadList;
             std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList;

@@ -13,7 +13,7 @@
     #include <vector>
     #include "Buffer.hpp"
 
-    class Room { // * pense a mettre une loop dans la room
+    class Room {
         public:
             Room() = default;
             Room(size_t id);
