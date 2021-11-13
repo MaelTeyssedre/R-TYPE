@@ -5,14 +5,16 @@
 ** IJsonWRAPPER
 */
 
+/*!
+* \file IJsonWrapper.hpp
+*
+* \class IJsonWrapper
+*
+* \brief Interface of JsonWrapper
+*/
 #ifndef IJSONWRAPPER_HPP_
 #define IJSONWRAPPER_HPP_
 
-    /*!
-    * \file IJsonWrapper
-    *
-    * \brief Interface of JsonWrapper
-    */
     #include <string>
     #include <nlohmann/json.hpp>
 
