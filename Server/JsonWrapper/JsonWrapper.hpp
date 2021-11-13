@@ -6,7 +6,7 @@
 */
 
 /*!
-* \file JsonWrapper
+* \file JsonWrapper.hpp
 *
 * \class JsonWrapper 
 * 
