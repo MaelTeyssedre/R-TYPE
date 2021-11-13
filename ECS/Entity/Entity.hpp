@@ -1,34 +1,45 @@
 #ifndef ENTITY_HPP_
     #define ENTITY_HPP_
 
+    /**
+     * @brief declaration of class registry to avoid circular includes...
+     */
     class Registry;
 
-    /*!
-    * \brief class for Entity, constructable only from Registry class
-    */
+    /**
+     * \class Entity Entity.hpp
+     * 
+     * \brief class for Entity, constructable only from Registry class
+     */
     class Entity {
         public:
-            /*!
-            * \brief overload of the operator () to be able to cast an Entity in size_t
-            */
+            /**
+             * \fn operator size_t() const
+             * 
+             * \brief overload of the operator () to be able to cast an Entity in size_t
+             */
             operator size_t() const;
 
-            /*!
-            * \brief Entity dtor
-            */
+            /**
+             * \fn ~Entity() = default
+             * 
+             * \brief Entity dtor
+             */
             ~Entity() = default;
 
         protected:
-            /*!
-            * \brief class passed in friend to only be able to be created by it
-            */
+            /**
+             * \brief class passed in friend to only be able to be created by it
+             */
             friend class Registry;
 
-            /*!
-            * \brief ctor
-            *
-            * \param id id of the entity
-            */
+            /**
+             * \fn explicit Entity(size_t id)
+             * 
+             * \brief ctor
+             *
+             * \param id id of the entity
+             */
             explicit Entity(size_t id);
 
         private:

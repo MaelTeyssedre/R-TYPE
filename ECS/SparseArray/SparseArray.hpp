@@ -7,6 +7,13 @@
     #include <optional>
     #include <type_traits>
 
+    /**
+     * \class SparseArray SparseArray.hpp
+     * 
+     * \brief teplated class for stocking components
+     * 
+     * \tparam Component type of components stocked in the array
+     */
     template <typename Component>
     class SparseArray
     {
@@ -19,12 +26,16 @@
             using iterator = typename container_t::iterator;
             using const_iterator = typename container_t::const_iterator;
         public:
-            /*!
+            /**
+             * \fn SparseArray() = default
+             * 
              * \brief Default ctor
              */
             SparseArray() = default;
 
-            /*!
+            /**
+             * \fn SparseArray(SparseArray const &sparceArray)
+             * 
              * \brief copy ctor
              *
              * \param sparceArray Constante reference to the SparseArray that will be copied
@@ -37,7 +48,9 @@
                 
             };
 
-            /*!
+            /**
+             * \fn SparseArray(SparseArray &&sparseArray) noexcept
+             * 
              * \brief Move Ctor
              * 
              * \param sparseArray Universal reference to the SparseArray that will be moved
@@ -45,7 +58,9 @@
             SparseArray(SparseArray &&sparseArray) noexcept
                 : _data(std::move(sparseArray._data)) {}
 
-            /*!
+            /**
+             * \fn SparseArray(size_t nbEntity)
+             * 
              * \brief Ctor that generate a number of entity by default
              * 
              * \param nbEntity number of entity to create
@@ -55,12 +70,16 @@
                     _data.push_back(std::nullopt);
             }
 
-            /*!
+            /**
+             * \fn ~SparseArray() = default
+             * 
              * \brief Default dtor
              */
             ~SparseArray() = default;
 
-            /*!
+            /**
+             * \fn void extend(size_t size)
+             * 
              * \brief Extend the number of entity
              *
              * \param size number of entity to add
@@ -70,7 +89,9 @@
                     _data.push_back(std::nullopt);
             }
 
-            /*!
+            /**
+             * \fn SparseArray &operator=(SparseArray const &sparseArray)
+             * 
              * \brief copy assignation operator
              *
              * \param sparseArray Contante reference to the SparseArray that will be assigned to another
@@ -82,7 +103,9 @@
                 return *this;
             }
 
-            /*!
+            /**
+             * \fn SparseArray &operator=(SparseArray &&sparceArray) noexcept
+             * 
              * \brief move assignation operator
              *
              * \param sparseArray Contante reference to the SparseArray that will be moved into another
@@ -94,14 +117,22 @@
                 return *this;
             }
 
-            /*!
-             * \brief 
+            /**
+             * \fn reference_type operator[](size_t idx)
+             * 
+             * \brief ovderload of operator[] ti get the component at the index passed inside of bracket
+             * 
+             * \param idx index of the component you want to get
+             * 
+             * \return reference to the Component at the specified index
              */
             reference_type operator[](size_t idx) {
                 return _data[idx];
             }
 
-            /*!
+            /**
+             * \fn const_reference_type operator[](size_t idx) const
+             * 
              * \brief bracket operator
              *
              * \param idx index to return
@@ -112,7 +143,9 @@
                 return _data[idx];
             }
 
-            /*!
+            /**
+             * \fn iterator begin()
+             * 
              * \brief getter for the first element
              *
              * \return iterator to the first element
@@ -121,7 +154,9 @@
                 return _data.begin();
             }
 
-            /*!
+            /**
+             * \fn const_iterator begin() const
+             * 
              * \brief getter for the first element
              *
              * \return constant iterator to the first element
@@ -130,14 +165,20 @@
                 return _data.begin();
             }
 
-            /*!
-             * \brief 
+            /**
+             * \fn const_iterator cbegin() const
+             * 
+             * \brief getter for the first element
+             *
+             * \return constant iterator to the first element
              */
             const_iterator cbegin() const {
                 return _data.cbegin();
             }
 
-            /*!
+            /**
+             * \fn iterator end()
+             * 
              * \brief getter for the last element
              *
              * \return iterator to the last element
@@ -146,7 +187,9 @@
                 return _data.end();
             }
 
-            /*!
+            /**
+             * \fn const_iterator end() const
+             * 
              * \brief getter for the last element
              *
              * \return constant iterator to the last element
@@ -155,14 +198,20 @@
                 return _data.end();
             }
 
-            /*!
-             * \brief
+            /**
+             * \fn const_iterator cend() const
+             * 
+             * \brief getter for the last element
+             *
+             * \return constant iterator to the last element
              */
             const_iterator cend() const {
                 return _data.cend();
             }
 
-            /*!
+            /**
+             * \fn ize_type size() const
+             * 
              * \brief getter for the size of the array
              *
              * \return size of the array
@@ -171,7 +220,9 @@
                 return _data.size();
             }
 
-            /*!
+            /**
+             * \fn reference_type insertAt(size_type pos, Component const &component)
+             * 
              * \brief add an element to an index (entity), erase the current if it exist
              *
              * \param pos position where to insert the component
@@ -192,7 +243,9 @@
                 return _data[pos];
             }
 
-            /*!
+            /**
+             * \fn reference_type insertAt(size_type pos, Component &&component)
+             * 
              * \brief move an element to an index (entity), erase the current if it exist
              *
              * \param pos position where to move the component
@@ -213,9 +266,13 @@
                 return _data[pos];
             }
 
-            /*!
+            /**
+             * \fn template <class... Params> reference_type emplaceAt(size_type pos, Params &&...params)
+             * 
              * \brief create an element to an index (entity), erase the current if it exist
              *
+             * \tparam Params pack of parameter to create the component
+             * 
              * \param pos position where to create the component
              * \param component universal reference of a template variadic of arguments to create the component
              * 
@@ -231,7 +288,9 @@
                 return _data[pos];
             }
 
-            /*!
+            /**
+             * \fn void erase(size_type pos)
+             * 
              * \brief erase a component a the specified index
              *
              * \param pos index of the component to erase
@@ -243,7 +302,9 @@
                 std::allocator_traits<decltype(alloc)>::destroy(alloc, std::addressof(_data[pos]));
             }
 
-            /*!
+            /**
+             * \fn size_type getIndex(value_type const &value) const
+             * 
              * \brief getter for the index of an entity
              * 
              * \param value constant reference to an antity by his value
