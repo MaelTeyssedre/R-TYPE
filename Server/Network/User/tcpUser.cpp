@@ -8,9 +8,6 @@
 #include "tcpUser.hpp"
 #include <iostream>
 
-tcpUser::tcpUser(asio::ip::tcp::socket &&socket) : _socket(std::move(socket))
-{}
-
 void tcpUser::start()
 {
     write();
@@ -51,7 +48,6 @@ void tcpUser::doWrite(const std::error_code &ec)
       _queue.pop();
       if (!_queue.empty())
         write();
-    } else {
+    } else
         std::cerr << ec.message() << std::endl;
-    }
 }

@@ -9,6 +9,7 @@
 #define ITCPSERVER_HPP_
 
 #include "IPacket.hpp"
+#include <vector>
 
 class ITCPServer {
     public:

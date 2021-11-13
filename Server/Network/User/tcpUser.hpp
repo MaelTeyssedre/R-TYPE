@@ -11,11 +11,13 @@
     #include <asio.hpp>
     #include <queue>
 
+    #define MAX_LENGTH 9
+
     class tcpUser : public std::enable_shared_from_this<tcpUser>
     {
         public: 
             tcpUser() = default;
-            tcpUser(asio::ip::tcp::socket &&socket);
+            tcpUser(asio::ip::tcp::socket &&socket)  : _socket(std::move(socket)) {};
             ~tcpUser() = default;
             void start();
             void addToQueue(std::vector<uint8_t> message);
@@ -26,8 +28,7 @@
 
         private:
             asio::ip::tcp::socket _socket;
-            enum { max_length = 1024}; /** max lenght of one packet */
-            char _data[max_length]; /** placeholders for packet */
+            char _data[MAX_LENGTH]; /** placeholders for packet */
             std::vector<uint8_t> _message; /** message parsed received  from the client */
             asio::streambuf _input;  /**  raw data read from the client */
             std::queue<std::vector<uint8_t>> _queue; /** datas to send */

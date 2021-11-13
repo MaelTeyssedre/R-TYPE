@@ -14,7 +14,7 @@
 
     class UDPSocket : public IUDPSocket{
         public:
-            UDPSocket();
+            UDPSocket() = default;
             UDPSocket(asio::io_context &context, std::uint16_t port)  : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port)) {};
             ~UDPSocket() = default;
             void send(IPacket &data) override;

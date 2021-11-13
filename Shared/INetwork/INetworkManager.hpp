@@ -21,7 +21,7 @@ class INetworkManager {
          * @brief Destroy the INetworkManager object
          * 
          */
-        virtual ~INetworkManager() {};
+        virtual ~INetworkManager() = 0;
 
         /**
          * @brief start connection
