@@ -13,17 +13,17 @@
     #include <dlfcn.h>
 
     #include "IElement.hpp"
-    /*namespace component {
-        class IElement;
-    };*/
+
+    using allocClass = IElement*(*)();
+    using deleteClass = void(*)(IElement*);
 
     class DlLoaderUnix {
         public:
-            DlLoaderUnix();
-            ~DlLoaderUnix();
+            DlLoaderUnix() = default;
+            ~DlLoaderUnix() = default;
 
             void *loadLib(std::string path);
-            void *loadFunc(std::string &function, void *ptr);
+            allocClass loadFunc(std::string function, void *ptr);
             void closeLib(void *ptr);
         protected:
         private:

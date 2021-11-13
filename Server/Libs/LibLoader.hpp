@@ -14,15 +14,14 @@
     #include <filesystem>
 
     #ifdef __linux__
-        #include "dirent.h"
-        #include "LibLoaderUnix.hpp"
+        #include "DlLoaderUnix.hpp"
     #endif
     #ifdef _WIN32
         #include "DlLoaderWindows.hpp"
     #endif
 
     #ifdef __linux__
-        #define LIBS_PATH "./dynlibsLinux/"
+        #define LIBS_PATH "./build/bin/dynlibsLinux/"
     #endif
     #ifdef _WIN32
         #define LIBS_PATH "./build/Release/dynlibsWindows"

@@ -7,15 +7,15 @@
 
 #include "DlLoaderUnix.hpp"
 
-void *DlLoaderUnix::loadLib(std::string &path) {
-    void *lib = dlopen(path.c_str(), RTLD_NOW);
+void *DlLoaderUnix::loadLib(std::string path) {
+    void *lib = dlopen(path.c_str(), RTLD_NOW | RTLD_LAZY);
     if (!lib)
-        throw std::invalid_argument;
+        throw std::invalid_argument("Cannot open lib");
     return lib;
 }
 
-void *DlLoaderUnix::loadFunc(std::string &function, void *ptr) {
-    return dlsym(ptr, function.c_str());
+allocClass DlLoaderUnix::loadFunc(std::string function, void *ptr) {
+    return (IElement *(*)())dlsym(ptr, function.c_str());
 }
 
 void DlLoaderUnix::closeLib(void *ptr) {

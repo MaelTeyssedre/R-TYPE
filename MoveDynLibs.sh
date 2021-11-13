@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ ! -d "./build/Release/dynlibsLinux" ]]
+if [[ ! -d "./build/bin/dynlibsLinux" ]]
 then
-    mkdir .build/Release/dynlibsLinux
+    mkdir ./build/bin/dynlibsLinux
 fi
-mv build/Release/*.so  .build/Release/dynlibsLinux
+mv build/bin/*.so  .build/bin/dynlibsLinux

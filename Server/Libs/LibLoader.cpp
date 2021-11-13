@@ -39,8 +39,8 @@ std::vector<IElement *> LibLoader::getLibs() const {
 void LibLoader::loadLibs() {
     for (size_t i = 0; i < _libsfiles.size(); i++) {
         #ifdef __linux__
-            _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(LIBS_PATH + _libsfiles[i]));
-            _libs.push_back((std::shared_ptr<IElement>)((IElement *(*)())_dlLoaderUnix.loadFunc("Creator", _libsPtrUnix[i]))());
+            _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(_libsfiles[i]));
+            _libs.push_back((IElement*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])());
         #endif
         #ifdef _WIN32
             _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(_libsfiles[i]));
@@ -50,17 +50,6 @@ void LibLoader::loadLibs() {
 }
 
 void LibLoader::listLibDirectory(std::string path) {
-    #ifdef __linux__
-        DIR *dir = opendir(path.c_str());
-        struct dirent *dir_stats;
-        if (!dir)
-            throw std::runtime_error("incorrect folder path");
-        while ((dir_stats = readdir(dir)))
-            _libsfiles.push_back(std::string(dir_stats->d_name));
-        closedir(dir);
-    #endif
-    #ifdef _WIN32
-        for (const auto entry : std::filesystem::directory_iterator(path))
-            _libsfiles.push_back(entry.path().string());
-    #endif
+    for (const auto entry : std::filesystem::directory_iterator(path))
+        _libsfiles.push_back(entry.path().string());
 }
