@@ -6,9 +6,6 @@
 */
 
 #include "NetworkManager.hpp"
-#include "tcpClient.hpp"
-#include "tcpServer.hpp"
-#include "udpSocket.hpp"
 
 void NetworkManager::start()
 {

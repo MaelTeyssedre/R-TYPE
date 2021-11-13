@@ -10,7 +10,6 @@
 
 #include "INetworkManager.hpp"
 #include "udpSocket.hpp"
-#include "tcpClient.hpp"
 #include "tcpServer.hpp"
 #include <asio.hpp>
 #include <thread>
