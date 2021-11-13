@@ -123,9 +123,9 @@
              */
             std::vector<std::vector<JsonWrapper::object_s>> getComposantList() const;
         private:
-            std::string _filename;  /*! name of the json file*/
-            nlohmann::json _json; /*! a json file*/
-            std::vector<std::vector<JsonWrapper::object_s>> _objectList; /*! an object list*/
+            std::string _filename;  /*! name of the json file */
+            nlohmann::json _json; /*! a json file */
+            std::vector<std::vector<JsonWrapper::object_s>> _objectList; /*! an object list */
     };
 
 #endif /* !IJSONWRAPPER_HPP_ */
