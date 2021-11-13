@@ -17,7 +17,7 @@
      *
      * \param r Reference to the registry
      * \param positions Reference to an array of position component
-     * \param velocyties Reference to an array of velocity component
+     * \param velocities Reference to an array of velocity component
      */
     void loggingSystem(Registry &r, SparseArray<component::position_s> &positions, SparseArray<component::velocity_s> &velocities);
 
@@ -28,7 +28,7 @@
      *
      * \param r Reference to the registry
      * \param positions Reference to an array of position component
-     * \param velocoties Reference to an array of velocity component
+     * \param velocities Reference to an array of velocity component
      * \param controllable Reference to an array of controllable component
      */
     void controlSystem(Registry &r, SparseArray<component::position_s> &positions, SparseArray<component::velocity_s> &velocities, SparseArray<component::controllable_s> &controllable);
