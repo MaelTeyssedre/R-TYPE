@@ -1,3 +1,9 @@
+/**
+ * \file SparseArray.hpp
+ *
+ * \brief file where the templated SparseArray class is defined
+ */
+
 #ifndef SPARSEARRAY_HPP_
     #define SPARSEARRAY_HPP_
 
