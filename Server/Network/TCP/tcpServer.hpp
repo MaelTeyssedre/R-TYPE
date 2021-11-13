@@ -16,7 +16,7 @@
 
     class TCPServer : public ITCPServer {
         public:
-            TCPServer();
+            TCPServer() = default;
             TCPServer(asio::io_context &context, std::uint16_t port);
             ~TCPServer() = default;
             void send(size_t target, IPacket &data) override;
