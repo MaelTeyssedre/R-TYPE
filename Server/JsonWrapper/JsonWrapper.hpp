@@ -23,13 +23,13 @@
             std::string type;
         };
             JsonWrapper(std::string &filename);
-            std::string &jsonToString();
-            void fillComposantList();
+            std::string &jsonToString() override;
+            void fillComposantList() override;
             JsonWrapper::object_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type);
             JsonWrapper::object_s createComposant(std::pair<int, int> pos, std::string &type);
-            void addPlayer();
-            void addMonster();
-            void addWall();
+            void addPlayer() override;
+            void addMonster() override;
+            void addWall() override;
             bool isNewElementType(std::vector<std::vector<JsonWrapper::object_s>> _objectList, std::string type);
             std::vector<std::vector<JsonWrapper::object_s>> getComposantList() const;
         private:
