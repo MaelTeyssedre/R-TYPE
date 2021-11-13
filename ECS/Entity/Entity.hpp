@@ -8,7 +8,7 @@
     #define ENTITY_HPP_
 
     /**
-     * @brief declaration of class registry to avoid circular includes...
+     * \brief declaration of class registry to avoid circular includes...
      */
     class Registry;
 

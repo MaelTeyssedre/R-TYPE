@@ -160,7 +160,7 @@
             /**
              * \fn template <typename Component, typename ...Params> typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p)
              * 
-             * \brief create a nomponent for an specified entity
+             * \brief create a component for an specified entity
              * 
              * \tparam Component type of component we want create
              * \tparam Params pack of argument to create the component
@@ -193,10 +193,10 @@
             /**
              * \fn template <typename Function, class ...Components> void addSystem(Function &&f, Components &&...components)
              * 
-             * \brief add a system the the registry
+             * \brief add a system the registry
              * 
              * \tparam Function type of function we want to move into the registry
-             * \tparam Components pack of components we want to pass in argument to the the previously passed function
+             * \tparam Components pack of components we want to pass in argument to the previously passed function
              *
              * \param f universal reference of a function that will be moved inside the registry
              * \param components universal reference of a variadic template for arguments taken by the function moved previously
@@ -211,10 +211,10 @@
             /**
              * \fn template <typename Function, class ...Components> void addSystem(Function const &f, Components &...components)
              * 
-             * \brief add a system the the registry
+             * \brief add a system the registry
              * 
              * \tparam Function type of function we want to pass into the registry
-             * \tparam Components pack of components we want to pass in argument to the the previously passed function
+             * \tparam Components pack of components we want to pass in argument to the previously passed function
              *
              * \param f universal reference of a function that will be added inside the registry
              * \param components variadic template for arguments taken by the function passed previously
@@ -228,9 +228,9 @@
 
         private:
             std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _constructorArray; /*! map of default constructor for components, indexed by type */
-            std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _destructorArray; /*! map of default desctructor for components, indexed by type */
+            std::map<std::type_index, std::function<void(Registry &, Entity const &)>> _destructorArray; /*! map of default destructor for components, indexed by type */
             std::map<std::type_index, std::any> _componentsArrays; /*! map of components, indexed by type */
-            std::vector<std::function<void(Registry &)>> _systems; /*! list of systems that will be executed from the first to the last (the order can be importanrt) */
+            std::vector<std::function<void(Registry &)>> _systems; /*! list of systems that will be executed from the first to the last (the order can be important) */
             size_t _entities; /*! number of entities */
             std::vector<Entity> _killedEntities; /*! list of killed entities */
     };

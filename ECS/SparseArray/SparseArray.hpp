@@ -16,7 +16,7 @@
     /**
      * \class SparseArray SparseArray.hpp
      * 
-     * \brief teplated class for stocking components
+     * \brief templated class for stocking components
      * 
      * \tparam Component type of components stocked in the array
      */
@@ -100,7 +100,7 @@
              * 
              * \brief copy assignation operator
              *
-             * \param sparseArray Contante reference to the SparseArray that will be assigned to another
+             * \param sparseArray constant reference to the SparseArray that will be assigned to another
              * 
              * \return Reference to the assigned SparseArray
              */
@@ -114,7 +114,7 @@
              * 
              * \brief move assignation operator
              *
-             * \param sparseArray Contante reference to the SparseArray that will be moved into another
+             * \param sparseArray constant reference to the SparseArray that will be moved into another
              * 
              * \return Reference to the assigned SparseArray
              */
@@ -126,7 +126,7 @@
             /**
              * \fn reference_type operator[](size_t idx)
              * 
-             * \brief ovderload of operator[] ti get the component at the index passed inside of bracket
+             * \brief overload of operator[] ti get the component at the index passed inside of bracket
              * 
              * \param idx index of the component you want to get
              * 
@@ -313,7 +313,7 @@
              * 
              * \brief getter for the index of an entity
              * 
-             * \param value constant reference to an antity by his value
+             * \param value constant reference to an entity by his value
              * 
              * \return index of the value (entity)
              */
