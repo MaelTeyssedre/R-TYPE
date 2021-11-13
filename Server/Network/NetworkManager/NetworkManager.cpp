@@ -10,15 +10,6 @@
 #include "tcpServer.hpp"
 #include "udpSocket.hpp"
 
-NetworkManager::~NetworkManager()
-{
-}
-
-NetworkManager::NetworkManager() : _context(), _worker(), _udpSockets(), _tcpClients(), _tcpServers(), _thread(), _started(false)
-{
-}
-
-
 void NetworkManager::start()
 {
       _thread = std::thread(&NetworkManager::startNetworkThread, this);

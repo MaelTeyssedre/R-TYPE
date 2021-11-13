@@ -17,8 +17,8 @@
 
 class NetworkManager : public INetworkManager{
     public:
-        NetworkManager();
-        ~NetworkManager();
+        NetworkManager() : _context(), _worker(), _udpSockets(), _tcpClients(), _tcpServers(), _thread(), _started(false) {};
+        ~NetworkManager() = default;
         void start() override;
         void stop() override;
         TCPServer *createTCPServer(int port) override;
