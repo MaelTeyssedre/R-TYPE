@@ -40,9 +40,7 @@ void TCPServer::startAccept()
     _acceptor.async_accept([this](std::error_code ec,  asio::ip::tcp::socket socket)
     {
         if (!ec) {
-            _mapUser.insert(std::make_pair(_nbUsers,
-            std::make_shared<tcpUser>(std::move(socket))
-            ));
+            _mapUser.insert(std::make_pair(_nbUsers, std::make_shared<tcpUser>(std::move(socket))));
             _mapUser[_nbUsers]->start();
             _nbUsers++;
         }
@@ -50,5 +48,4 @@ void TCPServer::startAccept()
     });
     if (_mapUser.size() != 0)
         receive();
-
 }
