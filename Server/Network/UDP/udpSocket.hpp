@@ -17,14 +17,9 @@ class UDPSocket : public IUDPSocket{
         UDPSocket();
         UDPSocket(asio::io_context &context, std::uint16_t port);
         ~UDPSocket() = default;
-        void send(size_t target, IPacket &data) override;
-        void send(std::vector<size_t> targets, IPacket &data) override;
+        void send(IPacket &data) override;
         std::vector<uint8_t> &receive() override;
         void handleSend();
-        void start() override;
-        void stop() override;
-        void eject(size_t client) override;
-        void startAccept();
 
     private:
         asio::ip::udp::socket _socket;

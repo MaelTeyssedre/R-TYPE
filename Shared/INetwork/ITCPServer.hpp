@@ -43,24 +43,12 @@ class ITCPServer {
         virtual std::vector<uint8_t> receive() = 0;
 
         /**
-         * @brief start the server and accept incoming connection
-         * 
-         * @param port to accept connection
-         */
-        virtual void start() = 0;
-
-        /**
          * @brief 
          * 
          * @param client 
          */
         virtual void eject(size_t client) = 0;
 
-        /**
-         * @brief stop the server
-         * 
-         */
-        virtual void stop() = 0;
 };
 
 #endif /* !ITCPSERVER_HPP_ */

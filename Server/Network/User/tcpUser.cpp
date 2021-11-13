@@ -13,12 +13,6 @@ tcpUser::tcpUser(asio::ip::tcp::socket &&socket) : _socket(std::move(socket))
 
 void tcpUser::start()
 {
-    std::vector<uint8_t> vec;
-    std::string str = "hello from server";
-
-    vec.assign(str.begin(), str.end());
-    std::cout << "Connection start" << std::endl;
-    addToQueue(vec);
     write();
     read();
 }
@@ -31,19 +25,15 @@ void tcpUser::addToQueue(std::vector<uint8_t> message)
 
 void tcpUser::read()
 {
-    std::cout << "bofore: " << std::endl;
-   // asio::async_read(_socket, _input, std::bind(&tcpUser::doRead, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
-    std::cout << "after: " << std::endl;
+   asio::async_read(_socket, _input, std::bind(&tcpUser::doRead, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
 }
 
 void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
-    std::cout << "in doread: " << std::endl;
     if (!ec) {
         std::istream stream(&_input);
         std::string line;
         std::getline(stream, line);
-      //  std::cout << "receive: " << line << std::endl;
         _input.consume(bytes);
         read();
     } else

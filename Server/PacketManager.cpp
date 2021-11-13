@@ -7,23 +7,23 @@
 
 #include "PacketManager.hpp"
 
-PacketManager::PacketManager()
+PacketManager::PacketManager(/*std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut*/)
 {
+  //  _bufferIn = bufferIn;
+    //_bufferOut = bufferOut;
 }
 
 PacketManager::~PacketManager()
 {
 }
 
-IPacket &PacketManager::serialise(std::shared_ptr<std::vector<uint8_t>> rawData)
+void PacketManager::managePacket(std::pair<size_t, std::vector<uint8_t>> packet)
 {
-    Packet tmp;
+  /* for (int i = 0; i <= _roomList->size(); i++) {
+       if (std::find(_roomList->at(i).begin(), _roomList->at(i).end(), packet.first)) {
 
-    tmp.pack(rawData);
-    return (tmp);
-}
-
-std::shared_ptr<std::vector<uint8_t>> PacketManager::unserialise(IPacket &packet)
-{
-    return (packet.unpack());
+        return;
+       }
+   } 
+    _bufferOut->putInBuffer(static_cast<uint16_t>(packet.second.size()), packet.second);*/
 }

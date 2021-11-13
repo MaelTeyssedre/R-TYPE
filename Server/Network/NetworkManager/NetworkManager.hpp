@@ -21,9 +21,9 @@ class NetworkManager : public INetworkManager{
         ~NetworkManager();
         void start() override;
         void stop() override;
-        TCPServer *createTCPServer() override;
-        ITCPClient *createTCPClient() override;
-        UDPSocket *createSocketUDP() override;
+        TCPServer *createTCPServer(int port) override;
+        ITCPClient *createTCPClient(int port) override;
+        UDPSocket *createSocketUDP(int port) override;
         void deleteTCPServer(ITCPServer *tcp) override;
         void deleteTCPClient(ITCPClient *tcp) override;
         void deleteSocketUDP(IUDPSocket *socket) override;
@@ -36,9 +36,7 @@ class NetworkManager : public INetworkManager{
         std::vector<ITCPClient *> _tcpClients;
         std::vector<ITCPServer *> _tcpServers;
         std::thread _thread;
-        bool _started;
-
-        
+        bool _started;      
 };
 
 #endif /* !NETWORKMANAGER_HPP_ */

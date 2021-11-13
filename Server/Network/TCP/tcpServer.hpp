@@ -27,9 +27,6 @@ class TCPServer : public ITCPServer {
         std::map<size_t, std::shared_ptr<tcpUser>> getUsers() {return (_mapUser);};
 
     private:
-
-        void handleAccept(std::shared_ptr<tcpUser> newUser);
-
         asio::io_context &_context;
         asio::ip::tcp::acceptor _acceptor;
         std::map<size_t, std::shared_ptr<tcpUser>> _mapUser;

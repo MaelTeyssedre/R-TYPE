@@ -50,14 +50,7 @@ void TCPServer::startAccept()
         }
         startAccept();
     });
-    std::cout << "in start accept" << std::endl;
     if (_mapUser.size() != 0)
         receive();
-    std::cout << "after start accept" << std::endl;
 
-}
-
-void TCPServer::handleAccept(std::shared_ptr<tcpUser> newUser)
-{
-    std::cout << "hello f,k," << std::endl;
 }

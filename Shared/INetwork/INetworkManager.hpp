@@ -40,21 +40,21 @@ class INetworkManager {
          * 
          * @return ITCPServer* 
          */
-        virtual ITCPServer *createTCPServer() =  0;
+        virtual ITCPServer *createTCPServer(int port) =  0;
 
         /**
          * @brief create a TCP client
          * 
          * @return ITCPClient* 
          */
-        virtual ITCPClient *createTCPClient() = 0;
+        virtual ITCPClient *createTCPClient(int port) = 0;
 
         /**
          * @brief Create a UDP connection
          * 
          * @return UDPSocket* 
          */ 
-        virtual IUDPSocket *createSocketUDP() = 0;
+        virtual IUDPSocket *createSocketUDP(int port) = 0;
 
         /**
          * @brief delete a specified UDP connection

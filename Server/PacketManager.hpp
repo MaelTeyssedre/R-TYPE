@@ -12,14 +12,15 @@
 
 class PacketManager {
     public:
-        PacketManager();
+        PacketManager(/*std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut*/);
         ~PacketManager();
-        IPacket &serialise(std::shared_ptr<std::vector<uint8_t>> data);
-        std::shared_ptr<std::vector<uint8_t>> unserialise(IPacket &packet);
-
+        void managePacket(std::pair<size_t, std::vector<uint8_t>> packet);
+  
     protected:
     private:
-  //      std::shared_ptr<std::vector<std::vector<playerData>>> _players;
+      //  std::shared_ptr<std::vector<std::vector<playerData>>> _roomList;
+        //std::shared_ptr<Buffer> _bufferIn;
+        //std::shared_ptr<Buffer> _bufferOut;
 };
 
 #endif /* !PACKETMANAGER_HPP_ */
