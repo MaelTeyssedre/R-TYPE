@@ -33,10 +33,10 @@
         /**
          * \struct position_s components.hpp
          * 
-         * \brief velocoty component
+         * \brief velocity component
          *
          * \param x x velocity of the element
-         * \param y y velocoty of the element
+         * \param y y velocity of the element
          */
         struct velocity_s {
             int vx;
