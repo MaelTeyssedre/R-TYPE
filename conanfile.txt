@@ -1,7 +1,7 @@
 [requires]
 asio/1.19.2
+sfml/2.5.1
 nlohmann_json/3.10.4
-sfml/2.5.1@bincrafters/stable
 
 [generators]
 cmake
