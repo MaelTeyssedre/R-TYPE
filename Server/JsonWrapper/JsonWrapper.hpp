@@ -5,14 +5,16 @@
 ** JsonWRAPPER
 */
 
+/*!
+* \file JsonWrapper
+*
+* \class JsonWrapper 
+* 
+* \brief Manipulate the content of a Json file
+*/
 #ifndef JSONWRAPPER_HPP_
 #define JSONWRAPPER_HPP_
 
-    /*!
-    * \class JsonWrapper 
-    * 
-    * \brief Manipulate the content of a Json file
-    */
     #include <vector>
     #include "IJsonWrapper.hpp"
 
