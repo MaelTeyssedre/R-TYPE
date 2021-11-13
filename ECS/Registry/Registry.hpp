@@ -1,3 +1,9 @@
+/**
+ * \file Registry.hpp
+ *
+ * \brief file where the Registry class is defined
+ */
+
 #ifndef REGISTRY_HPP_
     #define REGISTRY_HPP_
 
