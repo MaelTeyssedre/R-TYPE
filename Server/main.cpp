@@ -14,7 +14,6 @@ int main()
     std::string result;
     std::vector<std::vector<JsonWrapper::composant_s>> composantList;
 
-    wrapper.fillComposantList();
     composantList = wrapper.getComposantList();
     for (auto &it: composantList) {
         for (auto &it2: it) {

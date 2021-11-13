@@ -17,6 +17,7 @@ JsonWrapper::JsonWrapper(std::string filename)
     _filename = filename;
     std::ifstream ifs(_filename);
     _json = nlohmann::json::parse(ifs);
+    fillComposantList();
 }
 
 JsonWrapper::~JsonWrapper()
