@@ -25,14 +25,7 @@ void tcpUser::start()
 
 void tcpUser::addToQueue(std::vector<uint8_t> message)
 {
-    std::vector<uint8_t> vec;
-
-     std::string str = "hello from server";
-
-    vec.assign(str.begin(), str.end());
-    std::cout << "Connection start" << std::endl;
-    //addToQueue(vec);
-    _queue.push(vec);
+    _queue.push(message);
 }
 
 

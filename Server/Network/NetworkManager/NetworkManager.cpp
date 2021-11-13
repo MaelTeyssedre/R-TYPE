@@ -6,7 +6,7 @@
 */
 
 #include "NetworkManager.hpp"
-#include "TCPClient.hpp"
+#include "tcpClient.hpp"
 #include "tcpServer.hpp"
 #include "udpSocket.hpp"
 
@@ -54,11 +54,11 @@ TCPServer *NetworkManager::createTCPServer()
     return (server);
 }
 
-IUDPSocket *NetworkManager::createSocketUDP()
+UDPSocket *NetworkManager::createSocketUDP()
 {
-   // UDPSocket *socket = new UDPSocket(_context, 1342);
-   // _udpSockets.push_back(socket);
-   // return (socket);
+    UDPSocket *socket = new UDPSocket(_context, 1342);
+    _udpSockets.push_back(socket);
+    return (socket);
 }
 
 void NetworkManager::deleteSocketUDP(IUDPSocket *socket)

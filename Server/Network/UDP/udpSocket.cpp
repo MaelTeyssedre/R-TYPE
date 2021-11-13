@@ -6,16 +6,25 @@
 */
 
 #include "udpSocket.hpp"
-/*
-UDPSocket::UDPSocket(asio::io_context &context, std::uint16_t port) : _context(context)
+
+UDPSocket::UDPSocket(asio::io_context &context, std::uint16_t port) : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port))
 {
-    startAccept();
-}*/
+}
 
 void UDPSocket::send(size_t target, IPacket &data)
 {
-   // mapUser[target]->addToQueue(*data.unpack());
-  // _socket.asyn_send_to()
+  std::vector<uint8_t> vec;
+  std::string str;
+
+  str = "test from udp server";
+  vec.assign(str.begin(), str.end());
+
+  _socket.async_send_to(asio::buffer(vec), _endpoint, std::bind(&UDPSocket::handleSend, this));
+
+}
+
+void UDPSocket::handleSend()
+{
 }
 
 void UDPSocket::send(std::vector<size_t> targets, IPacket &data)
@@ -25,8 +34,16 @@ void UDPSocket::send(std::vector<size_t> targets, IPacket &data)
     //}
 }
 
-std::vector<uint8_t> UDPSocket::receive()
+std::vector<uint8_t> &UDPSocket::receive()
 {
+  char data[1024];
+
+  _socket.async_receive_from(asio::buffer(data, 1024), _endpoint, [this](std::error_code ec, std::size_t bytes_recvd)
+        {
+          receive();
+        });
+
+
 }
 
 void UDPSocket::start()
@@ -45,15 +62,4 @@ void UDPSocket::eject(size_t client)
 
 void UDPSocket::startAccept()
 {
-  /*  _acceptor.async_accept([this](std::error_code ec,  asio::ip::tcp::socket socket)
-    {
-        if (!ec) {
-            mapUser.insert(std::make_pair(_nbUsers,
-            std::make_shared<tcpUser>(std::move(socket))
-            ));
-            mapUser[_nbUsers]->start();
-            _nbUsers++;
-        }
-        startAccept();
-    });*/
 }

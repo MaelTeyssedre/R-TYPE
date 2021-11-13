@@ -9,9 +9,9 @@
 #define NETWORKMANAGER_HPP_
 
 #include "INetworkManager.hpp"
-#include "UDPSocket.hpp"
-#include "TCPClient.hpp"
-#include "TCPServer.hpp"
+#include "udpSocket.hpp"
+#include "tcpClient.hpp"
+#include "tcpServer.hpp"
 #include <asio.hpp>
 #include <thread>
 
@@ -23,7 +23,7 @@ class NetworkManager : public INetworkManager{
         void stop() override;
         TCPServer *createTCPServer() override;
         ITCPClient *createTCPClient() override;
-       IUDPSocket *createSocketUDP() override;
+        UDPSocket *createSocketUDP() override;
         void deleteTCPServer(ITCPServer *tcp) override;
         void deleteTCPClient(ITCPClient *tcp) override;
         void deleteSocketUDP(IUDPSocket *socket) override;
