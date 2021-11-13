@@ -1,7 +1,7 @@
 /**
  * \file Entity.hpp
  *
- * \brief file when the class Entity is defined
+ * \brief file where the class Entity is defined
  */
 
 #ifndef ENTITY_HPP_
