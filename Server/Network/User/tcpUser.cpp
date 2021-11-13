@@ -42,12 +42,11 @@ void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 
 void tcpUser::write()
 {
-    asio::async_write(_socket, asio::buffer(_queue.front()), std::bind(&tcpUser::doWrite, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+    asio::async_write(_socket, asio::buffer(_queue.front()), std::bind(&tcpUser::doWrite, shared_from_this(), std::placeholders::_1));
 }
 
-void tcpUser::doWrite(const std::error_code &ec, size_t bytes)
+void tcpUser::doWrite(const std::error_code &ec)
 {
-    (void)bytes;
     if (!ec) {
       _queue.pop();
       if (!_queue.empty())

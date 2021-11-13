@@ -22,7 +22,7 @@ class tcpUser : public std::enable_shared_from_this<tcpUser>
         void read();
         void doRead(const std::error_code &ec, size_t bytes);
         void write();
-        void doWrite(const std::error_code &ec, size_t bytes);
+        void doWrite(const std::error_code &ec);
 
     private:
         asio::ip::tcp::socket _socket;
