@@ -14,7 +14,7 @@
      * \fn void loggingSystem(Registry &r, SparseArray<component::position_s> &positions, SparseArray<component::velocity_s> &velocities)
      * 
      * \brief System for logging in real-time the values of positions and velocities components
-      *
+     *
      * \param r Reference to the registry
      * \param positions Reference to an array of position component
      * \param velocyties Reference to an array of velocity component
