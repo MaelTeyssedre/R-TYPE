@@ -28,7 +28,6 @@
 	{
 		__declspec (dllexport) IElement *allocator()
 		{
-			std::cout << "I would kill someone to see you!!" << std::endl;
 			return new BasicMonster();
 		}
 
