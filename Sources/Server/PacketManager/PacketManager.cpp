@@ -38,8 +38,8 @@ void PacketManager::managePacket(std::pair<size_t, std::vector<uint8_t>> packet)
 {
   std::string str(packet.second.begin(), packet.second.end());
 
-   for (int i = 0; i <= _roomList->size(); i++) {
-       if (!std::find(_roomList->at(i).begin(), _roomList->at(i).end(), packet.first)) {
+   for (int i = 0; i != _roomList->size(); i++) {
+      if (std::find(_roomList->at(i).begin(), _roomList->at(i).end(), packet.first) != _roomList->at(i).begin()) {
          if (packet.second.at(0) == 15)
           createRoom(packet);
         else if (packet.second.at(0) == 16)

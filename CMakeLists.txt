@@ -23,8 +23,20 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
-    
-    
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/PacketManager/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/PacketManager/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
+
 )
 
 file(
@@ -157,6 +169,43 @@ if (WIN32)
         ${PROJECT_SOURCE_DIR}/Sources/LibLoader/Windows
     )
 endif (WIN32)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/
+)
+
 
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})

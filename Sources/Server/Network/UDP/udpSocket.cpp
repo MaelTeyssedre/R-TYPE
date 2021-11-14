@@ -19,10 +19,13 @@ void UDPSocket::handleSend()
 
 std::vector<uint8_t> &UDPSocket::receive()
 {
-  char data[1024];
-
-  _socket.async_receive_from(asio::buffer(data, 1024), _endpoint, [this](std::error_code ec, std::size_t bytes_recvd)
+  _socket.async_receive_from(_input, _endpoint, [this](std::error_code ec, std::size_t bytes)
   {
-    receive();
+      std::istream stream(&_input);
+      std::string line;
+      std::getline(stream, line);
+      _input.consume(bytes);
+      receive();
   });
+
 }

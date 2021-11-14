@@ -18,6 +18,8 @@
     #include "Packet.hpp"
     #include <asio.hpp>
 
+    #define MAX_LENGTH 1024
+
     /**
      * \class udpSocket udpSocket.hpp 
      * 
@@ -83,6 +85,9 @@
             asio::ip::udp::socket _socket; /*! socket to use */
             asio::io_context &_context; /*! asio context */
             asio::ip::udp::endpoint _endpoint; /*! endpoint of the user */
+            char _data[MAX_LENGTH]; /*! placeholders for packet */
+            std::vector<uint8_t> _message; /*! message parsed received  from the client */
+            asio::streambuf _input;  /*!  raw data read from the client */
     };
 
 #endif /* !UDPSOCKET_HPP_ */

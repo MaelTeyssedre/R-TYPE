@@ -15,6 +15,8 @@
     #define PACKETMANAGER_HPP_
 
     #include "Packet.hpp"
+    #include "Buffer.hpp"
+    #include "PlayerData.hpp"
 
     /**
      * \class PacketManager PacketManager.hpp
@@ -82,7 +84,7 @@
             
     
         private:
-            std::shared_ptr<std::vector<std::vector<playerData>>> _roomList; /*! vector of player data */
+            std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! vector of player data */
             std::shared_ptr<Buffer> _bufferIn; /*! buffer in */
             std::shared_ptr<Buffer> _bufferOut; /*! buffer out */
     };

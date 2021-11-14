@@ -34,7 +34,7 @@
              * 
              * \brief ctor networkManager
              */
-            explicit NetworkManager() : _context(), _worker(), _udpSockets(), _tcpClients(), _tcpServers(), _thread(), _started(false) {};
+            explicit NetworkManager() : _context(), _worker(), _udpSockets(), _tcpServers(), _thread() {};
 
             /**
              * \fn virtual ~NetworkManager()
