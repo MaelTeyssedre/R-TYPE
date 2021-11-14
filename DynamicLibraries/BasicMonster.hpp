@@ -20,7 +20,6 @@
      * 
      * \brief Class that contain a monster in a .so/.dll
      */
-
     class BasicMonster : public IElement {
         public:
             /**
