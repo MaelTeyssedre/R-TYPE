@@ -40,10 +40,8 @@
 
 void BasicMonster::init(Registry &)
 {
-    std::cout << "Init Basic monster" << std::endl;
 }
 
 void BasicMonster::update()
 {
-    std::cout << "Update Basic monster" << std::endl;
 }

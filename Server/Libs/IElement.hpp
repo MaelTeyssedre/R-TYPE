@@ -16,8 +16,6 @@
     #include <memory>
     #include <iostream>
 
-    class Registry;
-
     /**
      * \class IElement IElement.hpp
      * 

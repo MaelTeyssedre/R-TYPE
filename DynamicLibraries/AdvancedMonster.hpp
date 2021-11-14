@@ -68,7 +68,7 @@
             void update(void) override;
 
         private:
-            //Registry _registry; /*! registry*/
+            Registry _registry; /*! registry*/
             std::string _name; /*! name of the monster */
             std::string _texturePath; /*! _texturePath of the monster*/
             size_t _healPoint; /*! healpoint of the monster */
