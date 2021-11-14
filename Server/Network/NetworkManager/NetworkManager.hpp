@@ -30,19 +30,19 @@
         public:
 
             /**
-             * \fn NetworkManager()
+             * \fn explicit NetworkManager()
              * 
              * \brief ctor networkManager
              */
-            NetworkManager() : _context(), _worker(), _udpSockets(), _tcpClients(), _tcpServers(), _thread(), _started(false) {};
+            explicit NetworkManager() : _context(), _worker(), _udpSockets(), _tcpClients(), _tcpServers(), _thread(), _started(false) {};
 
             /**
-             * \fn ~NetworkManager()
+             * \fn virtual ~NetworkManager()
              * 
              * \brief dtor NetworkManager
              * 
              */
-            ~NetworkManager() = default;
+            virtual ~NetworkManager() = default;
 
             /**
              * \fn void start()
@@ -67,6 +67,8 @@
              * 
              * \param port to use
              * 
+             * \return new created tcp server
+             * 
              */
             ITCPServer *createTCPServer(int port) override;
 
@@ -76,6 +78,8 @@
              * \brief create socket udp
              * 
              * \param port to use
+             * 
+             * \return new created tcp server
              * 
              */
             IUDPSocket *createSocketUDP(int port) override;

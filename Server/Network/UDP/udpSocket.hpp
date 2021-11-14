@@ -26,14 +26,14 @@
     class UDPSocket : public IUDPSocket{
         public:
             /**
-             * \fn udpSocket() = default
+             * \fn explicit udpSocket() = default
              * 
              * \brief ctor udp Socket
              */
             explicit UDPSocket() = default;
 
             /**
-             * \fn UDPSocket(asio::io_context &context, std::uint16_t port)
+             * \fn explicit UDPSocket(asio::io_context &context, std::uint16_t port)
              * 
              * \brief ctor TCP server
              * 
@@ -44,7 +44,7 @@
             explicit UDPSocket(asio::io_context &context, std::uint16_t port)  : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port)) {};
      
             /**
-             * \fn ~UDPSocket() = default;
+             * \fn virtual ~UDPSocket() = default;
              * 
              * \brief dtor TCP server
              * 

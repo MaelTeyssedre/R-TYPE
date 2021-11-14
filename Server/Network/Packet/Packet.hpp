@@ -25,14 +25,14 @@ class Packet : public IPacket {
     public:
 
         /**
-        * \fn Packet() = default
+        * \fn explicit Packet() = default
         *
         * \brief ctor packet
         */
         explicit Packet() = default;
 
         /**
-        * \fn ~Packet() = default
+        * \fn virtual ~Packet() = default
         *
         * \brief dtor packet
         */
@@ -45,6 +45,8 @@ class Packet : public IPacket {
         * 
         * \param data to pack
         * 
+        * \return size readed
+        * 
         */
         size_t pack(std::vector<uint8_t> &data) override;
 
@@ -52,6 +54,8 @@ class Packet : public IPacket {
         * \fn std::shared_ptr<std::vector<uint8_t>> unpack()
         *
         * \brief unpack the data
+        * 
+        * \return vector of data
         * 
         */
         std::shared_ptr<std::vector<uint8_t>> unpack() override;        

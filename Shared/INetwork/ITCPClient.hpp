@@ -20,7 +20,7 @@
         public:
 
             /**
-             * \fn ~ITCPClient() = default
+             * \fn virtual ~ITCPClient() = default
              * 
              * \brief Destroy the ITCPClient object
              * 
@@ -28,7 +28,7 @@
             virtual ~ITCPClient() = default;
 
             /**
-             * \fn void send(IPacket &data) = 0
+             * \fn virtual void send(IPacket &data) = 0
              * 
              * \brief send data
              * 
@@ -37,7 +37,7 @@
             virtual void send(IPacket &data) = 0;
 
             /**
-             * \fn IPacket &receive() = 0 
+             * \fn virtual IPacket &receive() = 0 
              * 
              * \brief receive data
              * 
@@ -46,7 +46,7 @@
             virtual IPacket &receive() = 0;
 
             /**
-             * \fn void connect(std::string &ip, std::uint16_t port) = 0
+             * \fn virtual void connect(std::string &ip, std::uint16_t port) = 0
              * 
              * \brief connect to a socket with specified ip and port
              * 
@@ -56,7 +56,7 @@
             virtual void connect(std::string &ip, std::uint16_t port) = 0;
 
             /**
-             * \fn void disconnect() = 0
+             * \fn virtual void disconnect() = 0
              * 
              * \brief disconnect to the socket
              * 

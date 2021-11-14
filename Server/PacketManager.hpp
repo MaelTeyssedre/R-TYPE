@@ -25,14 +25,14 @@
         public:
 
             /**
-             * \fn PacketManager() = default
+             * \fn explicit PacketManager() = default
              * 
              * \brief ctor PacketManager
              */
             explicit PacketManager() = default;
 
             /**
-             * \fn  PacketManager(std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
+             * \fn explicit PacketManager(std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
              * 
              * \brief ctor udp Socket
              * 
@@ -43,7 +43,7 @@
             explicit PacketManager(std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut);
 
             /**
-             * \fn ~PacketManager() = default
+             * \fn virtual  ~PacketManager() = default
              * 
              * \brief dtor udp Socket
              * 

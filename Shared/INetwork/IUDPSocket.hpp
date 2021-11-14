@@ -20,7 +20,7 @@
         public:
 
             /**
-             * \fn ~IUDPSocket() = default
+             * \fn virtual ~IUDPSocket() = default
              * 
              * \brief Destroy the IUDPSocket object
              * 
@@ -28,18 +28,21 @@
             virtual ~IUDPSocket() = default;
 
             /**
-             * \fn void send(IPacket &data) = 0
+             * \fn virtual void send(IPacket &data) = 0
              * 
              * \param data 
              */
             virtual void send(IPacket &data) = 0;
 
             /**
-             * \fn std::vector<uint8_t> &receive() = 0
+             * \fn virtual std::vector<uint8_t> &receive() = 0
              * 
              * \brief 
              * 
              * \param data 
+             * 
+             * \return data received from network
+             * 
              */
             virtual std::vector<uint8_t> &receive() = 0;
     };

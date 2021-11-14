@@ -29,14 +29,14 @@
     class TCPServer : public ITCPServer {
         public:
             /**
-             * \fn TCPServer() = default
+             * \fn explicitTCPServer() = default
              * 
              * \brief ctor TCP server
              */
             explicit TCPServer() = default;
 
             /**
-             * \fn TCPServer(asio::io_context &context, std::uint16_t port)
+             * \fn explicit TCPServer(asio::io_context &context, std::uint16_t port)
              * 
              * \brief ctor TCP server
              * 
@@ -48,7 +48,7 @@
             explicit TCPServer(asio::io_context &context, std::uint16_t port);
 
             /**
-             * \fn  ~TCPServer() = default
+             * \fn virtual ~TCPServer() = default
              * 
              * \brief dtor TCP server
              */
@@ -80,6 +80,8 @@
              * \fn std::vector<uint8_t> receive()
              * 
              * \brief receive data
+             * 
+             * \return data received
              * 
              */
             std::vector<uint8_t> receive() override;
