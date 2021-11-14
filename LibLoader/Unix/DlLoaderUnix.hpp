@@ -77,6 +77,8 @@
              * \param ptr previously open lib
              * 
              * \brief load a function from a dynlib
+             * 
+             * \return loaded function
              */
             allocClass loadFunc(std::string function, void *ptr);
 

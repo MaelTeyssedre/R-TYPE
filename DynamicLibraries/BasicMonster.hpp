@@ -69,7 +69,7 @@
             void update(void) override;
 
         private:
-            std::shared_ptr<int> _registry; /*! regstry*/
+            std::shared_ptr<int> _registry; /*! registry*/
             std::string _name; /*! name of the monster */
             size_t _spriteId; /*! spriteid of the monster*/
             size_t _healPoint; /*! healpoint of the monster */
