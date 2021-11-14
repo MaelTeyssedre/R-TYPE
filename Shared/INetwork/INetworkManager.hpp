@@ -32,7 +32,6 @@
             /**
              * \fn virtual ~INetworkManager() = default
              * 
-             *
              * \brief Destroy the INetworkManager object
              * 
              */
