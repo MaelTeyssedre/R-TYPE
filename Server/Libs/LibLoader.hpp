@@ -10,7 +10,6 @@
  *
  * \brief file where the LibLoader class is defined
  */
-
 #ifndef LIBLOADER_HPP_
     #define LIBLOADER_HPP_
 
