@@ -24,12 +24,12 @@ class Buffer {
          * 
          * @param size of buffer
          */
-        Buffer(uint16_t size);
+        explicit Buffer(uint16_t size);
 
         /**
          * @brief Destroy the Buffer object
          */
-        ~Buffer() = default;
+        virtual ~Buffer() = default;
 
         /**
          * @brief Boolean function to know if the buffer is full

@@ -21,7 +21,7 @@ class ILogger {
         /*!
         * @brief Close a log file
         */
-        ~ILogger() = default;
+        virtual ~ILogger() = default;
         
         /*!
         * @brief log message into a file

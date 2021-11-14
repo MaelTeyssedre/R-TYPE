@@ -20,7 +20,7 @@ JsonWrapper::JsonWrapper(std::string &filename)
     fillComposantList();
 }
 
-std::string &JsonWrapper::jsonToString()
+std::string JsonWrapper::jsonToString()
 {
     return (_json.dump(4));
 }

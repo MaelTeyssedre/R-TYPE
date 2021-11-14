@@ -20,10 +20,10 @@
 
     class RoomManager {
         public:
-            RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
-            //RoomManager(RoomManager &) = delete;
-            //RoomManager& operator=(RoomManager &) = delete;
-            ~RoomManager();
+            explicit RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
+            //explicit RoomManager(RoomManager &) = delete;
+            //explicit RoomManager& operator=(RoomManager &) = delete;
+            virtual ~RoomManager();
             std::string joinRoom(std::string &);
             void manageRoom();
             void redirectRequest(std::vector<std::string> &);

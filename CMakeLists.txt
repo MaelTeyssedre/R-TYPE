@@ -51,6 +51,12 @@ target_include_directories(
 target_include_directories(
     rtype_server
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/RoomManager/
 )
 

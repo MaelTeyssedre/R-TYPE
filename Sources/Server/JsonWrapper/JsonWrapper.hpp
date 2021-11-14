@@ -35,7 +35,7 @@
              * 
              * \param filename filename of a json file
              */
-            JsonWrapper(std::string &filename);
+            explicit JsonWrapper(std::string &filename);
 
 
             /**
@@ -45,7 +45,7 @@
              * 
              * \return std::string & Le contenu du file .json
              */
-            std::string &jsonToString() override;
+            std::string jsonToString() override;
 
             /**
              * \fn void fillComposantList() override

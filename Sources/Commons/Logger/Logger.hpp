@@ -22,12 +22,12 @@ class Logger : public ILogger {
         * @brief Create a log file
         * @param Name of the log file
         */
-        Logger(std::string &fileName);
+        explicit Logger(std::string &fileName);
         
         /*!
         * @brief Close a log file
         */
-        ~Logger();
+        virtual ~Logger();
         
         /*!
         * @brief log message into a file

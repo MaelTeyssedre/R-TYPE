@@ -18,11 +18,7 @@ Room::Room(Room &room)
     _roomBuffers = room._roomBuffers;
 }
 
-Room::~Room()
-{
-}
-
-int Room::getId() const
+size_t Room::getId() const
 {
     return (_id);
 }

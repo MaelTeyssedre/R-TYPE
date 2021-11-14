@@ -35,7 +35,7 @@
              * 
              * \return std::string & Le contenu du file .json
              */ 
-            virtual std::string &jsonToString() = 0;
+            virtual std::string jsonToString() = 0;
             
             /**
              * \fn virtual void fillComposantList() = 0

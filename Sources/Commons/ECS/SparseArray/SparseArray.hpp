@@ -46,7 +46,7 @@
              *
              * \param sparceArray Constante reference to the SparseArray that will be copied
              */
-            SparseArray(SparseArray const &sparceArray) {
+            explicit SparseArray(SparseArray const &sparceArray) {
                 for (size_t i = 0; i < sparceArray.size(); i++)
                     _data.push_back(std::nullopt);
                 for (size_t i = 0; i < sparceArray.size(); i++)
@@ -61,7 +61,7 @@
              * 
              * \param sparseArray Universal reference to the SparseArray that will be moved
              */
-            SparseArray(SparseArray &&sparseArray) noexcept
+            explicit SparseArray(SparseArray &&sparseArray) noexcept
                 : _data(std::move(sparseArray._data)) {}
 
             /**
@@ -71,7 +71,7 @@
              * 
              * \param nbEntity number of entity to create
              */
-            SparseArray(size_t nbEntity) {
+            explicit SparseArray(size_t nbEntity) {
                 for (size_t i = 0; i < nbEntity; i++)
                     _data.push_back(std::nullopt);
             }
@@ -81,7 +81,7 @@
              * 
              * \brief Default dtor
              */
-            ~SparseArray() = default;
+            virtual ~SparseArray() = default;
 
             /**
              * \fn void extend(size_t size)

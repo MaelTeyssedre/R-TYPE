@@ -15,11 +15,11 @@
 
     class PlayerData {
         public:
-            PlayerData() = default;
-            PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>, std::shared_ptr<std::mutex>, std::shared_ptr<std::mutex>);
+            explicit PlayerData() = default;
+            explicit PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>, std::shared_ptr<std::mutex>, std::shared_ptr<std::mutex>);
             // ! issue julian
             //PlayerData(PlayerData &) = delete;
-            ~PlayerData() = default;
+            virtual ~PlayerData() = default;
             size_t getId(void) const;
             // ! issue julian
             //PlayerData& operator=(PlayerData &PlayerData) = delete;

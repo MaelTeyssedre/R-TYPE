@@ -15,17 +15,17 @@
 
     class Room {
         public:
-            Room() = default;
-            Room(size_t id);
-            Room(Room &);
-            ~Room();
-            int getId() const;
+            explicit Room() = default;
+            explicit Room(size_t id);
+            explicit Room(Room &);
+            virtual ~Room() = default;
+            size_t getId() const;
             std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> getRoomBuffer() const;
             Room& operator=(Room &room);
             void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &);
         private:
             std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> _roomBuffers;
-            int _id;
+            size_t _id;
 
     };
 
