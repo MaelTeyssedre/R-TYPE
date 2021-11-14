@@ -5,6 +5,12 @@
 ** NetworkManager
 */
 
+/**
+ * \file NetworkManager.hpp
+ * 
+ * \brief file where NetworkManger class is defined
+ * 
+ */
 #ifndef NETWORKMANAGER_HPP_
     #define NETWORKMANAGER_HPP_
 
@@ -14,27 +20,102 @@
     #include <asio.hpp>
     #include <thread>
 
+    /**
+     * \class NetworkManager NetworkManager.hpp
+     * 
+     * \brief class that contain methode to manage network
+     * 
+     */
     class NetworkManager : public INetworkManager{
         public:
+
+            /**
+             * \fn NetworkManager()
+             * 
+             * \brief ctor networkManager
+             */
             NetworkManager() : _context(), _worker(), _udpSockets(), _tcpClients(), _tcpServers(), _thread(), _started(false) {};
+
+            /**
+             * \fn ~NetworkManager()
+             * 
+             * \brief dtor NetworkManager
+             * 
+             */
             ~NetworkManager() = default;
+
+            /**
+             * \fn void start()
+             * 
+             * \brief start connection
+             * 
+             */
             void start() override;
+
+            /**
+             * \fn void stop()
+             * 
+             * \brief stop connection
+             * 
+             */
             void stop() override;
+
+            /**
+             * \fn ITCPServer *createTCPServer(int port)
+             * 
+             * \brief create tcp server
+             * 
+             * \param port to use
+             * 
+             */
             ITCPServer *createTCPServer(int port) override;
+
+            /**
+             * \fn IUDPSocket *createSocketUDP(int port)
+             * 
+             * \brief create socket udp
+             * 
+             * \param port to use
+             * 
+             */
             IUDPSocket *createSocketUDP(int port) override;
+
+            /**
+             * \fn void deleteTCPServer(ITCPServer *tcp)
+             * 
+             * \brief delete tcp server
+             * 
+             * \param tcp server to delete 
+             * 
+             */
             void deleteTCPServer(ITCPServer *tcp) override;
-            void deleteTCPClient(ITCPClient *tcp) override;
+
+            /**
+             * \fn  void deleteSocketUDP(IUDPSocket *socket)
+             * 
+             * \brief delete udp socket
+             * 
+             * \param socket to delete
+             * 
+             */
             void deleteSocketUDP(IUDPSocket *socket) override;
+
+            /**
+             * \fn static void startNetworkThread(NetworkManager *netManager)
+             * 
+             * \brief start network thread
+             * 
+             * \param network manager
+             * 
+             */
             static void startNetworkThread(NetworkManager *netManager);
 
         private:
-            asio::io_context _context;
-            asio::io_context::work *_worker;
-            std::vector<IUDPSocket *> _udpSockets;
-            std::vector<ITCPClient *> _tcpClients;
-            std::vector<ITCPServer *> _tcpServers;
-            std::thread _thread;
-            bool _started;      
+            asio::io_context _context; /*! asio context */
+            asio::io_context::work *_worker; /*! asio worker */
+            std::vector<IUDPSocket *> _udpSockets; /*! vector of udp socket */
+            std::vector<ITCPServer *> _tcpServers; /*! vector of tcp server */
+            std::thread _thread; /*! thread  of  network*/
     };
 
 #endif /* !NETWORKMANAGER_HPP_ */

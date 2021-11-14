@@ -14,67 +14,96 @@
 #include <vector>
 #include <memory>
 
+/**
+ * \class INetworkManager.hpp
+ * 
+ * \brief file where interface INetworkManager class is defined
+ * 
+ */
 class INetworkManager {
     public:
 
         /**
-         * @brief Destroy the INetworkManager object
+         * \fn ~INetworkManager() = default
+         * 
+         *
+         * \brief Destroy the INetworkManager object
          * 
          */
         virtual ~INetworkManager() = default;
 
         /**
-         * @brief start connection
+         * \fn void start() = 0
+         * 
+         *
+         * \brief start connection
          * 
          */
         virtual void start() = 0;
 
         /**
-         * @brief stop connection
+         * \fn void stop() = 0
+         * 
+         *
+         * \brief stop connection
          * 
          */
         virtual void stop() = 0;
 
         /**
-         * @brief create a TCP server
+         *
+         * \fn  ITCPServer *createTCPServer(int port) =  0
+         *
+         * \brief create a TCP server
          * 
-         * @return ITCPServer* 
+         * \return ITCPServer* 
          */
         virtual ITCPServer *createTCPServer(int port) =  0;
 
         /**
-         * @brief create a TCP client
+         * \fn ITCPClient *createTCPClient(int port) = 0
          * 
-         * @return ITCPClient* 
+         * \brief create a TCP client
+         * 
+         * \return ITCPClient* 
          */
         virtual ITCPClient *createTCPClient(int port) = 0;
 
         /**
-         * @brief Create a UDP connection
+         * \fn IUDPSocket *createSocketUDP(int port) = 0
          * 
-         * @return UDPSocket* 
+         * \brief Create a UDP connection
+         * 
+         * \return UDPSocket* 
          */ 
         virtual IUDPSocket *createSocketUDP(int port) = 0;
 
         /**
-         * @brief delete a specified UDP connection
+         * \fn void deleteSocketUDP(IUDPSocket *socket) = 0
          * 
-         * @param udp server to delete
+         * \brief delete a specified UDP connection
+         * 
+         * \param udp server to delete
          * 
          */
         virtual void deleteSocketUDP(IUDPSocket *socket) = 0;
 
         /**
-         * @brief delete a specified TCP clie
+         * \fn void deleteTCPServer(ITCPServer *tcp) = 0
          * 
-         * @param tcp server to delete
+         * \brief delete a specified TCP clie
+         * 
+         * \param tcp server to delete
          */
         virtual void deleteTCPServer(ITCPServer *tcp) = 0;
 
         /**
-         * @brief delete tpc client
+         * \fn void deleteTCPClient(ITCPClient *tcp) = 0;
          * 
-         * @param the tcp client to delete
+         *
+         * \brief delete tpc client
+         * 
+         * \param the tcp client to delete
          */
         virtual void deleteTCPClient(ITCPClient *tcp) = 0;
 };

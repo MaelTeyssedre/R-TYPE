@@ -10,39 +10,55 @@
 
     #include "IPacket.hpp"
 
+    /**
+     * \class ITCPCLient.hpp
+     * 
+     * \brief file where interface ITCPCLient class is defined
+     * 
+     */
     class ITCPClient {
         public:
 
             /**
-             * @brief Destroy the ITCPClient object
+             * \fn ~ITCPClient() = default
+             * 
+             * \brief Destroy the ITCPClient object
              * 
              */
             virtual ~ITCPClient() = default;
 
             /**
-             * @brief send data
+             * \fn void send(IPacket &data) = 0
              * 
-             * @param data to send
+             * \brief send data
+             * 
+             * \param data to send
              */
             virtual void send(IPacket &data) = 0;
 
             /**
-             * @brief receive data
+             * \fn IPacket &receive() = 0 
              * 
-             * @return return data in packet
+             * \brief receive data
+             * 
+             * \return return data in packet
              */
             virtual IPacket &receive() = 0;
 
             /**
-             * @brief connect to a socket with specified ip and port
+             * \fn void connect(std::string &ip, std::uint16_t port) = 0
              * 
-             * @param ip to connect
-             * @param port to connect
+             * \brief connect to a socket with specified ip and port
+             * 
+             * \param ip to connect
+             * \param port to connect
              */
             virtual void connect(std::string &ip, std::uint16_t port) = 0;
 
             /**
-             * @brief disconnect to the socket
+             * \fn void disconnect() = 0
+             * 
+             * \brief disconnect to the socket
              * 
              */
             virtual void disconnect() = 0;

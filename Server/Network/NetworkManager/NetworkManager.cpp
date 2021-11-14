@@ -16,8 +16,6 @@ void NetworkManager::stop()
 {
     for (std::vector<IUDPSocket *>::iterator it = _udpSockets.begin(); it != _udpSockets.end(); it++)
         _udpSockets.erase(it);
-    for (std::vector<ITCPClient *>::iterator it = _tcpClients.begin(); it != _tcpClients.end(); it++)
-        _tcpClients.erase(it);
     for (std::vector<ITCPServer *>::iterator it = _tcpServers.begin(); it != _tcpServers.end(); it++)
         _tcpServers.erase(it);
     _thread.join();
@@ -47,13 +45,6 @@ void NetworkManager::deleteSocketUDP(IUDPSocket *socket)
     auto it = std::find(_udpSockets.begin(), _udpSockets.end(), socket);
 
     _udpSockets.erase(it);
-}
-
-void NetworkManager::deleteTCPClient(ITCPClient *tcp)
-{
-    auto it = std::find(_tcpClients.begin(), _tcpClients.end(), tcp);
-
-    _tcpClients.erase(it);
 }
 
 void NetworkManager::deleteTCPServer(ITCPServer *tcp)

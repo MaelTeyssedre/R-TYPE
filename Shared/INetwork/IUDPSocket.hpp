@@ -10,26 +10,36 @@
 
     #include "IPacket.hpp"
 
+    /**
+     * \class IUDPSocket IUDPSocket.hpp
+     * 
+     * \brief file where interface IUDPSocket is defined
+     * 
+     */
     class IUDPSocket {
         public:
 
             /**
-             * @brief Destroy the IUDPSocket object
+             * \fn ~IUDPSocket() = default
+             * 
+             * \brief Destroy the IUDPSocket object
              * 
              */
             virtual ~IUDPSocket() = default;
 
             /**
-             * @brief 
+             * \fn void send(IPacket &data) = 0
              * 
-             * @param data 
+             * \param data 
              */
             virtual void send(IPacket &data) = 0;
 
             /**
-             * @brief 
+             * \fn std::vector<uint8_t> &receive() = 0
              * 
-             * @param data 
+             * \brief 
+             * 
+             * \param data 
              */
             virtual std::vector<uint8_t> &receive() = 0;
     };

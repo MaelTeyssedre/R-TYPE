@@ -49,3 +49,8 @@ void TCPServer::startAccept()
     if (_mapUser.size() != 0)
         receive();
 }
+
+std::map<size_t, std::shared_ptr<tcpUser>> TCPServer::getUsers()
+{
+    return (_mapUser);
+}
