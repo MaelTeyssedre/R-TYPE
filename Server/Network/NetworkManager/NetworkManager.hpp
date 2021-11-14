@@ -21,7 +21,6 @@
             void start() override;
             void stop() override;
             ITCPServer *createTCPServer(int port) override;
-            ITCPClient *createTCPClient(int port) override;
             IUDPSocket *createSocketUDP(int port) override;
             void deleteTCPServer(ITCPServer *tcp) override;
             void deleteTCPClient(ITCPClient *tcp) override;

@@ -28,9 +28,6 @@ void NetworkManager::startNetworkThread(NetworkManager *netManager)
     netManager->_context.run();
 }
 
-ITCPClient *NetworkManager::createTCPClient(int port)
-{}
-
 ITCPServer *NetworkManager::createTCPServer(int port)
 {
     TCPServer *server = new TCPServer(_context, port);
