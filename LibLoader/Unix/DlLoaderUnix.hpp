@@ -11,7 +11,6 @@
  *
  * \brief file DynLibs are load on linux
  */
-
 #ifndef DLLOADERUNIX_HPP_
     #define DLLOADERUNIX_HPP_
 
@@ -29,7 +28,6 @@
      * 
      * \brief Class that load unix .so
      */
-
     class DlLoaderUnix {
         public:
             /**
