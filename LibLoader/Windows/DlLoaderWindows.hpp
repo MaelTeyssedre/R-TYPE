@@ -21,14 +21,66 @@
 
     class DlLoaderWindows {
         public:
+            /**
+             * \fn DlLoaderWindows() = default
+             * 
+             * \brief Default ctor
+             */
             DlLoaderWindows() = default;
+
+            /**
+             * \fn DlLoaderWindows(const DlLoaderWindows&) = default
+             * 
+             * \brief Default copy ctor
+             */
+            DlLoaderWindows(const DlLoaderWindows&) = default;
+
+            /**
+             * \fn ~DlLoaderWindows() = default
+             * 
+             * \brief Default dtor
+             */
             ~DlLoaderWindows() = default;
 
+            /**
+             * \fn DlLoaderWindows& operator=(const DlLoaderWindows &other) = default
+             * 
+             * \brief Default operator= overload
+             */
+            DlLoaderWindows& operator=(const DlLoaderWindows &other) = default;
+
+            /**
+             * \fn HMODULE loadLib(std::string path)
+             * 
+             * \param path dynlib to load
+             * 
+             * \brief load a dynlib
+             * 
+             * \return loaded lib
+             */
             HMODULE loadLib(std::string path);
+
+            /**
+             * \fn allocClass loadFunc(std::string &function, HMODULE hDLL)
+             * 
+             * \param function to load
+             * 
+             * \param hDLL dynlib previously loaded
+             * 
+             * \brief load a function from a dynlib
+             * 
+             * \return loaded function
+             */
             allocClass loadFunc(std::string &function, HMODULE hDLL);
+
+            /**
+             * \fn void closeLib(HMODULE hDLL)
+             * 
+             * \param hDLL dynlib previously loaded
+             * 
+             * \brief close a loaded dynlib
+             */
             void closeLib(HMODULE hDLL);
-        protected:
-        private:
     };
 
 #endif /* !DLLOADERWINDOWS_HPP_ */

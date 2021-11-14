@@ -46,4 +46,5 @@ void BasicMonster::init(std::shared_ptr<int>)
 
 void BasicMonster::update()
 {
+    std::cout << "Update Basic monster" << std::endl;
 }
