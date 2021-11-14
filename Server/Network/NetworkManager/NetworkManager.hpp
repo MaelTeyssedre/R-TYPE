@@ -79,7 +79,7 @@
              * 
              * \param port to use
              * 
-             * \return new created tcp server
+             * \return new created udp server
              * 
              */
             IUDPSocket *createSocketUDP(int port) override;
