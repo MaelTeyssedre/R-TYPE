@@ -29,21 +29,21 @@
              * 
              * \brief Default ctor
              */
-            BasicMonster() = default;
+            explicit BasicMonster() = default;
 
             /**
              * \fn BasicMonster(const BasicMonster&) = default
              * 
              * \brief Default copy ctor
              */
-            BasicMonster(const BasicMonster&) = default;
+            explicit BasicMonster(const BasicMonster&) = default;
 
             /**
              * \fn ~BasicMonster() = default
              * 
              * \brief Default dtor
              */
-            ~BasicMonster() = default;
+            virtual ~BasicMonster() = default;
 
             /**
              * \fn BasicMonster& operator=(const BasicMonster &other) = default
@@ -53,13 +53,13 @@
             BasicMonster& operator=(const BasicMonster &other) = default;
 
             /**
-             * \fn void init(std::shared_ptr<Registery>) override
+             * \fn void init(Registery &) override
              *
              * \param Registery of the ECS
              * 
              * \brief Override init of the class
              */
-            void init(std::shared_ptr</*Registry*/int>) override;
+            void init(Registry &) override;
 
             /**
              * \fn void update(void) override
@@ -69,9 +69,9 @@
             void update(void) override;
 
         private:
-            std::shared_ptr<int> _registry; /*! registry*/
+            //Registry _registry; /*! registry*/
             std::string _name; /*! name of the monster */
-            size_t _spriteId; /*! spriteid of the monster*/
+            std::string _texturePath; /*! _texturePath of the monster*/
             size_t _healPoint; /*! healpoint of the monster */
             size_t _fireFrequence; /*! firefrequence of the monster*/
             size_t _weaponType; /*! WeaponType of the monster*/

@@ -10,14 +10,18 @@
 void *DlLoaderUnix::loadLib(std::string path) {
     void *lib = dlopen(path.c_str(), RTLD_NOW | RTLD_LAZY);
     if (!lib)
-        throw std::invalid_argument("Cannot open lib");
+        throw std::runtime_error(dlerror());
     return lib;
 }
 
 allocClass DlLoaderUnix::loadFunc(std::string function, void *ptr) {
-    return (IElement *(*)())dlsym(ptr, function.c_str());
+    allocClass fun = (IElement *(*)())dlsym(ptr, function.c_str());
+    if (!fun)
+        throw std::runtime_error(dlerror());
+    return (fun);
 }
 
 void DlLoaderUnix::closeLib(void *ptr) {
-    dlclose(ptr);
+    if (dlclose(ptr))
+        throw std::runtime_error(dlerror());
 }

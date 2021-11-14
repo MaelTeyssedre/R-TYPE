@@ -39,7 +39,7 @@
 	}
 #endif
 
-void BasicMonster::init(std::shared_ptr<int>)
+void BasicMonster::init(Registry &)
 {
     std::cout << "Init Basic monster" << std::endl;
 }

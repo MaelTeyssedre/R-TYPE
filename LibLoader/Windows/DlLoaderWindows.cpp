@@ -7,17 +7,24 @@
 
 #include "DlLoaderWindows.hpp"
 
-HMODULE DlLoaderWindows::loadLib(std::string path)
+HMODULE DlLoaderWindows::loadLib(const std::string &path)
 {
-    return (LoadLibrary(path.c_str()));
+    HMODULE lib = LoadLibrary(path.c_str());
+    if (!lib)
+        throw std::runtime_error("Cannot load lib");
+    return (lib);
 }
 
-allocClass DlLoaderWindows::loadFunc(std::string &function, HMODULE hDLL)
+allocClass DlLoaderWindows::loadFunc(const std::string &function, HMODULE hDLL)
 {
-    return ((allocClass)GetProcAddress(hDLL, function.c_str()));
+    allocClass func = (allocClass)GetProcAddress(hDLL, function.c_str());
+    if (!func)
+        throw std::runtime_error("Cannot load function");
+    return (func);
 }
 
 void DlLoaderWindows::closeLib(HMODULE hDLL)
 {
-    FreeLibrary(hDLL);
+    if (FreeLibrary(hDLL) == 0)
+        throw std::runtime_error("Library closure error");
 }

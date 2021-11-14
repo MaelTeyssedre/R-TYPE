@@ -17,6 +17,8 @@
     #include <memory>
     #include <iostream>
 
+    class Registry;
+
     /**
      * \class IElement IElement.hpp
      * 
@@ -29,16 +31,16 @@
              * 
              * \brief Default dtor
              */
-            ~IElement() = default;
+            virtual ~IElement() = default;
 
             /**
-             * \fn virtual void init(std::shared_ptr<Registery>) = 0
+             * \fn virtual void init(Registery &) = 0
              *
              * \param Registery of the ECS
              * 
              * \brief Pure virtual init 
              */
-            virtual void init(std::shared_ptr</*Registery*/int>) = 0;
+            virtual void init(Registry &) = 0;
 
             /**
              * \fn virtual void update(void) = 0

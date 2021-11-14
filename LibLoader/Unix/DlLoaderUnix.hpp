@@ -37,21 +37,21 @@
              * 
              * \brief Default ctor
              */
-            DlLoaderUnix() = default;
+            explicit DlLoaderUnix() = default;
 
             /**
              * \fn DlLoaderUnix(const DlLoaderUnix&) = default
              * 
              * \brief Default copy ctor
              */
-            DlLoaderUnix(const DlLoaderUnix&) = default;
+            explicit DlLoaderUnix(const DlLoaderUnix&) = default;
 
             /**
              * \fn ~DlLoaderUnix() = default
              * 
              * \brief Default dtor
              */
-            ~DlLoaderUnix() = default;
+            virtual ~DlLoaderUnix() = default;
 
             /**
              * \fn DlLoaderUnix& operator=(const DlLoaderUnix &other) = default

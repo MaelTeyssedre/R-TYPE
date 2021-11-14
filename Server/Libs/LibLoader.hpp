@@ -48,21 +48,21 @@
              * 
              * \brief construct the class, load the .so/.dll and construct class inside
              */
-            LibLoader(std::vector<std::string>);
+            explicit LibLoader(const std::vector<std::string>&);
 
             /**
              * \fn LibLoader(const LibLoader&)
              * 
              * \brief copy constructor
              */
-            LibLoader(const LibLoader&);
+            explicit LibLoader(const LibLoader&);
 
             /**
              * \fn ~LibLoader()
              * 
              * \brief Destructor
              */
-            ~LibLoader();
+            virtual ~LibLoader();
 
             /**
              * \fn LibLoader& operator=(const LibLoader &other) = default
@@ -78,7 +78,7 @@
              * 
              * \brief load the .so/.dll and construct class inside
              */
-            void loadMoreLib(std::vector<std::string>);
+            void loadMoreLib(const std::vector<std::string>&);
 
             /**
              * \fn std::vector<IElement *> getLibs() const
@@ -87,7 +87,7 @@
              * 
              * \return vector of const loaded and constructed Element
              */
-            std::vector<IElement *> getLibs() const;
+            std::vector<std::shared_ptr<IElement>> getLibs() const;
         
         private:
             /**
@@ -106,9 +106,10 @@
              * 
              * \brief put the path of libs to load in _libsfiles
              */
-            void listLibDirectory(std::string path, std::vector<std::string> toLoad);
+            void listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad);
 
-            std::vector<IElement *> _libs; /*! Vector of class load from shared lib */
+            std::vector<std::shared_ptr<IElement>> _libs;
+            //std::vector<IElement *> _libs; /*! Vector of class load from shared lib */
             std::vector<std::string> _libsfiles; /*! Vector of name shared lib */
             #ifdef __linux__
                 DlLoaderUnix _dlLoaderUnix; /*! Library loader on Linux */

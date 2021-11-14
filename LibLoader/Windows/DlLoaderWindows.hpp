@@ -26,21 +26,21 @@
              * 
              * \brief Default ctor
              */
-            DlLoaderWindows() = default;
+            explicit DlLoaderWindows() = default;
 
             /**
              * \fn DlLoaderWindows(const DlLoaderWindows&) = default
              * 
              * \brief Default copy ctor
              */
-            DlLoaderWindows(const DlLoaderWindows&) = default;
+            explicit DlLoaderWindows(const DlLoaderWindows&) = default;
 
             /**
              * \fn ~DlLoaderWindows() = default
              * 
              * \brief Default dtor
              */
-            ~DlLoaderWindows() = default;
+            virtual ~DlLoaderWindows() = default;
 
             /**
              * \fn DlLoaderWindows& operator=(const DlLoaderWindows &other) = default
@@ -58,7 +58,7 @@
              * 
              * \return loaded lib
              */
-            HMODULE loadLib(std::string path);
+            HMODULE loadLib(const std::string path&);
 
             /**
              * \fn allocClass loadFunc(std::string &function, HMODULE hDLL)
@@ -71,7 +71,7 @@
              * 
              * \return loaded function
              */
-            allocClass loadFunc(std::string &function, HMODULE hDLL);
+            allocClass loadFunc(const std::string &function, HMODULE hDLL);
 
             /**
              * \fn void closeLib(HMODULE hDLL)

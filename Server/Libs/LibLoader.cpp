@@ -8,7 +8,7 @@
 
 #include "LibLoader.hpp"
 
-LibLoader::LibLoader(std::vector<std::string> toLoad)
+LibLoader::LibLoader(const std::vector<std::string> &toLoad)
 {
     #ifdef _WIN32
         _dlLoaderWindows = DlLoaderWindows();
@@ -46,7 +46,7 @@ LibLoader::~LibLoader() {
     #endif
 }
 
-std::vector<IElement *> LibLoader::getLibs() const {
+std::vector<std::shared_ptr<IElement>> LibLoader::getLibs() const {
     return _libs;
 }
 
@@ -55,19 +55,19 @@ void LibLoader::loadLibs() {
         for (size_t i = _libs.size(); i < _libsfiles.size(); i++) {
             #ifdef __linux__
                 _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(_libsfiles[i]));
-                _libs.push_back((IElement*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])());
+                _libs.push_back(std::shared_ptr<IElement>((IElement*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])()));
             #endif
             #ifdef _WIN32
                 _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(_libsfiles[i]));
-                _libs.push_back(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])());
+                _libs.push_back(std::shared_ptr<IElement>(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])()));
             #endif
         }
-    } catch (const std::invalid_argument &e) {
+    } catch (const std::runtime_error &e) {
         std::cerr << e.what() << std::endl;
     }
 }
 
-void LibLoader::listLibDirectory(std::string path, std::vector<std::string> toLoad) {
+void LibLoader::listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad) {
     for (size_t i = 0; i < toLoad.size(); i++) {
         #ifdef WIN32
             _libsfiles.push_back(path + toLoad[i] + ".dll");
@@ -76,11 +76,9 @@ void LibLoader::listLibDirectory(std::string path, std::vector<std::string> toLo
             _libsfiles.push_back(path + toLoad[i] + ".so");
         #endif
     }
-    /*for (const auto entry : std::filesystem::directory_iterator(path))
-        _libsfiles.push_back(entry.path().string());*/
 }
 
-void LibLoader::loadMoreLib(std::vector<std::string> toLoad)
+void LibLoader::loadMoreLib(const std::vector<std::string> &toLoad)
 {
     listLibDirectory(LIBS_PATH, toLoad);
     loadLibs();
