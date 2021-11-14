@@ -5,6 +5,12 @@
 ** ITCPClient
 */
 
+/**
+ * \file ITCPClient.hpp
+ * 
+ * \brief file where inteface ITCPClient class is defined
+ * 
+*/
 #ifndef ITCPCLIENT_HPP_
     #define ITCPCLIENT_HPP_
 

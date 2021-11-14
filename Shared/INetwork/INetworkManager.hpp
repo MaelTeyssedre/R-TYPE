@@ -5,6 +5,12 @@
 ** INetworkManager
 */
 
+/**
+ * \file INetworkManager.hpp
+ * 
+ * \brief file where INetworkManager class is defined
+ * 
+ */
 #ifndef INETWORKMANAGER_HPP_
     #define INETWORKMANAGER_HPP_
 

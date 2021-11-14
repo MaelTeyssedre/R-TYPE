@@ -5,6 +5,12 @@
 ** ITCPServer
 */
 
+/**
+ * \file ITCPServer.hpp
+ * 
+ * \brief file where ITCPServer class is defined
+ * 
+ */
 #ifndef ITCPSERVER_HPP_
     #define ITCPSERVER_HPP_
 

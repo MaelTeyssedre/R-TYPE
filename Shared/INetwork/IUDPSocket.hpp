@@ -5,6 +5,12 @@
 ** IUDPSocket
 */
 
+/**
+ * \file IUDPSocket.hpp
+ * 
+ * \brief file where IUDPSocket class is defined
+ * 
+ */
 #ifndef IUDPSOCKET_HPP_
     #define IUDPSOCKET_HPP_
 

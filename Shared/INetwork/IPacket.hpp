@@ -5,6 +5,13 @@
 ** IPacket
 */
 
+
+/**
+ * \file IPacket.hpp
+ * 
+ * \brief file where IPacket class is defined
+ * 
+ */
 #ifndef IPACKET_HPP_
   #define IPACKET_HPP_
 
