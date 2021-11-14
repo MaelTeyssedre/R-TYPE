@@ -21,7 +21,6 @@
      * 
      * \brief Class that contain a monster in a .so/.dll
      */
-
     class AdvancedMonster : public IElement {
         public:
             /**
