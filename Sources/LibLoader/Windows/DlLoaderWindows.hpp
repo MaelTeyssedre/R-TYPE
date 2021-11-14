@@ -58,7 +58,7 @@
              * 
              * \return loaded lib
              */
-            HMODULE loadLib(const std::string path&);
+            HMODULE loadLib(const std::string &path);
 
             /**
              * \fn allocClass loadFunc(std::string &function, HMODULE hDLL)
