@@ -2,55 +2,55 @@
 ** EPITECH PROJECT, 2021
 ** R-TYPE
 ** File description:
-** AdvencedMonster
+** AdvancedMonster
 */
 
 /**
- * \file AdvencedMonster.hpp
+ * \file AdvancedMonster.hpp
  *
- * \brief file where AdvencedMonster class is defined, compile to make .so/.dll
+ * \brief file where AdvancedMonster class is defined, compile to make .so/.dll
  */
 
-#ifndef ADVENCEDMONSTER_HPP_
-    #define ADVENCEDMONSTER_HPP_
+#ifndef ADVANCEDMONSTER_HPP_
+    #define ADVANCEDMONSTER_HPP_
 
     #include "IElement.hpp"
 
     /**
-     * \class AdvencedMonster AdvencedMonster.hpp
+     * \class AdvancedMonster AdvancedMonster.hpp
      * 
      * \brief Class that contain a monster in a .so/.dll
      */
 
-    class AdvencedMonster : public IElement {
+    class AdvancedMonster : public IElement {
         public:
             /**
-             * \fn AdvencedMonster() = default
+             * \fn AdvancedMonster() = default
              * 
              * \brief Default ctor
              */
-            AdvencedMonster() = default;
+            AdvancedMonster() = default;
 
             /**
-             * \fn AdvencedMonster(const AdvencedMonster&) = default
+             * \fn AdvancedMonster(const AdvancedMonster&) = default
              * 
              * \brief Default copy ctor
              */
-            AdvencedMonster(const AdvencedMonster&) = default;
+            AdvancedMonster(const AdvancedMonster&) = default;
 
             /**
-             * \fn ~AdvencedMonster() = default
+             * \fn ~AdvancedMonster() = default
              * 
              * \brief Default dtor
              */
-            ~AdvencedMonster() = default;
+            ~AdvancedMonster() = default;
 
             /**
-             * \fn AdvencedMonster& operator=(const AdvencedMonster &other) = default
+             * \fn AdvancedMonster& operator=(const AdvancedMonster &other) = default
              * 
              * \brief Default operator= overload
              */
-            AdvencedMonster& operator=(const AdvencedMonster &other) = default;
+            AdvancedMonster& operator=(const AdvancedMonster &other) = default;
 
             /**
              * \fn void init(std::shared_ptr<Registery>) override
@@ -80,4 +80,4 @@
             bool _loot; /*! Is the monster looting something*/
     };
 
-#endif /* !ADVENCEDMONSTER_HPP_ */
+#endif /* !ADVANCEDMONSTER_HPP_ */
