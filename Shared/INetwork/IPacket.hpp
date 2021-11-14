@@ -20,7 +20,7 @@
            * @brief Destroy the IPacket object
            * 
            */
-          virtual ~IPacket() = 0;
+          virtual ~IPacket() = default;
 
           /**
            * @brief Serialize data
@@ -29,16 +29,7 @@
            * @param size size of data to serialize
            * @return size of data serialized
            */
-          virtual size_t pack(std::shared_ptr<std::vector<uint8_t>> data) = 0;
-
-          /**
-           * @brief Serialize data
-           * 
-           * @param data to serialize
-           * @param size of data to serialize
-           * @return size_t 
-           */
-          virtual size_t pack(uint8_t *data, size_t size) = 0;
+          virtual size_t pack(std::vector<uint8_t> &data) = 0;
 
           /**
            * @brief deserialize packet

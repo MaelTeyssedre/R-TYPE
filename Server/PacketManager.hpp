@@ -13,10 +13,12 @@
 class PacketManager {
     public:
         PacketManager(std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut);
-        ~PacketManager();
+        ~PacketManager() = default;
         void managePacket(std::pair<size_t, std::vector<uint8_t>> packet);
+        void createRoom(std::pair<size_t, std::vector<uint8_t>> packet);
+        void joinRoom(std::pair<size_t, std::vector<uint8_t>> packet);
+        
   
-    protected:
     private:
         std::shared_ptr<std::vector<std::vector<playerData>>> _roomList;
         std::shared_ptr<Buffer> _bufferIn;

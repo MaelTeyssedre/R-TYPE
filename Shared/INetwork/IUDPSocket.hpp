@@ -17,7 +17,7 @@
              * @brief Destroy the IUDPSocket object
              * 
              */
-            virtual ~IUDPSocket() = 0;
+            virtual ~IUDPSocket() = default;
 
             /**
              * @brief 
