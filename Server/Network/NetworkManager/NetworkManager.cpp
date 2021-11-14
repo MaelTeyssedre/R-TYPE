@@ -31,14 +31,14 @@ void NetworkManager::startNetworkThread(NetworkManager *netManager)
 ITCPClient *NetworkManager::createTCPClient(int port)
 {}
 
-TCPServer *NetworkManager::createTCPServer(int port)
+ITCPServer *NetworkManager::createTCPServer(int port)
 {
     TCPServer *server = new TCPServer(_context, port);
     _tcpServers.push_back(server);
     return (server);
 }
 
-UDPSocket *NetworkManager::createSocketUDP(int port)
+IUDPSocket *NetworkManager::createSocketUDP(int port)
 {
     UDPSocket *socket = new UDPSocket(_context, port);
     _udpSockets.push_back(socket);

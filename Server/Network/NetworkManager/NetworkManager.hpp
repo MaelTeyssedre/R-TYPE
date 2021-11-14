@@ -20,9 +20,9 @@
             ~NetworkManager() = default;
             void start() override;
             void stop() override;
-            TCPServer *createTCPServer(int port) override;
+            ITCPServer *createTCPServer(int port) override;
             ITCPClient *createTCPClient(int port) override;
-            UDPSocket *createSocketUDP(int port) override;
+            IUDPSocket *createSocketUDP(int port) override;
             void deleteTCPServer(ITCPServer *tcp) override;
             void deleteTCPClient(ITCPClient *tcp) override;
             void deleteSocketUDP(IUDPSocket *socket) override;
