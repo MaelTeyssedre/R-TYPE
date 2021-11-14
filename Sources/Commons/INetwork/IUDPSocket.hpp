@@ -41,7 +41,7 @@
             virtual void send(IPacket &data) = 0;
 
             /**
-             * \fn virtual std::vector<uint8_t> &receive() = 0
+             * \fn virtual void receive() = 0
              * 
              * \brief 
              * 
@@ -50,7 +50,7 @@
              * \return data received from network
              * 
              */
-            virtual std::vector<uint8_t> &receive() = 0;
+            virtual void receive() = 0;
     };
 
 #endif /* !IUDPSOCKET_HPP_ */

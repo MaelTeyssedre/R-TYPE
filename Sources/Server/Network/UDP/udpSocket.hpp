@@ -71,7 +71,7 @@
              * \return data received
              * 
              */ 
-            std::vector<uint8_t> &receive() override;
+            void receive() override;
 
             /**
              * \fn  void handleSend()

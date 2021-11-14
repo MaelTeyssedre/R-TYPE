@@ -17,9 +17,9 @@ void UDPSocket::handleSend()
   std::cout << "send data via udp" << std::endl;
 }
 
-std::vector<uint8_t> &UDPSocket::receive()
+void UDPSocket::receive()
 {
-  _socket.async_receive_from(_input, _endpoint, [this](std::error_code ec, std::size_t bytes)
+  _socket.async_receive_from(asio::buffer(_data, MAX_LENGTH), _endpoint, [this](std::error_code ec, std::size_t bytes)
   {
       std::istream stream(&_input);
       std::string line;
@@ -27,5 +27,4 @@ std::vector<uint8_t> &UDPSocket::receive()
       _input.consume(bytes);
       receive();
   });
-
 }
