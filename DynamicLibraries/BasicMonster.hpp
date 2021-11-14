@@ -10,7 +10,6 @@
  *
  * \brief file where BasicMonster class is defined, compile to make .so/.dll
  */
-
 #ifndef BASICMONSTER_HPP_
     #define BASICMONSTER_HPP_
 
