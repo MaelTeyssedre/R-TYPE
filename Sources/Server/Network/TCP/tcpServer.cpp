@@ -24,7 +24,7 @@ void TCPServer::send(std::vector<size_t> targets, IPacket &data)
         _mapUser[targets.at(i)]->addToQueue(*data.unpack());
 }
 
-std::vector<uint8_t> TCPServer::receive()
+void TCPServer::receive()
 {
     for (int i = 0; i <= _mapUser.size(); i++)
         _mapUser[i]->read();

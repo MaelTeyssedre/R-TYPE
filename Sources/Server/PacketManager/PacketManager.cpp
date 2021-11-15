@@ -20,7 +20,7 @@ void PacketManager::createRoom(std::pair<size_t, std::vector<uint8_t>> packet)
     str.append(std::to_string(packet.first));
     str.append(";");
     vec.assign(str.begin(), str.end());
-   // _bufferOut->putInBuffer(vec.size(), vec);
+    _bufferOut->putInBuffer(vec.size(), vec);
 }
 
 void PacketManager::joinRoom(std::pair<size_t, std::vector<uint8_t>> packet)
@@ -30,7 +30,7 @@ void PacketManager::joinRoom(std::pair<size_t, std::vector<uint8_t>> packet)
     str.append(std::to_string(packet.first));
     str.append(";");
     vec.assign(str.begin(), str.end());
-    //_bufferOut->putInBuffer(vec.size(), vec);
+    _bufferOut->putInBuffer(vec.size(), vec);
 }
 
 

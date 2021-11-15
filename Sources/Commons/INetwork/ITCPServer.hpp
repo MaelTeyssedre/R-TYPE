@@ -60,7 +60,7 @@
              * 
              * \return return data in packet
              */
-            virtual std::vector<uint8_t> receive() = 0;
+            virtual void receive() = 0;
 
             /**
              * \fn  virtual void eject(size_t client) = 0
