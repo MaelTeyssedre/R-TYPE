@@ -284,7 +284,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
             +-------------+                +--------+
             |             |     (1) 7      |        |
-            |             |--------------->|        |
+            |             |<---------------|        |
             |   Client    |                | SERVER |
             |             |                |        |
             |             |                |        |
@@ -295,7 +295,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
             +-------------+                                    +--------+
             |             |(1)8<score1><score2><score3><score4>|        |
-            |             |----------------------------------->|        |
+            |             |<-----------------------------------|        |
             |   Client    |                                    | SERVER |
             |             |                                    |        |
             |             |                                    |        |
