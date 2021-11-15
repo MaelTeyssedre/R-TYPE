@@ -119,7 +119,7 @@
              * \return Reference to the assigned SparseArray
              */
             SparseArray &operator=(SparseArray &&sparceArray) noexcept {
-                _data = std::move(sparseArray._data);
+                _data = std::move(sparceArray._data);
                 return *this;
             }
 
@@ -322,7 +322,7 @@
                 for (auto i = 0; i < _data.size(); i++)
                     if (adresse == std::addressof(_data[i]))
                         return i;
-                throw std::invalid_argument("value not found")
+                throw std::invalid_argument("value not found");
             }
         private:
             container_t _data; /*! Array of optional component */

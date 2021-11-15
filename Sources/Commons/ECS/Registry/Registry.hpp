@@ -137,7 +137,7 @@
              */
             template <class Component>
             SparseArray<Component> const &getComponents() const {
-                return std::any_cast<SparseArray<Component> const &>(_componentsArrays[std::type_index(typeid(Component))]);
+                return std::any_cast<SparseArray<Component> const &>(_componentsArrays.at(std::type_index(typeid(Component))));
             }
 
             /**
@@ -172,7 +172,7 @@
              */
             template <typename Component, typename ...Params>
             typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p) {
-                return (std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))])).emplaceAt(to, p);
+                return (std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))])).emplaceAt(to, p...);
             }
 
             /**
