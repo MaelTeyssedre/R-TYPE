@@ -194,6 +194,11 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
          - 14: request id -> 1 byte
          - request id: Id of the request that fail -> 1 byte
+         
+         
+      15: Game canceled -> 1 bytes
+
+         - 15: request id -> 1 byte
         
 
 Epitech R-TYPE project     Realized in November 2021              [Page 6]
@@ -202,25 +207,25 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
    2.2.  Requests from client to server
 
-      15: Create room -> 1 byte
-
-         - 15: request id -> 1 byte
-      
-
-      16<room_code>: Join room -> 9 bytes
+      16: Create room -> 1 byte
 
          - 16: request id -> 1 byte
+      
+
+      17<room_code>: Join room -> 9 bytes
+
+         - 17: request id -> 1 byte
          - room_code: name of the room -> 8 bytes
       
       
-      17: Leave room -> 1 byte
-
-         - 17: request id -> 1 byte
-      
-
-      18: Loaded -> 1 byte
+      18: Leave room -> 1 byte
 
          - 18: request id -> 1 byte
+      
+
+      19: Loaded -> 1 byte
+
+         - 19: request id -> 1 byte
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
@@ -234,7 +239,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
          * Room creation - example:
 
             +-------------+            +--------+
-            |             |   (1) 15   |        |
+            |             |   (1) 16   |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
             |             | (2) 12<RC> |        |
@@ -245,7 +250,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
          * Room joining - example:
 
             +-------------+            +--------+
-            |             | (1) 16<RC> |        |
+            |             | (1) 17<RC> |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
             |             |   (2) 10   |        |
@@ -256,7 +261,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
          * Room leaving - example:
 
             +-------------+            +--------+
-            |             |   (1) 17   |        |
+            |             |   (1) 18   |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
             |             |   (2) 11   |        |
@@ -268,9 +273,9 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
 
             +-------------+                +--------+
             |             |(1)9<Size><JSON>|        |
-            |             |--------------->|        |
-            |   Client    |<---------------| SERVER |
-            |             |     (2) 18     |        |
+            |             |<---------------|        |
+            |   Client    |--------------->| SERVER |
+            |             |     (2) 19     |        |
             |             |                |        |
             +-------------+                +--------+
 
