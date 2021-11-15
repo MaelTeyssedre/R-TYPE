@@ -8,8 +8,9 @@
 #include "udpSocket.hpp"
 
 void UDPSocket::send(IPacket &data)
-{
-  _socket.async_send_to(asio::buffer(*data.unpack()), _endpoint, std::bind(&UDPSocket::handleSend, this));
+{ auto message = std::make_shared<std::string>("Hello, World\n");
+std::cout << "here" << std::endl;
+   _socket.async_send_to(asio::buffer(*message), _endpoint, std::bind(&UDPSocket::handleSend, this));
 }
 
 void UDPSocket::handleSend()
@@ -27,4 +28,5 @@ void UDPSocket::receive()
       _input.consume(bytes);
       receive();
   });
+  std::cout << _data << std::endl;
 }

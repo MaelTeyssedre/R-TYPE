@@ -6,6 +6,7 @@ nlohmann_json/3.10.4
 [generators]
 cmake
 
+
 [imports]
 bin, *.dll -> ./bin
 lib, *.dylib* -> ./bin

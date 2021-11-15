@@ -19,6 +19,8 @@
     #endif
 
     #include <asio.hpp>
+    #include <memory>
+    #include <iostream>
     #include <queue>
 
     /**
@@ -27,7 +29,7 @@
      * \brief file where interface tcpUser class is defined
      * 
      */
-    class tcpUser : public std::enable_shared_from_this<tcpUser>
+    class tcpUser
     {
         public: 
             /**
@@ -36,7 +38,9 @@
              * \brief ctor tcpUser
              * 
              */
-            explicit tcpUser() = default;
+            explicit tcpUser() = delete;
+            tcpUser(const tcpUser &other) = delete;
+            tcpUser& operator=(const tcpUser &rhs) = delete;
 
             /**
              * \fn  explicit tcpUser(asio::ip::tcp::socket &&socket)
@@ -44,7 +48,7 @@
              * \brief ctor tcpUser
              * 
              */
-            explicit tcpUser(asio::ip::tcp::socket &&socket)  : _socket(std::move(socket)) {};
+            explicit tcpUser(std::shared_ptr<asio::ip::tcp::socket> client)  : _socket(client) {std::cout << "tcpUser ctor" << std::endl;};
 
             /**
              * \fn   virtual ~tcpUser() = default;
@@ -103,7 +107,7 @@
             void doWrite(const std::error_code &ec);
 
         private:
-            asio::ip::tcp::socket _socket; /*! socket */
+            std::shared_ptr<asio::ip::tcp::socket> _socket; /*! socket */
             char _data[MAX_LENGTH]; /*! placeholders for packet */
             std::vector<uint8_t> _message; /*! message parsed received  from the client */
             asio::streambuf _input;  /*!  raw data read from the client */

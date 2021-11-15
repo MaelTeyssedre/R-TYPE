@@ -70,7 +70,7 @@
              * \return new created tcp server
              * 
              */
-            ITCPServer *createTCPServer(int port) override;
+            TCPServer *createTCPServer(int port) override;
 
             /**
              * \fn IUDPSocket *createSocketUDP(int port)
