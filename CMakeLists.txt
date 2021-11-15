@@ -53,8 +53,8 @@ file(
     GLOB 
     SOURCES_BASIC_MONSTER
     ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/IElement.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BasicMonster.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BasicMonster.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BalkanyMonster.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BalkanyMonster.hpp
 )
 
 file(

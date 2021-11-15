@@ -70,17 +70,31 @@
             int x;
             int y;
         };
+        struct velocity_s {
+            int vx;
+            int vy;
+        };
+        struct weapon_s {
+            size_t weaponType;
+        };
+        struct healPoint_s {
+            size_t healPoint;
+        };
+        struct fireFrequence_s {
+            size_t fireFrequence;
+        };
 
+        void moveMonsterSystem(Registry &r, SparseArray<position_s> &positions, SparseArray<velocity_s> &sprite);
         private:
             Registry _registry; /*! registry*/
             std::string _name; /*! name of the monster */
             std::string _texturePath; /*! _texturePath of the monster */
-            size_t _healPoint; /*! healpoint of the monster */
-            size_t _fireFrequence; /*! firefrequence of the monster */
-            size_t _weaponType; /*! WeaponType of the monster */
-            size_t _damage; /*! Damage of the monster */
-            size_t _id; /*! Id of the monster */
+            healPoint_s _healPoint; /*! healpoint of the monster */
+            fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
+            weapon_s _weapon; /*! WeaponType of the monster */
+            size_t _idx; /*! Entity id of the monster */
             position_s _pos;  /*! Position of the monster */
+            velocity_s _vel;  /*! velocity of the monster */
             bool _loot; /*! Is the monster looting something */
     };
 
