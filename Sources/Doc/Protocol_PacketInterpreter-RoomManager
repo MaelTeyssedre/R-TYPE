@@ -1,0 +1,15 @@
+Protocol PacketInterpreter - RoomManager :
+
+	Init :
+		
+		vector<pair<ThreadRoom, RoomData>>
+		Buffer bufferIn
+		Buffer bufferOut
+
+
+	In use:
+		
+		Create<PlayerId>
+		Join<RoomId><PlayerId> 
+
+		Every requests are sepparated by ';'
