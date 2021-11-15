@@ -114,9 +114,9 @@
              */
             static void startNetworkThread(NetworkManager *netManager);
 
-            ITCPClient *createTCPClient(int port) {return nullptr;};
+            ITCPClient *createTCPClient(int port) {(void)port; return nullptr;};
 
-            void deleteTCPClient(ITCPClient *tcp) {};
+            void deleteTCPClient(ITCPClient *tcp) {(void)tcp;};
 
         private:
             asio::io_context _context; /*! asio context */

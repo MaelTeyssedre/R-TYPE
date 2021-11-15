@@ -2,7 +2,7 @@ project(RTYPE)
 cmake_minimum_required(VERSION 3.10)
 
 if (UNIX)
-    add_definitions("-W -Wall -Wextra -Werror -fPIC -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code")
+    add_definitions("-W -Wall -Wextra -fPIC -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code")
 endif (UNIX)
 
 set(CMAKE_CXX_STANDARD 17)

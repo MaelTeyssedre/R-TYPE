@@ -45,7 +45,7 @@ void TCPServer::startAccept()
         std::cout << "async_accept" << std::endl;
         if (!ec) {
             std::cout << "new user" << std::endl;
-            auto &[it, ok] = this->_mapUser.try_emplace(this->_nbUsers, std::make_shared<tcpUser>(client));
+            auto [it, ok] = this->_mapUser.try_emplace(this->_nbUsers, std::make_shared<tcpUser>(client));
             std::cout << "try emplace result: " << ok << std::endl;
             std::cout << "AFTER INSERT" << std::endl;
             this->_mapUser[_nbUsers]->start();

@@ -1,18 +1,23 @@
-#include "NetworkManager.hpp"
-#include <sstream>
 #include <iostream>
+#include "NetworkManager.hpp"
+#include "tcpServer.hpp"
 
-int main(int ac, char **av) {
-    if (ac != 2) {
-        std::cout << "USAGE:" << std::endl << "\twindows: .\\rtype_server.exe [port]" << std::endl << "\tlinux: ./rtype_server [port]" << std::endl;
-        return 1;
+int main()
+{
+    asio::io_context context;
+    Packet packet;
+    std::vector<uint8_t> vec;
+    std::string str = "Create ";
+    vec.assign(str.begin(), str.end());
+    packet.pack(vec);
+    TCPServer server(context, 1342);
+    std::cout << "BEFORE RUN" << std::endl;
+    context.run();
+    std::cout << "After run" << std::endl;
+    while (1) {
+      server.send(0, packet);
     }
-    int port;
-    std::stringstream ss;
-    ss << av[1];
-    ss >> port;
-    NetworkManager netManager;
-    ITCPServer *server = netManager.createTCPServer(port);
-    netManager.deleteTCPServer(server);
-    return 0;
+    std::cout << "Exit main" << std::endl;
+
+    return (0);
 }
