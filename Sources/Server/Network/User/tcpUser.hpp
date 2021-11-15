@@ -14,10 +14,12 @@
 #ifndef TCPUSER_HPP_
     #define TCPUSER_HPP_
 
+    #ifndef MAX_LENGTH
+        #define MAX_LENGTH 9
+    #endif
+
     #include <asio.hpp>
     #include <queue>
-
-    #define MAX_LENGTH 9
 
     /**
      * \class tcpUser.hpp
