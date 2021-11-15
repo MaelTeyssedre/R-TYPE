@@ -82,8 +82,8 @@
             void handleSend();
 
         private:
-            asio::ip::udp::socket _socket; /*! socket to use */
             asio::io_context &_context; /*! asio context */
+            asio::ip::udp::socket _socket; /*! socket to use */
             asio::ip::udp::endpoint _endpoint; /*! endpoint of the user */
             char _data[MAX_LENGTH]; /*! placeholders for packet */
             std::vector<uint8_t> _message; /*! message parsed received  from the client */

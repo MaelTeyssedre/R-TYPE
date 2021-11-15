@@ -30,9 +30,7 @@ void tcpUser::read()
 void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
     if (!ec) {
-       /* for (int i = 0; i < bytes; i++) {
-            std::cout << _input[i] << " | ";
-        }*/
+        std::cout << bytes << std::endl;
         read();
     } else
         std::cerr << ec.message() << std::endl;
@@ -50,9 +48,10 @@ void tcpUser::write()
 void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
     if (!ec) {
-      _queue.pop();
-      if (!_queue.empty())
-        write();
+        std::cout << bytes_transfered << std::endl;
+        _queue.pop();
+        if (!_queue.empty())
+            write();
     } else
         std::cerr << ec.message() << std::endl;
 }
