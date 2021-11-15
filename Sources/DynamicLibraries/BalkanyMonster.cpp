@@ -2,10 +2,10 @@
 ** EPITECH PROJECT, 2021
 ** R-TYPE
 ** File description:
-** BasicMonster
+** BalkanyMonster
 */
 
-#include "BasicMonster.hpp"
+#include "BalkanyMonster.hpp"
 
 
 #ifdef __linux__
@@ -13,7 +13,7 @@
 	{
 		IElement *allocator()
 		{
-			return new BasicMonster();
+			return new BalkanyMonster();
 		}
 
 		void deleter(IElement *ptr)
@@ -28,7 +28,7 @@
 	{
 		__declspec (dllexport) IElement *allocator()
 		{
-			return new BasicMonster();
+			return new BalkanyMonster();
 		}
 
 		__declspec (dllexport) void deleter(IElement *ptr)
@@ -38,10 +38,14 @@
 	}
 #endif
 
-void BasicMonster::init(Registry &)
+void BalkanyMonster::init(Registry &registry)
 {
+	_registry = registry;
+	_id = _registry.spawnEntity();
+
+	registry.registerComponent<position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
 }
 
-void BasicMonster::update()
+void BalkanyMonster::update()
 {
 }
