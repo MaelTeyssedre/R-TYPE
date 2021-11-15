@@ -33,7 +33,7 @@ bool JsonWrapper::isNewElementType(std::vector<std::vector<JsonWrapper::object_s
     return (true);
 }
 
-JsonWrapper::object_s JsonWrapper::createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type)
+JsonWrapper::object_s JsonWrapper::createComposant(int id, std::pair<int, int> pos, int strength, int hp, const std::string &type)
 {
     JsonWrapper::object_s element;
 
@@ -45,7 +45,7 @@ JsonWrapper::object_s JsonWrapper::createComposant(int id, std::pair<int, int> p
     return (element);
 }
 
-JsonWrapper::object_s JsonWrapper::createComposant(std::pair<int, int> pos, std::string &type)
+JsonWrapper::object_s JsonWrapper::createComposant(std::pair<int, int> pos, const std::string &type)
 {
     JsonWrapper::object_s element;
 

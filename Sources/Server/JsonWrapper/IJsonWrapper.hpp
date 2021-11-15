@@ -22,11 +22,11 @@
         public:
 
             /**
-             * \fn ~IJsonWrapper() = default
+             * \fn virtual ~IJsonWrapper() = default
              * 
              * \brief Destruct an IJson object
              */
-             ~IJsonWrapper() = default;
+             virtual ~IJsonWrapper() = default;
 
             /**
              * \fn virtual std::string &jsonToString() = 0

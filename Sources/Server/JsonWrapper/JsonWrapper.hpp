@@ -67,7 +67,7 @@
              * 
              * \return JsonWrapper::object_s a new player object
              */
-            JsonWrapper::object_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type);
+            JsonWrapper::object_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, const std::string &type);
 
             /**
              * \fn JsonWrapper::object_s createComposant(std::pair<int, int> pos, std::string &type)
@@ -79,7 +79,7 @@
              * 
              * \return JsonWrapper::object_s a new object
              */
-            JsonWrapper::object_s createComposant(std::pair<int, int> pos, std::string &type);
+            JsonWrapper::object_s createComposant(std::pair<int, int> pos, const std::string &type);
 
             /**
              * \fn void addPlayer() override
