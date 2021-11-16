@@ -68,6 +68,41 @@
         struct controllable_s {
             bool isControllable;
         };
+
+        /**
+         * \struct size_s components.hpp
+         * 
+         * \brief size component
+         *
+         * \param x x size of the element
+         * \param y y size of the element
+         */
+        struct size_s {
+            int x;
+            int y;
+        };
+
+        /**
+         * \struct callback_s components.hpp
+         * 
+         * \brief callback component
+         *
+         * \param callback callback of an action
+         */
+        struct callback_s {
+            void (*Callback)();
+        };
+
+        /**
+         * \struct window_s components.hpp
+         * 
+         * \brief window component
+         *
+         * \param window sfml window of the program
+         */
+        struct window_s {
+            sf::RenderWindow *window;
+        };
     }
 
 #endif /* !COMPONENTS_HPP_ */

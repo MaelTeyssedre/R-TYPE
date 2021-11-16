@@ -46,6 +46,8 @@ file(
     SOURCES_CLIENT
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
 )
 
 
@@ -212,6 +214,36 @@ target_include_directories(
     rtype_server
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/components/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/systems/
 )
 
 
