@@ -17,6 +17,7 @@
     #include <iostream>
 
     #include "Registry.hpp"
+    #include "components.hpp"
 
     /**
      * \class IElement IElement.hpp
@@ -47,6 +48,10 @@
              * \brief Pure virtual update 
              */
             virtual void update(void) = 0;
+            virtual void setPosition(component::position_s &position) = 0;
+            virtual component::position_s getPosition() const = 0;
+            virtual void setName(std::string &name) = 0;
+            virtual std::string getName() const = 0;
     };
 
 #endif /* !IELEMENT_HPP_ */

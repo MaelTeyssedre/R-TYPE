@@ -93,4 +93,25 @@
         }
     }
 
+    void moveMonsterSystem(Registry &r, SparseArray<component::position_s> &positions, SparseArray<component::velocity_s> &velocity)
+    {
+        for (size_t i = 0; i < positions.size(); i++) {
+            std::optional<component::velocity_s> &vel = velocity[i];
+            std::optional<component::position_s> &pos = positions[i];
+            if (vel && pos) {
+                pos.value().x -= vel.value().vx;
+                pos.value().y -= vel.value().vy;
+            }
+        }
+    }
+
+    void monsterLoseHealthSystem(Registry &r, SparseArray<component::healPoint_s> &healPoint, SparseArray<component::weapon_s> &weapon)
+    {
+        for (size_t i = 0; i < healPoint.size(); i++) {
+            std::optional<component::healPoint_s> &hp = healPoint[i];
+            std::optional<component::weapon_s> &damage = weapon[i];
+            if (hp && damage)
+                hp.value().healPoint -= damage.value().weaponType;
+        }
+    }
 #endif

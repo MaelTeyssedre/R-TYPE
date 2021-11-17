@@ -68,6 +68,20 @@
         struct controllable_s {
             bool isControllable;
         };
+    
+        struct weapon_s {
+            size_t weaponType;
+        };
+        struct healPoint_s {
+            size_t healPoint;
+        };
+        struct fireFrequence_s {
+            size_t fireFrequence;
+        };
+
+        struct loot_s {
+            bool loot;
+        };
     }
 
 #endif /* !COMPONENTS_HPP_ */

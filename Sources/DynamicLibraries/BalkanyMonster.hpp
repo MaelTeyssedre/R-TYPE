@@ -13,14 +13,15 @@
 #ifndef BALKANYMONSTER_HPP_
     #define BALKANYMONSTER_HPP_
 
-    #include "IElement.hpp"
+    #include "AMonster.hpp"
+    #include "systems.hpp"
 
     /**
      * \class BalkanyMonster BalkanyMonster.hpp
      * 
      * \brief Class that contain a monster in a .so/.dll
      */
-    class BalkanyMonster : public IElement {
+    class BalkanyMonster : public AMonster {
         public:
             /**
              * \fn BalkanyMonster() = default
@@ -66,6 +67,11 @@
              */
             void update(void) override;
 
+            void setPosition(component::position_s &position) override;
+            component::position_s getPosition() const override;
+            void setName(std::string &name) override;
+            std::string getName() const override;
+
         struct position_s {
             int x;
             int y;
@@ -74,28 +80,18 @@
             int vx;
             int vy;
         };
-        struct weapon_s {
-            size_t weaponType;
-        };
-        struct healPoint_s {
-            size_t healPoint;
-        };
-        struct fireFrequence_s {
-            size_t fireFrequence;
-        };
 
-        void moveMonsterSystem(Registry &r, SparseArray<position_s> &positions, SparseArray<velocity_s> &sprite);
         private:
-            Registry _registry; /*! registry*/
+            Registry _registry; /*! registry */
             std::string _name; /*! name of the monster */
             std::string _texturePath; /*! _texturePath of the monster */
-            healPoint_s _healPoint; /*! healpoint of the monster */
-            fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
-            weapon_s _weapon; /*! WeaponType of the monster */
+            component::healPoint_s _healPoint; /*! healpoint of the monster */
+            component::fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
+            component::weapon_s _weapon; /*! WeaponType of the monster */
             size_t _idx; /*! Entity id of the monster */
-            position_s _pos;  /*! Position of the monster */
-            velocity_s _vel;  /*! velocity of the monster */
-            bool _loot; /*! Is the monster looting something */
+            component::position_s _pos;  /*! Position of the monster */
+            component::velocity_s _vel;  /*! velocity of the monster */
+            component::loot_s _loot; /*! Is the monster looting something */
     };
 
 #endif /* !BALKANYMONSTER_HPP_ */
