@@ -55,38 +55,48 @@ int main(int argc, char* argv[])
   return 0;
 }*/
 
-int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My Window");
-    // * Registry
-    Registry registry(0);
-    // * Components creation
-    rtype::component::position_s pos {50, 50};
-    rtype::component::velocity_s vel {1, 1};
-    rtype::component::window_s win {&window};
-    rtype::component::drawable_s sprite;
-    sprite.texture.loadFromFile("ressources/mike.png");
-    sprite.sprite.setTexture(sprite.texture, true);
-    sprite.window = &window;
-    sprite.sprite.setPosition(sf::Vector2f((float)pos.x, (float)pos.y));
-    sprite.sprite.setScale((float)0.3, (float)0.3);
-    rtype::component::controllable_s ctrl {true};
-    rtype::component::size_s size {80, 90};
-    rtype::component::current_scene_s current_scene {rtype::constants::LOADING_MENU};
-    rtype::component::entity_scene_s entity_scene {rtype::constants::MAIN_MENU};
-    
-    rtype::component::position_s pos_back {0, 0};
-    rtype::component::size_s size_back {800, 600};
-    rtype::component::window_s win_back {&window};
-    rtype::component::drawable_s sprite_back;
-    sprite_back.texture.loadFromFile("ressources/LoadingMenu.jpg");
-    sprite_back.sprite.setTexture(sprite_back.texture, true);
-    sprite_back.window = &window;
-    sprite_back.sprite.setPosition(sf::Vector2f((float)pos_back.x, (float)pos_back.y));
-    sprite_back.sprite.setScale((float)window.getSize().x / sprite_back.texture.getSize().x, (float)window.getSize().y / sprite_back.texture.getSize().y);
-    rtype::component::controllable_s ctrl_back {false};
-    rtype::component::current_scene_s current_scene_back {rtype::constants::LOADING_MENU};
-    rtype::component::entity_scene_s entity_scene_back {rtype::constants::LOADING_MENU};
-    rtype::component::callback_s callback_back {[](Registry &registry) -> void {
+void init_mike(Registry &registry, sf::RenderWindow &window, size_t id)
+{
+    rtype::component::position_s* pos = new rtype::component::position_s {50, 50};
+    rtype::component::velocity_s* vel = new rtype::component::velocity_s {1, 1};
+    rtype::component::window_s* win = new rtype::component::window_s {&window};
+    rtype::component::drawable_s* sprite = new rtype::component::drawable_s;
+    sprite->texture.loadFromFile("ressources/mike.png");
+    sprite->sprite.setTexture(sprite->texture, true);
+    sprite->window = &window;
+    sprite->sprite.setPosition(sf::Vector2f((float)pos->x, (float)pos->y));
+    sprite->sprite.setScale((float)0.3, (float)0.3);
+    rtype::component::controllable_s* ctrl = new rtype::component::controllable_s {true};
+    rtype::component::size_s* size = new rtype::component::size_s {80, 90};
+    rtype::component::current_scene_s* current_scene = new rtype::component::current_scene_s {rtype::constants::LOADING_MENU};
+    rtype::component::entity_scene_s* entity_scene = new rtype::component::entity_scene_s {rtype::constants::MAIN_MENU};
+
+
+    registry.addComponent<rtype::component::position_s>(registry.entityFromIndex(id), std::move(*pos));
+    registry.addComponent<rtype::component::velocity_s>(registry.entityFromIndex(id), std::move(*vel));
+    registry.addComponent<rtype::component::controllable_s>(registry.entityFromIndex(id), std::move(*ctrl));
+    registry.addComponent<rtype::component::drawable_s>(registry.entityFromIndex(id), std::move(*sprite));
+    registry.addComponent<rtype::component::size_s>(registry.entityFromIndex(id), std::move(*size));
+    registry.addComponent<rtype::component::window_s>(registry.entityFromIndex(id), std::move(*win));
+    registry.addComponent<rtype::component::current_scene_s>(registry.entityFromIndex(id), std::move(*current_scene));
+    registry.addComponent<rtype::component::entity_scene_s>(registry.entityFromIndex(id), std::move(*entity_scene));
+}
+
+void init_load_screen(Registry &registry, sf::RenderWindow &window, size_t id_back)
+{
+    rtype::component::position_s* pos_back = new rtype::component::position_s {0, 0};
+    rtype::component::size_s* size_back = new rtype::component::size_s {800, 600};
+    rtype::component::window_s* win_back = new rtype::component::window_s {&window};
+    rtype::component::drawable_s* sprite_back = new rtype::component::drawable_s;
+    sprite_back->texture.loadFromFile("ressources/LoadingMenu.jpg");
+    sprite_back->sprite.setTexture(sprite_back->texture, true);
+    sprite_back->window = &window;
+    sprite_back->sprite.setPosition(sf::Vector2f((float)pos_back->x, (float)pos_back->y));
+    sprite_back->sprite.setScale((float)window.getSize().x / sprite_back->texture.getSize().x, (float)window.getSize().y / sprite_back->texture.getSize().y);
+    rtype::component::controllable_s* ctrl_back = new rtype::component::controllable_s {false};
+    rtype::component::current_scene_s* current_scene_back = new rtype::component::current_scene_s {rtype::constants::LOADING_MENU};
+    rtype::component::entity_scene_s* entity_scene_back = new rtype::component::entity_scene_s {rtype::constants::LOADING_MENU};
+    rtype::component::callback_s* callback_back = new rtype::component::callback_s {[](Registry &registry) -> void {
         SparseArray<rtype::component::current_scene_s> &current_scenes = registry.getComponents<rtype::component::current_scene_s>();
         for (size_t i = 0; i < current_scenes.size(); i++) {
             std::optional<rtype::component::current_scene_s> &current_scene = current_scenes[i];
@@ -94,11 +104,26 @@ int main() {
                 current_scene.value().scene = rtype::constants::MAIN_MENU;
         }
     }};
-    //callback_back.Callback = &callback_back;
+
+    registry.addComponent<rtype::component::position_s>(registry.entityFromIndex(id_back), std::move(*pos_back));
+    registry.addComponent<rtype::component::controllable_s>(registry.entityFromIndex(id_back), std::move(*ctrl_back));
+    registry.addComponent<rtype::component::drawable_s>(registry.entityFromIndex(id_back), std::move(*sprite_back));
+    registry.addComponent<rtype::component::callback_s>(registry.entityFromIndex(id_back), std::move(*callback_back));
+    registry.addComponent<rtype::component::size_s>(registry.entityFromIndex(id_back), std::move(*size_back));
+    registry.addComponent<rtype::component::window_s>(registry.entityFromIndex(id_back), std::move(*win_back));
+    registry.addComponent<rtype::component::current_scene_s>(registry.entityFromIndex(id_back), std::move(*current_scene_back));
+    registry.addComponent<rtype::component::entity_scene_s>(registry.entityFromIndex(id_back), std::move(*entity_scene_back));
+}
 
 
+int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "My Window");
+    // * Registry
+    Registry registry(0);
+    
     size_t id_back = registry.spawnEntity();
     size_t id = registry.spawnEntity();
+    
 
     // * RegisterComponent
     registry.registerComponent<rtype::component::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
@@ -110,24 +135,12 @@ int main() {
     registry.registerComponent<rtype::component::window_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
     registry.registerComponent<rtype::component::entity_scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
     registry.registerComponent<rtype::component::current_scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    // * AddComponent
-    registry.addComponent<rtype::component::position_s>(registry.entityFromIndex(id), std::move(pos));
-    registry.addComponent<rtype::component::velocity_s>(registry.entityFromIndex(id), std::move(vel));
-    registry.addComponent<rtype::component::controllable_s>(registry.entityFromIndex(id), std::move(ctrl));
-    registry.addComponent<rtype::component::drawable_s>(registry.entityFromIndex(id), std::move(sprite));
-    registry.addComponent<rtype::component::size_s>(registry.entityFromIndex(id), std::move(size));
-    registry.addComponent<rtype::component::window_s>(registry.entityFromIndex(id), std::move(win));
-    registry.addComponent<rtype::component::current_scene_s>(registry.entityFromIndex(id), std::move(current_scene));
-    registry.addComponent<rtype::component::entity_scene_s>(registry.entityFromIndex(id), std::move(entity_scene));
 
-    registry.addComponent<rtype::component::position_s>(registry.entityFromIndex(id_back), std::move(pos_back));
-    registry.addComponent<rtype::component::controllable_s>(registry.entityFromIndex(id_back), std::move(ctrl_back));
-    registry.addComponent<rtype::component::drawable_s>(registry.entityFromIndex(id_back), std::move(sprite_back));
-    registry.addComponent<rtype::component::callback_s>(registry.entityFromIndex(id_back), std::move(callback_back));
-    registry.addComponent<rtype::component::size_s>(registry.entityFromIndex(id_back), std::move(size_back));
-    registry.addComponent<rtype::component::window_s>(registry.entityFromIndex(id_back), std::move(win_back));
-    registry.addComponent<rtype::component::current_scene_s>(registry.entityFromIndex(id_back), std::move(current_scene_back));
-    registry.addComponent<rtype::component::entity_scene_s>(registry.entityFromIndex(id_back), std::move(entity_scene_back));
+    // * Create and Add Component
+
+    init_mike(registry, window, id);
+    init_load_screen(registry, window, id_back);
+
     // * addSystem
     registry.addSystem(loggingSystem, registry.getComponents<rtype::component::position_s>(), registry.getComponents<rtype::component::velocity_s>());
     registry.addSystem(positionSystem, registry.getComponents<rtype::component::position_s>(), registry.getComponents<rtype::component::drawable_s>(), registry.getComponents<rtype::component::current_scene_s>(),  registry.getComponents<rtype::component::entity_scene_s>());
