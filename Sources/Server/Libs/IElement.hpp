@@ -48,7 +48,7 @@
              */
             virtual void update(void) = 0;
             virtual void setName(std::string &name) = 0;
-            virtual std::string getName() const = 0;
+            virtual std::string &getName() const = 0;
     };
 
 #endif /* !IELEMENT_HPP_ */
