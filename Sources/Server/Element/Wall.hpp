@@ -19,7 +19,7 @@
             // void setPosition(component::position_s &position) override;
             // component::position_s getPosition() const override;
             void setName(std::string &name) override;
-            std::string getName() const override;
+            std::string &getName() const override;
         protected:
         private:
             Registry _registry; /*! registry */
