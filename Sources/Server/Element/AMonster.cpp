@@ -7,57 +7,57 @@
 
 #include "AMonster.hpp"
 
-// void AMonster::setHealPoint(component::healPoint_s &healPoint)
-// {
-//     _healPoint.healPoint = healPoint.healPoint;
-// }
+void AMonster::setHealPoint(size_t healPoint)
+{
+    _healPoint.healPoint = healPoint;
+}
 
-// component::healPoint_s AMonster::getHealPoint() const
-// {
-//     return (_healPoint);
-// }
+rtype::healPoint_s AMonster::getHealPoint() const
+{
+    return (_healPoint);
+}
 
-// void AMonster::setFireFrequence(component::fireFrequence_s &fireFrequence)
-// {
-//     _fireFrequence.fireFrequence = fireFrequence.fireFrequence;
-// }
+void AMonster::setFireFrequence(size_t fireFrequence)
+{
+    _fireFrequence.fireFrequence = fireFrequence;
+}
             
-// component::fireFrequence_s AMonster::getFireFrequence() const
-// {
-//     return (_fireFrequence);
-// }
+rtype::fireFrequence_s AMonster::getFireFrequence() const
+{
+    return (_fireFrequence);
+}
 
-// void AMonster::setWeapon(component::weapon_s &weapon)
-// {
-//     _weapon.weaponType = weapon.weaponType;
-// }
+void AMonster::setWeapon(size_t weapon)
+{
+    _weapon.weapon = weapon;
+}
 
-// component::weapon_s AMonster::getWeapon() const
-// {
-//     return (_weapon);
-// }
+rtype::weapon_s AMonster::getWeapon() const
+{
+    return (_weapon);
+}
 
-// void AMonster::setPosition(component::position_s &position)
-// {
-//     _position.x = position.x;
-//     _position.y = position.y;
-// }
+void AMonster::setPosition(std::pair<int, int> pos)
+{
+    _position.x = pos.first;
+    _position.y = pos.second;
+}
 
-// component::position_s AMonster::getPosition() const
-// {
-//     return (_position);
-// }
+rtype::position_s AMonster::getPosition() const
+{
+    return (_position);
+}
 
-// void AMonster::setVelocity(component::velocity_s &velocity)
-// {
-//     _velocity.vx = velocity.vx;
-//     _velocity.vy = velocity.vy;
-// }
+void AMonster::setVelocity(std::pair<int, int> vel)
+{
+    _velocity.vx = vel.first;
+    _velocity.vy = vel.second;
+}
 
-// component::velocity_s AMonster::getVelocity() const
-// {
-//     return (_velocity);
-// }
+rtype::velocity_s AMonster::getVelocity() const
+{
+    return (_velocity);
+}
 
 void AMonster::setName(std::string &name)
 {
