@@ -63,7 +63,7 @@ void Player::setName(std::string &name)
     _name = name;
 }
                 
-std::string Player::getName() const
+std::string &Player::getName() const
 {
     return(_name);
 }
