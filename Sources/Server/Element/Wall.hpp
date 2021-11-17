@@ -9,7 +9,6 @@
     #define WALL_HPP_
 
     #include "IElement.hpp"
-    #include "components.hpp"
 
     class Wall : public IElement {
         public:

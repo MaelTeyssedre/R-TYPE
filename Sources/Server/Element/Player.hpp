@@ -9,8 +9,6 @@
     #define PLAYER_HPP_
 
     #include "IElement.hpp"
-    #include "components.hpp"
-
     class Player : public IElement {
         public:
             explicit Player() = default;
