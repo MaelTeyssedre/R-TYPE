@@ -7,10 +7,10 @@ JsonWrapper::JsonWrapper(std::string &filename)
     _json = nlohmann::json::parse(ifs);
     fillComposantList();
     for (nlohmann::detail::iteration_proxy_value<nlohmann::detail::iter_impl<nlohmann::json>> it : _json["monster"].items())
-        for (nlohmann::json &it2 : it.value())
+        for (nlohmann::json &it2 : it.value()) {
             _typeList.push_back(it.value()["type"].get<std::string>());
-            // _params.push_back(std::make_pair<std::string, object_t>(it.value()["type"].get<std::string>(), {it.value()["id"].get<int>(), std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][0].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), it.value()["type"].get<std::string>()}));
-        // }
+            _params.push_back(std::make_pair<std::string, object_t>(it.value()["type"].get<std::string>(), {it.value()["id"].get<int>(), std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][0].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), it.value()["type"].get<std::string>()}));
+        }
 }
 
 std::string JsonWrapper::jsonToString()
@@ -123,6 +123,18 @@ void JsonWrapper::fillComposantList()
     addPlayer();
     addMonster();
     addWall();
+
+    int j = 0;
+    for (size_t i = 0; i != _objectList.size(); i++) {
+        if (_objectList[i].second != "wall" && _objectList[i].second != "player") {
+            AMonster *ptr = dynamic_cast<AMonster *>(_objectList[i].first.get());
+            ptr->setName(_params[j].second.type);
+            ptr->setWeapon(_params[j].second.strength);
+            ptr->setHealPoint(_params[j].second.hp);
+            ptr->setPosition(_params[j].second.pos);
+            j++;
+        }
+    }
 }
 
 nlohmann::json JsonWrapper::strToJson(std::string &toConvert)

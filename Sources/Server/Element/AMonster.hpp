@@ -9,6 +9,7 @@
     #define AMONSTER_HPP_
 
     #include "IElement.hpp"
+    #include "component.hpp"
 
     class AMonster : public IElement {
         public:
@@ -32,30 +33,29 @@
                  */
                 virtual void update(void) = 0;
 
-                // void setHealPoint(component::healPoint_s &healPoint);
-                // component::healPoint_s getHealPoint() const;
-                // void setFireFrequence(component::fireFrequence_s &healPoint);
-                // component::fireFrequence_s getFireFrequence() const;
-                // void setWeapon(component::weapon_s &weapon);
-                // component::weapon_s getWeapon() const;
-                // void setVelocity(component::velocity_s &velocity);
-                // component::velocity_s getVelocity() const;
-                // void setPosition(component::position_s &position) override;
-                // component::position_s getPosition() const override;
+                void setHealPoint(size_t healPoint);
+                rtype::healPoint_s getHealPoint() const;
+                void setFireFrequence(size_t healPoint);
+                rtype::fireFrequence_s getFireFrequence() const;
+                void setWeapon(size_t weapon);
+                rtype::weapon_s getWeapon() const;
+                void setVelocity(std::pair<int, int> vel);
+                rtype::velocity_s getVelocity() const;
+                void setPosition(std::pair<int, int> pos);
+                rtype::position_s getPosition() const;
                 void setName(std::string &name) override;
                 std::string &getName() override;
-
         protected:
             Registry _registry; /*! registry */
             std::string _name; /*! name of the monster */
             std::string _texturePath; /*! _texturePath of the monster */
-            // component::healPoint_s _healPoint; /*! healpoint of the monster */
-            // component::fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
-            // component::weapon_s _weapon; /*! WeaponType of the monster */
+            rtype::healPoint_s _healPoint; /*! healpoint of the monster */
+            rtype::fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
+            rtype::weapon_s _weapon; /*! WeaponType of the monster */
             size_t _idx; /*! Entity id of the monster */
-            // component::position_s _position;  /*! Position of the monster */
-            // component::velocity_s _velocity;  /*! velocity of the monster */
-            // component::loot_s _loot; /*! Is the monster looting something */
+            rtype::position_s _position;  /*! Position of the monster */
+            rtype::velocity_s _velocity;  /*! velocity of the monster */
+            rtype::loot_s _loot; /*! Is the monster looting something */
     };
 
 #endif /* !AMONSTER_HPP_ */
