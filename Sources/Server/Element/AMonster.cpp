@@ -64,7 +64,7 @@ void AMonster::setName(std::string &name)
     _name = name;
 }
                 
-std::string AMonster::getName() const
+std::string &AMonster::getName() const
 {
     return(_name);
 }
