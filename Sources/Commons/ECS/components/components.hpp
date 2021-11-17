@@ -74,12 +74,12 @@
          * 
          * \brief size component
          *
-         * \param x x size of the element
-         * \param y y size of the element
+         * \param width width size of the element
+         * \param heigth heigth size of the element
          */
         struct size_s {
-            int x;
-            int y;
+            int width;
+            int heigth;
         };
 
         /**
@@ -91,17 +91,6 @@
          */
         struct callback_s {
             void (*Callback)();
-        };
-
-        /**
-         * \struct window_s components.hpp
-         * 
-         * \brief window component
-         *
-         * \param window sfml window of the program
-         */
-        struct window_s {
-            sf::RenderWindow *window;
         };
     }
 

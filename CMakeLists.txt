@@ -46,8 +46,11 @@ file(
     SOURCES_CLIENT
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
 )
 
 
@@ -237,15 +240,20 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/components/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Components/
 )
 
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/systems/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Systems/
 )
 
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/
+)
 
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})

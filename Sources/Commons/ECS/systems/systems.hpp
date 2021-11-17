@@ -103,20 +103,20 @@
      * \param sizes Reference to an array of size component
      * \param callbacks Reference to an array of callback component
      */
-    void clickSystem(Registry &r, SparseArray<component::position_s> &positions, SparseArray<component::size_s> &sizes/*, SparseArray<component::callback_s> &callbacks, SparseArray<component::window_s> &windows*/) {
-        for (size_t i = 0; i < positions.size() && i < sizes.size()/* && i < callbacks.size()*/; i++) {
+    void clickSystem(Registry &r, SparseArray<component::position_s> &positions, SparseArray<component::size_s> &sizes, SparseArray<component::callback_s> &callbacks, SparseArray<component::drawable_s> &window) {
+        for (size_t i = 0; i < positions.size() && i < sizes.size() && i < callbacks.size() && i < window.size(); i++) {
             std::optional<component::position_s> &pos = positions[i];
             std::optional<component::size_s> &size = sizes[i];
-            //std::optional<component::callback_s> &callback = callbacks[i];
-            //std::optional<component::window_s> &window = windows[i];
-            if (pos && size/* && callback && window*/) {
+            std::optional<component::callback_s> &callback = callbacks[i];
+            std::optional<component::drawable_s> &win = window[i];
+            if (pos && size && callback && win) {
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                    sf::Vector2i position = sf::Mouse::getPosition(/*(sf::RenderWindow *)window.value().window*/);
-                    if (position.x > pos.value().x && position.x < pos.value().x + size.value().x
-                    && position.y > pos.value().y && position.y < pos.value().y + size.value().y)
-                        std::cout << "MouseX = " << position.x << " Pos = " << pos.value().x << " Size = " << pos.value().x + size.value().x << std::endl;
+                    sf::Vector2i position = sf::Mouse::getPosition(*win.value().window);
+                    if (position.x > pos.value().x && position.x < pos.value().x + size.value().width
+                    && position.y > pos.value().y && position.y < pos.value().y + size.value().heigth)
+                        //std::cout << "MouseX = " << position.y << " Pos = " << pos.value().y << " Size = " << pos.value().y + size.value().y << std::endl;
                         //std::cout << "Clicked" << std::endl;
-                        //callback.value().callback();
+                        callback.value().Callback();
                 }
             }
         }
