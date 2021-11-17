@@ -56,10 +56,6 @@ file(
     SOURCES_BASIC_MONSTER
     ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/IElement.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Component/component.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BasicMonster.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BasicMonster.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/AMonster.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/AMonster.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.cpp
 )
@@ -67,8 +63,12 @@ file(
 file(
     GLOB_RECURSE 
     SOURCES_BASIC_MONSTER
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/AMonster.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/AMonster.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
@@ -83,58 +83,58 @@ if (WIN32)
     add_executable(rtype_server ${SOURCES_SERVER} ${PROJECT_SOURCE_DIR}/Sources/LibLoader/Windows/DlLoaderWindows.hpp ${PROJECT_SOURCE_DIR}/Sources/LibLoader/Windows/DlLoaderWindows.cpp)
 endif (WIN32)
 
-add_library(BasicMonster SHARED ${SOURCES_BASIC_MONSTER})
+add_library(basic_monster SHARED ${SOURCES_BASIC_MONSTER})
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/DynamicLibrairies/
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Component
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/systems
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry
 )
 
 target_include_directories(
-    BasicMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray
 )

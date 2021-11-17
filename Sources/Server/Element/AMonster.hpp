@@ -35,7 +35,7 @@
 
                 void setHealPoint(size_t healPoint);
                 rtype::healPoint_s getHealPoint() const;
-                void setFireFrequence(size_t healPoint);
+                void setFireFrequence(size_t firefrequence);
                 rtype::fireFrequence_s getFireFrequence() const;
                 void setWeapon(size_t weapon);
                 rtype::weapon_s getWeapon() const;
@@ -43,8 +43,8 @@
                 rtype::velocity_s getVelocity() const;
                 void setPosition(std::pair<int, int> pos);
                 rtype::position_s getPosition() const;
-                void setName(std::string &name) override;
-                std::string &getName() override;
+                void setName(std::string &name);
+                std::string &getName();
         protected:
             Registry _registry; /*! registry */
             std::string _name; /*! name of the monster */

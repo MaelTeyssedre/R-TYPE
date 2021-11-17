@@ -1,27 +1,31 @@
-namespace rtype {
-    struct healPoint_s {
-        size_t healPoint;
-    };
+#ifndef CONPONENT
+    #define CONPONENT
 
-    struct fireFrequence_s {
-        size_t fireFrequence;
-    };
+    namespace rtype {
+        struct healPoint_s {
+            size_t healPoint;
+        };
 
-    struct weapon_s {
-        size_t weapon;
-    };
+        struct fireFrequence_s {
+            size_t fireFrequence;
+        };
 
-    struct loot_s {
-        bool loot;
-    };
+        struct weapon_s {
+            size_t weapon;
+        };
 
-    struct position_s {
-        int x;
-        int y;
-    };
+        struct loot_s {
+            bool loot;
+        };
 
-    struct velocity_s {
-        int vx;
-        int vy;
-    };
-}
+        struct position_s {
+            int x;
+            int y;
+        };
+
+        struct velocity_s {
+            int vx;
+            int vy;
+        };
+    }
+#endif

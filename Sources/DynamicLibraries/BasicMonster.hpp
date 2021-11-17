@@ -61,10 +61,9 @@
              */
             void update(void) override;
 
-            // void setPosition(component::position_s &position) override;
-            // component::position_s getPosition() const override;
-            // void setName(std::string &name) override;
-            // std::string getName() const override;
+            // void setPosition(rtype::position_s &position);
+            // rtype::position_s getPosition() const;
+            void setVelocity(std::pair<int, int> vel);
     };
 
 #endif /* !BASICMONSTER_HPP_ */

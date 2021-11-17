@@ -18,8 +18,8 @@
             void update(void) override;
             // void setPosition(component::position_s &position) override;
             // component::position_s getPosition() const override;
-            void setName(std::string &name) override;
-            std::string &getName() override;
+            void setName(std::string &name);
+            std::string &getName();
         protected:
         private:
             Registry _registry; /*! registry */

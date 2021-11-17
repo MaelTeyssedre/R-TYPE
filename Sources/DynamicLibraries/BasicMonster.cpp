@@ -39,8 +39,8 @@
 
 void BasicMonster::init(Registry &registry)
 {
-	setVelocity(std::pair(10, 0));
-	setFireFrequence(3);
+	AMonster::setVelocity(std::pair(10, 0));
+	AMonster::setFireFrequence(3);
 	_registry = registry;
 	_idx = _registry.spawnEntity();
 
