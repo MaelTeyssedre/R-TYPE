@@ -33,7 +33,7 @@ void Wall::setName(std::string &name)
     _name = name;
 }
                 
-std::string &Wall::getName() const
+std::string &Wall::getName()
 {
     return(_name);
 }
