@@ -13,16 +13,16 @@ void Wall::init(Registry &registry)
 	_idx = _registry.spawnEntity();
 }
 
-void Wall::setPosition(component::position_s &position)
-{
-    _position.x = position.x;
-    _position.y = position.y;
-}
+// void Wall::setPosition(component::position_s &position)
+// {
+//     _position.x = position.x;
+//     _position.y = position.y;
+// }
 
-component::position_s Wall::getPosition() const
-{
-    return (_position);
-}
+// component::position_s Wall::getPosition() const
+// {
+//     return (_position);
+// }
 
 void Wall::update()
 {

@@ -17,15 +17,15 @@
             virtual ~Wall() = default;
             void init(Registry &) override;
             void update(void) override;
-            void setPosition(component::position_s &position) override;
-            component::position_s getPosition() const override;
+            // void setPosition(component::position_s &position) override;
+            // component::position_s getPosition() const override;
             void setName(std::string &name) override;
             std::string getName() const override;
         protected:
         private:
-            Registry &_registry; /*! registry */
+            Registry _registry; /*! registry */
             std::string _name; /*! name of the wall */
-            component::position_s _position;  /*! Position of the wall */
+            // component::position_s _position;  /*! Position of the wall */
             size_t _idx; /*! Entity id of the Wall */
     };
 

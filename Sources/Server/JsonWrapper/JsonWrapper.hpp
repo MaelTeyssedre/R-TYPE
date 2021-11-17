@@ -15,21 +15,20 @@
 #ifndef JSONWRAPPER_HPP_
     #define JSONWRAPPER_HPP_
 
-    #include <vector>
     #include "IJsonWrapper.hpp"
-    #include "AMonster.hpp"
-    #include "components.hpp"
+
 
     class JsonWrapper : public IJsonWrapper {
         public:
-            struct object_s {           /*! An object */
-            int id;                     /*! Object id */
-            std::pair<int, int> pos;    /*! Object spawn position */
-            int strength;               /*! Object strength */
-            int hp;                     /*! Object hp */
-            std::string type;           /*! Object type */
-        };
+            typedef struct object_s {           /*! An object */
+                int id;                     /*! Object id */
+                std::pair<int, int> pos;    /*! Object spawn position */
+                int strength;               /*! Object strength */
+                int hp;                     /*! Object hp */
+                std::string type;           /*! Object type */
+            } object_t;
 
+        public:
             /**
              * \fn JsonWrapper(std::string &filename)
              * 
@@ -81,7 +80,7 @@
              * 
              * \return JsonWrapper::object_s a new object
              */
-            std::shared_ptr<IElement> createMonster(std::pair<int, int> pos, std::string type);
+            // std::shared_ptr<IElement> createMonster(std::pair<int, int> pos, std::string type);
 
             /**
              * \fn JsonWrapper::object_s createMonster(std::pair<int, int> pos, std::string &type)
@@ -126,7 +125,7 @@
              * 
              * \return bool True if the object is found, false otherwise
              */
-            bool isNewElementType(std::vector<std::vector<std::shared_ptr<IElement>>> _objectList, std::string type);
+            // bool isNewElementType(std::vector<std::vector<std::shared_ptr<IElement>>> _objectList, std::string type);
 
             /**
              * \fn std::vector<std::vector<JsonWrapper::object_s>> getComposantList() const
@@ -135,14 +134,15 @@
              * 
              * \return std::vector<std::vector<JsonWrapper::object_s>> A vector of object list
              */
-            std::vector<std::vector<std::shared_ptr<IElement>>> getComposantList() const;
+            std::vector<std::pair<std::shared_ptr<IElement>, std::string>> &getComposantList();
 
             nlohmann::json strToJson(std::string &toConvert);
         private:
             std::string _filename;  /*! name of the json file */
             nlohmann::json _json; /*! a json file */
-            std::vector<std::vector<std::shared_ptr<IElement>>> _objectList; /*! an object list */
+            std::vector<std::pair<std::shared_ptr<IElement>, std::string>> _objectList; /*! an object list */
             std::vector<std::string> _typeList; /*! type list */
+            std::vector<std::pair<std::string, object_t>> _params;
     };
 
 #endif /* !IJSONWRAPPER_HPP_ */
