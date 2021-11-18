@@ -1,0 +1,10 @@
+^C:\USERS\ALBAN\PROJECTS\R-TYPE\R-TYPE\BUILD\CMAKEFILES\932F6D5B1D400D193123FF849FA70A0A\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/alban/Projects/R-TYPE/R-TYPE -BC:/Users/alban/Projects/R-TYPE/R-TYPE/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/alban/Projects/R-TYPE/R-TYPE/build/RTYPE.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

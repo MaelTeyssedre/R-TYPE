@@ -115,6 +115,19 @@ void init_load_screen(Registry &registry, sf::RenderWindow &window, size_t id_ba
     registry.addComponent<rtype::component::entity_scene_s>(registry.entityFromIndex(id_back), std::move(*entity_scene_back));
 }
 
+void registerAllComponent(Registry &registry)
+{
+    registry.registerComponent<rtype::component::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::velocity_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::drawable_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::controllable_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::size_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::callback_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::window_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::entity_scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    registry.registerComponent<rtype::component::current_scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+}
+
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "My Window");
@@ -126,6 +139,10 @@ int main() {
     
 
     // * RegisterComponent
+
+    registerAllComponent(registry);
+
+    /*
     registry.registerComponent<rtype::component::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
     registry.registerComponent<rtype::component::velocity_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
     registry.registerComponent<rtype::component::drawable_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
@@ -135,7 +152,7 @@ int main() {
     registry.registerComponent<rtype::component::window_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
     registry.registerComponent<rtype::component::entity_scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
     registry.registerComponent<rtype::component::current_scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-
+    */
     // * Create and Add Component
 
     init_mike(registry, window, id);
