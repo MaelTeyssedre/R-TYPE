@@ -43,7 +43,6 @@ void BasicMonster::init(Registry &registry)
 	AMonster::setFireFrequence(3);
 	_registry = registry;
 	_idx = _registry.spawnEntity();
-
 	registry.registerComponent<rtype::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
 	registry.registerComponent<rtype::velocity_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
 	registry.registerComponent<rtype::weapon_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
@@ -70,25 +69,3 @@ void BasicMonster::update()
 		}
 	}, _registry.getComponents<rtype::position_s>(), _registry.getComponents<rtype::velocity_s>());
 }
-
-
-// void BasicMonster::setName(std::string &name)
-// {
-//     _name = name;
-// }
-                
-// std::string BasicMonster::getName() const
-// {
-//     return(_name);
-// }
-
-// void BasicMonster::setPosition(component::position_s &position)
-// {
-//     _position.x = position.x;
-//     _position.y = position.y;
-// }
-
-// component::position_s BasicMonster::getPosition() const
-// {
-//     return (_position);
-// }
