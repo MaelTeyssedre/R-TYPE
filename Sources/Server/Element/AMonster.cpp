@@ -61,7 +61,9 @@ rtype::velocity_s AMonster::getVelocity() const
 
 void AMonster::setName(std::string &name)
 {
+    std::cout << name << std::endl;
     _name = name;
+    std::cout << "Set your f*cking name" << std::endl;
 }
                 
 std::string &AMonster::getName()

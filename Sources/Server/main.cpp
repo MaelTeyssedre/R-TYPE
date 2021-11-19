@@ -1,23 +1,19 @@
 #include <iostream>
 #include "NetworkManager.hpp"
 #include "tcpServer.hpp"
+#include "JsonWrapper.hpp"
+#include "Registry.hpp"
 
 int main()
 {
-    asio::io_context context;
-    Packet packet;
-    std::vector<uint8_t> vec;
-    std::string str = "Create ";
-    vec.assign(str.begin(), str.end());
-    packet.pack(vec);
-    TCPServer server(context, 1342);
-    std::cout << "BEFORE RUN" << std::endl;
-    context.run();
-    std::cout << "After run" << std::endl;
-    while (1) {
-      server.send(0, packet);
-    }
-    std::cout << "Exit main" << std::endl;
+  Registry registry;
+  JsonWrapper wrapper(std::string("test.json"));
+  std::vector<std::pair<std::shared_ptr<IElement>, std::string>> objectList = wrapper.getComposantList();
 
-    return (0);
+  for (int i = 0; i != objectList.size(); i++) {
+    if (objectList[i].second == "monster")
+      objectList[i].first->init(registry);
+  }
+
+  return (0);
 }

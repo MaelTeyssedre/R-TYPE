@@ -29,7 +29,7 @@
         #define LIBS_PATH "./build/bin/dynlibsLinux/"
     #endif
     #ifdef _WIN32
-        #define LIBS_PATH "./build/Release/dynlibsWindows"
+        #define LIBS_PATH "./build/Release/dynlibsWindows/"
     #endif
 
     /**

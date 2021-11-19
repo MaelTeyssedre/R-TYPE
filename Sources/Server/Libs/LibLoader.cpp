@@ -70,6 +70,7 @@ void LibLoader::loadLibs() {
 void LibLoader::listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad) {
     for (size_t i = 0; i < toLoad.size(); i++) {
         #ifdef WIN32
+            std::cout << path << toLoad[i] << ".dll" << std::endl;
             _libsfiles.push_back(path + toLoad[i] + ".dll");
         #endif
         #ifdef __linux__

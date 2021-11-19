@@ -39,6 +39,7 @@
 
 void BasicMonster::init(Registry &registry)
 {
+	std::cout << "isEntering" << std::endl;
 	AMonster::setVelocity(std::pair(10, 0));
 	AMonster::setFireFrequence(3);
 	_registry = registry;
@@ -55,6 +56,7 @@ void BasicMonster::init(Registry &registry)
 	registry.addComponent<rtype::healPoint_s>(registry.entityFromIndex(_idx), std::move(_healPoint));
 	registry.addComponent<rtype::fireFrequence_s>(registry.entityFromIndex(_idx), std::move(_fireFrequence));
 	registry.addComponent<rtype::loot_s>(registry.entityFromIndex(_idx), std::move(_loot));
+	std::cout << "isWorking" << std::endl;
 }
 
 void BasicMonster::update()

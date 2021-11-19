@@ -61,8 +61,6 @@
              */
             void update(void) override;
 
-            // void setPosition(rtype::position_s &position);
-            // rtype::position_s getPosition() const;
             void setVelocity(std::pair<int, int> vel);
     };
 

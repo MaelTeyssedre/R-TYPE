@@ -14,7 +14,7 @@
     class AMonster : public IElement {
         public:
 
-                AMonster() = default;
+                explicit AMonster() = default;
                 virtual ~AMonster() = default;
         
                 /**
