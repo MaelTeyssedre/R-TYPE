@@ -20,14 +20,17 @@ Logger::~Logger()
 void Logger::log(std::string &message)
 {
     _file << message;
+    _file.flush();
 }
 
 void Logger::logln(std::string &message)
 {
     _file << message << std::endl;
+    _file.flush();
 }
 
 void Logger::operator<<(std::string &buffer)
 {
     _file << buffer << std::endl;
+    _file.flush();
 }
