@@ -75,12 +75,14 @@ void BasicMonster::init(Registry &registry)
 void BasicMonster::update()
 {
 	_registry.addSystem([](Registry &r, SparseArray<rtype::position_s> &position, SparseArray<rtype::velocity_s> &velocity) -> void {
+		(void)r;
 		for (size_t i = 0; i < position.size() && i < velocity.size(); i++) {
 			std::optional<rtype::position_s> &pos = position[i];
 			const std::optional<rtype::velocity_s> &vel = velocity[i];
-			if (pos && vel)
+			if (pos && vel) {
 				pos.value().x += vel.value().vx;
 				pos.value().y += vel.value().vy;
+			}
 		}
 	}, _registry.getComponents<rtype::position_s>(), _registry.getComponents<rtype::velocity_s>());
 }

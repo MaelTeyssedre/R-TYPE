@@ -30,7 +30,7 @@ void Wall::update()
 
 void Wall::setName(std::string &name)
 {
-    //_name = name;
+    _name = name;
 }
                 
 std::string &Wall::getName()

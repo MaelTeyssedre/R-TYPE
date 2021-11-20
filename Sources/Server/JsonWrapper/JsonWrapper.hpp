@@ -55,9 +55,9 @@
              */
             void fillComposantList() override;
 
-            std::shared_ptr<Player> JsonWrapper::createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type);
+            std::shared_ptr<Player> createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type);
 
-            std::shared_ptr<Wall> JsonWrapper::createWall(std::pair<int, int> pos, std::string type);
+            std::shared_ptr<Wall> createWall(std::pair<int, int> pos, std::string type);
 
 
             /**

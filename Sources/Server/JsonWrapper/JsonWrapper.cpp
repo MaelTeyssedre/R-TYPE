@@ -21,6 +21,10 @@ std::string JsonWrapper::jsonToString()
 
 std::shared_ptr<Player> JsonWrapper::createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type)
 {
+    (void) id;
+    (void) pos;
+    (void) strength;
+    (void) hp;
     std::shared_ptr<Player> element {new Player()};
     element->setName(type);
     return (element);
@@ -28,6 +32,7 @@ std::shared_ptr<Player> JsonWrapper::createPlayer(int id, std::pair<int, int> po
 
 std::shared_ptr<Wall> JsonWrapper::createWall(std::pair<int, int> pos, std::string type)
 {
+    (void) pos;
     std::shared_ptr<Wall> element {new Wall()};
     element->setName(type);
     return (element);
