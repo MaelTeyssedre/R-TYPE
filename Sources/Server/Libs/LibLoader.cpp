@@ -8,7 +8,7 @@
 
 #include "LibLoader.hpp"
 
-LibLoader::LibLoader(const std::vector<std::string> &toLoad)
+LibLoader::LibLoader()
 {
     #ifdef _WIN32
         _dlLoaderWindows = DlLoaderWindows();
@@ -16,9 +16,6 @@ LibLoader::LibLoader(const std::vector<std::string> &toLoad)
     #ifdef __linux__
         _dlLoaderUnix = DlLoaderUnix();
     #endif
-
-    listLibDirectory(LIBS_PATH, toLoad);
-    loadLibs();
 }
 
 LibLoader::LibLoader(const LibLoader &other)
@@ -46,20 +43,20 @@ LibLoader::~LibLoader() {
     #endif
 }
 
-std::vector<std::shared_ptr<IElement>> LibLoader::getLibs() const {
-    return _libs;
+std::vector<std::shared_ptr<AMonster>> *LibLoader::getLibs() {
+    return &_libs;
 }
 
-void LibLoader::loadLibs() {
+void LibLoader::loadLib() {
     try {
         for (size_t i = _libs.size(); i < _libsfiles.size(); i++) {
             #ifdef __linux__
                 _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(_libsfiles[i]));
-                _libs.push_back(std::shared_ptr<IElement>((IElement*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])()));
+                _libs.push_back(std::shared_ptr<AMonster>((AMonster*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])()));
             #endif
             #ifdef _WIN32
                 _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(_libsfiles[i]));
-                _libs.push_back(std::shared_ptr<IElement>(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])()));
+                _libs.push_back(std::shared_ptr<AMonster>(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])()));
             #endif
         }
     } catch (const std::runtime_error &e) {
@@ -78,8 +75,8 @@ void LibLoader::listLibDirectory(const std::string &path, const std::vector<std:
     }
 }
 
-void LibLoader::loadMoreLib(const std::vector<std::string> &toLoad)
+void LibLoader::loadLibs(const std::vector<std::string> &toLoad)
 {
     listLibDirectory(LIBS_PATH, toLoad);
-    loadLibs();
+    loadLib();
 }

@@ -40,6 +40,7 @@ file(
     # ${PROJECT_SOURCE_DIR}/Sources/Server/./Wrapper/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/component.hpp
 )
 
 file(
@@ -71,22 +72,25 @@ file(
 
 file(
     GLOB 
-    SOURCES_BALKANY_MONSTER
+    SOURCES_BASIC_MONSTER
     ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/IElement.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BalkanyMonster.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/BalkanyMonster.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/component.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.cpp
 )
 
 file(
     GLOB_RECURSE 
-    SOURCES_BALKANY_MONSTER
+    SOURCES_BASIC_MONSTER
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/AMonster.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/AMonster.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/components/components.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/systems/systems.hpp
 )
 
 add_executable(rtype_client ${SOURCES_CLIENT})
@@ -98,41 +102,58 @@ if (WIN32)
     add_executable(rtype_server ${SOURCES_SERVER} ${PROJECT_SOURCE_DIR}/Sources/LibLoader/Windows/DlLoaderWindows.hpp ${PROJECT_SOURCE_DIR}/Sources/LibLoader/Windows/DlLoaderWindows.cpp)
 endif (WIN32)
 
-add_library(BalkanyMonster SHARED ${SOURCES_BALKANY_MONSTER})
-
+add_library(basic_monster SHARED ${SOURCES_BASIC_MONSTER})
 
 target_include_directories(
-    BalkanyMonster
+    basic_monster
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
+)
+
+target_include_directories(
+    basic_monster
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/
+)
+
+target_include_directories(
+    basic_monster
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/DynamicLibrairies/
+)
+
+target_include_directories(
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/
 )
 
 target_include_directories(
-    BalkanyMonster
+    basic_monster
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/components
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component
 )
 
 target_include_directories(
-    BalkanyMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/systems
 )
 
 target_include_directories(
-    BalkanyMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity
 )
 
 target_include_directories(
-    BalkanyMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry
 )
 
 target_include_directories(
-    BalkanyMonster
+    basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray
 )
@@ -147,6 +168,12 @@ target_include_directories(
     rtype_server
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/PlayerData/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component
 )
 
 target_include_directories(

@@ -23,8 +23,8 @@
             // component::weapon_s getWeapon() const;
             // void setPosition(component::position_s &position) override;
             // component::position_s getPosition() const override;
-            void setName(std::string &name) override;
-            std::string &getName() override;
+            void setName(std::string &name);
+            std::string &getName();
         private:
             Registry _registry; /*! registry*/
             std::string _name; /*! name of the player */

@@ -15,6 +15,7 @@
 
     #include <string>
     #include <vector>
+    #include "AMonster.hpp"
     #include <memory>
     #include <filesystem>
 
@@ -29,7 +30,7 @@
         #define LIBS_PATH "./build/bin/dynlibsLinux/"
     #endif
     #ifdef _WIN32
-        #define LIBS_PATH "./build/Release/dynlibsWindows"
+        #define LIBS_PATH "./build/bin/"
     #endif
 
     /**
@@ -47,7 +48,7 @@
              * 
              * \brief construct the class, load the .so/.dll and construct class inside
              */
-            explicit LibLoader(const std::vector<std::string>&);
+            explicit LibLoader();
 
             /**
              * \fn LibLoader(const LibLoader&)
@@ -63,6 +64,7 @@
              */
             virtual ~LibLoader();
 
+
             /**
              * \fn LibLoader& operator=(const LibLoader &other) = default
              * 
@@ -77,16 +79,16 @@
              * 
              * \brief load the .so/.dll and construct class inside
              */
-            void loadMoreLib(const std::vector<std::string>&);
+            void loadLibs(const std::vector<std::string>&);
 
             /**
-             * \fn std::vector<IElement *> getLibs() const
+             * \fn std::vector<AMonster *> getLibs() const
              * 
              * \brief getter for loaded and constructed Element
              * 
              * \return vector of const loaded and constructed Element
              */
-            std::vector<std::shared_ptr<IElement>> getLibs() const;
+            std::vector<std::shared_ptr<AMonster>> *getLibs();
         
         private:
             /**
@@ -94,7 +96,7 @@
              * 
              * \brief load the .so/.dll contain in _libsfiles, construct the class inside and store them in _libs
              */
-            void loadLibs();
+            void loadLib();
 
             /**
              * \fn void loadLibs()
@@ -107,8 +109,8 @@
              */
             void listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad);
 
-            std::vector<std::shared_ptr<IElement>> _libs;
-            //std::vector<IElement *> _libs; /*! Vector of class load from shared lib */
+            std::vector<std::shared_ptr<AMonster>> _libs;
+            //std::vector<AMonster *> _libs; /*! Vector of class load from shared lib */
             std::vector<std::string> _libsfiles; /*! Vector of name shared lib */
             #ifdef __linux__
                 DlLoaderUnix _dlLoaderUnix; /*! Library loader on Linux */

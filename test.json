@@ -1,0 +1,17 @@
+{
+   "player": [
+      {"id": 1, "pos": [10, 10], "hp": 50, "strength": 10},
+      {"id": 2, "pos": [10, 60], "hp": 50, "strength": 11},
+      {"id": 3, "pos": [10, 110], "hp": 50, "strength": 12},
+      {"id": 4, "pos": [10, 160], "hp": 50, "strength": 13}
+   ],"monster": [
+   {"id": 5, "pos": [42, 142], "hp": 50, "strength": 10, "type": "basic_monster"},
+   {"id": 7, "pos": [204, 100], "hp": 50, "strength": 10, "type": "basic_monster"}
+   ],"wall": [
+      {"pos": [18, 24],"type": "Mur des Lamentation"},
+      {"pos": [7, 4],"type": "Mur du son"},
+      {"pos": [180, 234],"type": "Mur des Lamentation"},
+      {"pos": [88, 546],"type": "Mur de Berlin"},
+      {"pos": [10, 10],"type": "Mur du son"}
+   ]
+}
