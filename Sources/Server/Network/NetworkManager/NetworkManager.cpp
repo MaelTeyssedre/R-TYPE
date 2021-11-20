@@ -9,7 +9,8 @@
 
 void NetworkManager::start()
 {
-      _thread = std::thread(&NetworkManager::startNetworkThread, this);
+    _worker(_context);
+    _thread = std::thread(&NetworkManager::startNetworkThread, this);
 }
 
 void NetworkManager::stop()
