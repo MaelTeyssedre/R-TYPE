@@ -22,15 +22,10 @@
              * 
              */
             explicit PlayerData() = default;
+      
+            explicit PlayerData(size_t id, std::shared_ptr<Buffer> buffIn, std::shared_ptr<Buffer> buffOut, std::shared_ptr<std::mutex> mutexIn,std::shared_ptr<std::mutex> mutexOut) 
+                : _mutexIn(mutexIn), _mutexOut(mutexOut), _bufferIn(buffIn), _bufferOut(buffOut), _id(id) {}
 
-            /**
-             * \fn explicit PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>, std::shared_ptr<std::mutex>, std::shared_ptr<std::mutex>)
-             * 
-             * \brief Construct a new Player Data object
-             * 
-             */
-            explicit PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>, std::shared_ptr<std::mutex>, std::shared_ptr<std::mutex>);
-            // ! issue julian
             //PlayerData(PlayerData &) = delete;
 
             /**

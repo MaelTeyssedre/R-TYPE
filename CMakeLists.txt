@@ -2,7 +2,7 @@ project(RTYPE)
 cmake_minimum_required(VERSION 3.10)
 
 if (UNIX)
-    add_definitions("-W -Wall -Wextra -fPIC -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code")
+    add_definitions("-W -Wall -Wextra -fPIC -Werror -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code")
 endif (UNIX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -47,6 +47,25 @@ file(
     SOURCES_CLIENT
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/TCP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/TCP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/UDP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/UDP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.hpp
+
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.hpp
+
+
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.hpp
 )
 
 
@@ -247,6 +266,77 @@ target_include_directories(
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
 )
 
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Components/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Systems/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/TCP/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/UDP/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/
+)
 
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})
