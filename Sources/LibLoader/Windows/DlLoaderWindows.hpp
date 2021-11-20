@@ -13,10 +13,9 @@
     #include <cstring>
     #include <iostream>
     #include <exception>
+    #include "AMonster.hpp"
 
-    #include "IElement.hpp"
-
-    using allocClass = IElement*(*)();
+    using allocClass = AMonster*(*)();
     using deleteClass = void(*)(IElement*);
 
     class DlLoaderWindows {

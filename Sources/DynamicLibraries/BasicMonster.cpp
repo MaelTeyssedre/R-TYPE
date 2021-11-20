@@ -10,12 +10,12 @@
 #ifdef __linux__
 	extern "C"
 	{
-		IElement *allocator()
+		BasicMonster *allocator()
 		{
 			return new BasicMonster();
 		}
 
-		void deleter(IElement *ptr)
+		void deleter(BasicMonster *ptr)
 		{
 			delete ptr;
 		}
@@ -25,12 +25,12 @@
 #ifdef _WIN32
 	extern "C"
 	{
-		__declspec (dllexport) IElement *allocator()
+		__declspec (dllexport) BasicMonster *allocator()
 		{
 			return new BasicMonster();
 		}
 
-		__declspec (dllexport) void deleter(IElement *ptr)
+		__declspec (dllexport) void deleter(BasicMonster *ptr)
 		{
 			delete ptr;
 		}
@@ -38,15 +38,16 @@
 #endif
 
 BasicMonster::BasicMonster()
+	: AMonster("testName", "randomPath")
 {
-    _name = "testName";
-    _healPoint.healPoint = 50;
-    _fireFrequence.fireFrequence = 30;
-    _weapon.weapon = 0;
-    _position.x = 0;
-    _position.y = 0;
-    _velocity.vx = 0;
-    _velocity.vy = 0;
+	std::cout << "in BasicMonster ctor" << std::endl;
+    // _healPoint.healPoint = 50;
+    // _fireFrequence.fireFrequence = 30;
+    // _weapon.weapon = 0;
+    // _position.x = 0;
+    // _position.y = 0;
+    // _velocity.vx = 0;
+    // _velocity.vy = 0;
 }
 
 void BasicMonster::init(Registry &registry)
@@ -84,67 +85,3 @@ void BasicMonster::update()
 	}, _registry.getComponents<rtype::position_s>(), _registry.getComponents<rtype::velocity_s>());
 }
 
-void BasicMonster::setHealPoint(size_t healPoint)
-{
-    _healPoint.healPoint = healPoint;
-}
-
-rtype::healPoint_s BasicMonster::getHealPoint() const
-{
-    return (_healPoint);
-}
-
-void BasicMonster::setFireFrequence(size_t fireFrequence)
-{
-    _fireFrequence.fireFrequence = fireFrequence;
-}
-            
-rtype::fireFrequence_s BasicMonster::getFireFrequence() const
-{
-    return (_fireFrequence);
-}
-
-void BasicMonster::setWeapon(size_t weapon)
-{
-    _weapon.weapon = weapon;
-}
-
-rtype::weapon_s BasicMonster::getWeapon() const
-{
-    return (_weapon);
-}
-
-void BasicMonster::setPosition(std::pair<int, int> pos)
-{
-    _position.x = pos.first;
-    _position.y = pos.second;
-}
-
-rtype::position_s BasicMonster::getPosition() const
-{
-    return (_position);
-}
-
-void BasicMonster::setVelocity(std::pair<int, int> vel)
-{
-    _velocity.vx = vel.first;
-    _velocity.vy = vel.second;
-}
-
-rtype::velocity_s BasicMonster::getVelocity() const
-{
-    return (_velocity);
-}
-
-void BasicMonster::setName(std::string &name)
-{
-    std::cout << "inside the setName function : _name" << std::endl;
-    _name = name;
-    std::cout << "Set your f*cking name" << std::endl;
-}
-
-std::string BasicMonster::getName()
-{
-    std::cout << "inside the getName function : "  << _name << std::endl;
-    return(_name);
-}

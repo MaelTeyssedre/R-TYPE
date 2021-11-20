@@ -9,7 +9,6 @@
 
 HMODULE DlLoaderWindows::loadLib(const std::string &path)
 {
-    std::cout << "Loading " << path << std::endl;
     HMODULE lib = LoadLibrary(path.c_str());
     if (!lib)
         throw std::runtime_error("Cannot load lib");

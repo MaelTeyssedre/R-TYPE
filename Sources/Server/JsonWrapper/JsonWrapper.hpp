@@ -20,7 +20,7 @@
 
     class JsonWrapper : public IJsonWrapper {
         public:
-            typedef struct object_s {           /*! An object */
+            typedef struct object_s {       /*! An object */
                 int id;                     /*! Object id */
                 std::pair<int, int> pos;    /*! Object spawn position */
                 int strength;               /*! Object strength */
@@ -55,44 +55,10 @@
              */
             void fillComposantList() override;
 
-            /**
-             * \fn JsonWrapper::object_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type)
-             * 
-             * \brief Construct a player object
-             * 
-             * \param id Id of the object
-             * \param pos Spawn position of the object
-             * \param strength Strength of the object
-             * \param hp Hp of the object
-             * \param type Type of the object
-             * 
-             * \return JsonWrapper::object_s a new player object
-             */
-            std::shared_ptr<IElement> createPlayer(int id, std::pair<int, int> pos, int strength, int hp,  std::string type);
+            std::shared_ptr<Player> JsonWrapper::createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type);
 
-            /**
-             * \fn JsonWrapper::object_s createComposant(std::pair<int, int> pos, std::string &type)
-             * 
-             * \brief Construct a monster object 
-             * 
-             * \param pos Spawn position of the object
-             * \param type Type of the object
-             * 
-             * \return JsonWrapper::object_s a new object
-             */
-            // std::shared_ptr<IElement> createMonster(std::pair<int, int> pos, std::string type);
+            std::shared_ptr<Wall> JsonWrapper::createWall(std::pair<int, int> pos, std::string type);
 
-            /**
-             * \fn JsonWrapper::object_s createMonster(std::pair<int, int> pos, std::string &type)
-             * 
-             * \brief Construct a wall object
-             * 
-             * \param pos Spawn position of the object
-             * \param type Type of the object
-             * 
-             * \return JsonWrapper::object_s a new object
-             */
-            std::shared_ptr<IElement> createWall(std::pair<int, int> pos, std::string type);
 
             /**
              * \fn void addPlayer() override
@@ -115,32 +81,20 @@
              */
             void addWall() override;
 
-            /**
-             * \fn bool isNewElementType(std::vector<std::vector<JsonWrapper::object_s>> _objectList, std::string type)
-             * 
-             * \brief Check if an element exist in the object list
-             * 
-             * \param _objectList An object list
-             * \param type Type of the object
-             * 
-             * \return bool True if the object is found, false otherwise
-             */
-            // bool isNewElementType(std::vector<std::vector<std::shared_ptr<IElement>>> _objectList, std::string type);
+            std::vector<AMonster *> &getMonsterList() {return _monsterList;}
 
-            /**
-             * \fn std::vector<std::vector<JsonWrapper::object_s>> getComposantList() const
-             * 
-             * \brief Return an object list
-             * 
-             * \return std::vector<std::vector<JsonWrapper::object_s>> A vector of object list
-             */
-            std::vector<std::pair<std::shared_ptr<IElement>, std::string>> &getComposantList();
+            std::vector<std::shared_ptr<Player>> &getPlayerList() {return _playerList;}
+
+            std::vector<std::shared_ptr<Wall>> &getWallList() {return _wallList;}
 
             nlohmann::json strToJson(std::string &toConvert);
         private:
+            LibLoader _loader;
             std::string _filename;  /*! name of the json file */
             nlohmann::json _json; /*! a json file */
-            std::vector<std::pair<std::shared_ptr<IElement>, std::string>> _objectList; /*! an object list */
+            std::vector<AMonster *> _monsterList;
+            std::vector<std::shared_ptr<Wall>> _wallList;
+            std::vector<std::shared_ptr<Player>> _playerList;
             std::vector<std::string> _typeList; /*! type list */
             std::vector<std::pair<std::string, object_t>> _params;
     };
