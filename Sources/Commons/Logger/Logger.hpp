@@ -11,22 +11,26 @@
 #include "ILogger.hpp"
 
 /**
-* @class Logger class
-* @brief Used to store log in a file.
-*/
+ * \class Logger class
+ * 
+ * \brief Used to store log in a file.
+ */
 class Logger : public ILogger {
 
     public:
 
-        /*!
+       /*!
         * @brief Create a log file
         * @param Name of the log file
         */
         explicit Logger(std::string fileName);
+
         
-        /*!
-        * @brief Close a log file
-        */
+        /**
+         * \fn virtual ~Logger()
+         * 
+         * \brief Close a log file
+         */
         virtual ~Logger();
         
         /*!
@@ -46,6 +50,7 @@ class Logger : public ILogger {
         * @param Content to add
         */
         void operator<<(std::string buffer) override;
+
     
     private:
     

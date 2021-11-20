@@ -47,6 +47,8 @@
              * \brief Pure virtual update 
              */
             virtual void update(void) = 0;
+            virtual void setName(std::string &name) = 0;
+            virtual std::string &getName() = 0;
     };
 
 #endif /* !IELEMENT_HPP_ */
