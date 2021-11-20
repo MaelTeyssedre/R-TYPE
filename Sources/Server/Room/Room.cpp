@@ -35,5 +35,7 @@ void Room::setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>>
 
 Room& Room::operator=(Room &room)
 {
-    return(*this);
+    _id = room._id;
+    _roomBuffers = room._roomBuffers;
+    return *this;
 }
