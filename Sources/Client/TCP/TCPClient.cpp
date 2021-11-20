@@ -21,9 +21,8 @@ TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::s
 void TCPClient::receive()
 {
     _socket->async_read_some(asio::buffer(_reply), std::bind(&TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
-    for (size_t i = 0; i <= 9; i++) {
+    for (size_t i = 0; i <= 9; i++)
         std::cout << _reply[i];
-    }
 }
 
 void TCPClient::doRead(const std::error_code &ec, size_t bytes)
