@@ -63,8 +63,8 @@ file(
 file(
     GLOB_RECURSE 
     SOURCES_BASIC_MONSTER
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/AMonster.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/AMonster.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/AMonster.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/AMonster.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/DynamicLibraries/*.cpp
