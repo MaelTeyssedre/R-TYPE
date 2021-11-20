@@ -43,8 +43,9 @@ void TCPClient::doRead(const std::error_code &ec, size_t bytes)
 void TCPClient::send(IPacket &packet)
 {
     std::vector<uint8_t> vec;
+    std::string str = "handshake";
 
-    vec.assign(.begin(), str.end());
+    vec.assign(str.begin(), str.end());
     packet.pack(vec);
     _socket->async_write_some(asio::buffer(vec, vec.size()), std::bind(&TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }

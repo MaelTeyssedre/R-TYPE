@@ -34,7 +34,7 @@
              * 
              * \brief ctor networkManager
              */
-            explicit NetworkManager() : _context(), _worker(), _udpSockets(), _tcpServers(), _thread() {};
+            explicit NetworkManager() : _context(), _worker(_context), _udpSockets(), _tcpServers(), _thread() {};
 
             /**
              * \fn virtual ~NetworkManager()
@@ -120,7 +120,7 @@
 
         private:
             asio::io_context _context; /*! asio context */
-            asio::io_context::work *_worker; /*! asio worker */
+            asio::io_context::work _worker; /*! asio worker */
             std::vector<IUDPSocket *> _udpSockets; /*! vector of udp socket */
             std::vector<ITCPServer *> _tcpServers; /*! vector of tcp server */
             std::thread _thread; /*! thread  of  network*/

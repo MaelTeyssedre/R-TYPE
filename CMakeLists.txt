@@ -36,8 +36,8 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.cpp
+    # ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
+    # ${PROJECT_SOURCE_DIR}/Sources/Server/./Wrapper/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.cpp
 )
@@ -260,11 +260,11 @@ target_include_directories(
     ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/
 )
 
-target_include_directories(
-    rtype_server
-    PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
-)
+# target_include_directories(
+#     rtype_server
+#     PUBLIC
+#     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
+# )
 
 target_include_directories(
     rtype_client
