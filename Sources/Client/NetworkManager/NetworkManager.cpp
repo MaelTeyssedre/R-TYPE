@@ -9,7 +9,7 @@
 
 void NetworkManager::start()
 {
-      _thread = std::thread(&NetworkManager::startNetworkThread, this);
+    _thread = std::thread(&NetworkManager::startNetworkThread, this);
 }
 
 void NetworkManager::stop()
@@ -26,14 +26,10 @@ void NetworkManager::startNetworkThread(NetworkManager *netManager)
 
 ITCPClient *NetworkManager::createTCPClient(int port)
 {
-    std::cout << "1" << std::endl;
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
-  std::cout << "2" << std::endl;
 
-    TCPClient *server = new TCPClient(_context, sock, "127.0.0.1", "1342");
-  std::cout << "3" << std::endl;
+    TCPClient *server = new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
     _tcpClients.push_back(server);
-      std::cout << "4" << std::endl;
     return (server);
 }
 

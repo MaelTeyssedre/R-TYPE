@@ -19,18 +19,18 @@ void UDPSocket::handleSend()
 
 void UDPSocket::receive()
 {
-  _socket.async_receive_from(asio::buffer(_data, 9), _endpoint, [this](std::error_code ec, std::size_t bytes)
-  {
-    if (!ec) {
-        std::istream stream(&_input);
-        std::string line;
-        std::getline(stream, line);
-        _input.consume(bytes);
-        _logger.log(std::string{"UDP client receie: "});
-        _logger.log(std::to_string(bytes));
-        _logger.logln(std::string{"bytes"});
-        receive();
-    }
-  });
-  std::cout << _data << std::endl;
+    _socket.async_receive_from(asio::buffer(_data, 9), _endpoint, [this](std::error_code ec, std::size_t bytes)
+    {
+      if (!ec) {
+          std::istream stream(&_input);
+          std::string line;
+          std::getline(stream, line);
+          _input.consume(bytes);
+          _logger.log(std::string{"UDP client receie: "});
+          _logger.log(std::to_string(bytes));
+          _logger.logln(std::string{"bytes"});
+          receive();
+      }
+    });
+    std::cout << _data << std::endl;
 }
