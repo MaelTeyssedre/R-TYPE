@@ -93,11 +93,9 @@ void JsonWrapper::addMonster()
 
     std::cout << dylibs.size() << std::endl;
     std::cout << _typeList.size() << std::endl;
-    for (size_t i = 0; i < dylibs.size() && i < _typeList.size(); i++) {
-        for (auto it: _json["monster"].items()) {
+    for (size_t i = 0; i < dylibs.size() && i < _typeList.size(); i++)
+        for (auto it: _json["monster"].items())
             _objectList.push_back(std::pair(std::shared_ptr(dylibs[i]), _typeList[i]));
-        }
-    }
                 // monsterList.back().push_back(std::make_shared<IElement>(createMonster(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>())));
             // } else {
             //     for (auto &monster: monsterList)
@@ -112,9 +110,8 @@ void JsonWrapper::addWall()
     // std::vector<std::vector<std::shared_ptr<IElement>>> wallList;
     // std::vector<std::shared_ptr<IElement>> element;
 
-    for (auto it: _json["wall"].items()) {
+    for (auto it: _json["wall"].items())
         _objectList.push_back(std::pair(createWall(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>()), std::string("wall")));
-    }
         // } else {
             // for (auto &wall: wallList)
                 // if (it.value()["type"].get<std::string>() == wall.front()->getName()) {
@@ -140,15 +137,16 @@ void JsonWrapper::fillComposantList()
     for (size_t i = 0; i != _objectList.size(); i++) {
         if (_objectList[i].second != "basic_monster") {
             AMonster *ptr = dynamic_cast<AMonster *>(_objectList[i].first.get());
+            (*ptr).getName();
             std::cout << "I'm the smartest dog in the world" << std::endl;
             std::cout << _params[j].second.type << std::endl;
-            ptr->setName(_params[j].second.type);
+            (*ptr).setName(_params[j].second.type);
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            ptr->setWeapon(_params[j].second.strength);
+            (*ptr).setWeapon(_params[j].second.strength);
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            ptr->setHealPoint(_params[j].second.hp);
+            (*ptr).setHealPoint(_params[j].second.hp);
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            ptr->setPosition(_params[j].second.pos);
+            (*ptr).setPosition(_params[j].second.pos);
             std::cout << "I'm the smartest dog in the world" << std::endl;
             j++;
             std::cout << "I'm the greatest dog in the world" << std::endl;

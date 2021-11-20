@@ -22,7 +22,7 @@
              * 
              * \brief Default ctor
              */
-            explicit BasicMonster() = default;
+            explicit BasicMonster();
 
             /**
              * \fn BasicMonster(const BasicMonster&) = default
@@ -61,7 +61,30 @@
              */
             void update(void) override;
 
+            void setHealPoint(size_t healPoint) override;
+            rtype::healPoint_s getHealPoint() const override;
+            void setFireFrequence(size_t firefrequence) override;
+            rtype::fireFrequence_s getFireFrequence() const override;
+            void setWeapon(size_t weapon) override;
+            rtype::weapon_s getWeapon() const override;
+            void setVelocity(std::pair<int, int> vel) override;
+            rtype::velocity_s getVelocity() const override;
+            void setPosition(std::pair<int, int> pos) override;
+            rtype::position_s getPosition() const override;
+            void setName(std::string &name) override;
+            std::string getName() override;
             void setVelocity(std::pair<int, int> vel);
+        private:
+            Registry _registry; /*! registry */
+            std::string _name; /*! name of the monster */
+            std::string _texturePath; /*! _texturePath of the monster */
+            rtype::healPoint_s _healPoint; /*! healpoint of the monster */
+            rtype::fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
+            rtype::weapon_s _weapon; /*! WeaponType of the monster */
+            size_t _idx; /*! Entity id of the monster */
+            rtype::position_s _position;  /*! Position of the monster */
+            rtype::velocity_s _velocity;  /*! velocity of the monster */
+            rtype::loot_s _loot; /*! Is the monster looting something */
     };
 
 #endif /* !BASICMONSTER_HPP_ */
