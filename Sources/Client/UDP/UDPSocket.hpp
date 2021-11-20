@@ -6,8 +6,10 @@
 */
 
 #ifndef UDPSOCKET_HPP_
-    #include "IUDPSocket.hpp"
+
     #include <asio.hpp>
+    #include "IUDPSocket.hpp"
+    #include "Logger.hpp"
 
     #define UDPSOCKET_HPP_
     class UDPSocket: public IUDPSocket {
@@ -28,7 +30,7 @@
              * 
              * \param port port to use
              */
-            explicit UDPSocket(asio::io_context &context, std::uint16_t port)  : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port)) {};
+            explicit UDPSocket(asio::io_context &context, std::uint16_t port)  : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port)), _logger(std::string{"log.txt"}) {};
      
             /**
              * \fn virtual ~UDPSocket() = default;
@@ -73,6 +75,7 @@
             char _data[9]; /*! placeholders for packet */
             std::vector<uint8_t> _message; /*! message parsed received  from the client */
             asio::streambuf _input;  /*!  raw data read from the client */
+            Logger _logger;
     };
 
 #endif /* !UDPSOCKET_HPP_ */
