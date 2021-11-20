@@ -7,44 +7,70 @@
 
 #include "TCPClient.hpp"
 
-TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port) : _context(context), _resolver(context), _socket(socket)
+TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port) : _context(context), _resolver(context), _socket(socket), _logger(std::string{"log.txt"})
 {
-    std::cout << "here" << std::endl;
     asio::connect(*_socket, _resolver.resolve(host, port));
-  std::cout << "here2" << std::endl;
+    std::string str = "Client connected to host: ";
+
+    str.append(host);
+    str.append(", and port: ");
+    str.append(port);
+    _logger.logln(str);
 }
 
-/*void TCPClient::connect(std::string &ip, std::uint16_t port)
+void TCPClient::receive()
 {
-  //  asio::ip::udp::resolver resolv(_context);
-   // asio::ip::tcp::endpoint ep(asio::ip::address::from_string(ip), port);
-    //asio::ip::tcp::socket sock(_context, ep.protocol());
-}*/
-
-IPacket &TCPClient::receive()
-{
-    Packet packet;
-    asio::error_code ec;
-    _socket->read_some(asio::buffer(_reply), ec);
+    _socket->async_read_some(asio::buffer(_reply), std::bind(&TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
     for (size_t i = 0; i <= 9; i++) {
         std::cout << _reply[i];
     }
-    //packet.pack(_reply);
-    memset(_reply, 0, 9);
-    return (packet);
+}
+
+void TCPClient::doRead(const std::error_code &ec, size_t bytes)
+{
+    std::string str;
+
+    if (!ec) {
+        str = "receive: ";
+        str.append(std::to_string(bytes));
+        str.append("bytes");
+        _logger.logln(str);
+        _buffer->putInBuffer(bytes, _reply);
+        receive();
+    } else
+        std::cerr << ec.message() << std::endl;
 }
 
 void TCPClient::send(IPacket &packet)
 {
-//    asio::async_write(*_socket, asio::buffer(packet.unpack()), std::bind(&tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
-      std::string str = "hello from server";
-  std::vector<uint8_t> vec;
+    std::string str = "hello from server";
+    std::vector<uint8_t> vec;
 
-  vec.assign(str.begin(), str.end());
-  packet.pack(vec);
-    _socket->write_some(asio::buffer(vec, vec.size()));
-  //   asio::write(_socket, asio::buffer(_reply, 9));
+    vec.assign(str.begin(), str.end());
+    packet.pack(vec);
+    _socket->async_write_some(asio::buffer(vec, vec.size()), std::bind(&TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+}
+
+void TCPClient::doWrite(const std::error_code &ec, size_t bytes)
+{
+    std::string str;
+
+    if (!ec) {
+        str = "Send: ";
+        str.append(std::to_string(bytes));
+        str.append("bytes");
+        _logger.logln(str);
+    } else
+        std::cerr << ec.message() << std::endl;
+}
+
+std::shared_ptr<Buffer> TCPClient::getData()
+{
+  return (_buffer);
 }
 
 void TCPClient::disconnect()
-{}
+{
+  _socket->close();
+  _logger.logln(std::string{"Client disconnect"});
+}

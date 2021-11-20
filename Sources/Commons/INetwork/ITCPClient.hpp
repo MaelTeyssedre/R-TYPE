@@ -49,17 +49,7 @@
              * 
              * \return return data in packet
              */
-            virtual IPacket &receive() = 0;
-
-            /**
-             * \fn virtual void connect(std::string &ip, std::uint16_t port) = 0
-             * 
-             * \brief connect to a socket with specified ip and port
-             * 
-             * \param ip to connect
-             * \param port to connect
-             */
-            virtual void connect(std::string &ip, std::uint16_t port) = 0;
+            virtual void receive() = 0;
 
             /**
              * \fn virtual void disconnect() = 0
