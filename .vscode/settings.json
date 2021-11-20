@@ -83,6 +83,17 @@
         "source_location": "cpp",
         "stop_token": "cpp",
         "thread": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "cwctype": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "set": "cpp",
+        "memory_resource": "cpp",
+        "random": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "cinttypes": "cpp",
+        "variant": "cpp"
     }
 }

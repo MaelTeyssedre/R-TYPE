@@ -34,4 +34,6 @@ ITCPClient *NetworkManager::createTCPClient(int port)
 }
 
 void NetworkManager::deleteTCPClient(ITCPClient *client)
-{}
+{
+  (void)client;
+}
