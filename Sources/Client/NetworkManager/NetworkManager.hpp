@@ -25,7 +25,7 @@
      * \brief class that contain methode to manage network
      * 
      */
-    class NetworkManager : public INetworkManager{
+    class NetworkManager : public INetworkManager {
         public:
 
             /**
