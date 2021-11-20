@@ -27,10 +27,10 @@
             std::shared_ptr<Buffer> getData();
 
         private:
-            Logger _logger;
             asio::io_context &_context;
             asio::ip::tcp::resolver _resolver;
             std::shared_ptr<asio::ip::tcp::socket> _socket;
+            Logger _logger;
             Packet _packet;
             std::shared_ptr<Buffer> _buffer;
             char _reply[9];

@@ -7,7 +7,7 @@
 
 #include "TCPClient.hpp"
 
-TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port) : _context(context), _resolver(context), _socket(socket), _logger(std::string{"log.txt"})
+TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port) : _context(context), _resolver(context), _socket(socket), _logger("log.txt")
 {
     asio::connect(*_socket, _resolver.resolve(host, port));
     std::string str = "Client connected to host: ";

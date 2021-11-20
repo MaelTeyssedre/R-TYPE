@@ -30,7 +30,7 @@ ITCPClient *NetworkManager::createTCPClient(int port)
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
   std::cout << "2" << std::endl;
 
-    TCPClient *server = new TCPClient(_context, sock, "127.0.0.1", "1342");
+    TCPClient *server = new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
   std::cout << "3" << std::endl;
     _tcpClients.push_back(server);
       std::cout << "4" << std::endl;
@@ -38,4 +38,6 @@ ITCPClient *NetworkManager::createTCPClient(int port)
 }
 
 void NetworkManager::deleteTCPClient(ITCPClient *client)
-{}
+{
+  (void)client;
+}

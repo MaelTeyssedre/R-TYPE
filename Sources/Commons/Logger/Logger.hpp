@@ -22,7 +22,7 @@ class Logger : public ILogger {
         * @brief Create a log file
         * @param Name of the log file
         */
-        explicit Logger(std::string &fileName);
+        explicit Logger(std::string fileName);
         
         /*!
         * @brief Close a log file
@@ -33,19 +33,19 @@ class Logger : public ILogger {
         * @brief log message into a file
         * @param message to log
         */
-        void log(std::string &message) override;
+        void log(std::string message) override;
         
         /*!
         * @brief log message into a file and and an endline
         * @param message to log
         */
-        void logln(std::string &message) override;
+        void logln(std::string message) override;
 
         /*!
         * @brief Add a message to the log file // Same as log()
         * @param Content to add
         */
-        void operator<<(std::string &buffer) override;
+        void operator<<(std::string buffer) override;
     
     private:
     
