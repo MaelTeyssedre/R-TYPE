@@ -5,17 +5,17 @@ JsonWrapper::JsonWrapper(std::string &filename)
     _filename = filename;
     std::ifstream ifs(_filename);
     _json = nlohmann::json::parse(ifs);
-    for (auto it : _json["monster"].items()) {
-        for (auto &it2 : it.value()) {
-            _typeList.push_back(it.value()["type"].get<std::string>());
-            object_t obj {  it.value()["id"].get<int>(), 
-                            std::pair( it.value()["pos"][0].get<int>(),  it.value()["pos"][1].get<int>()), 
-                            it.value()["hp"].get<int>(), 
-                            it.value()["strength"].get<int>(), 
-                            it.value()["type"].get<std::string>()
-                        };
-            _params.push_back(std::pair<std::string, object_t>(it.value()["type"].get<std::string>(), obj));
-        }
+    std::cout << "size of monster items : " << _json["monster"].size() << std::endl;
+    for (size_t i = 0; i < _json["monster"].size(); i++) {
+        std::cout << "type : " << _json["monster"][i]["type"] << std::endl;
+        _typeList.push_back(_json["monster"][i]["type"]);
+        object_t obj {  _json["monster"][i]["id"], 
+                        std::pair(_json["monster"][i]["pos"][0],  _json["monster"][i]["pos"][1]), 
+                        _json["monster"][i]["hp"], 
+                        _json["monster"][i]["strength"], 
+                        _json["monster"][i]["type"]
+                    };
+        _params.push_back(std::pair<std::string, object_t>(_json["monster"][i]["type"], obj));
     }
     fillComposantList();
 }
@@ -79,8 +79,8 @@ void JsonWrapper::addPlayer()
 {
     // std::vector<std::shared_ptr<IElement>> playerList;
 
-    for (auto it: _json["player"].items())
-        _objectList.push_back(std::pair(createPlayer(it.value()["id"].get<int>(), std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), std::string("player")), std::string("player")));
+    for (size_t i = 0; i < _json["player"].size(); i++)
+        _objectList.push_back(std::pair(createPlayer(_json["player"][i]["id"], std::make_pair(_json["player"][i]["pos"][0], _json["player"][i]["pos"][1]), _json["player"][i]["strength"], _json["player"][i]["hp"], std::string("player")), std::string("player")));
     // _objectList.push_back(playerList);
 }
 
@@ -91,11 +91,8 @@ void JsonWrapper::addMonster()
     // std::vector<std::pair<std::shared_ptr<IElement>, std::string>> monsterList;
     // std::vector<std::shared_ptr<IElement>> element;
 
-    std::cout << dylibs.size() << std::endl;
-    std::cout << _typeList.size() << std::endl;
-    for (size_t i = 0; i < dylibs.size() && i < _typeList.size(); i++)
-        for (auto it: _json["monster"].items())
-            _objectList.push_back(std::pair(std::shared_ptr(dylibs[i]), _typeList[i]));
+    for (size_t i = 0; i < _json["monster"].size(); i++)
+        _objectList.push_back(std::pair(std::shared_ptr(dylibs[i]), _typeList[i]));
                 // monsterList.back().push_back(std::make_shared<IElement>(createMonster(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>())));
             // } else {
             //     for (auto &monster: monsterList)
@@ -110,8 +107,8 @@ void JsonWrapper::addWall()
     // std::vector<std::vector<std::shared_ptr<IElement>>> wallList;
     // std::vector<std::shared_ptr<IElement>> element;
 
-    for (auto it: _json["wall"].items())
-        _objectList.push_back(std::pair(createWall(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>()), std::string("wall")));
+    for (size_t i = 0; i < _json["wall"].size(); i++)
+        _objectList.push_back(std::pair(createWall(std::make_pair(_json["wall"][i]["pos"][0], _json["wall"][i]["pos"][1]), _json["wall"][i]["type"]), std::string("wall")));
         // } else {
             // for (auto &wall: wallList)
                 // if (it.value()["type"].get<std::string>() == wall.front()->getName()) {
@@ -129,24 +126,26 @@ std::vector<std::pair<std::shared_ptr<IElement>, std::string>> &JsonWrapper::get
 
 void JsonWrapper::fillComposantList()
 {
+    int j = 0;
+
     addPlayer();
     addMonster();
     addWall();
-
-    int j = 0;
+    std::cout << "i want to hang myself" << std::endl;
     for (size_t i = 0; i != _objectList.size(); i++) {
-        if (_objectList[i].second != "basic_monster") {
-            AMonster *ptr = dynamic_cast<AMonster *>(_objectList[i].first.get());
-            (*ptr).getName();
+        if (_objectList[i].second == "basic_monster") {
+            std::cout << "before the cast" << std::endl;
+            AMonster *ptr = (AMonster *)_objectList[i].first.get();
+            std::cout << "help me" << std::endl;
+            std::cout << "hello my hp are : " << ptr->getHealPoint().healPoint << std::endl;
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            std::cout << _params[j].second.type << std::endl;
-            (*ptr).setName(_params[j].second.type);
+            ptr->setName(_params[j].second.type);
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            (*ptr).setWeapon(_params[j].second.strength);
+            ptr->setWeapon(_params[j].second.strength);
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            (*ptr).setHealPoint(_params[j].second.hp);
+            ptr->setHealPoint(_params[j].second.hp);
             std::cout << "I'm the smartest dog in the world" << std::endl;
-            (*ptr).setPosition(_params[j].second.pos);
+            ptr->setPosition(_params[j].second.pos);
             std::cout << "I'm the smartest dog in the world" << std::endl;
             j++;
             std::cout << "I'm the greatest dog in the world" << std::endl;

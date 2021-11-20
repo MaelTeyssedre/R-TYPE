@@ -13,7 +13,6 @@
 
     class AMonster : public IElement {
         public:
-            explicit AMonster();
             virtual ~AMonster() = default;
         
             /**
@@ -44,8 +43,6 @@
             virtual rtype::position_s getPosition() const = 0;
             virtual void setName(std::string &name) = 0;
             virtual std::string getName() = 0;
-        public:
-
     };
 
 #endif /* !AMONSTER_HPP_ */

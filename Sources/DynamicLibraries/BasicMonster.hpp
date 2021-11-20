@@ -73,7 +73,6 @@
             rtype::position_s getPosition() const override;
             void setName(std::string &name) override;
             std::string getName() override;
-            void setVelocity(std::pair<int, int> vel);
         private:
             Registry _registry; /*! registry */
             std::string _name; /*! name of the monster */

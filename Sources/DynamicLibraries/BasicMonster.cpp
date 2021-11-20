@@ -38,11 +38,10 @@
 #endif
 
 BasicMonster::BasicMonster()
-	: AMonster()
 {
-    _name = "";
-    _healPoint.healPoint = 0;
-    _fireFrequence.fireFrequence = 0;
+    _name = "testName";
+    _healPoint.healPoint = 50;
+    _fireFrequence.fireFrequence = 30;
     _weapon.weapon = 0;
     _position.x = 0;
     _position.y = 0;
@@ -53,8 +52,8 @@ BasicMonster::BasicMonster()
 void BasicMonster::init(Registry &registry)
 {
 	std::cout << "isEntering" << std::endl;
-	AMonster::setVelocity(std::pair(10, 0));
-	AMonster::setFireFrequence(3);
+	setVelocity(std::pair(10, 0));
+	setFireFrequence(3);
 	_registry = registry;
 	_idx = _registry.spawnEntity();
 	registry.registerComponent<rtype::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
@@ -139,7 +138,7 @@ rtype::velocity_s BasicMonster::getVelocity() const
 
 void BasicMonster::setName(std::string &name)
 {
-    std::cout << name << std::endl;
+    std::cout << "inside the setName function : _name" << std::endl;
     _name = name;
     std::cout << "Set your f*cking name" << std::endl;
 }
