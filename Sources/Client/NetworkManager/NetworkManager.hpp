@@ -16,6 +16,7 @@
 
     #include "INetworkManager.hpp"
     #include "TCPClient.hpp"
+    #include "UDPSocket.hpp"
     #include <asio.hpp>
     #include <thread>
 
@@ -75,20 +76,20 @@
 
             void deleteTCPClient(ITCPClient *tcp);
 
+            IUDPSocket *createSocketUDP(int port) override;
+
+            void deleteSocketUDP(IUDPSocket *udp) override;
+
+
 
             ITCPServer *createTCPServer(int port) override {(void)port; return nullptr;};
-
             void deleteTCPServer(ITCPServer *tcp) override  {(void)tcp;};
-
-            IUDPSocket *createSocketUDP(int port) override  {(void)port; return nullptr;};
-
-            void deleteSocketUDP(IUDPSocket *udp) override {(void)udp;};
-
 
         private:
             asio::io_context _context; /*! asio context */
             asio::io_context::work *_worker; /*! asio worker */
             std::vector<ITCPClient *> _tcpClients; /*! vector of tcp server */
+            std::vector<IUDPSocket *> _udpSockets; /*! vector of tcp server */
             std::thread _thread; /*! thread  of  network*/
     };
 

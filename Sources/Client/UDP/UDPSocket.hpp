@@ -13,7 +13,7 @@
 
     #define UDPSOCKET_HPP_
     class UDPSocket: public IUDPSocket {
-
+          public:
             /**
              * \fn explicit udpSocket() = default
              * 
@@ -30,8 +30,13 @@
              * 
              * \param port port to use
              */
-            explicit UDPSocket(asio::io_context &context, std::uint16_t port)
-              : _context(context), _socket(context, asio::ip::udp::endpoint(asio::ip::udp::v4(), port)), _logger(std::string{"log.txt"}) {};
+            explicit UDPSocket(asio::io_context &context, std::string host, std::string port)
+              : _context(context), _socket(_context, asio::ip::udp::endpoint(asio::ip::udp::v4(), 0)), _logger(std::string{"log.txt"}) {
+                asio::ip::udp::resolver resolver(_context);
+                asio::ip::udp::resolver::query query(asio::ip::udp::v4(), host, port);
+                asio::ip::udp::resolver::iterator iterator = resolver.resolve(query);
+                _endpoint = *iterator;
+              };
      
             /**
              * \fn virtual ~UDPSocket() = default;
