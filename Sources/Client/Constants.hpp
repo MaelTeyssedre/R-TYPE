@@ -18,6 +18,13 @@
                 LOADING_MENU
             };
 
+            enum TYPE {
+                SPRITE,
+                TEXT,
+                SOUND,
+                MUSIC
+            };
+
         }
     }
 

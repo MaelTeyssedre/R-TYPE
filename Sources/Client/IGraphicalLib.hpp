@@ -5,58 +5,113 @@
 ** IGraphicalLib
 */
 
+/**
+ * \file IGraphicalLib.hpp
+ *
+ * \brief file where the graphical lib abstraction is defined
+ */
+
 #ifndef IGRAPHICALLIB_HPP_
     #define IGRAPHICALLIB_HPP_
 
     #include <iostream>
+    #include <SFML/Window.hpp>
+    #include "Constants.hpp"
 
     namespace rtype {
 
-        class Sprite {
-            public:
-                explicit Sprite() = default;
-                virtual ~Sprite() = default;
+        /**
+         * \struct Sprite IGraphicalLib.hpp
+         *
+         * \brief struct that define sprite
+         */
+        struct sprite_s {
+            int posX;
+            int posY;
+            int rotation;
+            int scale;
 
-                int posX;
-                int posY;
-                int rotation;
-                int scale;
-                //texture
-                //sprite
-		        std::string path;
+            int rectX;
+            int rectY;
+            int rectWidth;
+            int rectHeigth;
+            
+            sf::Texture texture;
+            sf::sprite sprite;
+            std::string path;
         };
+        using sprite_t = struct sprite_s;
 
-        class Text {
-            public:
-                explicit Text() = default;
-                virtual ~Text() = default;
+        /**
+         * \struct Text IGraphicalLib.hpp
+         *
+         * \brief struct that define sprite
+         */
+        struct text_s {
+            int posX;
+            int posY;
+            int fontSize;
 
-                int posX;
-                int posY;
-		        int fontSize;
-                std::string text;
-		        std::string fontPath;
+            int colorRed;
+            int colorGreen;
+            int colorBlue;
+            int colorAlpha;
+
+            std::string text;
+            std::string fontPath;
+
+            sf::Font font;
+            sf::Text text;
+            sf::Color color;
         };
+        using text_t = struct text_s;
 
-        struct Sound
+        /**
+         * \struct sound_s IGraphicalLib.hpp
+         * 
+         * \brief sound informations
+         *
+         * \param path string of the path of the ressource
+         */
+        struct sound_s
         {
             std::string path;
 
-            // Should this sound loop?
-            bool loop;
+            sf::Sound sound;
+            sf::SoundBuffer buffer;
         };
+        using sound_t = struct sound_s;
 
+        /**
+         * \struct music_s IGraphicalLib.hpp
+         * 
+         * \brief music informations
+         *
+         * \param path string of the path of the ressource
+         */
+        struct music_s
+        {
+            std::string path;
+
+            sf::Music music;
+        };
+        using music_t = struct music_s;
+
+        /**
+         * \class IGraphicalLib IGraphicalLib.hpp
+         *
+         * \brief Class that define graphical library abstraction
+         */
         class IGraphicalLib {
             public:
                 virtual ~IGraphicalLib() = default;
 
-                virtual void draw(rtype::Sprite &obj) = 0;
-                virtual void draw(rtype::Text &obj) = 0;
+                virtual void draw(sprite_t &obj) = 0;
+                virtual void draw(text_t &obj) = 0;
+                virtual void play(sound_t &sound) = 0;
+                virtual void play(music_t &sound) = 0;
                 virtual void refresh() = 0;
-                virtual void load(const std::string &type, const std::string &path) = 0;
-                virtual void unload(const std::string &type, const std::string &path) = 0;
-                virtual void unloadAll() = 0; // Usefull?
-                virtual void playSound(rtype::Sound &sound) = 0;
+                virtual void load(const rtype::constants::TYPE &type, const std::string &path) = 0;
         };
     }
 
