@@ -14,7 +14,7 @@ void UDPSocket::send(IPacket &data)
 
 void UDPSocket::handleSend()
 {
-    _logger.logln(std::string{"UDP cliend send data"});
+    _logger.logln(std::string{"UDP client send data"});
 }
 
 void UDPSocket::receive()
@@ -26,7 +26,7 @@ void UDPSocket::receive()
           std::string line;
           std::getline(stream, line);
           _input.consume(bytes);
-          _logger.log(std::string{"UDP client receie: "});
+          _logger.log(std::string{"UDP client receive: "});
           _logger.log(std::to_string(bytes));
           _logger.logln(std::string{"bytes"});
           receive();
