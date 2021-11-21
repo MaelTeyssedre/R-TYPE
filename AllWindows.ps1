@@ -3,6 +3,6 @@ If(!(test-path build)) {
 }
 Set-Location build
 conan install --build missing ..
-cmake .. -G "Visual Studio 16 2019"
+cmake ..
 cmake --build . --config Release
 Set-Location ..
