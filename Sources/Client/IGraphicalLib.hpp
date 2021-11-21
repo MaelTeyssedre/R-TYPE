@@ -1,4 +1,3 @@
-
 /**
  * \file IGraphicalLib.hpp
  *
@@ -15,12 +14,6 @@
     #include <memory.h>
 
     namespace rtype {
-        
-        /**
-         * \class IGraphicalLib IGraphicalLib.hpp
-         *
-         * \brief Class that define graphical library abstraction
-         */
 
         typedef struct mouse_s
         {
