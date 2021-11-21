@@ -15,14 +15,12 @@ rtype::GraphicalLib::GraphicalLib()
 
 void rtype::GraphicalLib::draw()
 {
-    for (const auto &it : _sprites) {
+    for (const auto &it : _sprites)
         if (it.first == _currentScene)
             _renderWindow.draw(it.second->getSprite());
-    }
-    for (const auto &it : _texts) {
+    for (const auto &it : _texts)
         if (it.first == _currentScene)
             _renderWindow.draw(it.second->getText());
-    }
 }
 
 void rtype::GraphicalLib::play(rtype::Sound &sound)
