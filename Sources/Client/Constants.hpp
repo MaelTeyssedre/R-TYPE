@@ -25,6 +25,15 @@
                 MUSIC
             };
 
+            enum KEY {
+                KEY_UP,
+                KEY_DOWN,
+                KEY_LEFT,
+                KEY_RIGHT,
+                KEY_ENTER,
+                KEY_SPACE
+            };
+
         }
     }
 

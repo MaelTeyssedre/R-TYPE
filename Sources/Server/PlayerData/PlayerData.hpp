@@ -18,11 +18,11 @@
             explicit PlayerData() = default;
             explicit PlayerData(size_t, std::shared_ptr<Buffer>, std::shared_ptr<Buffer>, std::shared_ptr<std::mutex>, std::shared_ptr<std::mutex>);
             // ! issue julian
-            //PlayerData(PlayerData &) = delete;
+            PlayerData(PlayerData &) = default;
             virtual ~PlayerData() = default;
             size_t getId(void) const;
             // ! issue julian
-            //PlayerData& operator=(PlayerData &PlayerData) = delete;
+            PlayerData& operator=(PlayerData &PlayerData) = default;
             std::shared_ptr<std::mutex> _mutexIn;
             std::shared_ptr<std::mutex> _mutexOut;
             std::shared_ptr<Buffer> _bufferIn;

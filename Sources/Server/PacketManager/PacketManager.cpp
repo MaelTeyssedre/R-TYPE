@@ -33,7 +33,6 @@ void PacketManager::joinRoom(std::pair<size_t, std::vector<uint8_t>> packet)
     _bufferOut->putInBuffer(vec.size(), vec);
 }
 
-
 void PacketManager::managePacket(std::pair<size_t, std::vector<uint8_t>> packet)
 {
   std::string str(packet.second.begin(), packet.second.end());
