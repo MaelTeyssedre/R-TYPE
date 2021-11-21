@@ -8,7 +8,7 @@ HMODULE DlLoaderWindows::loadLib(const std::string &path)
     return (lib);
 }
 
-DlLoader::allocClass DlLoaderWindows::loadFunc(const std::string &function, HMODULE hDLL)
+DlLoaderWindows::allocClass DlLoaderWindows::loadFunc(const std::string &function, HMODULE hDLL)
 {
     allocClass func = (allocClass)GetProcAddress(hDLL, function.c_str());
     if (!func)
