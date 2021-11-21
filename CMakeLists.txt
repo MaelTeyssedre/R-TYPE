@@ -255,5 +255,11 @@ target_include_directories(
     ${PROJECT_SOURCE_DIR}/Sources/Client/
 )
 
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib
+)
+
 target_link_libraries(rtype_client ${CONAN_LIBS})
 target_link_libraries(rtype_server ${CONAN_LIBS})
