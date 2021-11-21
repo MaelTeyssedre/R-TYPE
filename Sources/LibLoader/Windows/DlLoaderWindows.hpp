@@ -1,9 +1,8 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** DlLoaderWindows
-*/
+/**
+ * @file DlLoaderWindows.hpp
+ * 
+ * @brief file for DLLoader for windows
+ */
 
 #ifndef DLLOADERWINDOWS_HPP_
     #define DLLOADERWINDOWS_HPP_
@@ -13,13 +12,18 @@
     #include <cstring>
     #include <iostream>
     #include <exception>
+    #include "AMonster.hpp"
 
-    #include "IElement.hpp"
-
-    using allocClass = IElement*(*)();
-    using deleteClass = void(*)(IElement*);
-
+    /**
+     * \class DlLoaderWindows
+     * 
+     * \brief class for DlLoader for windows 
+     */
     class DlLoaderWindows {
+        public:
+            using allocClass = AMonster*(*)();
+            using deleteClass = void(*)(IElement*);
+
         public:
             /**
              * \fn DlLoaderWindows() = default

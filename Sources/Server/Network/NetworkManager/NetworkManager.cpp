@@ -1,15 +1,8 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** NetworkManager
-*/
-
 #include "NetworkManager.hpp"
 
 void NetworkManager::start()
 {
-      _thread = std::thread(&NetworkManager::startNetworkThread, this);
+    _thread = std::thread(&NetworkManager::startNetworkThread, this);
 }
 
 void NetworkManager::stop()
@@ -26,7 +19,7 @@ void NetworkManager::startNetworkThread(NetworkManager *netManager)
     netManager->_context.run();
 }
 
-ITCPServer *NetworkManager::createTCPServer(int port)
+TCPServer *NetworkManager::createTCPServer(int port)
 {
     TCPServer *server = new TCPServer(_context, port);
     _tcpServers.push_back(server);
@@ -43,13 +36,22 @@ IUDPSocket *NetworkManager::createSocketUDP(int port)
 void NetworkManager::deleteSocketUDP(IUDPSocket *socket)
 {
     auto it = std::find(_udpSockets.begin(), _udpSockets.end(), socket);
-
     _udpSockets.erase(it);
 }
 
 void NetworkManager::deleteTCPServer(ITCPServer *tcp)
 {
     auto it = std::find(_tcpServers.begin(), _tcpServers.end(), tcp);
-
     _tcpServers.erase(it);
+}
+
+ITCPClient *NetworkManager::createTCPClient(int port)
+{
+    (void)port;
+    return nullptr;
+}
+
+void NetworkManager::deleteTCPClient(ITCPClient *tcp)
+{
+    (void)tcp;
 }

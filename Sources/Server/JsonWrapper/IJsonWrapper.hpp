@@ -1,32 +1,40 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** IJsonWRAPPER
-*/
-
 /**
  * \file IJsonWrapper.hpp
  *
- * \class IJsonWrapper
- *
  * \brief Interface of JsonWrapper
  */
+
 #ifndef IJSONWRAPPER_HPP_
 #define IJSONWRAPPER_HPP_
 
     #include <string>
+    #include "AMonster.hpp"
+    #include "LibLoader.hpp"
+    #include "Wall.hpp"
+    #include "Player.hpp"
+    #include <iostream>
+    #include <fstream>
+    #include <memory>
+    #include <iomanip>
+    #include <utility>
     #include <nlohmann/json.hpp>
+    #include <vector>
 
+    /**
+     * \class IJsonWrapper
+     * 
+     * \brief interface for JSonWrapper
+     * 
+     */
     class IJsonWrapper {
         public:
 
             /**
-             * \fn ~IJsonWrapper() = default
+             * \fn virtual ~IJsonWrapper() = default
              * 
              * \brief Destruct an IJson object
              */
-             ~IJsonWrapper() = default;
+             virtual ~IJsonWrapper() = default;
 
             /**
              * \fn virtual std::string &jsonToString() = 0

@@ -1,22 +1,16 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** JsonWrapper
-*/
-
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <iomanip>
 #include "JsonWrapper.hpp"
-
 
 JsonWrapper::JsonWrapper(std::string &filename)
 {
     _filename = filename;
     std::ifstream ifs(_filename);
     _json = nlohmann::json::parse(ifs);
+    for (size_t i = 0; i < _json["monster"].size(); i++)
+    {
+        _typeList.push_back(_json["monster"][i]["type"]);
+        object_t obj{_json["monster"][i]["id"], std::pair(_json["monster"][i]["pos"][0], _json["monster"][i]["pos"][1]), _json["monster"][i]["hp"], _json["monster"][i]["strength"], _json["monster"][i]["type"]};
+        _params.push_back(std::pair<std::string, object_t>(_json["monster"][i]["type"], obj));
+    }
     fillComposantList();
 }
 
@@ -25,84 +19,60 @@ std::string JsonWrapper::jsonToString()
     return (_json.dump(4));
 }
 
-bool JsonWrapper::isNewElementType(std::vector<std::vector<JsonWrapper::object_s>> _objectList, std::string type)
+std::vector<AMonster *> &JsonWrapper::getMonsterList()
 {
-    for (auto &composant : _objectList)
-        if (type == composant.front().type)
-            return (false);
-    return (true);
+    return _monsterList;
 }
 
-JsonWrapper::object_s JsonWrapper::createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type)
+std::vector<std::shared_ptr<Player>> &JsonWrapper::getPlayerList()
 {
-    JsonWrapper::object_s element;
+    return _playerList;
+}
 
-    element.id = id;
-    element.pos = pos;
-    element.strength = strength;
-    element.hp = hp;
-    element.type = type;
+std::vector<std::shared_ptr<Wall>> &JsonWrapper::getWallList()
+{
+    return _wallList;
+}
+
+std::shared_ptr<Player> JsonWrapper::createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type)
+{
+    (void)id;
+    (void)pos;
+    (void)strength;
+    (void)hp;
+    std::shared_ptr<Player> element{new Player()};
+    element->setName(type);
     return (element);
 }
 
-JsonWrapper::object_s JsonWrapper::createComposant(std::pair<int, int> pos, std::string &type)
+std::shared_ptr<Wall> JsonWrapper::createWall(std::pair<int, int> pos, std::string type)
 {
-    JsonWrapper::object_s element;
-
-    element.pos = pos;
-    element.type = type;
+    (void)pos;
+    std::shared_ptr<Wall> element{new Wall()};
+    element->setName(type);
     return (element);
 }
 
 void JsonWrapper::addPlayer()
 {
-    std::vector<JsonWrapper::object_s> playerList;
-
-    for (auto it: _json["player"].items())
-        playerList.push_back(createComposant(it.value()["id"].get<int>(), std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["strength"].get<int>(), it.value()["hp"].get<int>(), std::string("player")));
-    _objectList.push_back(playerList);
+    for (size_t i = 0; i < _json["player"].size(); i++)
+        _playerList.push_back(createPlayer(_json["player"][i]["id"], std::make_pair(_json["player"][i]["pos"][0], _json["player"][i]["pos"][1]), _json["player"][i]["strength"], _json["player"][i]["hp"], std::string("player")));
 }
 
 void JsonWrapper::addMonster()
 {
-    std::vector<std::vector<JsonWrapper::object_s>> monsterList;
-    std::vector<JsonWrapper::object_s> element;
-
-    for (auto it: _json["monster"].items()) {
-        if (monsterList.size() == 0 || isNewElementType(monsterList, it.value()["type"].get<std::string>()) == true) {
-            monsterList.push_back(std::vector<JsonWrapper::object_s>());
-            monsterList.back().push_back(createComposant(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>()));
-        } else {
-            for (auto &monster: monsterList)
-                if (it.value()["type"].get<std::string>() == monster.front().type)
-                    monster.push_back(createComposant(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>())); 
-        }
+    _loader.loadLibs(_typeList);
+    std::vector<std::shared_ptr<AMonster>> *dylibs = _loader.getLibs();
+    for (size_t i = 0; i < _json["monster"].size(); i++)
+    {
+        _monsterList.push_back(((*dylibs)[i].get()));
     }
-    _objectList.insert(_objectList.end(), monsterList.begin(), monsterList.end());
 }
 
 void JsonWrapper::addWall()
 {
-    std::vector<std::vector<JsonWrapper::object_s>> wallList;
-    std::vector<JsonWrapper::object_s> element;
-
-    for (auto it: _json["wall"].items()) {
-        if (wallList.size() == 0 || isNewElementType(wallList, it.value()["type"].get<std::string>()) == true) {
-            wallList.push_back(std::vector<JsonWrapper::object_s>());
-            wallList.back().push_back(createComposant(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>()));
-        } else {
-            for (auto &wall: wallList)
-                if (it.value()["type"].get<std::string>() == wall.front().type) {
-                    wall.push_back(createComposant(std::make_pair(it.value()["pos"][0].get<int>(), it.value()["pos"][1].get<int>()), it.value()["type"].get<std::string>()));
-                }
-        }
-    }
-    _objectList.insert(_objectList.end(), wallList.begin(), wallList.end());
-}
-
-std::vector<std::vector<JsonWrapper::object_s>> JsonWrapper::getComposantList() const
-{
-    return (_objectList);
+    for (size_t i = 0; i < _json["wall"].size(); i++)
+        _wallList.push_back(createWall(std::make_pair(_json["wall"][i]["pos"][0], _json["wall"][i]["pos"][1]), _json["wall"][i]["type"]));
 }
 
 void JsonWrapper::fillComposantList()
@@ -110,4 +80,10 @@ void JsonWrapper::fillComposantList()
     addPlayer();
     addMonster();
     addWall();
+}
+
+nlohmann::json JsonWrapper::strToJson(std::string &toConvert)
+{
+    _json = nlohmann::json::parse(toConvert);
+    return (_json);
 }

@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** INetworkManager
-*/
-
 /**
  * \file INetworkManager.hpp
  * 
@@ -33,25 +26,20 @@
              * \fn virtual ~INetworkManager() = default
              * 
              * \brief Destroy the INetworkManager object
-             * 
              */
             virtual ~INetworkManager() = default;
 
             /**
              * \fn virtual void start() = 0
              * 
-             *
              * \brief start connection
-             * 
              */
             virtual void start() = 0;
 
             /**
              * \fn virual void stop() = 0
-             * 
              *
              * \brief stop connection
-             * 
              */
             virtual void stop() = 0;
 

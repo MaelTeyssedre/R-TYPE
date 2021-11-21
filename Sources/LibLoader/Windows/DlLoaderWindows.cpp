@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** DlLoaderWindows
-*/
-
 #include "DlLoaderWindows.hpp"
 
 HMODULE DlLoaderWindows::loadLib(const std::string &path)
@@ -15,7 +8,7 @@ HMODULE DlLoaderWindows::loadLib(const std::string &path)
     return (lib);
 }
 
-allocClass DlLoaderWindows::loadFunc(const std::string &function, HMODULE hDLL)
+DlLoaderWindows::allocClass DlLoaderWindows::loadFunc(const std::string &function, HMODULE hDLL)
 {
     allocClass func = (allocClass)GetProcAddress(hDLL, function.c_str());
     if (!func)

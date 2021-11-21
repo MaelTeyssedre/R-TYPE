@@ -7,7 +7,11 @@
 #ifndef ENTITY_HPP_
     #define ENTITY_HPP_
 
+    #include <stddef.h>
+
     /**
+     * \class Registry
+     * 
      * \brief declaration of class registry to avoid circular includes...
      */
     class Registry;

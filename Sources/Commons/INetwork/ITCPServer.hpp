@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** ITCPServer
-*/
-
 /**
  * \file ITCPServer.hpp
  * 
@@ -60,7 +53,7 @@
              * 
              * \return return data in packet
              */
-            virtual std::vector<uint8_t> receive() = 0;
+            virtual void receive() = 0;
 
             /**
              * \fn  virtual void eject(size_t client) = 0
@@ -70,7 +63,6 @@
              * \param client to eject
              */
             virtual void eject(size_t client) = 0;
-
     };
 
 #endif /* !ITCPSERVER_HPP_ */

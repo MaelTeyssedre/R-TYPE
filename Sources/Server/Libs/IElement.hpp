@@ -1,21 +1,14 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** IElement
-*/
-
 /**
  * \file IElement.hpp
  *
  * \brief Interface for dynlibs
  */
+
 #ifndef IELEMENT_HPP_
     #define IELEMENT_HPP_
 
     #include <memory>
     #include <iostream>
-
     #include "Registry.hpp"
 
     /**

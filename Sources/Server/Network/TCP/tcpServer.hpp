@@ -1,17 +1,10 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** TCPServer
-*/
-
-
 /**
  * \file Packet.hpp
  * 
  * \brief file where Packet class is defined
  * 
  */
+
 #ifndef TCPSERVER_HPP_
     #define TCPSERVER_HPP_
 
@@ -20,14 +13,15 @@
     #include "ITCPServer.hpp"
     #include <map>
 
-
     /**
      * \class Packet Packet.hpp 
      * 
      * \brief class that containt tcp server
      */
     class TCPServer : public ITCPServer {
+
         public:
+
             /**
              * \fn explicitTCPServer() = default
              * 
@@ -84,7 +78,7 @@
              * \return data received
              * 
              */
-            std::vector<uint8_t> receive() override;
+            void receive() override;
             
             /**
              * \fn  void eject(size_t client)
@@ -115,6 +109,7 @@
             std::map<size_t, std::shared_ptr<tcpUser>> getUsers();
 
         private:
+        
             asio::io_context &_context; /*! asio context */
             asio::ip::tcp::acceptor _acceptor; /*! asio acceptor */
             std::map<size_t, std::shared_ptr<tcpUser>> _mapUser; /*! map of id and user */
