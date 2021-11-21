@@ -7,9 +7,15 @@
 #ifndef CONSTANTS_HPP_
     #define CONSTANTS_HPP_
 
-    #define VIEW_Y 485.f
-    #define VIEW_WIDTH 1720.f
-    #define VIEW_HEIGHT 970.f
+    #ifndef  VIEW_Y
+        #define VIEW_Y 485.f
+    #endif
+    #ifndef VIEW_WIDTH
+        #define VIEW_WIDTH 1720.f
+    #endif
+    #ifndef VIEW_HEIGHT
+        #define VIEW_HEIGHT 970.f
+    #endif
 
     /**
      * \namespace rtype
