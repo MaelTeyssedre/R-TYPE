@@ -324,6 +324,7 @@
                         return i;
                 throw std::invalid_argument("value not found");
             }
+
         private:
             container_t _data; /*! Array of optional component */
     };

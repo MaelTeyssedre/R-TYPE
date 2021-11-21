@@ -18,8 +18,15 @@
     #include "Buffer.hpp"
     #include "PlayerData.hpp"
 
+    /**
+     * \class RoomManager
+     * 
+     * @brief Manager of the Rooms
+     * 
+     */
     class RoomManager {
         public:
+
             /**
              * \fn explicit RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
              * 
@@ -30,8 +37,6 @@
              * \param bufferOut Output buffer to send request to PacketManager
              */
             explicit RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
-            //explicit RoomManager(RoomManager &) = delete;
-            //explicit RoomManager& operator=(RoomManager &) = delete;
 
             /**
              * \fn virtual ~RoomManager()
@@ -86,7 +91,9 @@
              * \param id id of the room
              */
             void isRoom(size_t id);
+
         private:
+
             std::vector<std::thread> _threadList; /*! list of thread for rooms */
             std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! list of room who contain list of playerData */
             std::shared_ptr<Buffer> _bufferIn; /*! ptr to input buffer that communicate with PackeManager */

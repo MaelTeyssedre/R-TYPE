@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** tcpUser
-*/
-
 #include "tcpUser.hpp"
 #include <iostream>
 
@@ -21,24 +14,26 @@ void tcpUser::addToQueue(std::vector<uint8_t> message)
     _queue.push(message);
 }
 
-
 void tcpUser::read()
 {
-   asio::async_read(*_socket, asio::buffer(_input, 1), std::bind(&tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    asio::async_read(*_socket, asio::buffer(_input, 1), std::bind(&tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
-    if (!ec) {
+    if (!ec)
+    {
         std::cout << bytes << std::endl;
         read();
-    } else
+    }
+    else
         std::cerr << ec.message() << std::endl;
 }
 
 void tcpUser::write()
 {
-    if (_queue.empty()) {
+    if (_queue.empty())
+    {
         std::cout << "IN WRITE EMPTY" << std::endl;
         return;
     }
@@ -47,15 +42,16 @@ void tcpUser::write()
 
 void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
-    if (!ec) {
+    if (!ec)
+    {
         std::cout << bytes_transfered << std::endl;
         _queue.pop();
         if (!_queue.empty())
             write();
-    } else
+    }
+    else
         std::cerr << ec.message() << std::endl;
 }
-
 
 uint8_t *tcpUser::getInput()
 {

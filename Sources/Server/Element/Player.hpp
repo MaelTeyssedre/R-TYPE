@@ -1,37 +1,76 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** Player
-*/
+/**
+ * \file Player.hpp
+ * 
+ * \brief file for Player class 
+ */
 
 #ifndef PLAYER_HPP_
     #define PLAYER_HPP_
 
     #include "IElement.hpp"
+
+    /**
+     * \class Player
+     * 
+     * \brief class Player that inherit of IElement
+     */
     class Player : public IElement {
         public:
+
+            /**
+             * \fn explicit Player() = default
+             * 
+             * \brief Construct a new Player object
+             * 
+             */
             explicit Player() = default;
+
+            /**
+             * \fn virtual ~Player() = default
+             * 
+             * \brief Destroy the Player object
+             * 
+             */
             virtual ~Player() = default;
+
+            /**
+             * \fn void init(Registry &) override
+             * 
+             * \brief init the Player
+             * 
+             */
             void init(Registry &) override;
+
+            /**
+             * \fn void update(void) override
+             * 
+             * \brief update the player during the game
+             * 
+             */
             void update(void) override;
-            // void setHealPoint(component::healPoint_s &healPoint);
-            // component::healPoint_s getHealPoint() const;
-            // void setFireFrequence(component::fireFrequence_s &healPoint);
-            // component::fireFrequence_s getFireFrequence() const;
-            // void setWeapon(component::weapon_s &weapon);
-            // component::weapon_s getWeapon() const;
-            // void setPosition(component::position_s &position) override;
-            // component::position_s getPosition() const override;
+
+            /**
+             * \fn void setName(std::string &name)
+             * 
+             * \brief Set the Name object
+             * 
+             * \param name the name to set
+             */
             void setName(std::string &name);
+
+            /**
+             * \fn std::string &getName()
+             * 
+             * \brief Get the Name object
+             * 
+             * \return std::string& the name of the player
+             */
             std::string &getName();
+
         private:
+
             Registry _registry; /*! registry*/
             std::string _name; /*! name of the player */
-            // component::healPoint_s _healPoint; /*! healpoint of the player */
-            // component::fireFrequence_s _fireFrequence; /*! firefrequence of the player */
-            // component::weapon_s _weapon; /*! WeaponType of the player */
-            // component::position_s _position;  /*! Position of the player */
             size_t _idx; /*! Entity id of the player */
     };
 

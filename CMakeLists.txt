@@ -37,10 +37,10 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
-    # ${PROJECT_SOURCE_DIR}/Sources/Server/./Wrapper/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/component.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.cpp
 )
 
 file(
@@ -54,27 +54,26 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/TCP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/TCP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/UDP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/UDP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.hpp
-
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.hpp
-
-
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.hpp
 )
-
 
 file(
     GLOB 
     SOURCES_BASIC_MONSTER
     ${PROJECT_SOURCE_DIR}/Sources/Server/Libs/IElement.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/component.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.cpp
 )
@@ -338,19 +337,25 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Client/TCP/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/
 )
 
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Client/UDP/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/
 )
 
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/
 )
 
 target_include_directories(

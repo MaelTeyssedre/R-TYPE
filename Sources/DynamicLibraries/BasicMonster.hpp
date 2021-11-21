@@ -8,7 +8,12 @@
 
     #include "AMonster.hpp"
     #include "Registry.hpp"
-    #include "component.hpp"
+    #include "FireFrequence.hpp"
+    #include "HealPoint.hpp"
+    #include "Loot.hpp"
+    #include "Position.hpp"
+    #include "Velocity.hpp"
+    #include "Weapon.hpp"
 
     /**
      * \class BasicMonster BasicMonster.hpp
@@ -17,6 +22,7 @@
      */
     class BasicMonster : public AMonster {
         public:
+        
             /**
              * \fn BasicMonster() = default
              * 

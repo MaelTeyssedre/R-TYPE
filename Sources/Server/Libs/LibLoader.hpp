@@ -1,15 +1,9 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** LibLoader
-*/
-
 /**
  * \file LibLoader.hpp
  *
  * \brief file where the LibLoader class is defined
  */
+
 #ifndef LIBLOADER_HPP_
     #define LIBLOADER_HPP_
 
@@ -38,9 +32,9 @@
      *
      * \brief Class that load libs
      */
-
     class LibLoader {
         public:
+
             /**
              * \fn LibLoader(std::vector<std::string>)
              * 
@@ -64,11 +58,12 @@
              */
             virtual ~LibLoader();
 
-
             /**
              * \fn LibLoader& operator=(const LibLoader &other) = default
              * 
              * \brief default operator= overload
+             * 
+             * \return LibLoader& the assigned libLoader
              */
             LibLoader& operator=(const LibLoader &other) = default;
 
@@ -109,8 +104,7 @@
              */
             void listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad);
 
-            std::vector<std::shared_ptr<AMonster>> _libs;
-            //std::vector<AMonster *> _libs; /*! Vector of class load from shared lib */
+            std::vector<std::shared_ptr<AMonster>> _libs; /*! List of shared pointer to AMonsters */
             std::vector<std::string> _libsfiles; /*! Vector of name shared lib */
             #ifdef __linux__
                 DlLoaderUnix _dlLoaderUnix; /*! Library loader on Linux */

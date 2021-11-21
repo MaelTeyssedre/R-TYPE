@@ -1,11 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** LibLoader
-*/
-
-
 #include "LibLoader.hpp"
 
 LibLoader::LibLoader()

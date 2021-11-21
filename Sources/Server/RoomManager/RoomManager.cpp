@@ -1,38 +1,16 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** RoomManager
-*/
-
 #include <mutex>
 #include <iostream>
 #include <sstream>
 #include "RoomManager.hpp"
 #include "Room.hpp"
 
-RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList,  std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut)
+RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
 {
     _roomList = roomList;
     _bufferIn = bufferIn;
     _bufferOut = bufferOut;
 }
-/*
-RoomManager& RoomManager::operator=(RoomManager &roomManager)
-{
-    _bufferIn = roomManager._bufferIn;
-    _bufferOut = roomManager._bufferOut;
-    _roomList = roomManager._roomList;
-    return(*this);
-}
 
-RoomManager::RoomManager(RoomManager &roomManager)
-{
-    _roomList = roomManager._roomList;
-    _bufferIn = roomManager._bufferIn;
-    _bufferOut = roomManager._bufferOut;
-}
-*/
 RoomManager::~RoomManager()
 {
     for (size_t i = 0; i != _threadList.size(); i++)
@@ -54,13 +32,13 @@ void RoomManager::createRoom(std::string &packet)
     std::thread room(&RoomManager::isRoom, this, _roomList->size());
     std::vector<PlayerData> playerData;
     std::string request = "Join ";
-
-    while ((pos = packet.find(" ")) != std::string::npos) {
+    while ((pos = packet.find(" ")) != std::string::npos)
+    {
         parsed.push_back(packet.substr(0, pos + 1));
         packet.erase(0, pos + 1);
     }
     parsed.push_back(packet.substr(0, packet.size()));
-        packet.erase(0, packet.size());
+    packet.erase(0, packet.size());
     playerId = std::stoi(parsed[1]);
     request += std::to_string(_roomList->size()) + " " + std::to_string(playerId);
     _threadList.push_back(move(room));
@@ -79,18 +57,17 @@ std::string RoomManager::joinRoom(std::string &packet)
     std::shared_ptr<std::mutex> mutexIn(std::make_shared<std::mutex>());
     std::shared_ptr<std::mutex> mutexOut(std::make_shared<std::mutex>());
     std::string result = "";
-
-    while ((pos = packet.find(" ")) != std::string::npos) {
+    while ((pos = packet.find(" ")) != std::string::npos)
+    {
         parsed.push_back(packet.substr(0, pos + 1));
         packet.erase(0, pos + 1);
     }
     parsed.push_back(packet.substr(0, packet.size()));
-        packet.erase(0, packet.size());
+    packet.erase(0, packet.size());
     playerId = std::stoi(parsed[2]);
     roomId = std::stoi(parsed[1]);
-    if (_roomList->at(roomId).size() > 3) {
+    if (_roomList->at(roomId).size() > 3)
         return ("KO");
-    }
     _roomList->at(roomId).push_back(PlayerData(playerId, buffIn, buffOut, mutexIn, mutexOut));
     result = std::to_string(playerId) + " OK " + std::to_string(roomId);
     return (result);
@@ -100,21 +77,21 @@ void RoomManager::redirectRequest(std::vector<std::string> &packetList)
 {
     std::vector<uint8_t> vec;
     std::string result = "";
-
-    for (auto &packet : packetList) {
-        if (packet.find("Join") != std::string::npos) {
+    for (auto &packet : packetList)
+        if (packet.find("Join") != std::string::npos)
+        {
             result = joinRoom(packet);
             vec.assign(result.begin(), result.end());
             _bufferOut->putInBuffer(static_cast<uint16_t>(vec.size()), vec);
-        } else if (packet.find("Create") != std::string::npos) {
+        }
+        else if (packet.find("Create") != std::string::npos)
             createRoom(packet);
-
-        } else {
+        else
+        {
             result = "KO";
             vec.assign(result.begin(), result.end());
             _bufferOut->putInBuffer(static_cast<uint16_t>(vec.size()), vec);
         }
-    }
 }
 
 void RoomManager::manageRoom()
@@ -125,8 +102,8 @@ void RoomManager::manageRoom()
     std::vector<std::string> packetList;
     _bufferIn->readFromBuffer(readSize, buff);
     std::string str(buff.begin(), buff.end());
-
-    while ((pos = str.find(";")) != std::string::npos) {
+    while ((pos = str.find(";")) != std::string::npos)
+    {
         packetList.push_back(str.substr(0, pos + 1));
         str.erase(0, pos + 1);
     }

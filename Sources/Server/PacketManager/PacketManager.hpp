@@ -1,16 +1,10 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** PacketManager
-*/
-
 /**
  * \file PacketManager.hpp
  * 
  * \brief file where PacketManager class is defined
  * 
  */
+
 #ifndef PACKETMANAGER_HPP_
     #define PACKETMANAGER_HPP_
 
@@ -81,9 +75,9 @@
              * 
              */
             void joinRoom(std::pair<size_t, std::vector<uint8_t>> packet);
-            
-    
+
         private:
+        
             std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! vector of player data */
             std::shared_ptr<Buffer> _bufferIn; /*! buffer in */
             std::shared_ptr<Buffer> _bufferOut; /*! buffer out */

@@ -1,7 +1,7 @@
 /**
- * @file Room.hpp
+ * \file Room.hpp
  * 
- * @brief file where the Room class is defined 
+ * \brief file where the Room class is defined 
  * 
  */
 
@@ -13,8 +13,15 @@
     #include <vector>
     #include "Buffer.hpp"
 
+    /**
+     * \class Room
+     * 
+     * \brief class for Room, a room represent a game
+     * 
+     */
     class Room {
         public:
+
             /**
              * \fn explicit Room() = default
              * 
@@ -88,7 +95,9 @@
              * 
              */
             void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer);
+    
         private:
+
             std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> _roomBuffers; /*! I/O buffer of all player in the room */
             size_t _id; /*! id of the room */
 

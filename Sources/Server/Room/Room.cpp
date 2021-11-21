@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** Room
-*/
-
 #include "Room.hpp"
 
 Room::Room(size_t id)
@@ -20,12 +13,12 @@ Room::Room(Room &room)
 
 size_t Room::getId() const
 {
-    return (_id);
+    return _id;
 }
 
 std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> Room::getRoomBuffer() const
 {
-    return (_roomBuffers);
+    return _roomBuffers;
 }
 
 void Room::setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer)
@@ -33,7 +26,7 @@ void Room::setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>>
     _roomBuffers = roomBuffer;
 }
 
-Room& Room::operator=(Room &room)
+Room &Room::operator=(Room &room)
 {
     _id = room._id;
     _roomBuffers = room._roomBuffers;

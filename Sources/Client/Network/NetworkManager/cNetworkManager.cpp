@@ -1,11 +1,15 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** NetworkManager
-*/
+#include "cNetworkManager.hpp"
 
-#include "NetworkManager.hpp"
+ITCPServer *NetworkManager::createTCPServer(int port)
+{
+    (void)port;
+    return nullptr;
+}
+
+void NetworkManager::deleteTCPServer(ITCPServer *tcp)
+{
+    (void)tcp;
+}
 
 void NetworkManager::start()
 {
@@ -27,28 +31,26 @@ void NetworkManager::startNetworkThread(NetworkManager *netManager)
 ITCPClient *NetworkManager::createTCPClient(int port)
 {
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
-
     TCPClient *server = new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
     _tcpClients.push_back(server);
-    return (server);
+    return server;
 }
 
 void NetworkManager::deleteTCPClient(ITCPClient *client)
 {
-  (void)client;
+    (void)client;
 }
 
 IUDPSocket *NetworkManager::createSocketUDP(int port)
 {
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
     std::string host = "127.0.0.1";
-
     UDPSocket *server = new UDPSocket(this->_context, "127.0.0.1", std::to_string(port));
     _udpSockets.push_back(server);
-    return (server);
+    return server;
 }
 
 void NetworkManager::deleteSocketUDP(IUDPSocket *socket)
 {
-  (void)socket;
+    (void)socket;
 }

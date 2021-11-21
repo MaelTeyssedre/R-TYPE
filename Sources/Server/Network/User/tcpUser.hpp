@@ -1,16 +1,10 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** tcpUser
-*/
-
 /**
  * \file tcpUser.hpp
  * 
  * \brief file where tcpUser class is defined
  * 
  */
+
 #ifndef TCPUSER_HPP_
     #define TCPUSER_HPP_
 
@@ -39,7 +33,25 @@
              * 
              */
             explicit tcpUser() = delete;
+
+            /**
+             * \fn tcpUser(const tcpUser &other) = delete
+             * 
+             * \brief Construct a new tcp User object
+             * 
+             * \param other to copy
+             */
             tcpUser(const tcpUser &other) = delete;
+
+            /**
+             * \fn tcpUser& operator=(const tcpUser &rhs) = delete
+             * 
+             * \brief assignment operator
+             * 
+             * \param rhs to assign
+             * 
+             * \return tcpUser& ref to the assigned
+             */
             tcpUser& operator=(const tcpUser &rhs) = delete;
 
             /**
@@ -106,14 +118,21 @@
              */
             void doWrite(const std::error_code &ec, std::size_t bytes_transfered);
 
+            /**
+             * \fn uint8_t *getInput()
+             * 
+             * \brief Get the Input object
+             * 
+             * \return uint8_t* the input
+             */
             uint8_t *getInput();
 
         private:
+
             std::shared_ptr<asio::ip::tcp::socket> _socket; /*! socket */
             char _data[MAX_LENGTH]; /*! placeholders for packet */
             std::vector<uint8_t> _message; /*! message parsed received  from the client */
             uint8_t _input[MAX_LENGTH];  /*!  raw data read from the client */
-          //  std::vector<uint8_t> _input;  /*!  raw data read from the client */
             std::queue<std::vector<uint8_t>> _queue; /*! datas to send */
     };
 

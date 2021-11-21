@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** B-CPP-500-NAN-5-1-babel-romain.gabet
-** File description:
-** Logger.cpp
-*/
-
 #include "Logger.hpp"
 
 Logger::Logger(std::string fileName)

@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** IUDPSocket
-*/
-
 /**
  * \file IUDPSocket.hpp
  * 
@@ -14,11 +7,7 @@
 #ifndef IUDPSOCKET_HPP_
     #define IUDPSOCKET_HPP_
 
-
-
-
     #include "IPacket.hpp"
-
 
     /**
      * \class IUDPSocket IUDPSocket.hpp
@@ -33,7 +22,6 @@
              * \fn virtual ~IUDPSocket() = default
              * 
              * \brief Destroy the IUDPSocket object
-             * 
              */
             virtual ~IUDPSocket() = default;
 
@@ -52,7 +40,6 @@
              * \param data 
              * 
              * \return data received from network
-             * 
              */
             virtual void receive() = 0;
     };

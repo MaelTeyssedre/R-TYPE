@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** AMonster
-*/
-
 #include "AMonster.hpp"
 
 void AMonster::setHealPoint(size_t healPoint)
@@ -21,7 +14,7 @@ void AMonster::setFireFrequence(size_t fireFrequence)
 {
     _fireFrequence.fireFrequence = fireFrequence;
 }
-            
+
 rtype::fireFrequence_s AMonster::getFireFrequence() const
 {
     return (_fireFrequence);
@@ -66,6 +59,5 @@ void AMonster::setName(std::string &name)
 
 std::string AMonster::getName()
 {
-    return(_name);
+    return (_name);
 }
-

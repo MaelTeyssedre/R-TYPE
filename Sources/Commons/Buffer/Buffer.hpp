@@ -1,9 +1,8 @@
-/*
-** EPITECH PROJECT, 2021
-** B-CPP-500-NAN-5-1-babel-romain.gabet
-** File description:
-** Buffer
-*/
+/**
+ * \file Buffer.hpp
+ * 
+ * \brief header for the circular buffer lib
+ */
 
 #ifndef BUFFER_HPP_
 #define BUFFER_HPP_
@@ -14,101 +13,125 @@
 
 
 /**
- * @brief Circular Buffer class 
+ * \class Buffer
+ * 
+ * \brief Circular Buffer class 
  */
 class Buffer {
     public:
-
         /**
-         * @brief Construct a new Buffer object
+         * \fn explicit Buffer(size_t size)
          * 
-         * @param size of buffer
+         * \brief Construct a new Buffer object
+         * 
+         * \param size of buffer
          */
-        explicit Buffer(uint16_t size);
+        explicit Buffer(size_t size);
 
         /**
-         * @brief Destroy the Buffer object
+         * \fn virtual ~Buffer() = default
+         * 
+         * \brief Destroy the Buffer object
          */
         virtual ~Buffer() = default;
 
         /**
-         * @brief Boolean function to know if the buffer is full
+         * \fn bool isFull()
          * 
-         * @return true if the buffer is full
-         * @return false if the buffer is not full
+         * \brief Boolean function to know if the buffer is full
+         * 
+         * \return true if the buffer is full, false otherwise
          */
         bool isFull();
 
         /**
-         * @brief put data in buffer
+         * \fn void putInBuffer(size_t size, void *data)
          * 
-         * @param size : nb of byte to put in the buffer
-         * @param data : data to put in the buffer
+         * \brief put data in buffer
+         * 
+         * \param size : nb of byte to put in the buffer
+         * \param data : data to put in the buffer
          */
-        void putInBuffer(uint16_t size, void *data);
+        void putInBuffer(size_t size, void *data);
 
         /**
-         * @brief put data in buffer
+         * \fn void putInBuffer(size_t size, std::vector<uint8_t> &data)
          * 
-         * @param size : nb of byte to put in the buffer
-         * @param data : data to put in the buffer
+         * \brief put data in buffer
+         * 
+         * \param size : nb of byte to put in the buffer
+         * \param data : data to put in the buffer
          */
-        void putInBuffer(uint16_t size, std::vector<uint8_t> &data);
+        void putInBuffer(size_t size, std::vector<uint8_t> &data);
 
         /**
-         * @brief read data from buffer
+         * \fn void readFromBuffer(size_t size, void *data)
          * 
-         * @param size : nb of byte to read
-         * @param data : pointer to where store readed data
+         * \brief read data from buffer
+         * 
+         * \param size : nb of byte to read
+         * \param data : pointer to where store readed data
          */
-        void readFromBuffer(uint16_t size, void *data);
+        void readFromBuffer(size_t size, void *data);
 
         /**
-         * @brief read data from buffer
+         * \fn void readFromBuffer(size_t size, std::vector<uint8_t> &data)
          * 
-         * @param size : nb of byte to read
-         * @param data : pointer to where store readed data
+         * \brief read data from buffer
+         * 
+         * \param size : nb of byte to read
+         * \param data : pointer to where store readed data
          */
-        void readFromBuffer(uint16_t size, std::vector<uint8_t> &data);
+        void readFromBuffer(size_t size, std::vector<uint8_t> &data);
 
         /**
-         * @brief Get the Size of the buffer
+         * \fn size_t getSize() const
          * 
-         * @return uint16_t : size of the buffer
+         * \brief Get the Size of the buffer
+         * 
+         * \return size_t : size of the buffer
          */
-        uint16_t getSize() const;
+        size_t getSize() const;
 
         /**
-         * @brief Get the size used in the buffer
+         * \fn size_t getUsedSize() const
          * 
-         * @return uint16_t : used size of the buffer
+         * \brief Get the size used in the buffer
+         * 
+         * \return size_t : used size of the buffer
          */
-        uint16_t getUsedSize() const;
+        size_t getUsedSize() const;
 
         /**
-         * @brief Get the Write Cursor in the buffer
+         * \fn size_t getWriteCursor() const
          * 
-         * @return uint16_t : the write cursor
+         * \brief Get the Write Cursor in the buffer
+         * 
+         * \return size_t : the write cursor
          */
-        uint16_t getWriteCursor() const;
+        size_t getWriteCursor() const;
 
         /**
-         * @brief Get the Read Cursor in the buffer
+         * \fn size_t getReadCursor() const
          * 
-         * @return uint16_t : the read cursor
+         * \brief Get the Read Cursor in the buffer
+         * 
+         * \return size_t : the read cursor
          */
-        uint16_t getReadCursor() const;
+        size_t getReadCursor() const;
 
         /**
-         * @brief delete all data in the buffer
+         * \fn void cleanBuffer()
+         * 
+         * \brief delete all data in the buffer
          */
         void cleanBuffer();
 
     private:
-        const uint16_t _size; /** size of the buffer */
-        uint16_t _usedSize; /** used size of the buffer */
-        uint16_t _writeCursor; /** position where the buffer will write */
-        uint16_t _readCursor; /** position where the buffer will read */
+        const size_t _size; /** size of the buffer */
+        size_t _usedSize; /** used size of the buffer */
+        size_t _writeCursor; /** position where the buffer will write */
+        size_t _readCursor; /** position where the buffer will read */
         std::vector<uint8_t> _byteList; /** data in the buffer */
 };
 

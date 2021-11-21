@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** NetworkManager
-*/
-
 /**
  * \file NetworkManager.hpp
  * 
@@ -15,8 +8,8 @@
     #define NETWORKMANAGER_HPP_
 
     #include "INetworkManager.hpp"
-    #include "TCPClient.hpp"
-    #include "UDPSocket.hpp"
+    #include "cTCPClient.hpp"
+    #include "cUDPSocket.hpp"
     #include <asio.hpp>
     #include <thread>
 
@@ -28,7 +21,6 @@
      */
     class NetworkManager : public INetworkManager {
         public:
-
             /**
              * \fn explicit NetworkManager()
              * 
@@ -71,19 +63,65 @@
              */
             static void startNetworkThread(NetworkManager *netManager);
 
-            
+            /**
+             * \fn ITCPClient *createTCPClient(int port)
+             * 
+             * \brief create a TCP client 
+             * 
+             * \param port port that will be used for the communication
+             *  
+             * \return ITCPClient* the client
+             */
             ITCPClient *createTCPClient(int port);
 
+            /**
+             * \fn void deleteTCPClient(ITCPClient *tcp)
+             * 
+             * \brief delete a TCP client 
+             * 
+             * \param tcp client to delete
+             */
             void deleteTCPClient(ITCPClient *tcp);
 
+            /**
+             * \fn IUDPSocket *createSocketUDP(int port) override
+             * 
+             * \brief create a socket UDP
+             * 
+             * \param port port to open the socket
+             * 
+             * \return IUDPSocket* created socket
+             */
             IUDPSocket *createSocketUDP(int port) override;
 
+            /**
+             * \fn void deleteSocketUDP(IUDPSocket *udp) override
+             * 
+             * \brief delete a socket UDP
+             * 
+             * \param udp the socket tu delete 
+             */
             void deleteSocketUDP(IUDPSocket *udp) override;
 
+            /**
+             * \fn ITCPServer *createTCPServer(int port) override
+             * 
+             * \brief create a TCP server 
+             * 
+             * \param port the server will listen on this port
+             * 
+             * \return ITCPServer* the created server 
+             */
+            ITCPServer *createTCPServer(int port) override;
 
-
-            ITCPServer *createTCPServer(int port) override {(void)port; return nullptr;};
-            void deleteTCPServer(ITCPServer *tcp) override  {(void)tcp;};
+            /**
+             * \fn void deleteTCPServer(ITCPServer *tcp) override
+             * 
+             * \brief delete a tcp server
+             * 
+             * @param tcp the server to delete
+             */
+            void deleteTCPServer(ITCPServer *tcp) override;
 
         private:
             asio::io_context _context; /*! asio context */
