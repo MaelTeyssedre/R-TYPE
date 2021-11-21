@@ -17,11 +17,10 @@
         class GraphicalLib;
 
         /**
-         * \class IGraphicalLib IGraphicalLib.hpp
+         * \class Sprite IGraphicalLib.hpp
          *
-         * \brief Class that define graphical library abstraction
+         * \brief Class that define sprite
          */
-
         class Sprite {
             public:
                 virtual ~Sprite() = default;
