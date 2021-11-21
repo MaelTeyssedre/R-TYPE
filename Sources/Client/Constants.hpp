@@ -8,6 +8,10 @@
 #ifndef CONSTANTS_HPP_
     #define CONSTANTS_HPP_
 
+    #define VIEW_Y 485.f
+    #define VIEW_WIDTH 1720.f
+    #define VIEW_HEIGHT 970.f
+
     namespace rtype {
         namespace constants {
 

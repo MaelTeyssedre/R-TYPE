@@ -8,8 +8,9 @@
 #include "GraphicalLib.hpp"
 
 rtype::GraphicalLib::GraphicalLib()
-    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(1720, 970), "RPR-TYPE")
+    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(1720, 970), "RPR-TYPE"), _mouse(), _view(sf::Vector2f(860.f, VIEW_Y), sf::Vector2f(VIEW_WIDTH, VIEW_HEIGHT)), _keyState(), _mouseState(), _viewX(860.f)
 {
+    _renderWindow.setView(_view);
 }
 
 void rtype::GraphicalLib::draw()
@@ -80,28 +81,32 @@ void rtype::GraphicalLib::addSprite(rtype::constants::SCENE scene, std::shared_p
     _sprites.push_back(std::make_pair(scene, sprite));
 }
 
-void rtype::GraphicalLib::deleteSound(size_t id)
+void rtype::GraphicalLib::deleteSound(std::shared_ptr<rtype::Sound> sound)
 {
-    if (id < _sounds.size())
-        _sounds.erase(_sounds.begin() + id);
+    for (size_t i = 0; i < _sounds.size(); i++)
+        if (_sounds.at(i).second == sound)
+            _sounds.erase(_sounds.begin() + i);
 }
 
-void rtype::GraphicalLib::deleteMusic(size_t id)
+void rtype::GraphicalLib::deleteMusic(std::shared_ptr<rtype::Music> music)
 {
-    if (id < _musics.size())
-        _musics.erase(_musics.begin() + id);
+    for (size_t i = 0; i < _musics.size(); i++)
+        if (_musics.at(i).second == music)
+            _musics.erase(_musics.begin() + i);
 }
 
-void rtype::GraphicalLib::deleteText(size_t id)
+void rtype::GraphicalLib::deleteText(std::shared_ptr<rtype::Text> text)
 {
-    if (id < _texts.size())
-        _texts.erase(_texts.begin() + id);
+    for (size_t i = 0; i < _texts.size(); i++)
+        if (_texts.at(i).second == text)
+            _texts.erase(_texts.begin() + i);
 }
 
-void rtype::GraphicalLib::deleteSprite(size_t id)
+void rtype::GraphicalLib::deleteSprite(std::shared_ptr<rtype::Sprite> sprite)
 {
-    if (id < _sprites.size())
-        _sprites.erase(_sprites.begin() + id);
+    for (size_t i = 0; i < _sprites.size(); i++)
+        if (_sprites.at(i).second == sprite)
+            _sprites.erase(_sprites.begin() + i);
 }
 
 std::map<rtype::constants::KEY, bool> rtype::GraphicalLib::getKeyState()
@@ -122,4 +127,10 @@ rtype::mouse_t rtype::GraphicalLib::getMouseState()
     _mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
     _mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
     return (_mouseState);
+}
+
+void rtype::GraphicalLib::setViewXPos(float viewXPos)
+{
+    _viewX = viewXPos;
+    _view.setCenter(sf::Vector2f(_viewX, VIEW_Y));
 }

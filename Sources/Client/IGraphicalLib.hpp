@@ -46,12 +46,13 @@
                 virtual void addMusic(constants::SCENE scene, std::shared_ptr<Music> music) = 0;
                 virtual void addText(constants::SCENE scene, std::shared_ptr<Text> text) = 0;
                 virtual void addSprite(constants::SCENE scene, std::shared_ptr<Sprite> sprite) = 0;
-                virtual void deleteSound(size_t id) = 0;
-                virtual void deleteMusic(size_t id) = 0;
-                virtual void deleteText(size_t id) = 0;
-                virtual void deleteSprite(size_t id) = 0;
+                virtual void deleteSound(std::shared_ptr<Sound> sound) = 0;
+                virtual void deleteMusic(std::shared_ptr<Music> music) = 0;
+                virtual void deleteText(std::shared_ptr<Text> text) = 0;
+                virtual void deleteSprite(std::shared_ptr<Sprite> sprite) = 0;
                 virtual std::map<rtype::constants::KEY, bool> getKeyState() = 0;
                 virtual mouse_t getMouseState() = 0;
+                virtual void setViewXPos(float viewXPos) = 0;
         };
     }
 

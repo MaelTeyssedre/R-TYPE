@@ -33,12 +33,13 @@
                 void addMusic(constants::SCENE scene, std::shared_ptr<Music> music) override;
                 void addText(constants::SCENE scene, std::shared_ptr<Text> text) override;
                 void addSprite(constants::SCENE scene, std::shared_ptr<Sprite> sprite) override;
-                void deleteSound(size_t id) override;
-                void deleteMusic(size_t id) override;
-                void deleteText(size_t id) override;
-                void deleteSprite(size_t id) override;
+                void deleteSound(std::shared_ptr<Sound> sound) override;
+                void deleteMusic(std::shared_ptr<Music> music) override;
+                void deleteText(std::shared_ptr<Text> text) override;
+                void deleteSprite(std::shared_ptr<Sprite> sprite) override;
                 std::map<rtype::constants::KEY, bool> getKeyState() override;
                 mouse_t getMouseState() override;
+                void setViewXPos(float viewXPos) override;
 
             private:
 
@@ -51,9 +52,12 @@
 
                 sf::RenderWindow _renderWindow;
                 sf::Mouse _mouse;
+                sf::View _view;
 
                 std::map<rtype::constants::KEY, bool> _keyState;
                 mouse_t _mouseState;
+
+                float _viewX;
         };
     }
 
