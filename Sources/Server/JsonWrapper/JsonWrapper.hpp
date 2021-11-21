@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** JsonWRAPPER
-*/
-
 /**
  * \file JsonWrapper.hpp
  *
@@ -12,21 +5,35 @@
  * 
  * \brief Manipulate the content of a Json file
  */
-#ifndef JSONWRAPPER_HPP_
-#define JSONWRAPPER_HPP_
 
-    #include <vector>
+#ifndef JSONWRAPPER_HPP_
+    #define JSONWRAPPER_HPP_
+
     #include "IJsonWrapper.hpp"
 
+    /**
+     * \class JsonWrapper
+     * 
+     * \brief wrapper for the json of the map
+     * 
+     */
     class JsonWrapper : public IJsonWrapper {
         public:
-            struct object_s {           /*! An object */
-            int id;                     /*! Object id */
-            std::pair<int, int> pos;    /*! Object spawn position */
-            int strength;               /*! Object strength */
-            int hp;                     /*! Object hp */
-            std::string type;           /*! Object type */
-        };
+            /**
+             * \struct object_s
+             * 
+             * \brief caracteristics of an object in the map
+             * 
+             */
+            typedef struct object_s {       /*! An object */
+                int id;                     /*! Object id */
+                std::pair<int, int> pos;    /*! Object spawn position */
+                int strength;               /*! Object strength */
+                int hp;                     /*! Object hp */
+                std::string type;           /*! Object type */
+            } object_t;
+
+        public:
 
             /**
              * \fn JsonWrapper(std::string &filename)
@@ -55,31 +62,30 @@
             void fillComposantList() override;
 
             /**
-             * \fn JsonWrapper::object_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, std::string &type)
+             * \fn std::shared_ptr<Player> createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type)
              * 
-             * \brief Construct a player object
+             * \brief Create a Player object
              * 
-             * \param id Id of the object
-             * \param pos Spawn position of the object
-             * \param strength Strength of the object
-             * \param hp Hp of the object
-             * \param type Type of the object
+             * \param id id of player
+             * \param pos position of player
+             * \param strength strength of player
+             * \param hp life of player
+             * \param type type of player
              * 
-             * \return JsonWrapper::object_s a new player object
+             * \return std::shared_ptr<Player> shared pointer of created player
              */
-            JsonWrapper::object_s createComposant(int id, std::pair<int, int> pos, int strength, int hp, const std::string &type);
+            std::shared_ptr<Player> createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type);
 
             /**
-             * \fn JsonWrapper::object_s createComposant(std::pair<int, int> pos, std::string &type)
+             * \fn std::shared_ptr<Wall> createWall(std::pair<int, int> pos, std::string type)
              * 
-             * \brief Construct aither an monster object or a wall object
+             * \brief Create a Wall object
              * 
-             * \param pos Spawn position of the object
-             * \param type Type of the object
-             * 
-             * \return JsonWrapper::object_s a new object
+             * \param pos position of the wall
+             * \param type type of type
+             * \return std::shared_ptr<Wall> shared pointer of the created wall 
              */
-            JsonWrapper::object_s createComposant(std::pair<int, int> pos, const std::string &type);
+            std::shared_ptr<Wall> createWall(std::pair<int, int> pos, std::string type);
 
             /**
              * \fn void addPlayer() override
@@ -103,29 +109,52 @@
             void addWall() override;
 
             /**
-             * \fn bool isNewElementType(std::vector<std::vector<JsonWrapper::object_s>> _objectList, std::string type)
+             * \fn std::vector<AMonster *> &getMonsterList()
              * 
-             * \brief Check if an element exist in the object list
+             * \brief Get the Monster List object
              * 
-             * \param _objectList An object list
-             * \param type Type of the object
-             * 
-             * \return bool True if the object is found, false otherwise
+             * \return std::vector<AMonster *>& list of pointer of monster
              */
-            bool isNewElementType(std::vector<std::vector<JsonWrapper::object_s>> _objectList, std::string type);
+            std::vector<AMonster *> &getMonsterList();
 
             /**
-             * \fn std::vector<std::vector<JsonWrapper::object_s>> getComposantList() const
+             * \fn std::vector<std::shared_ptr<Player>> &getPlayerList()
              * 
-             * \brief Return an object list
+             * \brief Get the Player List object
              * 
-             * \return std::vector<std::vector<JsonWrapper::object_s>> A vector of object list
+             * \return std::vector<std::shared_ptr<Player>>& list of pointer of player
              */
-            std::vector<std::vector<JsonWrapper::object_s>> getComposantList() const;
+            std::vector<std::shared_ptr<Player>> &getPlayerList();
+
+            /**
+             * \fn std::vector<std::shared_ptr<Wall>> &getWallList()
+             * 
+             * \brief Get the Wall List object
+             * 
+             * \return std::vector<std::shared_ptr<Wall>>& list of pointer of wall
+             */
+            std::vector<std::shared_ptr<Wall>> &getWallList();
+
+            /**
+             * \fn nlohmann::json strToJson(std::string &toConvert)
+             * 
+             * \brief convert a string to json
+             * 
+             * \param toConvert string to convert
+             * 
+             * \return nlohmann::json converted json
+             */
+            nlohmann::json strToJson(std::string &toConvert);
+
         private:
+            LibLoader _loader; /*! libLoader */
             std::string _filename;  /*! name of the json file */
             nlohmann::json _json; /*! a json file */
-            std::vector<std::vector<JsonWrapper::object_s>> _objectList; /*! an object list */
+            std::vector<AMonster *> _monsterList; /*! list of monster */
+            std::vector<std::shared_ptr<Wall>> _wallList; /*! list of wall */
+            std::vector<std::shared_ptr<Player>> _playerList; /*! list of player */
+            std::vector<std::string> _typeList; /*! type list */
+            std::vector<std::pair<std::string, object_t>> _params; /*! params getted in the map */
     };
 
 #endif /* !IJSONWRAPPER_HPP_ */

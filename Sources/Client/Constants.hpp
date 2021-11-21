@@ -1,9 +1,8 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** Constants
-*/
+/**
+ * \file Constants.hpp
+ * 
+ * \brief file where constants are stocked 
+ */
 
 #ifndef CONSTANTS_HPP_
     #define CONSTANTS_HPP_
@@ -12,9 +11,25 @@
     #define VIEW_WIDTH 1720.f
     #define VIEW_HEIGHT 970.f
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
+        /**
+         * \namespace constants
+         * 
+         * \brief namespace for all constants
+         * 
+         */
         namespace constants {
-
+            /**
+             * \enum SCENE
+             * 
+             * \brief enum for all scenes of the game
+             */
             enum SCENE {
                 MAIN_MENU,
                 PARAMS,
@@ -37,7 +52,6 @@
                 KEY_ENTER,
                 KEY_SPACE
             };
-
         }
     }
 

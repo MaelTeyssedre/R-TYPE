@@ -1,9 +1,8 @@
-/*
-** EPITECH PROJECT, 2021
-** B-CPP-500-NAN-5-1-babel-romain.gabet
-** File description:
-** ILogger.hpp
-*/
+/**
+ * @file ILogger.hpp
+ * 
+ * @brief Interface for the logger lib
+ */
 
 #ifndef ILOGGER_HPP_
 #define ILOGGER_HPP_
@@ -12,34 +11,33 @@
 #include <fstream>
 
 /**
-* @class Logger class
-* @brief Used to store log in a file.
+* \class Logger class
+* \brief Used to store log in a file.
 */
 class ILogger {
-
     public:
-        /*!
-        * @brief Close a log file
+        /**
+        * \brief Close a log file
         */
         virtual ~ILogger() = default;
         
-        /*!
-        * @brief log message into a file
-        * @param message to log
+        /**
+        * \brief log message into a file
+        * \param message to log
         */
-        virtual void log(std::string &message) = 0;
+        virtual void log(std::string message) = 0;
         
-        /*!
-        * @brief log message into a file and and an endline
-        * @param message to log
+        /**
+        * \brief log message into a file and and an endline
+        * \param message to log
         */
-        virtual void logln(std::string &message) = 0;
+        virtual void logln(std::string message) = 0;
 
-        /*!
-        * @brief Add a message to the log file // Same as log()
-        * @param Content to add
+        /**
+        * \brief Add a message to the log file // Same as log()
+        * \param Content to add
         */
-        virtual void operator<<(std::string &buffer) = 0;
+        virtual void operator<<(std::string buffer) = 0;
 };
 
 #endif /* !LOGGER_HPP_ */

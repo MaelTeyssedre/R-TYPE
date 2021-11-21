@@ -1,16 +1,10 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** UDPSocket
-*/
-
 /**
  * \file udpSocket.hpp
  * 
  * \brief file where udpSocket class is defined
  * 
  */
+
 #ifndef UDPSOCKET_HPP_
     #define UDPSOCKET_HPP_
 
@@ -18,7 +12,9 @@
     #include "Packet.hpp"
     #include <asio.hpp>
 
-    #define MAX_LENGTH 1024
+    #ifndef MAX_LENGTH
+        #define MAX_LENGTH 1024
+    #endif
 
     /**
      * \class udpSocket udpSocket.hpp 
@@ -27,6 +23,7 @@
      */
     class UDPSocket : public IUDPSocket{
         public:
+
             /**
              * \fn explicit udpSocket() = default
              * 
@@ -82,6 +79,7 @@
             void handleSend();
 
         private:
+
             asio::io_context &_context; /*! asio context */
             asio::ip::udp::socket _socket; /*! socket to use */
             asio::ip::udp::endpoint _endpoint; /*! endpoint of the user */

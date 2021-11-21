@@ -1,16 +1,9 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** DlLoaderUnix
-*/
-
-
 /**
  * \file DlLoaderUnix.hpp
  *
  * \brief file DynLibs are load on linux
  */
+
 #ifndef DLLOADERUNIX_HPP_
     #define DLLOADERUNIX_HPP_
 
@@ -20,15 +13,16 @@
 
     #include "IElement.hpp"
 
-    using allocClass = IElement*(*)();
-    using deleteClass = void(*)(IElement*);
-
     /**
      * \class DlLoaderUnix DlLoaderUnix.hpp
      * 
      * \brief Class that load unix .so
      */
     class DlLoaderUnix {
+        public:
+            using allocClass = IElement*(*)();
+            using deleteClass = void(*)(IElement*);
+
         public:
             /**
              * \fn DlLoaderUnix() = default
@@ -55,6 +49,8 @@
              * \fn DlLoaderUnix& operator=(const DlLoaderUnix &other) = default
              * 
              * \brief Default operator= overload
+             * 
+             * \return reference tu the assigned object
              */
             DlLoaderUnix& operator=(const DlLoaderUnix &other) = default;
 
@@ -64,6 +60,8 @@
              * \param path path to a dynlib
              * 
              * \brief open a dynlib
+             * 
+             * \fn pointer to the loaded lib
              */
             void *loadLib(std::string path);
 

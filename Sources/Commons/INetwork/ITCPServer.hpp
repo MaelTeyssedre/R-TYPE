@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** ITCPServer
-*/
-
 /**
  * \file ITCPServer.hpp
  * 
@@ -70,7 +63,6 @@
              * \param client to eject
              */
             virtual void eject(size_t client) = 0;
-
     };
 
 #endif /* !ITCPSERVER_HPP_ */

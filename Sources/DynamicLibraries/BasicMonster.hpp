@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** BasicMonster
-*/
-
 /**
  * \file BasicMonster.hpp
  *
@@ -13,21 +6,29 @@
 #ifndef BASICMONSTER_HPP_
     #define BASICMONSTER_HPP_
 
-    #include "IElement.hpp"
+    #include "AMonster.hpp"
+    #include "Registry.hpp"
+    #include "FireFrequence.hpp"
+    #include "HealPoint.hpp"
+    #include "Loot.hpp"
+    #include "Position.hpp"
+    #include "Velocity.hpp"
+    #include "Weapon.hpp"
 
     /**
      * \class BasicMonster BasicMonster.hpp
      * 
      * \brief Class that contain a monster in a .so/.dll
      */
-    class BasicMonster : public IElement {
+    class BasicMonster : public AMonster {
         public:
+        
             /**
              * \fn BasicMonster() = default
              * 
              * \brief Default ctor
              */
-            explicit BasicMonster() = default;
+            explicit BasicMonster();
 
             /**
              * \fn BasicMonster(const BasicMonster&) = default
@@ -57,7 +58,7 @@
              * 
              * \brief Override init of the class
              */
-            void init(Registry &) override;
+            void init(Registry &r) override;
 
             /**
              * \fn void update(void) override
@@ -66,16 +67,6 @@
              */
             void update(void) override;
 
-        private:
-            Registry _registry; /*! registry*/
-            std::string _name; /*! name of the monster */
-            std::string _texturePath; /*! _texturePath of the monster*/
-            size_t _healPoint; /*! healpoint of the monster */
-            size_t _fireFrequence; /*! firefrequence of the monster*/
-            size_t _weaponType; /*! WeaponType of the monster*/
-            size_t _damage; /*! Damage of the monster*/
-            std::pair<size_t,size_t> _pos;  /*! Position of the monster*/
-            bool _loot; /*! Is the monster looting something*/
     };
 
 #endif /* !BASICMONSTER_HPP_ */
