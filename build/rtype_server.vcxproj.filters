@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\Buffer\Buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\Entity\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\Registry\Registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\Logger\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\JsonWrapper\JsonWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Libs\LibLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\NetworkManager\NetworkManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\Packet\Packet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\TCP\tcpServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\UDP\udpSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\User\tcpUser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\PacketManager\PacketManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\PlayerData\PlayerData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Room\Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\RoomManager\RoomManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\LibLoader\Windows\DlLoaderWindows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\Buffer\Buffer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\Entity\Entity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\Registry\Registry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\SparseArray\SparseArray.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\components\components.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\ECS\systems\systems.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\INetwork\INetworkManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\INetwork\IPacket.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\INetwork\ITCPClient.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\INetwork\ITCPServer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\INetwork\IUDPSocket.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\Logger\ILogger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Commons\Logger\Logger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\JsonWrapper\IJsonWrapper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\JsonWrapper\JsonWrapper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Libs\IElement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Libs\LibLoader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\NetworkManager\NetworkManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\Packet\Packet.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\TCP\tcpServer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\UDP\udpSocket.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Network\User\tcpUser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\PacketManager\PacketManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\PlayerData\PlayerData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\Room\Room.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\Server\RoomManager\RoomManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\Sources\LibLoader\Windows\DlLoaderWindows.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\alban\Projects\R-TYPE\R-TYPE\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{53093E4C-0B80-38CA-BADA-BADC7B78B4BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{33A4E950-B5FB-300E-BABC-B8661087FF53}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
