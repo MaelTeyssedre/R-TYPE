@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** GraphicalLib
-*/
 
 #include "GraphicalLib.hpp"
 
