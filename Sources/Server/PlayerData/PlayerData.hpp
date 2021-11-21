@@ -22,7 +22,7 @@
              * 
              */
             explicit PlayerData() = default;
-      
+
             /**
              * \fn explicit PlayerData(size_t id, std::shared_ptr<Buffer> buffIn, std::shared_ptr<Buffer> buffOut, std::shared_ptr<std::mutex> mutexIn,std::shared_ptr<std::mutex> mutexOut
              * 
@@ -53,6 +53,7 @@
              * \return id of the player
              */
             size_t getId(void) const;
+
 
             std::shared_ptr<std::mutex> _mutexIn; /*! mutex that protect the Input buffer of the player */
 

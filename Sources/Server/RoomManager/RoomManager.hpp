@@ -38,6 +38,7 @@
              */
             explicit RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
 
+
             /**
              * \fn virtual ~RoomManager()
              * 
