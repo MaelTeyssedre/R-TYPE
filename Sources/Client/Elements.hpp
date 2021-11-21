@@ -25,37 +25,29 @@
             public:
                 virtual ~Sprite() = default;
 
-                const float getPosX() {return _posX;};
-                const float getPosY() {return _posY;};
-                const float getRotation() {return _rotation;};
-                const float getScale() {return _scale;};
-                const int getRectX() {return _rectX;};
-                const int getRectY() {return _rectY;};
-                const int getRectWidth() {return _rectWidth;};
-                const int getRectHeigth() {return _rectHeigth;};
+                const float getPosX();
+                const float getPosY();
+                const float getRotation();
+                const float getScale();
+                const int getRectX();
+                const int getRectY();
+                const int getRectWidth();
+                const int getRectHeigth();
 
-                void setPosX(float posX) {_posX = posX; _sprite.setPosition(sf::Vector2f(_posX, _posY));};
-                void setPosY(float posY) {_posY = posY; _sprite.setPosition(sf::Vector2f(_posX, _posY));};
-                void setRotation(float rotation) {_rotation = rotation; _sprite.setRotation(_rotation);};
-                void setScale(float scale) {_scale = scale; _sprite.setRotation(scale);};
-                void setRectX(int rectX) {_rectX = rectX; _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));};
-                void setRectY(int rectY) {_rectY = rectY; _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));};
-                void setRectWidth(int rectWith) {_rectWidth = rectWith; _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));};
-                void setRectHeigth(int rectHeigth) {_rectHeigth = rectHeigth; _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));};
+                void setPosX(float posX);
+                void setPosY(float posY);
+                void setRotation(float rotation);
+                void setScale(float scale);
+                void setRectX(int rectX);
+                void setRectY(int rectY);
+                void setRectWidth(int rectWith);
+                void setRectHeigth(int rectHeigth);
             protected:
                 friend class GraphicalLib;
 
-                explicit Sprite(float posX, float posY, float rotation, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
-                    : _posX(posX), _posY(posY), _rotation(rotation), _scale(scale), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path) {
-                        _sprite.setPosition(sf::Vector2f(_posX, _posY));
-                        _sprite.setRotation(_rotation);
-                        _sprite.setScale(sf::Vector2f(_scale, _scale));
-                        _texture.loadFromFile(_path);
-                        _sprite.setTexture(_texture);
-                        _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
-                    };
+                explicit Sprite(float posX, float posY, float rotation, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path);
 
-                sf::Sprite &getSprite() {return _sprite;};
+                sf::Sprite &getSprite();
 
             private:
                 float _posX;
@@ -78,38 +70,30 @@
             public:
                 virtual ~Text() = default;
 
-                const float getPosX() {return _posX;};
-                const float getPosY() {return _posY;};
-                const int getFontSize() {return _fontSize;};
-                const int getColorRed() {return _colorRed;};
-                const int getColorGreen() {return _colorGreen;};
-                const int getColorBlue() {return _colorBlue;};
-                const int getColorAlpha() {return _colorAlpha;};
-                const std::string getContent() {return _content;};
+                const float getPosX();
+                const float getPosY();
+                const int getFontSize();
+                const int getColorRed();
+                const int getColorGreen();
+                const int getColorBlue();
+                const int getColorAlpha();
+                const std::string getContent();
 
-                void setPosX(float posX) {_posX = posX; _text.setPosition(sf::Vector2f(_posX, _posY));};
-                void setPosY(float posY) {_posY = posY; _text.setPosition(sf::Vector2f(_posX, _posY));};
-                void setFontSize(int fontSize) {_fontSize = fontSize; _text.setCharacterSize(_fontSize);};
-                void setColorRed(int colorRed) {_colorRed = colorRed; _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));};
-                void setColorGreen(int colorGreen) {_colorGreen = colorGreen; _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));};
-                void setColorBlue(int colorBlue) {_colorBlue = colorBlue; _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));};
-                void setColorAlpha(int colorAlpha) {_colorAlpha = colorAlpha; _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));};
-                void setContent(std::string &content) {;};
+                void setPosX(float posX);
+                void setPosY(float posY);
+                void setFontSize(int fontSize);
+                void setColorRed(int colorRed);
+                void setColorGreen(int colorGreen);
+                void setColorBlue(int colorBlue);
+                void setColorAlpha(int colorAlpha);
+                void setContent(std::string &content);
 
             protected:
                 friend class GraphicalLib;
 
-                explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
-                    : _posX(posX), _posY(posY), _fontSize(fontSize), _colorRed(colorRed), _colorGreen(colorGreen), _colorBlue(colorBlue), _colorAlpha(colorAlpha), _content(content), _fontPath(_fontPath) {
-                        _text.setPosition(sf::Vector2f(_posX, _posY));
-                        _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
-                        _text.setCharacterSize(_fontSize);
-                        _text.setString(_content);
-                        _font.loadFromFile(_fontPath);
-                        _text.setFont(_font);
-                    };
-
-                sf::Text &getText() {return _text;};
+                explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
+                    
+                sf::Text &getText();
 
             private:
                 float _posX;
@@ -135,13 +119,9 @@
             protected:
                 friend class GraphicalLib;
 
-                explicit Sound(std::string path)
-                    : _path(path) {
-                        _buffer.loadFromFile(_path);
-                        _sound.setBuffer(_buffer);
-                    };
+                explicit Sound(std::string path);
                 
-                sf::Sound &getSound() {return _sound;};
+                sf::Sound &getSound();
 
             private:
                 std::string _path;
@@ -157,12 +137,9 @@
             protected:
                 friend class GraphicalLib;
 
-                explicit Music(std::string path)
-                    : _path(path) {
-                        _music.openFromFile(_path);
-                    };
+                explicit Music(std::string path);
 
-                sf::Music &getMusic() {return _music;};
+                sf::Music &getMusic();
             private:
                 std::string _path;
 
