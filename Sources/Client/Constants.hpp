@@ -62,6 +62,12 @@
                 KEY_ENTER,
                 KEY_SPACE
             };
+
+            enum ENTITY_TYPE {
+                PLAYER,
+                MONSTER,
+                BOSS
+            };
         }
     }
 
