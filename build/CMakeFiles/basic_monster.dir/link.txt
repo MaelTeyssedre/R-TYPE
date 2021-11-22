@@ -1,0 +1,1 @@
+/bin/x86_64-linux-gnu-g++-10 -fPIC -g -shared -Wl,-soname,libbasic_monster.so -o libbasic_monster.so CMakeFiles/basic_monster.dir/Sources/Commons/ECS/Entity/Entity.cpp.o CMakeFiles/basic_monster.dir/Sources/Commons/ECS/Registry/Registry.cpp.o CMakeFiles/basic_monster.dir/Sources/DynamicLibraries/BasicMonster.cpp.o CMakeFiles/basic_monster.dir/Sources/Server/Libs/AMonster.cpp.o 
