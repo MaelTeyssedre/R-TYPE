@@ -17,6 +17,10 @@
         #define VIEW_HEIGHT 970.f
     #endif
 
+    #ifndef RESERVED_TIME_INDEX
+        #define RESERVED_TIME_INDEX 0
+    #endif
+
     /**
      * \namespace rtype
      * 
