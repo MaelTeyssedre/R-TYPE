@@ -12,42 +12,42 @@ rtype::Sprite::Sprite(float posX, float posY, float rotation, float scale, int r
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
-const float rtype::Sprite::getPosX()
+float rtype::Sprite::getPosX()
 {
     return _posX;
 }
 
-const float rtype::Sprite::getPosY()
+float rtype::Sprite::getPosY()
 {
     return _posY;
 }
 
-const float rtype::Sprite::getRotation()
+float rtype::Sprite::getRotation()
 {
     return _rotation;
 }
 
-const float rtype::Sprite::getScale()
+float rtype::Sprite::getScale()
 {
     return _scale;
 }
 
-const int rtype::Sprite::getRectX()
+int rtype::Sprite::getRectX()
 {
     return _rectX;
 }
 
-const int rtype::Sprite::getRectY()
+int rtype::Sprite::getRectY()
 {
     return _rectY;
 }
 
-const int rtype::Sprite::getRectWidth()
+int rtype::Sprite::getRectWidth()
 {
     return _rectWidth;
 }
 
-const int rtype::Sprite::getRectHeigth()
+int rtype::Sprite::getRectHeigth()
 {
     return _rectHeigth;
 }
@@ -106,7 +106,7 @@ sf::Sprite &rtype::Sprite::getSprite()
 }
 
 rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
-    : _posX(posX), _posY(posY), _fontSize(fontSize), _colorRed(colorRed), _colorGreen(colorGreen), _colorBlue(colorBlue), _colorAlpha(colorAlpha), _content(content), _fontPath(_fontPath)
+    : _posX(posX), _posY(posY), _fontSize(fontSize), _colorRed(colorRed), _colorGreen(colorGreen), _colorBlue(colorBlue), _colorAlpha(colorAlpha), _content(content), _fontPath(fontPath)
 {
     _text.setPosition(sf::Vector2f(_posX, _posY));
     _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
@@ -116,42 +116,42 @@ rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorG
     _text.setFont(_font);
 }
 
-const float rtype::Text::getPosX()
+float rtype::Text::getPosX()
 {
     return _posX;
 }
 
-const float rtype::Text::getPosY()
+float rtype::Text::getPosY()
 {
     return _posY;
 }
 
-const int rtype::Text::getFontSize()
+int rtype::Text::getFontSize()
 {
     return _fontSize;
 }
 
-const int rtype::Text::getColorRed()
+int rtype::Text::getColorRed()
 {
     return _colorRed;
 }
 
-const int rtype::Text::getColorGreen()
+int rtype::Text::getColorGreen()
 {
     return _colorGreen;
 }
 
-const int rtype::Text::getColorBlue()
+int rtype::Text::getColorBlue()
 {
     return _colorBlue;
 }
 
-const int rtype::Text::getColorAlpha()
+int rtype::Text::getColorAlpha()
 {
     return _colorAlpha;
 }
 
-const std::string rtype::Text::getContent()
+std::string rtype::Text::getContent()
 {
     return _content;
 }

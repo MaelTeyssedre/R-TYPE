@@ -25,14 +25,14 @@
             public:
                 virtual ~Sprite() = default;
 
-                const float getPosX();
-                const float getPosY();
-                const float getRotation();
-                const float getScale();
-                const int getRectX();
-                const int getRectY();
-                const int getRectWidth();
-                const int getRectHeigth();
+                float getPosX();
+                float getPosY();
+                float getRotation();
+                float getScale();
+                int getRectX();
+                int getRectY();
+                int getRectWidth();
+                int getRectHeigth();
 
                 void setPosX(float posX);
                 void setPosY(float posY);
@@ -70,14 +70,14 @@
             public:
                 virtual ~Text() = default;
 
-                const float getPosX();
-                const float getPosY();
-                const int getFontSize();
-                const int getColorRed();
-                const int getColorGreen();
-                const int getColorBlue();
-                const int getColorAlpha();
-                const std::string getContent();
+                float getPosX();
+                float getPosY();
+                int getFontSize();
+                int getColorRed();
+                int getColorGreen();
+                int getColorBlue();
+                int getColorAlpha();
+                std::string getContent();
 
                 void setPosX(float posX);
                 void setPosY(float posY);

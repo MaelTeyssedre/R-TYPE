@@ -11,7 +11,7 @@
     #include <iostream>
     #include <SFML/Window.hpp>
     #include "Constants.hpp"
-    #include <memory.h>
+    #include <memory>
 
     namespace rtype {
 
