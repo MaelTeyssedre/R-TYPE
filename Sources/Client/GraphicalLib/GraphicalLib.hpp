@@ -155,7 +155,7 @@
                 /**
                  * \fn void addSound(constants::SCENE scene, std::shared_ptr<Sound> sound) override
                  * 
-                 * \param scene scene the sound take place
+                 * \param scene scene where the sound is played
                  * 
                  * \param sound sound that you're adding
                  * 
@@ -166,7 +166,7 @@
                 /**
                  * \fn void addMusic(constants::SCENE scene, std::shared_ptr<Music> music) override
                  * 
-                 * \param scene scene the sound take place
+                 * \param scene scene where the music is played
                  * 
                  * \param music music that you're adding
                  * 
@@ -177,7 +177,7 @@
                 /**
                  * \fn void addText(constants::SCENE scene, std::shared_ptr<Text> text) override
                  * 
-                 * \param scene scene the sound take place
+                 * \param scene scene where the text is put
                  * 
                  * \param text text that you're adding
                  * 
@@ -188,7 +188,7 @@
                 /**
                  * \fn void addSprite(constants::SCENE scene, std::shared_ptr<Sprite> sprite) override
                  * 
-                 * \param scene scene the sound take place
+                 * \param scene scene where the sprite will be added
                  * 
                  * \param sound sound that you're adding
                  * 

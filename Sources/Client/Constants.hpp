@@ -43,13 +43,23 @@
                 LOADING_MENU
             };
 
+            /**
+             * \enum TYPE
+             * 
+             * \brief enum for all type of the game
+             */
             enum TYPE {
                 SPRITE,
                 TEXT,
                 SOUND,
                 MUSIC
             };
-
+            
+            /**
+             * \enum KEY
+             * 
+             * \brief enum for all key used in the game
+             */
             enum KEY {
                 KEY_UP,
                 KEY_DOWN,
