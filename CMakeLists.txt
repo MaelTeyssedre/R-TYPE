@@ -66,6 +66,10 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.cpp
 )
 
 file(
@@ -302,6 +306,18 @@ target_include_directories(
     rtype_client
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Components/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/
 )
 
 target_include_directories(
