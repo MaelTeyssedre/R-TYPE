@@ -62,6 +62,12 @@
                 KEY_ENTER,
                 KEY_SPACE
             };
+
+            enum WEAPON_TYPE {
+                WEAPON_1,
+                WEAPON_2,
+                WEAPON_3
+            };
         }
     }
 
