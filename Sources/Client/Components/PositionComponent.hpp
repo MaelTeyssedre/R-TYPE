@@ -5,8 +5,8 @@
 
     namespace components {
         struct position_s {
-            size_t x;
-            size_t y;
+            float x;
+            float y;
         };
     }
 
