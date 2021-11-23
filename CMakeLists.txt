@@ -379,6 +379,13 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/NetworkManager/
+)
+
+
+target_include_directories(
+    rtype_client
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/
 )
 

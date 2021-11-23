@@ -8,6 +8,8 @@
     #define ELEMENT_HPP_
 
     #include <iostream>
+    #include <new>
+    #include <stdexcept>
     #include <exception>
     #include <SFML/Window.hpp>
     #include <SFML/Graphics.hpp>

@@ -8,7 +8,7 @@ rtype::Sprite::Sprite(float posX, float posY, float rotation, float scale, int r
     _sprite.setRotation(_rotation);
     _sprite.setScale(sf::Vector2f(_scale, _scale));
     if (!_texture.loadFromFile(_path))
-        throw std::bad_alloc("Fail to load texture");
+        throw std::runtime_error("Fail to load texture");
     _sprite.setTexture(_texture);
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
@@ -114,7 +114,7 @@ rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorG
     _text.setCharacterSize(_fontSize);
     _text.setString(_content);
     if (!_font.loadFromFile(_fontPath))
-        throw std::bad_alloc("Fail to load font");
+        throw std::runtime_error("Fail to load font");
     _text.setFont(_font);
 }
 
@@ -215,7 +215,7 @@ rtype::Sound::Sound(std::string path)
     : _path(path)
 {
     if (!_buffer.loadFromFile(_path))
-        throw std::bad_alloc("Fail to load sound");
+        throw std::runtime_error("Fail to load sound");
     _sound.setBuffer(_buffer);
 }
 
@@ -228,7 +228,7 @@ rtype::Music::Music(std::string path)
     : _path(path)
 {
     if (_music.openFromFile(_path))
-        throw std::bad_alloc("Fail to load music");
+        throw std::runtime_error("Fail to load music");
 }
 
 sf::Music &rtype::Music::getMusic()
