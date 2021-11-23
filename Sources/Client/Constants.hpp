@@ -63,7 +63,12 @@
                 KEY_SPACE
             };
 
-            enum ENTITY_TYPE {
+            enum WEAPON_TYPE {
+                WEAPON_1,
+                WEAPON_2,
+                WEAPON_3
+             };
+             enum ENTITY_TYPE {
                 PLAYER,
                 MONSTER,
                 BOSS,
