@@ -8,8 +8,10 @@
 
     namespace components {
         struct rectangle_s {
-            struct position_s position;
-            struct size_s size;
+            size_t x;
+            size_t y;
+            size_t width;
+            size_t heigth;
         };
     }
 
