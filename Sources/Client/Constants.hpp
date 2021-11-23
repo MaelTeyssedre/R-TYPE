@@ -66,7 +66,9 @@
             enum ENTITY_TYPE {
                 PLAYER,
                 MONSTER,
-                BOSS
+                BOSS,
+                WALL,
+                PROJECTILE
             };
         }
     }
