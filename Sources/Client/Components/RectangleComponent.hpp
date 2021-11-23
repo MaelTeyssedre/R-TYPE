@@ -3,8 +3,6 @@
     #define RECTANGLECOMPONENT_HPP_
 
     #include <iostream>
-    #include "SizeComponent.hpp"
-    #include "PositionComponent.hpp"
 
     namespace components {
         struct rectangle_s {
