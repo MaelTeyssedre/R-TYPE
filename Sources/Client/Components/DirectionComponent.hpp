@@ -5,10 +5,10 @@
     #include <iostream>
 
     namespace components {
-        struct direction_s {
+        typedef struct direction_s {
             int x;
             int y;
-        };
+        } direction_t;
     }
 
 #endif /* !DIRECTIONCOMPONENT_HPP_ */

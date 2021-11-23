@@ -5,9 +5,9 @@
     #include <iostream>
 
     namespace components {
-        struct health_s {
+        typedef struct health_s {
             size_t health;
-        };
+        } health_t;
     }
 
 #endif /* !HEALTHCOMPONENT_HPP_ */

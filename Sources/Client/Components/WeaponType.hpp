@@ -4,9 +4,9 @@
     #include "Constants.hpp"
 
     namespace components {
-        struct weaponType {
+        typedef struct weaponType_s {
             rtype::constants::WEAPON_TYPE weaponType;
-        };
+        } weaponType_t;
     }
 
 #endif /* !WEAPONTYPE_HPP_ */

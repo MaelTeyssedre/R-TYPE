@@ -43,8 +43,8 @@
                 virtual void deleteMusic(std::shared_ptr<Music> music) = 0;
                 virtual void deleteText(std::shared_ptr<Text> text) = 0;
                 virtual void deleteSprite(std::shared_ptr<Sprite> sprite) = 0;
-                virtual std::map<rtype::constants::KEY, bool> getKeyState() = 0;
-                virtual mouse_t getMouseState() = 0;
+                virtual static bool getKeyState(rtype::constants::EVENT event) = 0;
+                virtual static mouse_s getMouseState() = 0;
                 virtual void setViewXPos(float viewXPos) = 0;
         };
     }

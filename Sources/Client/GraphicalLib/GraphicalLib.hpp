@@ -36,8 +36,8 @@
                 void deleteMusic(std::shared_ptr<Music> music) override;
                 void deleteText(std::shared_ptr<Text> text) override;
                 void deleteSprite(std::shared_ptr<Sprite> sprite) override;
-                std::map<rtype::constants::KEY, bool> getKeyState() override;
-                mouse_t getMouseState() override;
+                static bool getKeyState(rtype::constants::EVENT event) override;
+                static mouse_s getMouseState() override;
                 void setViewXPos(float viewXPos) override;
 
             private:
@@ -53,8 +53,7 @@
                 sf::Mouse _mouse;
                 sf::View _view;
 
-                std::map<rtype::constants::KEY, bool> _keyState;
-                mouse_t _mouseState;
+                mouse_s _mouseState;
 
                 float _viewX;
         };

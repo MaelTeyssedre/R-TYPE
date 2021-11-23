@@ -4,10 +4,10 @@
     #include <iostream>
 
     namespace components {
-        struct size_s {
+        typedef struct mySize_s {
             size_t width;
             size_t heigth;
-        };
+        } mySize_t;
     }
 
 #endif /* !SIZECOMPONENT_HPP_ */

@@ -118,6 +118,12 @@ target_include_directories(
 target_include_directories(
     basic_monster
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/
+)
+
+target_include_directories(
+    basic_monster
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/
 )
 

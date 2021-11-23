@@ -51,6 +51,15 @@
              * 
              */
             virtual void disconnect() = 0;
+
+            /**
+             * \fn std::shared_ptr<Buffer> getData()
+             * 
+             * \brief Get the Data object
+             * 
+             * \return std::shared_ptr<Buffer> 
+             */
+            std::shared_ptr<Buffer> getData();
     };
 
 #endif /* !ITCPCLIENT_HPP_ */

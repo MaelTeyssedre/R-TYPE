@@ -4,10 +4,10 @@
     #include <iostream>
 
     namespace components {
-        struct position_s {
+        typedef struct position_s {
             float x;
             float y;
-        };
+        } position_t;
     }
 
 #endif /* !POSITIONCOMPONENT_HPP_ */
