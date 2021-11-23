@@ -67,6 +67,13 @@
                 WEAPON_1,
                 WEAPON_2,
                 WEAPON_3
+             };
+             enum ENTITY_TYPE {
+                PLAYER,
+                MONSTER,
+                BOSS,
+                WALL,
+                PROJECTILE
             };
         }
     }
