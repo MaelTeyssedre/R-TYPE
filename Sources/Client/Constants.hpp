@@ -21,6 +21,10 @@
         #define RESERVED_TIME_INDEX 0
     #endif
 
+    #ifndef HELPER
+        #define HELPER "USAGE:\n\t./rtype_client [IP] [PORT]\n"
+    #endif
+
     /**
      * \namespace rtype
      * 
