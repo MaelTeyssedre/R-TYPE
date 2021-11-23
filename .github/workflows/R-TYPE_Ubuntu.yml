@@ -47,3 +47,14 @@ jobs:
       uses: andstor/file-existence-action@v1
       with:
         files: "build/bin/rtype_client.exe"
+
+    - name: Clean
+      run: rm -rf build
+    
+    - name: Push to EPITECH
+      uses: pixta-dev/repository-mirroring-action@v1
+      with:
+        target_repo_url:
+          git@github.com:EpitechPromo2024/B-CPP-501-NAN-5-1-rtype-mael.teyssedre.git
+        ssh_private_key:
+          ${{ secrets.MT_KEY }}
