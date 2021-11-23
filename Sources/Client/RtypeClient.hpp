@@ -10,6 +10,7 @@
 
 #include "Registry.hpp"
 #include "cNetworkManager.hpp"
+#include "iostream"
 
 class RtypeClient {
     public:
