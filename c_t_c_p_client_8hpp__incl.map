@@ -1,0 +1,16 @@
+<map id="Sources/Client/Network/TCP/cTCPClient.hpp" name="Sources/Client/Network/TCP/cTCPClient.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="203,5,363,47"/>
+<area shape="rect" id="node2" href="$_i_t_c_p_client_8hpp.html" title="file where inteface ITCPClient class is defined" alt="" coords="137,95,246,121"/>
+<area shape="rect" id="node8" href="$c_packet_8hpp.html" title=" " alt="" coords="17,95,112,121"/>
+<area shape="rect" id="node9" href="$_logger_8hpp.html" title="header for logger lib" alt="" coords="416,95,503,121"/>
+<area shape="rect" id="node12" title=" " alt="" coords="321,95,392,121"/>
+<area shape="rect" id="node13" href="$_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="243,169,323,196"/>
+<area shape="rect" id="node3" href="$_i_packet_8hpp.html" title="file where IPacket class is defined" alt="" coords="101,169,191,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="165,244,223,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,244,73,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="247,244,319,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="98,244,141,271"/>
+<area shape="rect" id="node10" href="$_i_logger_8hpp.html" title="Interface for the logger lib." alt="" coords="413,169,503,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="425,244,491,271"/>
+<area shape="rect" id="node14" title=" " alt="" coords="344,244,399,271"/>
+</map>

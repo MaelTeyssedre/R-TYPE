@@ -1,0 +1,8 @@
+<map id="Sources/Server/Network/User/tcpUser.hpp" name="Sources/Server/Network/User/tcpUser.hpp">
+<area shape="rect" id="node1" title="file where tcpUser class is defined" alt="" coords="259,5,425,47"/>
+<area shape="rect" id="node2" href="$tcp_server_8hpp.html" title=" " alt="" coords="165,95,330,136"/>
+<area shape="rect" id="node6" href="$tcp_user_8cpp.html" title=" " alt="" coords="354,95,519,136"/>
+<area shape="rect" id="node3" href="$_network_manager_8hpp.html" title="file where NetworkManger class is defined" alt="" coords="5,184,257,225"/>
+<area shape="rect" id="node5" href="$tcp_server_8cpp.html" title=" " alt="" coords="282,184,447,225"/>
+<area shape="rect" id="node4" href="$_network_manager_8cpp.html" title=" " alt="" coords="5,273,257,315"/>
+</map>

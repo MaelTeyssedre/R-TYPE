@@ -1,0 +1,14 @@
+<map id="Sources/Server/Component/HealPoint.hpp" name="Sources/Server/Component/HealPoint.hpp">
+<area shape="rect" id="node1" title="file for HealPoint component" alt="" coords="169,5,352,47"/>
+<area shape="rect" id="node2" href="$_basic_monster_8hpp.html" title="file where BasicMonster class is defined, compile to make .so/.dll" alt="" coords="5,184,180,225"/>
+<area shape="rect" id="node4" href="$_a_monster_8hpp.html" title="file for Abstract class AMonster" alt="" coords="294,95,435,136"/>
+<area shape="rect" id="node3" href="$_basic_monster_8cpp.html" title=" " alt="" coords="5,273,180,315"/>
+<area shape="rect" id="node5" href="$_dl_loader_windows_8hpp.html" title="file for DLLoader for windows" alt="" coords="205,184,394,225"/>
+<area shape="rect" id="node7" href="$_i_json_wrapper_8hpp.html" title="Interface of JsonWrapper." alt="" coords="418,273,610,315"/>
+<area shape="rect" id="node10" href="$_a_monster_8cpp.html" title=" " alt="" coords="469,184,610,225"/>
+<area shape="rect" id="node11" href="$_lib_loader_8hpp.html" title="file where the LibLoader class is defined" alt="" coords="634,184,775,225"/>
+<area shape="rect" id="node6" href="$_dl_loader_windows_8cpp.html" title=" " alt="" coords="205,273,394,315"/>
+<area shape="rect" id="node8" href="$_json_wrapper_8hpp.html" title=" " alt="" coords="418,363,610,404"/>
+<area shape="rect" id="node9" href="$_json_wrapper_8cpp.html" title=" " alt="" coords="418,452,610,493"/>
+<area shape="rect" id="node12" href="$_lib_loader_8cpp.html" title=" " alt="" coords="634,273,775,315"/>
+</map>

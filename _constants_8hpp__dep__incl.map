@@ -1,0 +1,10 @@
+<map id="Sources/Client/Constants.hpp" name="Sources/Client/Constants.hpp">
+<area shape="rect" id="node1" title="file where constants are stocked" alt="" coords="308,5,503,32"/>
+<area shape="rect" id="node2" href="$_entity_type_component_8hpp.html" title="file for the entity type component" alt="" coords="5,80,189,121"/>
+<area shape="rect" id="node3" href="$_weapon_type_8hpp.html" title="file for WeaponType component" alt="" coords="213,80,397,121"/>
+<area shape="rect" id="node4" href="$_i_graphical_lib_8hpp.html" title="file where the graphical lib interface is defined" alt="" coords="421,80,592,121"/>
+<area shape="rect" id="node7" href="$_update_time_8hpp.html" title="file where the update time system is defined" alt="" coords="616,80,779,121"/>
+<area shape="rect" id="node5" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="423,169,590,211"/>
+<area shape="rect" id="node6" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="423,259,590,300"/>
+<area shape="rect" id="node8" href="$_update_time_8cpp.html" title=" " alt="" coords="616,169,779,211"/>
+</map>

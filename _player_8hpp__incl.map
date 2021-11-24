@@ -1,0 +1,17 @@
+<map id="Sources/Server/Element/Player.hpp" name="Sources/Server/Element/Player.hpp">
+<area shape="rect" id="node1" title="file for Player class" alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node2" href="$_i_element_8hpp.html" title="Interface for dynlibs." alt="" coords="38,95,135,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="9,319,77,345"/>
+<area shape="rect" id="node4" title=" " alt="" coords="115,319,187,345"/>
+<area shape="rect" id="node5" href="$_registry_8hpp.html" title="file where the Registry class is defined" alt="" coords="307,169,400,196"/>
+<area shape="rect" id="node6" href="$_sparse_array_8hpp.html" title="file where the templated SparseArray class is defined" alt="" coords="295,244,412,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="437,244,483,271"/>
+<area shape="rect" id="node11" title=" " alt="" coords="610,244,686,271"/>
+<area shape="rect" id="node12" href="$_entity_8hpp.html" title="file where the class Entity is defined" alt="" coords="507,244,586,271"/>
+<area shape="rect" id="node14" title=" " alt="" coords="124,244,167,271"/>
+<area shape="rect" id="node15" title=" " alt="" coords="191,244,270,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="324,319,383,345"/>
+<area shape="rect" id="node8" title=" " alt="" coords="407,319,473,345"/>
+<area shape="rect" id="node9" title=" " alt="" coords="217,319,300,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="513,319,581,345"/>
+</map>
