@@ -4,21 +4,15 @@
 RtypeClient::RtypeClient(std::string host, std::string port)
     : _port(port), _host(host), _r(3)
 {
-    std::cout << "biteA" << std::endl;
     registerComponents();
-    std::cout << "biteB" << std::endl;
     setupUpdateTimeSystem();
-    std::cout << "biteC" << std::endl;
     setupUpdateNetworkSystem();
-    std::cout << "biteD" << std::endl;
     setupUpdateGraphSystem();
-    std::cout << "biteE" << std::endl;
 }
 
 void RtypeClient::run()
 {
     for (;;) {
-        std::cout << "bite" << std::endl;
         _r.run_system();
     }
 }
@@ -64,18 +58,18 @@ void RtypeClient::setupKeyStateComponent()
 
 void RtypeClient::setupUpdateTimeSystem()
 {
-    UpdateTime timeSystem {};
-    _r.addSystem(timeSystem, _r.getComponents<components::myTime_t>());
+    UpdateTime *timeSystem {new UpdateTime()};
+    _r.addSystem(*timeSystem, _r.getComponents<components::myTime_t>());
 }
 
 void RtypeClient::setupUpdateNetworkSystem()
 {
-    UpdateNetwork networkSystem {_netManager.createTCPClient(std::stoi(_port)), _netManager.createSocketUDP(std::stoi(_port))};
-    _r.addSystem(networkSystem, _r.getComponents<components::network_t>());
+    UpdateNetwork *networkSystem {new UpdateNetwork(_netManager.createTCPClient(std::stoi(_port)), _netManager.createSocketUDP(std::stoi(_port)))};
+    _r.addSystem(*networkSystem, _r.getComponents<components::network_t>());
 }
 
 void RtypeClient::setupUpdateGraphSystem()
 {
-    UpdateGraph updateGraph {};
-    _r.addSystem(updateGraph, _r.getComponents<components::mouseState_t>(), _r.getComponents<components::keyState_t>());
+    UpdateGraph *updateGraph {new UpdateGraph()};
+    _r.addSystem(*updateGraph, _r.getComponents<components::mouseState_t>(), _r.getComponents<components::keyState_t>());
 }

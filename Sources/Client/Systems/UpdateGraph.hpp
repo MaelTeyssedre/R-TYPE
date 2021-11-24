@@ -18,7 +18,7 @@
 
         private:
             void updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates);
-            rtype::GraphicalLib _graphicalLib;
+            rtype::IGraphicalLib *_graphicalLib;
     };
 
 #endif /* !UPDATEGRAPH_HPP_ */
