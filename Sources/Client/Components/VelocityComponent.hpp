@@ -16,16 +16,10 @@
      * 
      */
     namespace components {
-        /**
-         * \struct velocity_s
-         * 
-         * \brief velocity component
-         * 
-         */
-        struct velocity_s {
+        typedef struct velocity_s {
             size_t x;
             size_t y;
-        };
+        } velocity_t;
     }
 
 #endif /* !VELOCITYCOMPONENT_HPP_ */

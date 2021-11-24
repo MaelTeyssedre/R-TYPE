@@ -17,16 +17,9 @@
      * 
      */
     namespace components {
-
-        /**
-         * \struct entityType_s
-         * 
-         * \brief entityType component
-         * 
-         */
-        struct entityType_s {
+        typedef struct entityType_s {
             rtype::constants::ENTITY_TYPE entityType; 
-        };
+        } entityType_t;
     }
 
 #endif /* !ENTITYTYPECOMPONENT_HPP_ */

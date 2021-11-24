@@ -11,6 +11,7 @@
     #include "Logger.hpp"
     #include <asio.hpp>
     #include "Buffer.hpp"
+    #include "Constants.hpp"
 
     #define TCPCLIENT_HPP_
 
@@ -97,7 +98,7 @@
              * 
              * \return std::shared_ptr<Buffer> 
              */
-            std::shared_ptr<Buffer> getData();
+            std::shared_ptr<Buffer> getBuffer() override;
 
         private:
             asio::io_context &_context; /*! asio context */

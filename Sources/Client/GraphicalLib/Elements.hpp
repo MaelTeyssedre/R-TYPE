@@ -8,6 +8,9 @@
     #define ELEMENT_HPP_
 
     #include <iostream>
+    #include <new>
+    #include <stdexcept>
+    #include <exception>
     #include <SFML/Window.hpp>
     #include <SFML/Graphics.hpp>
     #include <SFML/Audio.hpp>
@@ -92,7 +95,7 @@
                 friend class GraphicalLib;
 
                 explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
-                    
+
                 sf::Text &getText();
 
             private:

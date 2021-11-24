@@ -32,13 +32,7 @@
              * \brief dtor UpdateTime
              */
             virtual ~UpdateTime() = default;
-
-            /**
-             * \fn void operator()(Registry &r, SparseArray<components::time_s> &times)
-             * 
-             * \brief overload of the operator () to be usable by the ECS
-             */
-            void operator()(Registry &r, SparseArray<components::time_s> &times);
+            void operator()(Registry &r, SparseArray<components::myTime_s> &times);
         private:
             std::chrono::nanoseconds _currentDeltaTime; /*! The current delta time*/
     };

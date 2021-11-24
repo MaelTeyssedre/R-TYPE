@@ -16,15 +16,9 @@
      * 
      */
     namespace components {
-        /**
-         * \struct strength_s
-         * 
-         * \brief strength component
-         * 
-         */
-        struct strength_s {
+        typedef struct strength_s {
             size_t strength;
-        };
+        } strength_t;
     }
 
 #endif /* !STRENGTHCOMPONENT_HPP_ */

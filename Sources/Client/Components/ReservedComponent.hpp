@@ -16,15 +16,9 @@
      * 
      */
     namespace components {
-        /**
-         * \struct reserved_s
-         * 
-         * \brief reserved component
-         * 
-         */
-        struct reserved_s {
+        typedef struct reserved_s {
             bool reserved;
-        };
+        } reserved_t;
     }
 
 #endif /* !RESERVEDCOMPONENT_HPP_ */

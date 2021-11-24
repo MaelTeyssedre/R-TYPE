@@ -7,7 +7,8 @@ rtype::Sprite::Sprite(float posX, float posY, float rotation, float scale, int r
     _sprite.setPosition(sf::Vector2f(_posX, _posY));
     _sprite.setRotation(_rotation);
     _sprite.setScale(sf::Vector2f(_scale, _scale));
-    _texture.loadFromFile(_path);
+    if (!_texture.loadFromFile(_path))
+        throw std::runtime_error("Fail to load texture");
     _sprite.setTexture(_texture);
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
@@ -112,7 +113,8 @@ rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorG
     _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
     _text.setCharacterSize(_fontSize);
     _text.setString(_content);
-    _font.loadFromFile(_fontPath);
+    if (!_font.loadFromFile(_fontPath))
+        throw std::runtime_error("Fail to load font");
     _text.setFont(_font);
 }
 
@@ -212,7 +214,8 @@ sf::Text &rtype::Text::getText()
 rtype::Sound::Sound(std::string path)
     : _path(path)
 {
-    _buffer.loadFromFile(_path);
+    if (!_buffer.loadFromFile(_path))
+        throw std::runtime_error("Fail to load sound");
     _sound.setBuffer(_buffer);
 }
 
@@ -224,7 +227,8 @@ sf::Sound &rtype::Sound::getSound()
 rtype::Music::Music(std::string path)
     : _path(path)
 {
-    _music.openFromFile(_path);
+    if (_music.openFromFile(_path))
+        throw std::runtime_error("Fail to load music");
 }
 
 sf::Music &rtype::Music::getMusic()

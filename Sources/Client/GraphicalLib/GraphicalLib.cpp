@@ -2,8 +2,9 @@
 #include "GraphicalLib.hpp"
 
 rtype::GraphicalLib::GraphicalLib()
-    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(1720, 970), "RPR-TYPE"), _mouse(), _view(sf::Vector2f(860.f, VIEW_Y), sf::Vector2f(VIEW_WIDTH, VIEW_HEIGHT)), _keyState(), _mouseState(), _viewX(860.f)
+    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _viewX(WINDOW_SIZE_X / 2)
 {
+    _renderWindow.setFramerateLimit(FRAME_RATE);
     _renderWindow.setView(_view);
 }
 
@@ -101,24 +102,27 @@ void rtype::GraphicalLib::deleteSprite(std::shared_ptr<rtype::Sprite> sprite)
             _sprites.erase(_sprites.begin() + i);
 }
 
-std::map<rtype::constants::KEY, bool> rtype::GraphicalLib::getKeyState()
+bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
 {
-    _keyState[constants::KEY_DOWN] = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
-    _keyState[constants::KEY_UP] = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
-    _keyState[constants::KEY_LEFT] = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
-    _keyState[constants::KEY_RIGHT] = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
-    _keyState[constants::KEY_ENTER] = sf::Keyboard::isKeyPressed(sf::Keyboard::Enter);
-    _keyState[constants::KEY_SPACE] = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
-    return (_keyState);
+    switch (event) {
+        case (constants::KEY_DOWN) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
+        case (constants::KEY_UP) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Up));
+        case (constants::KEY_LEFT) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
+        case (constants::KEY_RIGHT) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
+        case (constants::KEY_ENTER) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter));
+        case (constants::KEY_SPACE) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
+        default : return (false);
+    }
 }
 
 rtype::mouse_t rtype::GraphicalLib::getMouseState()
 {
-    _mouseState.posX = _mouse.getPosition(_renderWindow).x;
-    _mouseState.posY = _mouse.getPosition(_renderWindow).y;
-    _mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-    _mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
-    return (_mouseState);
+    rtype::mouse_t mouseState;
+    mouseState.posX = _mouse.getPosition(_renderWindow).x;
+    mouseState.posY = _mouse.getPosition(_renderWindow).y;
+    mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
+    mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
+    return (mouseState);
 }
 
 void rtype::GraphicalLib::setViewXPos(float viewXPos)

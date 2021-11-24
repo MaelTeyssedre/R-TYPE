@@ -7,7 +7,7 @@ endif (UNIX)
 
 if (MSVC)
     add_definitions("/MP")
-endif(MSVC)
+endif (MSVC)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -74,6 +74,8 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/*.cpp
 )
 
 file(
@@ -115,6 +117,12 @@ target_include_directories(
     basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
+)
+
+target_include_directories(
+    basic_monster
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/
 )
 
 target_include_directories(
@@ -315,6 +323,12 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Client/Components/
 )
 
@@ -377,6 +391,13 @@ target_include_directories(
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/
 )
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/NetworkManager/
+)
+
 
 target_include_directories(
     rtype_client
