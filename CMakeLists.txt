@@ -5,6 +5,10 @@ if (UNIX)
     add_definitions("-W -Wall -Wextra -fPIC -Werror -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code")
 endif (UNIX)
 
+if (MSVC)
+    add_definitions("/MP")
+endif (MSVC)
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CONAN_DISABLE_CHECK_COMPILER TRUE CACHE INTERNAL "")

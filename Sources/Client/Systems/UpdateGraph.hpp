@@ -13,6 +13,9 @@
             UpdateGraph();
             ~UpdateGraph() = default;
             void operator()(Registry &r,  SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates);
+            void setupGame(Registry &r);
+            void setupMenu(Registry &r);
+
         private:
             void updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates);
             rtype::GraphicalLib _graphicalLib;

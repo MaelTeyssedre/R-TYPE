@@ -1,9 +1,15 @@
 #include "cTCPClient.hpp"
 
-TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port) : _context(context), _resolver(context), _socket(socket), _logger("log.txt")
+TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
+    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE))
 {
     std::string str = "Client connected to host: ";
-    asio::connect(*_socket, _resolver.resolve(host, port));
+    asio::error_code ec;
+    asio::connect(*_socket, _resolver.resolve(host, port), ec);
+    if (ec) {
+        _logger.logln("Cant find a connection");
+        return;
+    }
     str.append(host);
     str.append(", and port: ");
     str.append(port);
@@ -12,6 +18,7 @@ TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::s
 
 void TCPClient::receive()
 {
+
     _socket->async_read_some(asio::buffer(_reply), std::bind(&TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
     for (size_t i = 0; i <= 9; i++)
         std::cout << _reply[i];
@@ -55,7 +62,7 @@ void TCPClient::doWrite(const std::error_code &ec, size_t bytes)
         std::cerr << ec.message() << std::endl;
 }
 
-std::shared_ptr<Buffer> TCPClient::getData()
+std::shared_ptr<Buffer> TCPClient::getBuffer()
 {
     return _buffer;
 }

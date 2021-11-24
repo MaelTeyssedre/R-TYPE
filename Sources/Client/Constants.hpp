@@ -19,10 +19,6 @@
         #define VIEW_HEIGHT 970.f
     #endif
 
-    #ifndef RESERVED_TIME_INDEX
-        #define RESERVED_TIME_INDEX 0
-    #endif
-
     #ifndef HELPER
         #define HELPER "USAGE:\n\t./rtype_client [IP] [PORT]\n"
     #endif
@@ -41,6 +37,14 @@
     
     #ifndef WINDOW_NAME
         #define WINDOW_NAME "RPR-TYPE"
+    #endif
+
+    #ifndef BUF_SIZE
+        #define BUF_SIZE 4
+    #endif
+
+    #ifndef BUF_READ_SIZE
+        #define BUF_READ_SIZE 4
     #endif
 
     /**
@@ -104,10 +108,9 @@
             };
             
             enum RESERVED_ID {
-                TIME_UPDATE,
-                NETWORK_UPDATE,
-                EVENT_UPDATE,
-                GRAPH_UPDATE
+                TIME_UPDATE = 0,
+                NETWORK_UPDATE = 1,
+                GRAPH_UPDATE = 2
             };
         }
     }

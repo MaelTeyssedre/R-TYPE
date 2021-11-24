@@ -9,6 +9,8 @@
     #include "KeyStateComponent.hpp"
     #include "NetworkComponent.hpp"
     #include "UpdateTime.hpp"
+    #include "UpdateNetwork.hpp"
+    #include "UpdateGraph.hpp"
     #include <iostream>
 
     class RtypeClient {
@@ -17,19 +19,19 @@
             virtual ~RtypeClient() = default;
 
         public:
+            void registerComponents();
             void run();
 
         public:
-            components::myTime_t setupTimeComponent();
-            components::network_t setupNetworkComponent();
-            components::mouseState_t setupMouseStateComponent();
-            components::keyState_t setupKeyStateComponent();
+            void setupTimeComponent();
+            void setupNetworkComponent();
+            void setupMouseStateComponent();
+            void setupKeyStateComponent();
 
         public:
             void setupUpdateTimeSystem();
             void setupUpdateNetworkSystem();
             void setupUpdateGraphSystem();
-            void setupUpdateEventSystem();
 
         private:
             std::string _host;

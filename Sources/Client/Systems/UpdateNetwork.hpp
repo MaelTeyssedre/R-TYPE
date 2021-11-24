@@ -6,18 +6,19 @@
     #include "NetworkComponent.hpp"
     #include "Constants.hpp"
     #include "cTCPClient.hpp"
+    #include "cUDPSocket.hpp"
     #include "Buffer.hpp"
 
     class UpdateNetwork {
         public:
-            UpdateNetwork() = default;
-            UpdateNetwork(ITCPClient *client);
-            ~UpdateNetwork();
+            explicit UpdateNetwork() = default;
+            explicit UpdateNetwork(ITCPClient *client, IUDPSocket *socket);
+            virtual ~UpdateNetwork() = default;
             void operator()(Registry &r, SparseArray<components::network_t> &networks);
 
-        protected:
         private:
             ITCPClient *_tcpClient;
+            IUDPSocket *_socket;
     };
 
 #endif /* !UPDATENETWORK_HPP_ */

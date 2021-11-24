@@ -8,6 +8,7 @@
     #define ITCPCLIENT_HPP_
 
     #include "IPacket.hpp"
+    #include "Buffer.hpp"
 
     /**
      * \class ITCPCLient.hpp
@@ -59,7 +60,7 @@
              * 
              * \return std::shared_ptr<Buffer> 
              */
-            std::shared_ptr<Buffer> getData();
+            virtual std::shared_ptr<Buffer> getBuffer() = 0;
     };
 
 #endif /* !ITCPCLIENT_HPP_ */

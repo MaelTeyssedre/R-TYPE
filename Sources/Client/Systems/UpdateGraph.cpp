@@ -10,10 +10,18 @@ void UpdateGraph::operator()(Registry &r, SparseArray<components::mouseState_t> 
     updateEvent(mouseStates, keyStates);
 }
 
+void UpdateGraph::setupMenu(Registry &r) {
+
+}
+
+void UpdateGraph::setupGame(Registry &r) {
+
+}
+
 void UpdateGraph::updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates)
 {
-    std::optional<components::mouseState_t> &mouseState = mouseStates[rtype::constants::EVENT_UPDATE];
-    std::optional<components::keyState_t> &keyState = keyStates[rtype::constants::EVENT_UPDATE];
+    std::optional<components::mouseState_t> &mouseState = mouseStates[rtype::constants::RESERVED_ID::GRAPH_UPDATE];
+    std::optional<components::keyState_t> &keyState = keyStates[rtype::constants::RESERVED_ID::GRAPH_UPDATE];
     rtype::mouse_t mouse = _graphicalLib.getMouseState();
 
     if (mouseState && keyState) {
