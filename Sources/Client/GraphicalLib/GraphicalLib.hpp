@@ -90,7 +90,7 @@
                 /**
                  * \fn std::shared_ptr<Music> createMusic(const std::string &path) override
                  * 
-                 * \param path path of the sound file
+                 * \param path path of the music file
                  * 
                  * \brief create a music class, load the music inside
                  * 
@@ -190,9 +190,9 @@
                  * 
                  * \param scene scene where the sprite will be added
                  * 
-                 * \param sound sound that you're adding
+                 * \param sprite sprite that you're adding
                  * 
-                 * \brief add a sound
+                 * \brief add a sprite
                  */
                 void addSprite(constants::SCENE scene, std::shared_ptr<Sprite> sprite) override;
                 
