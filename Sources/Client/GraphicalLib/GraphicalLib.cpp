@@ -115,13 +115,14 @@ static bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
     }
 }
 
-static rtype::mouse_s rtype::GraphicalLib::getMouseState()
+static rtype::mouse_t rtype::GraphicalLib::getMouseState()
 {
-    _mouseState.posX = _mouse.getPosition(_renderWindow).x;
-    _mouseState.posY = _mouse.getPosition(_renderWindow).y;
-    _mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-    _mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
-    return (_mouseState);
+    rtype::mouse_t mouseState;
+    mouseState.posX = _mouse.getPosition(_renderWindow).x;
+    mouseState.posY = _mouse.getPosition(_renderWindow).y;
+    mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
+    mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
+    return (mouseState);
 }
 
 void rtype::GraphicalLib::setViewXPos(float viewXPos)

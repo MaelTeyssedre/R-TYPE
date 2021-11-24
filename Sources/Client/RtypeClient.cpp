@@ -46,7 +46,7 @@ void RtypeClient::setupUpdateTimeSystem() {
 
 // TODO try catch le stoi
 void RtypeClient::setupUpdateNetworkSystem() {
-    ITCPClient *tcpClient = _netManager.createTCPClient(std::stoi(_port));
+    _tcpClient = _netManager.createTCPClient(std::stoi(_port));
 }
 
 void RtypeClient::setupUpdateEventSystem() {

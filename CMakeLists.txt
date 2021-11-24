@@ -319,6 +319,12 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Client/Components/
 )
 

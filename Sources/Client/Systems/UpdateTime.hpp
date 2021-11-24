@@ -10,7 +10,7 @@
         public:
             explicit UpdateTime() = default;
             virtual ~UpdateTime() = default;
-            void operator()(Registry &r, SparseArray<components::time_s> &times);
+            void operator()(Registry &r, SparseArray<components::myTime_s> &times);
         private:
             std::chrono::nanoseconds _currentDeltaTime;
     };

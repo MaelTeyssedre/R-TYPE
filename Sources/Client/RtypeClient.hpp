@@ -5,6 +5,9 @@
     #include "Registry.hpp"
     #include "cNetworkManager.hpp"
     #include "TimeComponent.hpp"
+    #include "MouseStateComponent.hpp"
+    #include "KeyStateComponent.hpp"
+    #include "NetworkComponent.hpp"
     #include "UpdateTime.hpp"
     #include <iostream>
 
