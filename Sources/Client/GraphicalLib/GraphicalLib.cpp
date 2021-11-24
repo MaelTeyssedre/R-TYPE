@@ -2,7 +2,7 @@
 #include "GraphicalLib.hpp"
 
 rtype::GraphicalLib::GraphicalLib()
-    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _mouseState(), _viewX(WINDOW_SIZE_X / 2)
+    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _viewX(WINDOW_SIZE_X / 2)
 {
     _renderWindow.setFramerateLimit(FRAME_RATE);
     _renderWindow.setView(_view);
@@ -102,7 +102,7 @@ void rtype::GraphicalLib::deleteSprite(std::shared_ptr<rtype::Sprite> sprite)
             _sprites.erase(_sprites.begin() + i);
 }
 
-static bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
+bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
 {
     switch (event) {
         case (constants::KEY_DOWN) : return (sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
@@ -115,7 +115,7 @@ static bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
     }
 }
 
-static rtype::mouse_t rtype::GraphicalLib::getMouseState()
+rtype::mouse_t rtype::GraphicalLib::getMouseState()
 {
     rtype::mouse_t mouseState;
     mouseState.posX = _mouse.getPosition(_renderWindow).x;

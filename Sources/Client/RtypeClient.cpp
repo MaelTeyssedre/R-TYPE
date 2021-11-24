@@ -6,7 +6,6 @@ RtypeClient::RtypeClient(std::string host, std::string port)
 {
     setupUpdateTimeSystem();
     setupUpdateNetworkSystem();
-    setupUpdateEventSystem();
     setupUpdateGraphSystem();
 }
 
@@ -41,12 +40,15 @@ components::keyState_t setupKeyStateComponent() {
 
 void RtypeClient::setupUpdateTimeSystem() {
     
-    _r.addSystem();
+    //_r.addSystem();
 }
 
-// TODO try catch le stoi
 void RtypeClient::setupUpdateNetworkSystem() {
-    _tcpClient = _netManager.createTCPClient(std::stoi(_port));
+    /*try {
+        _tcpClient = _netManager.createTCPClient(std::stoi(_port));
+    } catch(std::invalid_argument& e){
+        std::cerr << e.what() << std::endl;
+    }*/
 }
 
 void RtypeClient::setupUpdateEventSystem() {

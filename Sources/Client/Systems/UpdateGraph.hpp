@@ -1,6 +1,6 @@
 
-#ifndef UPDATEEVENT_HPP_
-    #define UPDATEEVENT_HPP_
+#ifndef UPDATEGRAPH_HPP_
+    #define UPDATEGRAPH_HPP_
 
     #include "Registry.hpp"
     #include "Constants.hpp"
@@ -8,14 +8,14 @@
     #include "KeyStateComponent.hpp"
     #include "GraphicalLib.hpp"
 
-    class UpdateEvent {
+    class UpdateGraph {
         public:
-            UpdateEvent();
-            ~UpdateEvent() = default;
+            UpdateGraph();
+            ~UpdateGraph() = default;
             void operator()(Registry &r,  SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates);
-        protected:
         private:
+            void updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates);
             rtype::GraphicalLib _graphicalLib;
     };
 
-#endif /* !UPDATEEVENT_HPP_ */
+#endif /* !UPDATEGRAPH_HPP_ */

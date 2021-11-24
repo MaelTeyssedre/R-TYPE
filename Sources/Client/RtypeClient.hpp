@@ -22,7 +22,6 @@
         public:
             components::myTime_t setupTimeComponent();
             components::network_t setupNetworkComponent();
-            // components:: setupGraphComponent();
             components::mouseState_t setupMouseStateComponent();
             components::keyState_t setupKeyStateComponent();
 

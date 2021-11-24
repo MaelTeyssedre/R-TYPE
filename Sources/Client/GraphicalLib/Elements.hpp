@@ -95,7 +95,7 @@
                 friend class GraphicalLib;
 
                 explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
-                    
+
                 sf::Text &getText();
 
             private:

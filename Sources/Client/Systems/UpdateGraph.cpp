@@ -1,13 +1,17 @@
 
-#include "UpdateEvent.hpp"
+#include "UpdateGraph.hpp"
 
-UpdateEvent::UpdateEvent()
-    : _graphicalLib()
-{}
+UpdateGraph::UpdateGraph()
+    : _graphicalLib() {}
 
-void UpdateEvent::operator()(Registry &r, SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates)
+void UpdateGraph::operator()(Registry &r, SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates)
 {
     (void)r;
+    updateEvent(mouseStates, keyStates);
+}
+
+void UpdateGraph::updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates)
+{
     std::optional<components::mouseState_t> &mouseState = mouseStates[rtype::constants::EVENT_UPDATE];
     std::optional<components::keyState_t> &keyState = keyStates[rtype::constants::EVENT_UPDATE];
     rtype::mouse_t mouse = _graphicalLib.getMouseState();
