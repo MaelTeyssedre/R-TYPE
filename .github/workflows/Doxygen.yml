@@ -16,7 +16,4 @@ jobs:
 
     steps:
     - name: Doxygen Action
-      uses: mattnotmitt/doxygen-action@v1.3.1
-      with:
-        working-directory: './'
-        doxyfile-path: 'Doc/Doxygen'
+      uses: Doxygen ./Doc/Doxyfile
