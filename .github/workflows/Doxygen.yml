@@ -1,0 +1,22 @@
+name: R-Type Doxygen
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  pull_request:
+    branches: 
+      - main
+      - develop
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Doxygen Action
+      uses: mattnotmitt/doxygen-action@v1.3.1
+      with:
+        working-directory: './'
+        doxyfile-path: 'Doc/Doxygen'
