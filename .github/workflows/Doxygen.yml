@@ -1,0 +1,32 @@
+name: R-Type Doxygen
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  pull_request:
+    branches: 
+      - main
+      - develop
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Check repo
+      run: ls
+    - name: Doxygen Action
+      uses: mattnotmitt/doxygen-action@v1
+      with:
+        doxyfile-path: './Doc/Doxyfile'
+        enable-latex: true
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./html
