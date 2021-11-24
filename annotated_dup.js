@@ -4,13 +4,16 @@ var annotated_dup =
       [ "direction_s", "structcomponents_1_1direction__s.html", "structcomponents_1_1direction__s" ],
       [ "entityType_s", "structcomponents_1_1entity_type__s.html", "structcomponents_1_1entity_type__s" ],
       [ "health_s", "structcomponents_1_1health__s.html", "structcomponents_1_1health__s" ],
+      [ "keyState_s", "structcomponents_1_1key_state__s.html", "structcomponents_1_1key_state__s" ],
+      [ "mouseState_s", "structcomponents_1_1mouse_state__s.html", "structcomponents_1_1mouse_state__s" ],
+      [ "network_s", "structcomponents_1_1network__s.html", "structcomponents_1_1network__s" ],
       [ "position_s", "structcomponents_1_1position__s.html", "structcomponents_1_1position__s" ],
       [ "reserved_s", "structcomponents_1_1reserved__s.html", "structcomponents_1_1reserved__s" ],
-      [ "size_s", "structcomponents_1_1size__s.html", "structcomponents_1_1size__s" ],
+      [ "mySize_s", "structcomponents_1_1my_size__s.html", "structcomponents_1_1my_size__s" ],
       [ "strength_s", "structcomponents_1_1strength__s.html", "structcomponents_1_1strength__s" ],
-      [ "time_s", "structcomponents_1_1time__s.html", "structcomponents_1_1time__s" ],
+      [ "myTime_s", "structcomponents_1_1my_time__s.html", "structcomponents_1_1my_time__s" ],
       [ "velocity_s", "structcomponents_1_1velocity__s.html", "structcomponents_1_1velocity__s" ],
-      [ "weaponType", "structcomponents_1_1weapon_type.html", "structcomponents_1_1weapon_type" ]
+      [ "weaponType_s", "structcomponents_1_1weapon_type__s.html", "structcomponents_1_1weapon_type__s" ]
     ] ],
     [ "rtype", "namespacertype.html", [
       [ "Sprite", "classrtype_1_1_sprite.html", "classrtype_1_1_sprite" ],
@@ -57,12 +60,17 @@ var annotated_dup =
     [ "Registry", "class_registry.html", "class_registry" ],
     [ "Room", "class_room.html", "class_room" ],
     [ "RoomManager", "class_room_manager.html", "class_room_manager" ],
+    [ "RtypeClient", "class_rtype_client.html", "class_rtype_client" ],
+    [ "server", "classserver.html", "classserver" ],
+    [ "session", "classsession.html", "classsession" ],
     [ "SparseArray", "class_sparse_array.html", "class_sparse_array" ],
     [ "TCPClient", "class_t_c_p_client.html", "class_t_c_p_client" ],
     [ "TCPServer", "class_t_c_p_server.html", "class_t_c_p_server" ],
     [ "tcpUser", "classtcp_user.html", "classtcp_user" ],
     [ "UDPSocket", "class_u_d_p_socket.html", "class_u_d_p_socket" ],
     [ "udpSocket", "classudp_socket.html", null ],
+    [ "UpdateGraph", "class_update_graph.html", "class_update_graph" ],
+    [ "UpdateNetwork", "class_update_network.html", "class_update_network" ],
     [ "UpdateTime", "class_update_time.html", "class_update_time" ],
     [ "Wall", "class_wall.html", "class_wall" ]
 ];

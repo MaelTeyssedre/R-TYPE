@@ -76,25 +76,28 @@ $(document).ready(function(){initNavTree('_logger_8cpp_source.html',''); initRes
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_logger.html#a2a9dbdbc90d21f564680941c890e0698">   13</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_logger.html#a2a9dbdbc90d21f564680941c890e0698">Logger::log</a>(std::string message)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    _file &lt;&lt; message;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    _file.flush();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_logger.html#a2f2bf388eef52e0aabe83a91bc1ec608">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_logger.html#a2f2bf388eef52e0aabe83a91bc1ec608">Logger::logln</a>(std::string message)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    _file &lt;&lt; message &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    _file.flush();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_logger.html#a8573a774ab7c748bc35e303172674178">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_logger.html#a8573a774ab7c748bc35e303172674178">Logger::operator&lt;&lt;</a>(std::string buffer)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    _file &lt;&lt; buffer;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    _file.flush();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::cout &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    _file &lt;&lt; message;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    _file.flush();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_logger.html#a2f2bf388eef52e0aabe83a91bc1ec608">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_logger.html#a2f2bf388eef52e0aabe83a91bc1ec608">Logger::logln</a>(std::string message)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::cout &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    _file &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    _file.flush();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_logger.html#a8573a774ab7c748bc35e303172674178">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_logger.html#a8573a774ab7c748bc35e303172674178">Logger::operator&lt;&lt;</a>(std::string buffer)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::cout &lt;&lt; buffer &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    _file &lt;&lt; buffer;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    _file.flush();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="ttc" id="a_logger_8hpp_html"><div class="ttname"><a href="_logger_8hpp.html">Logger.hpp</a></div><div class="ttdoc">header for logger lib</div></div>
 <div class="ttc" id="aclass_logger_html_a2a9dbdbc90d21f564680941c890e0698"><div class="ttname"><a href="class_logger.html#a2a9dbdbc90d21f564680941c890e0698">Logger::log</a></div><div class="ttdeci">void log(std::string message) override</div><div class="ttdoc">log message into a file</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00013">Logger.cpp:13</a></div></div>
-<div class="ttc" id="aclass_logger_html_a2f2bf388eef52e0aabe83a91bc1ec608"><div class="ttname"><a href="class_logger.html#a2f2bf388eef52e0aabe83a91bc1ec608">Logger::logln</a></div><div class="ttdeci">void logln(std::string message) override</div><div class="ttdoc">log message into a file and and an endline</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00019">Logger.cpp:19</a></div></div>
-<div class="ttc" id="aclass_logger_html_a8573a774ab7c748bc35e303172674178"><div class="ttname"><a href="class_logger.html#a8573a774ab7c748bc35e303172674178">Logger::operator&lt;&lt;</a></div><div class="ttdeci">void operator&lt;&lt;(std::string buffer) override</div><div class="ttdoc">Add a message to the log file // Same as log()</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00025">Logger.cpp:25</a></div></div>
+<div class="ttc" id="aclass_logger_html_a2f2bf388eef52e0aabe83a91bc1ec608"><div class="ttname"><a href="class_logger.html#a2f2bf388eef52e0aabe83a91bc1ec608">Logger::logln</a></div><div class="ttdeci">void logln(std::string message) override</div><div class="ttdoc">log message into a file and and an endline</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00020">Logger.cpp:20</a></div></div>
+<div class="ttc" id="aclass_logger_html_a8573a774ab7c748bc35e303172674178"><div class="ttname"><a href="class_logger.html#a8573a774ab7c748bc35e303172674178">Logger::operator&lt;&lt;</a></div><div class="ttdeci">void operator&lt;&lt;(std::string buffer) override</div><div class="ttdoc">Add a message to the log file // Same as log()</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00027">Logger.cpp:27</a></div></div>
 <div class="ttc" id="aclass_logger_html_acb668a9e186a25fbaad2e4af6d1ed00a"><div class="ttname"><a href="class_logger.html#acb668a9e186a25fbaad2e4af6d1ed00a">Logger::~Logger</a></div><div class="ttdeci">virtual ~Logger()</div><div class="ttdoc">Close a log file.</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00008">Logger.cpp:8</a></div></div>
 <div class="ttc" id="aclass_logger_html_aefaa0654f5ee888a7212a8afaec17661"><div class="ttname"><a href="class_logger.html#aefaa0654f5ee888a7212a8afaec17661">Logger::Logger</a></div><div class="ttdeci">Logger(std::string fileName)</div><div class="ttdoc">Create a log file.</div><div class="ttdef"><b>Definition:</b> <a href="_logger_8cpp_source.html#l00003">Logger.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

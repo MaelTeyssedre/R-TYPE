@@ -8,13 +8,22 @@ var namespacertype =
         [ "WALL", "namespacertype_1_1constants.html#a5f2d6fb0c6e3fd51fb21069c20f0d17ea22868e570a5bf388ba0a14154210b537", null ],
         [ "PROJECTILE", "namespacertype_1_1constants.html#a5f2d6fb0c6e3fd51fb21069c20f0d17ea09cbecfdd26e2fde5f09c195eb047f18", null ]
       ] ],
-      [ "KEY", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981ea", [
-        [ "KEY_UP", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981eaa2cbe6394118a9e70903645d7343e36ff", null ],
-        [ "KEY_DOWN", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981eaaf7664f36a7052bc6d102ae9048fcfba8", null ],
-        [ "KEY_LEFT", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981eaa6a2cf4d8b1d0d43ba92c32498f2705b7", null ],
-        [ "KEY_RIGHT", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981eaa7652334b55136c7427d2e29f61762cea", null ],
-        [ "KEY_ENTER", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981eaae03eb3f7629099f5fb901fe6e39898ef", null ],
-        [ "KEY_SPACE", "namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981eaa3dbb7bc729503d702288290b054a26b3", null ]
+      [ "EVENT", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164c", [
+        [ "KEY_UP", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca2cbe6394118a9e70903645d7343e36ff", null ],
+        [ "KEY_DOWN", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164caf7664f36a7052bc6d102ae9048fcfba8", null ],
+        [ "KEY_LEFT", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca6a2cf4d8b1d0d43ba92c32498f2705b7", null ],
+        [ "KEY_RIGHT", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca7652334b55136c7427d2e29f61762cea", null ],
+        [ "KEY_ENTER", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164cae03eb3f7629099f5fb901fe6e39898ef", null ],
+        [ "KEY_SPACE", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca3dbb7bc729503d702288290b054a26b3", null ],
+        [ "MOUSE_POS_X", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca598ef0b61eeaf10000f456bed086b036", null ],
+        [ "MOUSE_POS_Y", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca8ae82bc9b3b3143aed50b6081478bb1a", null ],
+        [ "MOUSE_RIGHT_CLICK", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164cae8d6fe950ebf6060fb75b50781a7712f", null ],
+        [ "MOUSE_LEFT_CLICK", "namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164ca1135f81fdca9a8c0230fd06be5acd614", null ]
+      ] ],
+      [ "RESERVED_ID", "namespacertype_1_1constants.html#a4a9e6dcc1115f30fc3fe0979158daf53", [
+        [ "TIME_UPDATE", "namespacertype_1_1constants.html#a4a9e6dcc1115f30fc3fe0979158daf53a2f1c5f988711f9242955e5e0e43ba4bd", null ],
+        [ "NETWORK_UPDATE", "namespacertype_1_1constants.html#a4a9e6dcc1115f30fc3fe0979158daf53a479a99e5b325415b1de86a26c26d3a7a", null ],
+        [ "GRAPH_UPDATE", "namespacertype_1_1constants.html#a4a9e6dcc1115f30fc3fe0979158daf53a98878f3bfc5483c65f2915dfec585149", null ]
       ] ],
       [ "SCENE", "namespacertype_1_1constants.html#a68c0813a45ac0acc501bf2eaad630110", [
         [ "MAIN_MENU", "namespacertype_1_1constants.html#a68c0813a45ac0acc501bf2eaad630110af3d71f02b9299ffd70891388df2e478d", null ],

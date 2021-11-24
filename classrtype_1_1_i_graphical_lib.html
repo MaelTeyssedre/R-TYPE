@@ -113,8 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aebe690cb8319bfc936de5e065f48cdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeee8214f6e01e9638aad145f4e0e8f0b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_i_graphical_lib.html#aeee8214f6e01e9638aad145f4e0e8f0b">deleteSprite</a> (std::shared_ptr&lt; <a class="el" href="classrtype_1_1_sprite.html">Sprite</a> &gt; sprite)=0</td></tr>
 <tr class="separator:aeee8214f6e01e9638aad145f4e0e8f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7f880b388125c40be7fff7f9a7b6705"><td class="memItemLeft" align="right" valign="top">virtual std::map&lt; <a class="el" href="namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981ea">rtype::constants::KEY</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_i_graphical_lib.html#af7f880b388125c40be7fff7f9a7b6705">getKeyState</a> ()=0</td></tr>
-<tr class="separator:af7f880b388125c40be7fff7f9a7b6705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2f5c4c14f72fda04baa90c2a504cb4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_i_graphical_lib.html#a2a2f5c4c14f72fda04baa90c2a504cb4">getKeyState</a> (<a class="el" href="namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164c">rtype::constants::EVENT</a> event)=0</td></tr>
+<tr class="separator:a2a2f5c4c14f72fda04baa90c2a504cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dd5ae8158a9506a35dfcf2db0763e7f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacertype.html#ae3829a58331602b63c60a74142e8d7d7">mouse_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_i_graphical_lib.html#a7dd5ae8158a9506a35dfcf2db0763e7f">getMouseState</a> ()=0</td></tr>
 <tr class="separator:a7dd5ae8158a9506a35dfcf2db0763e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d7d54a63c46e44409c966cb01039a69"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_i_graphical_lib.html#a9d7d54a63c46e44409c966cb01039a69">setViewXPos</a> (float viewXPos)=0</td></tr>
@@ -657,8 +657,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af7f880b388125c40be7fff7f9a7b6705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7f880b388125c40be7fff7f9a7b6705">&#9670;&nbsp;</a></span>getKeyState()</h2>
+<a id="a2a2f5c4c14f72fda04baa90c2a504cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2f5c4c14f72fda04baa90c2a504cb4">&#9670;&nbsp;</a></span>getKeyState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -667,9 +667,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::map&lt;<a class="el" href="namespacertype_1_1constants.html#a7adc2004a266d635547cf91def9981ea">rtype::constants::KEY</a>, bool&gt; rtype::IGraphicalLib::getKeyState </td>
+          <td class="memname">virtual bool rtype::IGraphicalLib::getKeyState </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacertype_1_1constants.html#ac22aeec8129c95677adf0c3a8dd9164c">rtype::constants::EVENT</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -680,7 +681,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classrtype_1_1_graphical_lib.html#a64c3df94a4bb7de9c0b9eace56d4b32c">rtype::GraphicalLib</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_graphical_lib.html#ac09f3862eba484e8d759c28306edf75b">rtype::GraphicalLib</a>.</p>
 
 </div>
 </div>
@@ -823,7 +824,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Sources/Client/<a class="el" href="_i_graphical_lib_8hpp_source.html">IGraphicalLib.hpp</a></li>
+<li>Sources/Client/GraphicalLib/<a class="el" href="_i_graphical_lib_8hpp_source.html">IGraphicalLib.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

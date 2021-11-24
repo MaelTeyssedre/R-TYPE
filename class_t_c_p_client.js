@@ -6,7 +6,7 @@ var class_t_c_p_client =
     [ "disconnect", "class_t_c_p_client.html#ad8244d36d2d28038f31f57de423d5069", null ],
     [ "doRead", "class_t_c_p_client.html#a3f59a8c7db0b2ff4d2d798c47b5b652f", null ],
     [ "doWrite", "class_t_c_p_client.html#aec97b039020255acd86994e7bf57011b", null ],
-    [ "getData", "class_t_c_p_client.html#a87e6ad32bc9c4f6edc12f4cda16e3c25", null ],
+    [ "getBuffer", "class_t_c_p_client.html#aa4a1fd14f03439f0c4728b159de942b8", null ],
     [ "receive", "class_t_c_p_client.html#abb7b570a59e773f78b1e8148ce8faee7", null ],
     [ "send", "class_t_c_p_client.html#a5085a5af255a834ddb0e9bd920bdb623", null ]
 ];

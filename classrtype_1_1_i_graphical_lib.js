@@ -14,7 +14,7 @@ var classrtype_1_1_i_graphical_lib =
     [ "deleteSprite", "classrtype_1_1_i_graphical_lib.html#aeee8214f6e01e9638aad145f4e0e8f0b", null ],
     [ "deleteText", "classrtype_1_1_i_graphical_lib.html#aebe690cb8319bfc936de5e065f48cdea", null ],
     [ "draw", "classrtype_1_1_i_graphical_lib.html#ab4a12ee38eb1c53f3636e0cc0b08fbb4", null ],
-    [ "getKeyState", "classrtype_1_1_i_graphical_lib.html#af7f880b388125c40be7fff7f9a7b6705", null ],
+    [ "getKeyState", "classrtype_1_1_i_graphical_lib.html#a2a2f5c4c14f72fda04baa90c2a504cb4", null ],
     [ "getMouseState", "classrtype_1_1_i_graphical_lib.html#a7dd5ae8158a9506a35dfcf2db0763e7f", null ],
     [ "play", "classrtype_1_1_i_graphical_lib.html#a541f953ab4234b6056e3671ac119cd23", null ],
     [ "play", "classrtype_1_1_i_graphical_lib.html#a57ca1576b4b486e1252afb75046eb6fe", null ],

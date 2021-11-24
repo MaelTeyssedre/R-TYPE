@@ -1,7 +1,12 @@
-<map id="Sources/Client/Elements.hpp" name="Sources/Client/Elements.hpp">
-<area shape="rect" id="node1" title="file where the graphical lib interface is defined" alt="" coords="107,5,296,32"/>
-<area shape="rect" id="node2" href="$_elements_8cpp.html" title=" " alt="" coords="5,87,195,114"/>
-<area shape="rect" id="node3" href="$_i_graphical_lib_8hpp.html" title="file where the graphical lib interface is defined" alt="" coords="219,80,389,121"/>
-<area shape="rect" id="node4" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="221,169,387,211"/>
-<area shape="rect" id="node5" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="221,259,387,300"/>
+<map id="Sources/Client/GraphicalLib/Elements.hpp" name="Sources/Client/GraphicalLib/Elements.hpp">
+<area shape="rect" id="node1" title="file where the graphical lib interface is defined" alt="" coords="100,5,267,47"/>
+<area shape="rect" id="node2" href="$_elements_8cpp.html" title=" " alt="" coords="5,95,172,136"/>
+<area shape="rect" id="node3" href="$_i_graphical_lib_8hpp.html" title="file where the graphical lib interface is defined" alt="" coords="196,95,363,136"/>
+<area shape="rect" id="node4" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="196,184,363,225"/>
+<area shape="rect" id="node5" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="101,273,268,315"/>
+<area shape="rect" id="node6" href="$_update_graph_8hpp.html" title=" " alt="" coords="293,273,455,315"/>
+<area shape="rect" id="node7" href="$_rtype_client_8hpp.html" title=" " alt="" coords="171,370,372,397"/>
+<area shape="rect" id="node10" href="$_update_graph_8cpp.html" title=" " alt="" coords="397,363,559,404"/>
+<area shape="rect" id="node8" href="$_client_2main_8cpp.html" title=" " alt="" coords="87,452,250,479"/>
+<area shape="rect" id="node9" href="$_rtype_client_8cpp.html" title=" " alt="" coords="275,452,476,479"/>
 </map>
