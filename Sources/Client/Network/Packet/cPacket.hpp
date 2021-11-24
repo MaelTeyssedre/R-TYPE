@@ -19,17 +19,17 @@
         public:
 
             /**
-            * \fn explicit Packet() = default
-            *
-            * \brief ctor packet
-            */
+             * \fn explicit Packet() = default
+             *
+             * \brief ctor packet
+             */
             explicit Packet() = default;
 
             /**
-            * \fn virtual ~Packet() = default
-            *
-            * \brief dtor packet
-            */
+             * \fn virtual ~Packet() = default
+             *
+             * \brief dtor packet
+             */
             virtual ~Packet() = default;
 
             /**

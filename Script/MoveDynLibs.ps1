@@ -1,4 +1,4 @@
 If(!(test-path ./build/Release/dynlibsWindows)) {
     New-Item -Path './build/Release/dynlibsWindows' -ItemType Directory
 }
-mv build/Release/*.dll  build/Release/dynlibsWindows
+Move-Item -Path build/Release/*.dll -Destination build/Release/dynlibsWindows
