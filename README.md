@@ -108,3 +108,17 @@ Build by executing the script correspondint to your OS.
 
 > ./Script\CleanLinux.ps1 # Clean
 ```
+
+## Contact
+
+Romain Gabet:
+   - romain.gabet@epitech.eu
+
+Maël Teyssèdre 
+   - mael.teyssedre@epitech.eu
+
+Jules Savang 
+   - jules.savang@epitech.eu
+
+Alban Bodénès 
+   - alban.bodenes@epitech.eu
