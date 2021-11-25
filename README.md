@@ -2,7 +2,7 @@
 ![Ubuntu build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Ubuntu.yml/badge.svg)
 [![Doxygen Generation](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/Doxygen.yml/badge.svg)](https://maelteyssedre.github.io/R-TYPE)
 
-## R-TYPE
+# R-TYPE
 
 The goal of the R-Type project is to create an online multiplayer
    copy of the classic R-Type game (1987).
@@ -14,7 +14,7 @@ The goal of the R-Type project is to create an online multiplayer
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
-# Structure
+## Structure
 
 ``` text
 ├───.github
@@ -79,3 +79,5 @@ The goal of the R-Type project is to create an online multiplayer
         ├───Room
         └───RoomManager
 ```
+
+## Building
