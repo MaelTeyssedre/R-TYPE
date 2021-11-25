@@ -87,8 +87,7 @@ Build by executing the script correspondint to your OS.
 
 ### Windows
 
-``` text
-
+``` bash
 > ./Script\SetupWindows.ps1 # Setup
 
 > ./Script\MakeWindows.ps1 # Build
@@ -100,7 +99,7 @@ Build by executing the script correspondint to your OS.
 
 ### Linux
 
-``` text
+``` bash
 > ./Script\SetupLinux.ps1 # Setup
 
 > ./Script\MakeLinux.ps1 # Build
