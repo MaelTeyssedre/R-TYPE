@@ -1,3 +1,4 @@
+<div id="top"></div>
 ![Windows build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Windows.yml/badge.svg)
 ![Ubuntu build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Ubuntu.yml/badge.svg)
 [![Doxygen Generation](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/Doxygen.yml/badge.svg)](https://maelteyssedre.github.io/R-TYPE)
@@ -16,12 +17,17 @@ The goal of the R-Type project is to create an online multiplayer
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 ## Build With
    
    - [C++20](https://en.cppreference.com/w/cpp/20)
    - [SFML 2.5.1](https://www.sfml-dev.org/)
    - [Asio 1.19.2](https://think-async.com/Asio/)
    - [Nlohmann_json 3.10.4](https://github.com/nlohmann/json)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Structure
 
@@ -89,6 +95,8 @@ The goal of the R-Type project is to create an online multiplayer
         └───RoomManager
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Building
 
 Build by executing the script correspondint to your OS.
@@ -117,6 +125,8 @@ Build by executing the script correspondint to your OS.
 > ./Script\CleanLinux.ps1 # Clean
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Contact
 
 Romain Gabet:
@@ -130,3 +140,5 @@ Jules Savang
 
 Alban Bodénès 
    - alban.bodenes@epitech.eu
+
+<p align="right">(<a href="#top">back to top</a>)</p>
