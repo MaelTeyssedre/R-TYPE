@@ -1,5 +1,5 @@
-[![Windows build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Windows.yml/badge.svg)]
-[![Ubuntu build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Ubuntu.yml/badge.svg)]
+![Windows build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Windows.yml/badge.svg)
+![Ubuntu build](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/R-TYPE_Ubuntu.yml/badge.svg)
 [![Doxygen Generation](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/Doxygen.yml/badge.svg)](https://maelteyssedre.github.io/R-TYPE)
 
 ## R-TYPE
@@ -10,7 +10,7 @@ The goal of the R-Type project is to create an online multiplayer
    -   Sources separated in three part, Server, Client and Common.
    -   Use of modern [CMake](https://cmake.org/) for much easier compiling
    -   Use of Script for much easier utilisation.
-   -   
+   -   Use of [Conan](https://conan.io/) for external libraries
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
