@@ -86,53 +86,33 @@ The goal of the R-Type project is to create an online multiplayer
 Build by executing the script correspondint to your OS.
 
 ### Windows
-Setup
 
 ``` text
+#Setup
    ./Script\SetupWindows.ps1
-```
 
-Build
-
-``` text
+#Build
    ./Script\MakeWindows.ps1
-```
 
-All
-
-``` text
+#All
    ./Script\AllWindows.ps1
-```
 
-Clean
-
-``` text
+#Clean
    ./Script\CleanWindows.ps1
 ```
 
 ### Linux
 
-Setup
-
 ``` text
+#Setup
    ./Script\SetupLinux.ps1
-```
 
-Build
-
-``` text
+#Build
    ./Script\SetupLinux.ps1
-```
 
-
-All
-
-``` text
+#All
    ./Script\AllSetup.ps1
-```
 
-Clean
-
-``` text
+#Clean
    ./Script\CleanSetup.ps1
 ```
