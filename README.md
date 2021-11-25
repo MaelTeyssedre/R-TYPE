@@ -92,7 +92,7 @@ Build by executing the script correspondint to your OS.
 
 > ./Script\MakeWindows.ps1 # Build
 
-> ./Script\AllWindows.ps1 # All
+> ./Script\AllWindows.ps1 # Setup and Build
 
 > ./Script\CleanWindows.ps1 # Clean
 ```
@@ -104,7 +104,7 @@ Build by executing the script correspondint to your OS.
 
 > ./Script\MakeLinux.ps1 # Build
 
-> ./Script\AllLinux.ps1 # All
+> ./Script\AllLinux.ps1 # Setup and Build
 
 > ./Script\CleanLinux.ps1 # Clean
 ```
