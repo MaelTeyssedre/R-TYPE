@@ -88,31 +88,24 @@ Build by executing the script correspondint to your OS.
 ### Windows
 
 ``` text
-#Setup
-   ./Script\SetupWindows.ps1
 
-#Build
-   ./Script\MakeWindows.ps1
+> ./Script\SetupWindows.ps1 # Setup
 
-#All
-   ./Script\AllWindows.ps1
+> ./Script\MakeWindows.ps1 # Build
 
-#Clean
-   ./Script\CleanWindows.ps1
+> ./Script\AllWindows.ps1 # All
+
+> ./Script\CleanWindows.ps1 # Clean
 ```
 
 ### Linux
 
 ``` text
-#Setup
-   ./Script\SetupLinux.ps1
+> ./Script\SetupLinux.ps1 # Setup
 
-#Build
-   ./Script\SetupLinux.ps1
+> ./Script\MakeLinux.ps1 # Build
 
-#All
-   ./Script\AllSetup.ps1
+> ./Script\AllLinux.ps1 # All
 
-#Clean
-   ./Script\CleanSetup.ps1
+> ./Script\CleanLinux.ps1 # Clean
 ```
