@@ -7,6 +7,8 @@
 The goal of the R-Type project is to create an online multiplayer
    copy of the classic R-Type game (1987).
    
+   -   Sources separated in three part, Server, Client and Common.
+   -   Use of modern [CMake](https://cmake.org/) for much easier compiling
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
