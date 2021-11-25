@@ -8,6 +8,7 @@ The goal of the R-Type project is to create an online multiplayer
    copy of the classic R-Type game (1987).
    
    -   Sources separated in three part, Server, Client and Common.
+   -   Is working under Windows and Linux distribution
    -   Use of modern [CMake](https://cmake.org/) for much easier compiling
    -   Use of Script for much easier utilisation.
    -   Use of [Conan](https://conan.io/) for external libraries
@@ -81,3 +82,18 @@ The goal of the R-Type project is to create an online multiplayer
 ```
 
 ## Building
+
+Build by executing the script correspondint to your OS.
+
+### Windows
+
+``` text
+   ./Script\AllWindows.ps1
+```
+
+### Ubuntu
+
+``` text
+   ./Script\AllLinux.ps1
+```
+
