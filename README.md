@@ -7,6 +7,7 @@
 The goal of the R-Type project is to create an online multiplayer
    copy of the classic R-Type game (1987).
    
+   
    -   Sources separated in three part, Server, Client and Common.
    -   Is working under Windows and Linux distribution
    -   Use of modern [CMake](https://cmake.org/) for much easier compiling
@@ -14,6 +15,13 @@ The goal of the R-Type project is to create an online multiplayer
    -   Use of [Conan](https://conan.io/) for external libraries
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
+
+## Build With
+   
+   - [C++20](https://en.cppreference.com/w/cpp/20)
+   - [SFML 2.5.1](https://www.sfml-dev.org/)
+   - [Asio 1.19.2](https://think-async.com/Asio/)
+   - [Nlohmann_json 3.10.4](https://github.com/nlohmann/json)
 
 ## Structure
 
