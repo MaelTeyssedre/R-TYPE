@@ -101,7 +101,7 @@ The goal of the R-Type project is to create an online multiplayer
 
 ## Building
 
-Build by executing the script correspondint to your OS.
+Build by executing the script matching with your OS.
 
 ### Windows
 
