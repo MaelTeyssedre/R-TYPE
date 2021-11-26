@@ -3,10 +3,8 @@
 
 void tcpUser::start()
 {
-    std::cout << "in new user" << std::endl;
     write();
     read();
-    std::cout << "out new user" << std::endl;
 }
 
 void tcpUser::addToQueue(std::vector<uint8_t> message)

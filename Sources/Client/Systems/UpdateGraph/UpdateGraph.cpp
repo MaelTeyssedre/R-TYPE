@@ -17,7 +17,6 @@ UpdateGraph::UpdateGraph()
 void UpdateGraph::operator()(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates)
 {
     (void)r;
-    std::cout << "In the Grapheuh" << std::endl;
     updateEvent(mouseStates, keyStates);
     setupGraph(r);
     //displayGraph(r);

@@ -39,8 +39,9 @@
             std::string _host;
             Registry _r;
             NetworkManager _netManager;
-
-
+            ITCPClient *_client;
+            IUDPSocket *_socket;
+            UpdateNetwork _networkSystem;
     };
 
 #endif /* !RTYPECLIENT_HPP_ */

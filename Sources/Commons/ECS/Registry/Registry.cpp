@@ -51,8 +51,6 @@ bool Registry::isKilled(Entity const &e)
 
 void Registry::run_system()
 {
-    std::cout << "in run_system" << std::endl;
-    std::cout << "size system: " << _systems.size() << std::endl; 
     for (size_t i = 0; i < _systems.size(); i++)
         _systems[i](*this);
 }

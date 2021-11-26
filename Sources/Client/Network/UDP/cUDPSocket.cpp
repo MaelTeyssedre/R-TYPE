@@ -33,5 +33,4 @@ void UDPSocket::receive()
           receive();
       }
     });
-    std::cout << _data << std::endl;
 }

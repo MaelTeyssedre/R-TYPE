@@ -2,7 +2,6 @@
 
 void UpdateTime::operator()(Registry &r, SparseArray<components::myTime_s> &times) {
     (void)r;
-    std::cout << "Le Timeuh" << std::endl;
     static std::chrono::steady_clock::time_point lastTick = std::chrono::steady_clock::now();
     std::chrono::steady_clock::time_point currentTick = std::chrono::steady_clock::now();
     // for (auto &&[time] : Zipper(times)) {

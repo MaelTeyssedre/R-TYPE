@@ -1,9 +1,8 @@
 
 #include "RtypeClient.hpp"
-#include "tamereuh.hpp"
 
 RtypeClient::RtypeClient(std::string host, std::string port)
-    : _port(port), _host(host), _r(3)
+    : _port(port), _host(host), _r(3), _netManager(NetworkManager()), _client(_netManager.createTCPClient(std::stoi(_port))), _socket(_netManager.createSocketUDP(std::stoi(_port))), _networkSystem(_client, _socket)
 {
     registerComponents();
     setupTimeComponent();
@@ -17,10 +16,8 @@ RtypeClient::RtypeClient(std::string host, std::string port)
 
 void RtypeClient::run()
 {
-    std::cout << "in the run" << std::endl;
-    for (;;) {
+    for (;;)
         _r.run_system();
-    }
 }
 
 void RtypeClient::registerComponents() {
@@ -70,10 +67,7 @@ void RtypeClient::setupUpdateTimeSystem()
 
 void RtypeClient::setupUpdateNetworkSystem()
 {
-    _clienteuh = _netManager.createTCPClient(std::stoi(_port));
-    _socketeuh = _netManager.createSocketUDP(std::stoi(_port));
-    UpdateNetwork networkSystem {_clienteuh, _socketeuh};
-    _r.addSystem(std::move(networkSystem), _r.getComponents<components::network_s>());
+    _r.addSystem(_networkSystem, _r.getComponents<components::network_s>());
 }
 
 void RtypeClient::setupUpdateGraphSystem()
