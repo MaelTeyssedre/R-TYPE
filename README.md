@@ -18,9 +18,6 @@ The goal of the R-Type project is to create an online multiplayer
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 ## Build With
    
    - [C++20](https://en.cppreference.com/w/cpp/20)
