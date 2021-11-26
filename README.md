@@ -150,14 +150,14 @@ Build by executing the script matching with your OS.
    -  Build with the script above
    -  Launch the server
 
-### Windows
+Windows
 
 ``` bash
 > .\rtype_server.exe <port>
 
 > .\build\bin\rtype_server.exe <port> # If first option has strange behaviour
 ```
-### Linux
+Linux
 
 ``` bash
 > .\rtype_server <port>
@@ -166,7 +166,7 @@ Build by executing the script matching with your OS.
 ```
 
 - Launch client
-### Windows
+Windows
    
 ``` bash
 > .\rtype_client.exe <IP> <port>
@@ -174,7 +174,7 @@ Build by executing the script matching with your OS.
 > .\build\bin\rtype_client.exe <IP> <port> # If first option has strange behaviour
 ```
 
-### Linux
+Linux
    
 ``` bash
 > .\rtype_client <IP> <port>
