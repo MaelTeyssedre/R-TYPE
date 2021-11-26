@@ -3,18 +3,6 @@
 [![Doxygen Generation](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/Doxygen.yml/badge.svg)](https://maelteyssedre.github.io/R-TYPE)
 <div id="top"></div>
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#Build With">Build With</a></li>
-    <li><a href="#Structure">Structure</a></li>
-    <li><a href="#Building">Building</a></li>
-    <li><a href="#Usage">Usage</a></li>
-    <li><a href="#Contact">Contact</a></li>
-    <li><a href="#Acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
 # R-TYPE
 
 The goal of the R-Type project is to create an online multiplayer
@@ -30,6 +18,18 @@ The goal of the R-Type project is to create an online multiplayer
    -   Use of [TCP and UDP](https://github.com/MaelTeyssedre/R-TYPE/blob/main/Sources/Doc/rfc.txt) for server client communication
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
+
+  <details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#Build With">Build With</a></li>
+    <li><a href="#Structure">Structure</a></li>
+    <li><a href="#Building">Building</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Contact">Contact</a></li>
+    <li><a href="#Acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
 ## Build With
    
