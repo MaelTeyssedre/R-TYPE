@@ -33,7 +33,7 @@ The goal of the R-Type project is to create an online multiplayer
 
 ## Build With
    
-   - [C++20](https://en.cppreference.com/w/cpp/20)
+   - [C++17](https://en.cppreference.com/w/cpp/17)
    - [Visual Studio 16](https://visualstudio.microsoft.com/fr/)
    - [SFML 2.5.1](https://www.sfml-dev.org/)
    - [Asio 1.19.2](https://think-async.com/Asio/)
