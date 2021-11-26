@@ -8,8 +8,8 @@
 <details>
    <summary>Table of Contents</summary>
    <ol>
-      <li><a href="#About the Project">About the Project</a></li>
-      <li><a href="#Build">Build</a></li>
+      <li><a href="#Introduction">Introduction</a></li>
+      <li><a href="#Stack">Stack</a></li>
       <li><a href="#Structure">Structure</a></li>
       <li><a href="#Building">Building</a></li>
       <li><a href="#Usage">Usage</a></li>
@@ -18,7 +18,7 @@
    </ol>
 </details>
 
-## About the Project
+## Introduction
 
 The goal of the R-Type project is to create an online multiplayer
    copy of the classic R-Type game (1987).
@@ -34,7 +34,7 @@ The goal of the R-Type project is to create an online multiplayer
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
-## Build
+## Stack
    
    - [C++17](https://en.cppreference.com/w/cpp/17)
    - [Visual Studio 16](https://visualstudio.microsoft.com/fr/)
