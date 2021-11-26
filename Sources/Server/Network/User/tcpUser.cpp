@@ -21,6 +21,7 @@ void tcpUser::read()
 
 void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
+    (void)bytes;
     if (!ec)
     {
         read();
@@ -42,6 +43,7 @@ void tcpUser::write()
 
 void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
+    (void)bytes_transfered;
     if (!ec)
     {
         _queue.pop();

@@ -51,7 +51,9 @@ void PacketManager::managePacket(Packet packet)
 
 
 void PacketManager::setBuffer(std::shared_ptr<Buffer> buffer)
-{}
+{
+    (void)buffer;
+}
 
 std::vector<Packet> PacketManager::getRequests()
 {

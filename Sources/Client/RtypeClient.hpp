@@ -13,6 +13,7 @@
     #include "UpdateGraph.hpp"
     #include <iostream>
 
+
     class RtypeClient {
         public:
             explicit RtypeClient(std::string port, std::string host);
@@ -34,10 +35,11 @@
             void setupUpdateGraphSystem();
 
         private:
-            std::string _host;
             std::string _port;
+            std::string _host;
             Registry _r;
             NetworkManager _netManager;
+
 
     };
 

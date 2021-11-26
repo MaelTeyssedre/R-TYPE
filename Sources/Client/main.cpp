@@ -7,6 +7,7 @@ int main(int ac, char **av)
         std::cout << HELPER << std::endl;
         return 0;
     }
+    (void)ac;
     RtypeClient rtype(av[1], av[2]);
     rtype.run();
     return 0;

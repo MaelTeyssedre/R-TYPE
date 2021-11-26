@@ -1,5 +1,6 @@
 
 #include "RtypeClient.hpp"
+#include "tamereuh.hpp"
 
 RtypeClient::RtypeClient(std::string host, std::string port)
     : _port(port), _host(host), _r(3)
@@ -69,8 +70,9 @@ void RtypeClient::setupUpdateTimeSystem()
 
 void RtypeClient::setupUpdateNetworkSystem()
 {
-    ITCPClient *test = _netManager.createTCPClient(std::stoi(_port));
-    UpdateNetwork networkSystem {test, _netManager.createSocketUDP(std::stoi(_port))};
+    _clienteuh = _netManager.createTCPClient(std::stoi(_port));
+    _socketeuh = _netManager.createSocketUDP(std::stoi(_port));
+    UpdateNetwork networkSystem {_clienteuh, _socketeuh};
     _r.addSystem(std::move(networkSystem), _r.getComponents<components::network_s>());
 }
 

@@ -8,4 +8,5 @@ UpdateNetwork::UpdateNetwork(ITCPServer *server, IUDPSocket *socket)
 void UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
 {
     (void)r;
+    (void)networks;
 }
