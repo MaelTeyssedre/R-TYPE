@@ -13,6 +13,7 @@
       <li><a href="#Structure">Structure</a></li>
       <li><a href="#Building">Building</a></li>
       <li><a href="#Usage">Usage</a></li>
+      <li><a href="#Documentation">Documentation</a></li>
       <li><a href="#Contact">Contact</a></li>
       <li><a href="#Acknowledgments">Acknowledgments</a></li>
    </ol>
@@ -191,19 +192,31 @@ Linux
    -  [UML](https://github.com/MaelTeyssedre/R-TYPE/blob/main/Sources/Doc/R-Type%20UML.png)
    -  [RFC](https://github.com/MaelTeyssedre/R-TYPE/blob/main/Sources/Doc/rfc.txt)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Contact
 
 Romain Gabet:
    - romain.gabet@epitech.eu
+   - [Github](https://github.com/Romain-GABET)
+   - [LinkedIn](https://www.linkedin.com/in/romain-gabet-3b7047197//)
+   - 
 
 Maël Teyssèdre 
    - mael.teyssedre@epitech.eu
+   - [Github](https://github.com/MaelTeyssedre)
+   - [LinkedIn](https://www.linkedin.com/in/maeltey/)
+   - 
 
 Jules Savang 
    - jules.savang@epitech.eu
+   - [Github](https://github.com/Jsavang)
+   - [LinkedIn](https://www.linkedin.com/in/jules-savang-916aa9180/)
 
 Alban Bodénès 
    - alban.bodenes@epitech.eu
+   - [Github](https://github.com/Alban-Bodenes)
+   - [LinkedIn](https://www.linkedin.com/in/alban-bodenes-236bba1a1/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
