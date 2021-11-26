@@ -143,3 +143,10 @@ Alban Bodénès
    - alban.bodenes@epitech.eu
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## Acknowledgments
+
+[cppreference](https://en.cppreference.com/w/)
+[SFML documentation](https://www.sfml-dev.org/)
+[c++.com](https://www.cplusplus.com/)
+
