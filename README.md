@@ -212,6 +212,6 @@ Alban Bodénès
    -  [cppreference](https://en.cppreference.com/w/)
    -  [SFML documentation](https://www.sfml-dev.org/)
    -  [Asio Documentation](https://think-async.com/Asio/Documentation.html)
-   -  [This Man](https://github.com/romanosaurus/babel/commits?author=Eldriann)
+   -  [This Man](https://github.com/Eldriann)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
