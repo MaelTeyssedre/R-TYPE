@@ -165,7 +165,8 @@ Linux
 > .\build\bin\rtype_server <port> # If first option has strange behaviour
 ```
 
-- Launch client
+   -  Launch client
+
 Windows
    
 ``` bash
