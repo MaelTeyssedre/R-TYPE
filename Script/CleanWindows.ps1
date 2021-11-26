@@ -1,3 +1,7 @@
 Remove-Item build
-Remove-Item rtype_server.exe
-Remove-Item rtype_client.exe
+If ((test-path rtype_server.lnk)) {
+    Remove-Item rtype_server.lnk
+}
+If ((test-path rtype_client.lnk)) {
+    Remove-Item rtype_client.lnk
+}

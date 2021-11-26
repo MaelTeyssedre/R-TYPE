@@ -1,3 +1,7 @@
 rm -rf build
-rm rtype_server.exe
-rm rtype_client.exe
+if [[ -f "rtype_server" ]]; then
+    rm rtype_server
+fi
+if [[ -f "rtype_client" ]]; then
+    rm rtype_client
+fi
