@@ -154,7 +154,7 @@ Build by executing the script matching with your OS.
 Windows
 
 ``` bash
-> .\rtype_server.exe <port>
+> .\rtype_server.lnk <port>
 
 > .\build\bin\rtype_server.exe <port> # If first option has strange behaviour
 ```
@@ -171,7 +171,7 @@ Linux
 Windows
    
 ``` bash
-> .\rtype_client.exe <IP> <port>
+> .\rtype_client.lnk <IP> <port>
 
 > .\build\bin\rtype_client.exe <IP> <port> # If first option has strange behaviour
 ```
