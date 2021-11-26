@@ -3,6 +3,18 @@
 [![Doxygen Generation](https://github.com/MaelTeyssedre/R-TYPE/actions/workflows/Doxygen.yml/badge.svg)](https://maelteyssedre.github.io/R-TYPE)
 <div id="top"></div>
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#Build With">Build With</a></li>
+    <li><a href="#Structure">Structure</a></li>
+    <li><a href="#Building">Building</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Contact">Contact</a></li>
+    <li><a href="#Acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
 # R-TYPE
 
 The goal of the R-Type project is to create an online multiplayer
@@ -11,6 +23,7 @@ The goal of the R-Type project is to create an online multiplayer
    
    -   Sources separated in three part, Server, Client and Common.
    -   Is working under Windows and Linux distribution
+   -   Playing with four other member
    -   Use of modern [CMake](https://cmake.org/) for much easier compiling
    -   Use of Script for much easier utilisation.
    -   Use of [Conan](https://conan.io/) for external libraries
