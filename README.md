@@ -14,6 +14,7 @@ The goal of the R-Type project is to create an online multiplayer
    -   Use of modern [CMake](https://cmake.org/) for much easier compiling
    -   Use of Script for much easier utilisation.
    -   Use of [Conan](https://conan.io/) for external libraries
+   -   Use of [TCP and RFC](https://github.com/MaelTeyssedre/R-TYPE/blob/main/Sources/Doc/rfc.txt) for server client communication
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
