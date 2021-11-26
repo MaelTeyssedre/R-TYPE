@@ -185,6 +185,12 @@ Linux
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Documentation
+
+   -  [Doxygen](https://maelteyssedre.github.io/R-TYPE)
+   -  [UML](https://github.com/MaelTeyssedre/R-TYPE/blob/main/Sources/Doc/R-Type%20UML.png)
+   -  [RFC](https://github.com/MaelTeyssedre/R-TYPE/blob/main/Sources/Doc/rfc.txt)
+
 ## Contact
 
 Romain Gabet:
