@@ -146,7 +146,7 @@ Alban Bodénès
 
 ## Acknowledgments
 
-[cppreference](https://en.cppreference.com/w/)
-[SFML documentation](https://www.sfml-dev.org/)
-[c++.com](https://www.cplusplus.com/)
+-[cppreference](https://en.cppreference.com/w/)
+-[SFML documentation](https://www.sfml-dev.org/)
+-[c++.com](https://www.cplusplus.com/)
 
