@@ -146,6 +146,10 @@ Build by executing the script matching with your OS.
 ## Usage
 
    -  Clone the repo
+``` bash
+   git clone git@github.com:MaelTeyssedre/R-TYPE.git
+```
+   
    -  Build with the script above
    -  Launch the server
 ``` bash
