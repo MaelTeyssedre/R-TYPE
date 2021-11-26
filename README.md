@@ -147,7 +147,8 @@ Build by executing the script matching with your OS.
 > .\build\bin\rtype_client.exe <IP> <port> # If first option has strange behaviour
 
 ```
-   
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Contact
 
 Romain Gabet:
@@ -169,4 +170,6 @@ Alban Bodénès
    -  [cppreference](https://en.cppreference.com/w/)
    -  [SFML documentation](https://www.sfml-dev.org/)
    -  [cplusplus.com](https://www.cplusplus.com/)
+   -  [Asio Documentation](https://think-async.com/Asio/Documentation.html)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
