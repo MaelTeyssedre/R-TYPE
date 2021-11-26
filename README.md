@@ -20,7 +20,7 @@ The goal of the R-Type project is to create an online multiplayer
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
   <details>
-  <summary>Table of Contents</summary>
+  <summary># Table of Contents</summary>
   <ol>
     <li><a href="#Build With">Build With</a></li>
     <li><a href="#Structure">Structure</a></li>
