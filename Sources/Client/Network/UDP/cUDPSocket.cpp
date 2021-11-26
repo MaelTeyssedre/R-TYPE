@@ -19,6 +19,7 @@ void UDPSocket::handleSend()
 
 void UDPSocket::receive()
 {
+    std::cout << "udp receive" << std::endl;
     _socket.async_receive_from(asio::buffer(_data, 9), _endpoint, [this](std::error_code ec, std::size_t bytes)
     {
       if (!ec) {

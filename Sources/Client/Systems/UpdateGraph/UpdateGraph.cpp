@@ -17,8 +17,10 @@ UpdateGraph::UpdateGraph()
 void UpdateGraph::operator()(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates)
 {
     (void)r;
+    std::cout << "In the Grapheuh" << std::endl;
     updateEvent(mouseStates, keyStates);
     setupGraph(r);
+    //displayGraph(r);
 }
 
 void UpdateGraph::setupGraph(Registry &r)
@@ -34,7 +36,8 @@ void UpdateGraph::displayGraph(Registry &r)
 void UpdateGraph::updateEvent(SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates)
 {
     rtype::mouse_t mouse = _graphicalLib->getMouseState();
-    for (auto &&[mouseState, keyState] : Zipper(mouseStates, keyStates)) {
+    //std::optional<components::mouseState_s> mouseState = mouseStates[0];
+    /*for (auto &&[mouseState, keyState] : Zipper(mouseStates, keyStates)) {
         mouseState.mousePosX = mouse.posX;
         mouseState.mousePosY = mouse.posY;
         mouseState.mouseLeftClick = mouse.leftPressed;
@@ -45,7 +48,7 @@ void UpdateGraph::updateEvent(SparseArray<components::mouseState_s> &mouseStates
         keyState.keyLeft = _graphicalLib->getKeyState(rtype::constants::KEY_LEFT);
         keyState.keyEnter = _graphicalLib->getKeyState(rtype::constants::KEY_ENTER);
         keyState.keySpace = _graphicalLib->getKeyState(rtype::constants::KEY_SPACE);
-    }
+    }*/
 }
 
 void UpdateGraph::setupIsSetupNeeded()
@@ -80,7 +83,7 @@ void UpdateGraph::setupSetupLoadingMenuScene()
     _setupScene[rtype::constants::LOADING_MENU] = [this](Registry &r, UpdateGraph &graph) {
         _isSetupNeeded[rtype::constants::LOADING_MENU] = false;
 
-        _graphicalLib->createSprite(0.f, 0.f, (float)WINDOW_SIZE_X / 384, (float)WINDOW_SIZE_Y / 256, 0, 0, 384, 256, "ressources/LoadingMenu.jpg");
+        _graphicalLib->addSprite(rtype::constants::LOADING_MENU, _graphicalLib->createSprite(0.f, 0.f, (float)WINDOW_SIZE_X / 384, (float)WINDOW_SIZE_Y / 256, 0, 0, 384, 256, "ressources/LoadingMenu.jpg"));
 
 /*
         rtype::component::position_s* pos_back = new rtype::component::position_s {0, 0};

@@ -44,7 +44,6 @@
 
         private:
             rtype::IGraphicalLib *_graphicalLib;
-
             std::map<rtype::constants::SCENE, bool> _isSetupNeeded;
             std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &)>> _setupScene;
             std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &)>> _displayScene;

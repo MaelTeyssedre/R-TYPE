@@ -31,19 +31,19 @@ void NetworkManager::startNetworkThread(NetworkManager *netManager)
 ITCPClient *NetworkManager::createTCPClient(int port)
 {
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
-    ITCPClient *server = new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
-    _tcpClients.push_back(server);
-    return server;
+    // ITCPClient *server = new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
+    // _tcpClients.push_back(server);
+    return new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
 }
 
 void NetworkManager::deleteTCPClient(ITCPClient *client)
 {
     (void)client;
 }
+
 IUDPSocket *NetworkManager::createSocketUDP(int port)
 {
-    auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
-    std::string host = "127.0.0.1";
+    auto sock = std::make_shared<asio::ip::udp::socket>(_context);
     IUDPSocket *server = new UDPSocket(this->_context, "127.0.0.1", std::to_string(port));
     _udpSockets.push_back(server);
     return server;

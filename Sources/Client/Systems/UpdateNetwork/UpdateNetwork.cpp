@@ -5,26 +5,36 @@
 UpdateNetwork::UpdateNetwork(ITCPClient *client, IUDPSocket *socket)
     : _tcpClient(client), _socket(socket) {}
 
-void UpdateNetwork::operator()(Registry &r,  SparseArray<components::network_s> &networks)
+void UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
 {
     std::cout << "le netoueurkeuh" << std::endl;
     (void)r;
-    
-    // for (auto &&[network] : Zipper(networks)) {
-    
-    std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
-    std::uint8_t opCode;
-    std::vector<uint8_t> reply;
-    std::cout << "le ifeuh" << std::endl;
-    if (!network) {
-        return;
-    }
-    std::cout << "la boucleuh" << std::endl;
-    _tcpClient->receive();
-    _socket->receive();
-    std::shared_ptr<Buffer> buffer {_tcpClient->getBuffer()};
-    buffer->readFromBuffer(1, &opCode);
-    switch (opCode) {
+
+  //  for (auto &&[network] : Zipper(networks))
+   // {
+        std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
+        std::uint8_t opCode;
+        std::vector<uint8_t> reply;
+        std::cout << "le ifeuh" << std::endl;
+        if (!network)
+        {
+            return;
+        }
+        // for (auto &&[network] : Zipper(networks)) {
+        std::cout << "la boucleuh" << std::endl;
+        if (!_tcpClient)
+            std::cout << "Pas de tehcpClienteuh" << std::endl;
+        if (_tcpClient)
+            std::cout << "tehcpClienteuh" << std::endl;
+        std::cout << "receiveuh udp" << std::endl;
+        _socket->receive();
+        std::cout << "receiveuh tcp" << std::endl;
+        _tcpClient->receive();
+        std::shared_ptr<Buffer> buffer{_tcpClient->getBuffer()};
+        buffer->readFromBuffer(1, &opCode);
+        std::cout << "switcheuh" << std::endl;
+        switch (opCode)
+        {
         case 1:
             buffer->readFromBuffer(15, reply);
             if (network.value().request1.empty())
@@ -110,6 +120,8 @@ void UpdateNetwork::operator()(Registry &r,  SparseArray<components::network_s> 
             break;
         default:
             break;
-            // }
-       }
+            //  }
+        }
+    //}
+        std::cout << "end networkeuh" << std::endl;
 }

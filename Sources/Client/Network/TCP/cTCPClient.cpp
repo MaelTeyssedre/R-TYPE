@@ -18,10 +18,10 @@ TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::s
 
 void TCPClient::receive()
 {
-
-    _socket->async_read_some(asio::buffer(_reply), std::bind(&TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
-    for (size_t i = 0; i <= 9; i++)
-        std::cout << _reply[i];
+    std::cout << "in receive tcp" << std::endl;
+    // _socket->async_read_some(asio::buffer(_reply), std::bind(&TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    // for (size_t i = 0; i <= 9; i++)
+    //     std::cout << _reply[i];
 }
 
 void TCPClient::doRead(const std::error_code &ec, size_t bytes)
@@ -46,7 +46,7 @@ void TCPClient::send(IPacket &packet)
     std::string str = "handshake";
     vec.assign(str.begin(), str.end());
     packet.pack(vec);
-    _socket->async_write_some(asio::buffer(vec, vec.size()), std::bind(&TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+    _socket->async_write_some(asio::buffer(packet.unpack()), std::bind(&TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void TCPClient::doWrite(const std::error_code &ec, size_t bytes)

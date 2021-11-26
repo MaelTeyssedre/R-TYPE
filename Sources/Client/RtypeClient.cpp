@@ -5,6 +5,10 @@ RtypeClient::RtypeClient(std::string host, std::string port)
     : _port(port), _host(host), _r(3)
 {
     registerComponents();
+    setupTimeComponent();
+    setupNetworkComponent();
+    setupMouseStateComponent();
+    setupKeyStateComponent();
     setupUpdateTimeSystem();
     setupUpdateNetworkSystem();
     setupUpdateGraphSystem();
@@ -12,6 +16,7 @@ RtypeClient::RtypeClient(std::string host, std::string port)
 
 void RtypeClient::run()
 {
+    std::cout << "in the run" << std::endl;
     for (;;) {
         _r.run_system();
     }
@@ -36,8 +41,8 @@ void RtypeClient::setupTimeComponent()
 
 void RtypeClient::setupNetworkComponent()
 {
-    components::network_s *network = new components::network_s;
-    _r.addComponent<components::network_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), *network);
+    components::network_s network {};
+    _r.addComponent<components::network_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), std::move(network));
 }
 
 void RtypeClient::setupMouseStateComponent()
@@ -58,18 +63,19 @@ void RtypeClient::setupKeyStateComponent()
 
 void RtypeClient::setupUpdateTimeSystem()
 {
-    UpdateTime *timeSystem {new UpdateTime()};
-    _r.addSystem(*timeSystem, _r.getComponents<components::myTime_s>());
+    UpdateTime timeSystem {};
+    _r.addSystem(std::move(timeSystem), _r.getComponents<components::myTime_s>());
 }
 
 void RtypeClient::setupUpdateNetworkSystem()
 {
-    UpdateNetwork *networkSystem {new UpdateNetwork(_netManager.createTCPClient(std::stoi(_port)), _netManager.createSocketUDP(std::stoi(_port)))};
-    _r.addSystem(*networkSystem, _r.getComponents<components::network_s>());
+    ITCPClient *test = _netManager.createTCPClient(std::stoi(_port));
+    UpdateNetwork networkSystem {test, _netManager.createSocketUDP(std::stoi(_port))};
+    _r.addSystem(std::move(networkSystem), _r.getComponents<components::network_s>());
 }
 
 void RtypeClient::setupUpdateGraphSystem()
 {
-    UpdateGraph *updateGraph {new UpdateGraph()};
-    _r.addSystem(*updateGraph, _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>());
+    UpdateGraph updateGraph {};
+    _r.addSystem(std::move(updateGraph), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>());
 }
