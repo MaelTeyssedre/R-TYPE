@@ -129,6 +129,25 @@ Build by executing the script correspondint to your OS.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Usage
+
+   -  Clone the repo
+   -  Build with the script above
+   -  Launch the server
+``` bash
+> .\rtype_server.exe <port>
+
+> .\build\bin\rtype_server.exe <port> # If first option has strange behaviour
+
+```
+   - Launch client
+``` bash
+> .\rtype_client.exe <IP> <port>
+
+> .\build\bin\rtype_client.exe <IP> <port> # If first option has strange behaviour
+
+```
+   
 ## Contact
 
 Romain Gabet:
