@@ -148,5 +148,5 @@ Alban Bodénès
 
    -  [cppreference](https://en.cppreference.com/w/)
    -  [SFML documentation](https://www.sfml-dev.org/)
-   -  [c++.com](https://www.cplusplus.com/)
+   -  [cplusplus.com](https://www.cplusplus.com/)
 
