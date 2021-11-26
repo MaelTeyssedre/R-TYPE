@@ -9,7 +9,7 @@
    <summary>Table of Contents</summary>
    <ol>
       <li><a href="#About the Project">About the Project</a></li>
-      <li><a href="#Build With">Build With</a></li>
+      <li><a href="#Build">Build</a></li>
       <li><a href="#Structure">Structure</a></li>
       <li><a href="#Building">Building</a></li>
       <li><a href="#Usage">Usage</a></li>
@@ -34,7 +34,7 @@ The goal of the R-Type project is to create an online multiplayer
    -   Continuous testing with [GitHub Actions](https://github.com/features/actions).
    -   Code documentation with [Doxygen](https://maelteyssedre.github.io/R-TYPE)
 
-## Build With
+## Build
    
    - [C++17](https://en.cppreference.com/w/cpp/17)
    - [Visual Studio 16](https://visualstudio.microsoft.com/fr/)
