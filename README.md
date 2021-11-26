@@ -200,13 +200,11 @@ Romain Gabet:
    - romain.gabet@epitech.eu
    - [Github](https://github.com/Romain-GABET)
    - [LinkedIn](https://www.linkedin.com/in/romain-gabet-3b7047197//)
-   - 
 
 Maël Teyssèdre 
    - mael.teyssedre@epitech.eu
    - [Github](https://github.com/MaelTeyssedre)
    - [LinkedIn](https://www.linkedin.com/in/maeltey/)
-   - 
 
 Jules Savang 
    - jules.savang@epitech.eu
