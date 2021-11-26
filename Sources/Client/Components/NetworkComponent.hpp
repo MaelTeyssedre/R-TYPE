@@ -3,7 +3,7 @@
     #define NETWORKCOMPONENT_HPP_
 
     namespace components {
-        typedef struct network_s {
+        struct network_s {
             std::vector<std::vector<uint8_t>> request1;
             std::vector<std::vector<uint8_t>> request2;
             std::vector<std::vector<uint8_t>> request3;
@@ -17,7 +17,7 @@
             std::vector<std::vector<uint8_t>> request13;
             std::vector<std::vector<uint8_t>> request14;
             std::vector<std::vector<uint8_t>> request15;
-        } network_t; 
+        }; 
     }
 
 #endif /*!NETWORKCOMPONENT_HPP_ */

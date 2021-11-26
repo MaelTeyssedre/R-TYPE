@@ -32,3 +32,8 @@ Room &Room::operator=(Room &room)
     _roomBuffers = room._roomBuffers;
     return *this;
 }
+
+void Room::run() {
+    Game game {_roomBuffers};
+    game.run();
+}

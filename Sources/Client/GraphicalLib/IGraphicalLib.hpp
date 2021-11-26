@@ -46,6 +46,7 @@
                 virtual bool getKeyState(rtype::constants::EVENT event) = 0;
                 virtual mouse_t getMouseState() = 0;
                 virtual void setViewXPos(float viewXPos) = 0;
+                virtual void setCurrentScene(constants::SCENE scene) = 0;
         };
     }
 

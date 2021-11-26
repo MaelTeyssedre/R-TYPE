@@ -85,13 +85,13 @@
             void createRoom(std::string &packet);
             
             /**
-             * \fn void isRoom(size_t id)
+             * \fn void runRoom(size_t id)
              * 
              * \brief execute the Room
              * 
              * \param id id of the room
              */
-            void isRoom(size_t id);
+            void runRoom(size_t id);
 
         private:
 

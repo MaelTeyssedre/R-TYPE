@@ -10,6 +10,7 @@
     #include "Registry.hpp"
     #include <chrono>
     #include "Constants.hpp"
+    #include "Zipper.hpp"
     #include "TimeComponent.hpp"
 
     /**

@@ -11,7 +11,9 @@
     #include "Packet.hpp"
     #include "tcpUser.hpp"
     #include "ITCPServer.hpp"
+    #include "Buffer.hpp"
     #include <map>
+    #include <queue>
 
     /**
      * \class Packet Packet.hpp 
@@ -98,22 +100,18 @@
              */ 
             void startAccept();
 
-            /**
-             * \fn  std::map<size_t, std::shared_ptr<tcpUser>> getUsers()
-             * 
-             * \brief return list of client
-             * 
-             * \return list of client
-             * 
-             */ 
-            std::map<size_t, std::shared_ptr<tcpUser>> getUsers();
+           
+            std::vector<std::shared_ptr<tcpUser>> getUsers();
+
+            std::queue<Packet> &getRequest();
 
         private:
         
             asio::io_context &_context; /*! asio context */
             asio::ip::tcp::acceptor _acceptor; /*! asio acceptor */
-            std::map<size_t, std::shared_ptr<tcpUser>> _mapUser; /*! map of id and user */
+            std::vector<std::shared_ptr<tcpUser>> _mapUser; /*! vector of id and user */
             int _nbUsers; /*! nb of users */
+            std::queue<Packet> _buffer;
     };
 
 #endif /* !TCPSERVER_HPP_ */

@@ -1,4 +1,4 @@
-#include "cNetworkManager.hpp"
+#include "NetworkManager.hpp"
 
 ITCPServer *NetworkManager::createTCPServer(int port)
 {
@@ -40,7 +40,6 @@ void NetworkManager::deleteTCPClient(ITCPClient *client)
 {
     (void)client;
 }
-
 IUDPSocket *NetworkManager::createSocketUDP(int port)
 {
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);

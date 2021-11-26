@@ -16,9 +16,9 @@
      * 
      */
     namespace components {
-        typedef struct myTime_s {
+        struct myTime_s {
             std::chrono::nanoseconds deltaTime;
-        } myTime_t;
+        };
     }
 
 #endif /* !TIMECOMPONENT_HPP_ */

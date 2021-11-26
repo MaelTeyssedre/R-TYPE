@@ -17,9 +17,10 @@ RoomManager::~RoomManager()
         _threadList.at(i).join();
 }
 
-void RoomManager::isRoom(size_t id)
+void RoomManager::runRoom(size_t id)
 {
     Room room(id);
+    room.run();
 }
 
 void RoomManager::createRoom(std::string &packet)
@@ -29,7 +30,7 @@ void RoomManager::createRoom(std::string &packet)
     std::vector<std::string> parsed;
     std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
-    std::thread room(&RoomManager::isRoom, this, _roomList->size());
+    std::thread room(&RoomManager::runRoom, this, _roomList->size());
     std::vector<PlayerData> playerData;
     std::string request = "Join ";
     while ((pos = packet.find(" ")) != std::string::npos)

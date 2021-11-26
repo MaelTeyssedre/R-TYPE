@@ -16,9 +16,9 @@
      * 
      */
     namespace components {
-        typedef struct weaponType_s {
+        struct weaponType_s {
             rtype::constants::WEAPON_TYPE weaponType;
-        } weaponType_t;
+        };
     }
 
 #endif /* !WEAPONTYPE_HPP_ */

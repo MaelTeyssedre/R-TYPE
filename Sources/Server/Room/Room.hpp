@@ -12,6 +12,7 @@
     #include <thread>
     #include <vector>
     #include "Buffer.hpp"
+    #include "Game.hpp"
 
     /**
      * \class Room
@@ -95,6 +96,8 @@
              * 
              */
             void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer);
+
+            void run();
     
         private:
 

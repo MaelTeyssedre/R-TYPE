@@ -16,10 +16,10 @@
      * 
      */
     namespace components {
-        typedef struct direction_s {
+        struct direction_s {
             int x;
             int y;
-        } direction_t;
+        };
     }
 
 #endif /* !DIRECTIONCOMPONENT_HPP_ */

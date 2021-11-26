@@ -18,10 +18,10 @@ void RtypeClient::run()
 }
 
 void RtypeClient::registerComponents() {
-    _r.registerComponent<components::myTime_t>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::network_t>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::mouseState_t>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::keyState_t>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    _r.registerComponent<components::myTime_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    _r.registerComponent<components::network_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    _r.registerComponent<components::mouseState_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    _r.registerComponent<components::keyState_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
 }
 
 /*
@@ -30,26 +30,26 @@ void RtypeClient::registerComponents() {
 
 void RtypeClient::setupTimeComponent()
 {
-    components::myTime_t time {};
-    _r.addComponent<components::myTime_t>(_r.entityFromIndex(rtype::constants::RESERVED_ID::TIME_UPDATE), std::move(time));
+    components::myTime_s time {};
+    _r.addComponent<components::myTime_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::TIME_UPDATE), std::move(time));
 }
 
 void RtypeClient::setupNetworkComponent()
 {
-    components::network_t network {};
-    _r.addComponent<components::network_t>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), std::move(network));
+    components::network_s *network = new components::network_s;
+    _r.addComponent<components::network_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), *network);
 }
 
 void RtypeClient::setupMouseStateComponent()
 {
-    components::mouseState_t mouse {0, 0, false, false};
-    _r.addComponent<components::mouseState_t>(_r.entityFromIndex(rtype::constants::RESERVED_ID::GRAPH_UPDATE), std::move(mouse));
+    components::mouseState_s mouse {0, 0, false, false};
+    _r.addComponent<components::mouseState_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::GRAPH_UPDATE), std::move(mouse));
 }
 
 void RtypeClient::setupKeyStateComponent()
 {
-    components::keyState_t key {false, false, false, false, false, false,};
-    _r.addComponent<components::keyState_t>(_r.entityFromIndex(rtype::constants::RESERVED_ID::GRAPH_UPDATE), std::move(key));
+    components::keyState_s key {false, false, false, false, false, false,};
+    _r.addComponent<components::keyState_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::GRAPH_UPDATE), std::move(key));
 }
 
 /*
@@ -59,17 +59,17 @@ void RtypeClient::setupKeyStateComponent()
 void RtypeClient::setupUpdateTimeSystem()
 {
     UpdateTime *timeSystem {new UpdateTime()};
-    _r.addSystem(*timeSystem, _r.getComponents<components::myTime_t>());
+    _r.addSystem(*timeSystem, _r.getComponents<components::myTime_s>());
 }
 
 void RtypeClient::setupUpdateNetworkSystem()
 {
     UpdateNetwork *networkSystem {new UpdateNetwork(_netManager.createTCPClient(std::stoi(_port)), _netManager.createSocketUDP(std::stoi(_port)))};
-    _r.addSystem(*networkSystem, _r.getComponents<components::network_t>());
+    _r.addSystem(*networkSystem, _r.getComponents<components::network_s>());
 }
 
 void RtypeClient::setupUpdateGraphSystem()
 {
     UpdateGraph *updateGraph {new UpdateGraph()};
-    _r.addSystem(*updateGraph, _r.getComponents<components::mouseState_t>(), _r.getComponents<components::keyState_t>());
+    _r.addSystem(*updateGraph, _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>());
 }

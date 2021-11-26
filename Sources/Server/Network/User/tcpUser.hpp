@@ -118,22 +118,20 @@
              */
             void doWrite(const std::error_code &ec, std::size_t bytes_transfered);
 
-            /**
-             * \fn uint8_t *getInput()
-             * 
-             * \brief Get the Input object
-             * 
-             * \return uint8_t* the input
-             */
-            uint8_t *getInput();
+
+            std::vector<uint8_t> &getInput();
+
+
+            size_t &getSizeInput();
 
         private:
 
             std::shared_ptr<asio::ip::tcp::socket> _socket; /*! socket */
             char _data[MAX_LENGTH]; /*! placeholders for packet */
             std::vector<uint8_t> _message; /*! message parsed received  from the client */
-            uint8_t _input[MAX_LENGTH];  /*!  raw data read from the client */
+            std::vector<uint8_t> _input;  /*!  raw data read from the client */
             std::queue<std::vector<uint8_t>> _queue; /*! datas to send */
+            size_t _sizeInput;
     };
 
 #endif /* !TCPUSER_HPP_ */

@@ -46,38 +46,24 @@
              */
             virtual ~PacketManager() = default;
 
-            /**
-             * \fn void managePacket(std::pair<size_t, std::vector<uint8_t>> packet)
-             * 
-             * \brief manage packet received
-             * 
-             * \param packet packet to handle
-             * 
-             */
-            void managePacket(std::pair<size_t, std::vector<uint8_t>> packet);
+            void managePacket(Packet packet);
 
-            /**
-             * \fn void createRoom(std::pair<size_t, std::vector<uint8_t>> packet)
-             * 
-             * \brief request for creation room
-             * 
-             * \param packet packet to handle
-             * 
-             */
-            void createRoom(std::pair<size_t, std::vector<uint8_t>> packet);
 
-            /**
-             * \fn     void joinRoom(std::pair<size_t, std::vector<uint8_t>> packet)
-             * 
-             * \brief request for join room
-             * 
-             * \param packet packet to handle
-             * 
-             */
-            void joinRoom(std::pair<size_t, std::vector<uint8_t>> packet);
+            void createRoom(Packet packet);
+
+
+            void joinRoom(Packet packet);
+
+            void sendToClient(PlayerData &player, std::vector<uint8_t> request);
+
+            void setBuffer(std::shared_ptr<Buffer> buffer);
+
+            // * 1 - vide _netBuf et split en Packet | 2 : return les packets
+            std::vector<Packet> getRequests();
 
         private:
-        
+            std::shared_ptr<Buffer> _netBuf;
+            std::vector<Packet> _packets;
             std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! vector of player data */
             std::shared_ptr<Buffer> _bufferIn; /*! buffer in */
             std::shared_ptr<Buffer> _bufferOut; /*! buffer out */

@@ -16,9 +16,9 @@
      * 
      */
     namespace components {
-        typedef struct health_s {
+        struct health_s {
             size_t health;
-        } health_t;
+        };
     }
 
 #endif /* !HEALTHCOMPONENT_HPP_ */

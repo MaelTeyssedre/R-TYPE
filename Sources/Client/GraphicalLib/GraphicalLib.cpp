@@ -130,3 +130,8 @@ void rtype::GraphicalLib::setViewXPos(float viewXPos)
     _viewX = viewXPos;
     _view.setCenter(sf::Vector2f(_viewX, VIEW_Y));
 }
+
+void rtype::GraphicalLib::setCurrentScene(rtype::constants::SCENE scene)
+{
+    _currentScene = scene;
+}

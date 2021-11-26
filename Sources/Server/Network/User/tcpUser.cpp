@@ -23,8 +23,8 @@ void tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
     if (!ec)
     {
-        std::cout << bytes << std::endl;
         read();
+        _sizeInput++;
     }
     else
         std::cerr << ec.message() << std::endl;
@@ -44,7 +44,6 @@ void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
     if (!ec)
     {
-        std::cout << bytes_transfered << std::endl;
         _queue.pop();
         if (!_queue.empty())
             write();
@@ -53,7 +52,13 @@ void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
         std::cerr << ec.message() << std::endl;
 }
 
-uint8_t *tcpUser::getInput()
+std::vector<uint8_t> &tcpUser::getInput()
 {
     return (_input);
+}
+
+
+size_t &tcpUser::getSizeInput()
+{
+    return (_sizeInput);
 }

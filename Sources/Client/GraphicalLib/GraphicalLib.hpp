@@ -39,6 +39,7 @@
                 bool getKeyState(rtype::constants::EVENT event) override;
                 mouse_t getMouseState() override;
                 void setViewXPos(float viewXPos) override;
+                void setCurrentScene(constants::SCENE scene) override;
 
             private:
 

@@ -9,7 +9,7 @@
 
 void UDPSocket::send(IPacket &data)
 {
-    _socket.async_send_to(asio::buffer(*data.unpack()), _endpoint, std::bind(&UDPSocket::handleSend, this));
+    _socket.async_send_to(asio::buffer(data.unpack()), _endpoint, std::bind(&UDPSocket::handleSend, this));
 }
 
 void UDPSocket::handleSend()

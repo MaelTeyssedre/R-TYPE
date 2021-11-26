@@ -5,6 +5,7 @@
     #include "Registry.hpp"
     #include "NetworkComponent.hpp"
     #include "Constants.hpp"
+    #include "Zipper.hpp"
     #include "cTCPClient.hpp"
     #include "cUDPSocket.hpp"
     #include "Buffer.hpp"
@@ -14,7 +15,7 @@
             explicit UpdateNetwork() = default;
             explicit UpdateNetwork(ITCPClient *client, IUDPSocket *socket);
             virtual ~UpdateNetwork() = default;
-            void operator()(Registry &r, SparseArray<components::network_t> &networks);
+            void operator()(Registry &r, SparseArray<components::network_s> &networks);
 
         private:
             ITCPClient *_tcpClient;

@@ -50,11 +50,11 @@
             * 
             * \return vector of data
             */
-            std::shared_ptr<std::vector<uint8_t>> unpack() override;        
+           std::vector<uint8_t> unpack() override;
 
         private:
 
-            std::shared_ptr<std::vector<uint8_t>> _rawData; /*! data */
+            std::vector<uint8_t> _rawData; /*! data */
             size_t _packetSize; /*! size of the packet */
     };
 

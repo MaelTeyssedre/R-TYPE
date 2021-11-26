@@ -9,7 +9,7 @@ if (MSVC)
     add_definitions("/MP")
 endif (MSVC)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CONAN_DISABLE_CHECK_COMPILER TRUE CACHE INTERNAL "")
 
@@ -40,11 +40,19 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Games/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Games/*.cpp
 )
 
 file(
@@ -56,6 +64,7 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
@@ -72,6 +81,12 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateGraph/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateGraph/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateNetwork/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/Updatenetwork/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateTime/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateTime/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/*.hpp
@@ -188,13 +203,31 @@ target_include_directories(
 target_include_directories(
     rtype_server
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Component
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Games/
 )
 
 target_include_directories(
     rtype_server
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Room/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/
 )
 
 target_include_directories(
@@ -309,6 +342,12 @@ target_include_directories(
 )
 
 target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/PacketManager/
+)
+
+target_include_directories(
     rtype_client
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/
@@ -341,19 +380,25 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateGraph/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateTime/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateNetwork/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/
-)
-
-target_include_directories(
-    rtype_client
-    PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Components/
-)
-
-target_include_directories(
-    rtype_client
-    PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Systems/
 )
 
 target_include_directories(

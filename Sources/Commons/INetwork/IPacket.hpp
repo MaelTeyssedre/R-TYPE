@@ -49,7 +49,7 @@
          * 
          * \return data deserialised
          */
-        virtual std::shared_ptr<std::vector<uint8_t>> unpack() = 0;
+        virtual std::vector<uint8_t> unpack() = 0;
   };
 
 #endif /* !IPACKET_HPP_ */

@@ -5,17 +5,21 @@
 UpdateNetwork::UpdateNetwork(ITCPClient *client, IUDPSocket *socket)
     : _tcpClient(client), _socket(socket) {}
 
-void UpdateNetwork::operator()(Registry &r,  SparseArray<components::network_t> &networks)
+void UpdateNetwork::operator()(Registry &r,  SparseArray<components::network_s> &networks)
 {
+    std::cout << "le netoueurkeuh" << std::endl;
     (void)r;
-    std::optional<components::network_t> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
+    
+    // for (auto &&[network] : Zipper(networks)) {
+    
+    std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
     std::uint8_t opCode;
     std::vector<uint8_t> reply;
-
+    std::cout << "le ifeuh" << std::endl;
     if (!network) {
         return;
     }
-
+    std::cout << "la boucleuh" << std::endl;
     _tcpClient->receive();
     _socket->receive();
     std::shared_ptr<Buffer> buffer {_tcpClient->getBuffer()};
@@ -106,5 +110,6 @@ void UpdateNetwork::operator()(Registry &r,  SparseArray<components::network_t> 
             break;
         default:
             break;
-        }
+            // }
+       }
 }

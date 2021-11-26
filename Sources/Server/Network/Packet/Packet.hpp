@@ -50,12 +50,19 @@
             * 
             * \return vector of data
             */
-            std::shared_ptr<std::vector<uint8_t>> unpack() override;        
+            std::vector<uint8_t> unpack() override;     
+
+            void setId(size_t id);
+
+            size_t getId() const;
+
+            std::vector<uint8_t> getData();   
 
         private:
 
-            std::shared_ptr<std::vector<uint8_t>> _rawData; /*! data */
+            std::vector<uint8_t> _rawData; /*! data */
             size_t _packetSize; /*! size of the packet */
+            size_t _id;
     };
 
 #endif /* !PACKET_HPP_ */

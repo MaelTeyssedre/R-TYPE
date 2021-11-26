@@ -3,7 +3,7 @@
     #define RTYPECLIENT_HPP_
 
     #include "Registry.hpp"
-    #include "cNetworkManager.hpp"
+    #include "NetworkManager.hpp"
     #include "TimeComponent.hpp"
     #include "MouseStateComponent.hpp"
     #include "KeyStateComponent.hpp"
