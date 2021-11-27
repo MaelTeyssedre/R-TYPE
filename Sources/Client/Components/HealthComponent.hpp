@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct health_s
+         * 
+         * \brief health component
+         * 
+         */
         typedef struct health_s {
             size_t health;
         } health_t;

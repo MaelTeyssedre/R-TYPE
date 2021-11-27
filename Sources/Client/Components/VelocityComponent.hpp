@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct velocity_s
+         * 
+         * \brief velocity component
+         * 
+         */
         typedef struct velocity_s {
             size_t x;
             size_t y;

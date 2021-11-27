@@ -1,8 +1,24 @@
-
+/**
+ * \file NetworkComponent.hpp
+ * 
+ * \brief file for the network component 
+ */
 #ifndef NETWORKCOMPONENT_HPP_
     #define NETWORKCOMPONENT_HPP_
 
+    /**
+     * \namespace components
+     * 
+     * \brief namespace for ECS components
+     * 
+     */
     namespace components {
+        /**
+         * \struct network_s
+         * 
+         * \brief network component
+         * 
+         */
         typedef struct network_s {
             std::vector<std::vector<uint8_t>> request1;
             std::vector<std::vector<uint8_t>> request2;

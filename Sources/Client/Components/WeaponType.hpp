@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct weaponType_s
+         * 
+         * \brief weapon type component
+         * 
+         */
         typedef struct weaponType_s {
             rtype::constants::WEAPON_TYPE weaponType;
         } weaponType_t;

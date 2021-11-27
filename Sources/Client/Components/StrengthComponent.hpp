@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct strength_s
+         * 
+         * \brief strength component
+         * 
+         */
         typedef struct strength_s {
             size_t strength;
         } strength_t;

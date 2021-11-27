@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct myTime_s
+         * 
+         * \brief time component
+         * 
+         */
         typedef struct myTime_s {
             std::chrono::nanoseconds deltaTime;
         } myTime_t;

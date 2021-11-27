@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct direction_s
+         * 
+         * \brief direction component
+         * 
+         */
         typedef struct direction_s {
             int x;
             int y;

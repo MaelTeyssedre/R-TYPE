@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct mySize_s
+         * 
+         * \brief size component
+         * 
+         */
         typedef struct mySize_s {
             size_t width;
             size_t heigth;

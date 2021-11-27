@@ -16,6 +16,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct position_s
+         * 
+         * \brief position component
+         * 
+         */
         typedef struct position_s {
             float x;
             float y;

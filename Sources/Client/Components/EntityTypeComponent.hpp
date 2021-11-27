@@ -17,6 +17,12 @@
      * 
      */
     namespace components {
+        /**
+         * \struct entity type_s
+         * 
+         * \brief entity type component
+         * 
+         */
         typedef struct entityType_s {
             rtype::constants::ENTITY_TYPE entityType; 
         } entityType_t;
