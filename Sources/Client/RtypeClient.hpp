@@ -29,6 +29,10 @@
              * \fn explicit RtypeClient(std::string port, std::string host)
              *
              * \brief ctor RtypeClient
+             * 
+             * \param port port use
+             * 
+             *  \param host host use
              */
             explicit RtypeClient(std::string port, std::string host);
 

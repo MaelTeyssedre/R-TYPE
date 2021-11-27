@@ -37,6 +37,10 @@
              * \fn void operator()(Registry &r, SparseArray<components::myTime_s> &times)
              *
              * \brief To be used by the ECS
+             * 
+             * \param r A reference to the registry
+             * 
+             * \param times a reference to a sparceArray of time components
              */
             void operator()(Registry &r, SparseArray<components::myTime_s> &times);
         private:

@@ -32,6 +32,10 @@
              * \fn explicit UpdateNetwork() = default
              *
              * \brief ctor UpdateNetwork
+             * 
+             * \param client the client whose network is updated
+             * 
+             * \param socket The used UDP socket
              */
             explicit UpdateNetwork(ITCPClient *client, IUDPSocket *socket);
             /**
@@ -45,6 +49,10 @@
              * \fn void operator()(Registry &r, SparseArray<components::network_t> &networks)
              *
              * \brief To be used by the ECS
+             * 
+             * \param r A reference to the registry
+             * 
+             * \param networks a reference to a sparceArray of network components
              */
             void operator()(Registry &r, SparseArray<components::network_t> &networks);
 

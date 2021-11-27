@@ -37,6 +37,12 @@
              * \fn void operator()(Registry &r,  SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates)
              *
              * \brief To be used by the ECS
+             * 
+             * \param r A reference to the registry
+             * 
+             * \param mouseStates a reference to a sparceArray of mouse state components
+             * 
+             * \param keyStates a reference to a sparceArray of key state components
              */
             void operator()(Registry &r,  SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates);
 
@@ -59,6 +65,10 @@
              * \fn void updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates)
              *
              * \brief To update event
+             * 
+             * \param mouseStates a reference to a sparceArray of mouse state components
+             * 
+             * \param keyStates a reference to a sparceArray of key state components
              */
             void updateEvent(SparseArray<components::mouseState_t> &mouseStates, SparseArray<components::keyState_t> &keyStates); 
             rtype::IGraphicalLib *_graphicalLib; /*! A graphical client */
