@@ -35,6 +35,7 @@ var annotated_dup =
     [ "Buffer", "class_buffer.html", "class_buffer" ],
     [ "DlLoaderUnix", "class_dl_loader_unix.html", "class_dl_loader_unix" ],
     [ "DlLoaderWindows", "class_dl_loader_windows.html", "class_dl_loader_windows" ],
+    [ "entity", "structentity.html", null ],
     [ "Entity", "class_entity.html", "class_entity" ],
     [ "hpp", "class_i_network_manager_1_1hpp.html", null ],
     [ "hpp", "class_i_packet_1_1hpp.html", null ],

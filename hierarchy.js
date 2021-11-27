@@ -7,6 +7,7 @@ var hierarchy =
     [ "std::enable_shared_from_this", null, [
       [ "session", "classsession.html", null ]
     ] ],
+    [ "entity", "structentity.html", null ],
     [ "Entity", "class_entity.html", null ],
     [ "components::entityType_s", "structcomponents_1_1entity_type__s.html", null ],
     [ "rtype::fireFrequence_s", "structrtype_1_1fire_frequence__s.html", null ],

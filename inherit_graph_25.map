@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_i_network_manager.html" title=" " alt="" coords="5,5,131,32"/>
-<area shape="rect" id="node2" href="$class_network_manager.html" title="class that contain methode to manage network" alt="" coords="179,5,300,32"/>
+<area shape="rect" id="node1" href="$class_i_logger.html" title=" " alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node2" href="$class_logger.html" title="Used to store log in a file." alt="" coords="120,5,183,32"/>
 </map>
