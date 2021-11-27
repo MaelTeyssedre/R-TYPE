@@ -77,17 +77,17 @@ $(document).ready(function(){initNavTree('_update_network_8hpp_source.html','');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_update_network.html#a9f45539547495f772d11c2c8fee72e38">   29</a></span>&#160;            <span class="keyword">explicit</span> <a class="code" href="class_update_network.html#a9f45539547495f772d11c2c8fee72e38">UpdateNetwork</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keyword">explicit</span> <a class="code" href="class_update_network.html#a9f45539547495f772d11c2c8fee72e38">UpdateNetwork</a>(<a class="code" href="class_i_t_c_p_client.html">ITCPClient</a> *client, <a class="code" href="class_i_u_d_p_socket.html">IUDPSocket</a> *socket);</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_update_network.html#a8208857b0073eeba6c13c498d62f8715">   42</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="class_update_network.html#a8208857b0073eeba6c13c498d62f8715">~UpdateNetwork</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_update_network.html#acf4f5f9383638e9b9586123ef3dda220">operator()</a>(<a class="code" href="class_registry.html">Registry</a> &amp;r, <a class="code" href="class_sparse_array.html">SparseArray&lt;components::network_t&gt;</a> &amp;networks);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="class_i_t_c_p_client.html">ITCPClient</a> *_tcpClient; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="class_i_u_d_p_socket.html">IUDPSocket</a> *_socket; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !UPDATENETWORK_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keyword">explicit</span> <a class="code" href="class_update_network.html#a9f45539547495f772d11c2c8fee72e38">UpdateNetwork</a>(<a class="code" href="class_i_t_c_p_client.html">ITCPClient</a> *client, <a class="code" href="class_i_u_d_p_socket.html">IUDPSocket</a> *socket);</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_update_network.html#a8208857b0073eeba6c13c498d62f8715">   46</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="class_update_network.html#a8208857b0073eeba6c13c498d62f8715">~UpdateNetwork</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_update_network.html#acf4f5f9383638e9b9586123ef3dda220">operator()</a>(<a class="code" href="class_registry.html">Registry</a> &amp;r, <a class="code" href="class_sparse_array.html">SparseArray&lt;components::network_t&gt;</a> &amp;networks);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="class_i_t_c_p_client.html">ITCPClient</a> *_tcpClient; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="class_i_u_d_p_socket.html">IUDPSocket</a> *_socket; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !UPDATENETWORK_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_buffer_8hpp_html"><div class="ttname"><a href="_buffer_8hpp.html">Buffer.hpp</a></div><div class="ttdoc">header for the circular buffer lib</div></div>
 <div class="ttc" id="a_constants_8hpp_html"><div class="ttname"><a href="_constants_8hpp.html">Constants.hpp</a></div><div class="ttdoc">file where constants are stocked</div></div>
 <div class="ttc" id="a_network_component_8hpp_html"><div class="ttname"><a href="_network_component_8hpp.html">NetworkComponent.hpp</a></div><div class="ttdoc">file for the network component</div></div>
