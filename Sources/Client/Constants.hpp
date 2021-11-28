@@ -24,7 +24,7 @@
     #endif
     
     #ifndef FRAME_RATE
-        #define FRAME_RATE 10000
+        #define FRAME_RATE 60
     #endif
     
     #ifndef WINDOW_SIZE_X
