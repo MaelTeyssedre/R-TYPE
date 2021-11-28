@@ -7,7 +7,7 @@ rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip:
     asio::error_code ec;
     asio::connect(*_socket, _resolver.resolve(host, port), ec);
     if (ec) {
-        std::cout << "cant find a connection" << std::endl;
+        std::cerr << "cant find a connection" << std::endl;
         _logger.logln("Cant find a connection");
         return;
     }
