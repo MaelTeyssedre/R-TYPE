@@ -26,7 +26,7 @@ void rtype::Room::setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Bu
     _roomBuffers = roomBuffer;
 }
 
-rtype::Room &rtype::Room::operator=(Room &room)
+rtype::Room &rtype::Room::operator=(rtype::Room &room)
 {
     _id = room._id;
     _roomBuffers = room._roomBuffers;

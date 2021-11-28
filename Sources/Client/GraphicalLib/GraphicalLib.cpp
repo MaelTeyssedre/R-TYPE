@@ -2,30 +2,44 @@
 #include "GraphicalLib.hpp"
 
 rtype::GraphicalLib::GraphicalLib()
-    : _sprites(), _texts(), _sounds(), _musics(), _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _viewX(WINDOW_SIZE_X / 2)
+    : _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _viewX(WINDOW_SIZE_X / 2)
 {
+    _spriteMap = {};
+    _textMap = {};
+    _soundMap = {};
+    // _musicMap = {};
     _renderWindow.setFramerateLimit(FRAME_RATE);
     _renderWindow.setView(_view);
 }
 
-void rtype::GraphicalLib::draw(constants::SCENE scene)
+void rtype::GraphicalLib::draw(size_t id)
 {
-    for (const auto &it : _sprites)
-        if (it.first == scene)
-            _renderWindow.draw(it.second->getSprite());
-    for (const auto &it : _texts)
-        if (it.first == scene)
-            _renderWindow.draw(it.second->getText());
+    _renderWindow.draw(_spriteMap[id].getSprite());
 }
 
-void rtype::GraphicalLib::play(rtype::Sound &sound)
+void rtype::GraphicalLib::print(size_t id)
 {
-    sound.getSound().play();
+    _renderWindow.draw(_textMap[id].getText());
 }
 
-void rtype::GraphicalLib::play(rtype::Music &music)
+void rtype::GraphicalLib::start(size_t id)
 {
-    music.getMusic().play();
+    _soundMap[id].getSound().play();
+}
+
+void rtype::GraphicalLib::play(size_t id)
+{
+    // _musicMap[id].getMusic().play();
+}
+
+void rtype::GraphicalLib::stop(size_t id)
+{
+    // _musicMap[id].getMusic().stop();
+}
+
+void rtype::GraphicalLib::pause(size_t id)
+{
+    // _musicMap[id].getMusic().pause();
 }
 
 void rtype::GraphicalLib::refresh()
@@ -34,72 +48,45 @@ void rtype::GraphicalLib::refresh()
     _renderWindow.clear();
 }
 
-std::shared_ptr<rtype::Sound> rtype::GraphicalLib::createSound(const std::string &path)
+void rtype::GraphicalLib::createSound(size_t id, const std::string &path)
 {
-    return (std::shared_ptr<Sound>(new Sound(path)));
+    _soundMap[id] = Sound(path);
 }
 
-std::shared_ptr<rtype::Music> rtype::GraphicalLib::createMusic(const std::string &path)
+void rtype::GraphicalLib::createMusic(size_t id, const std::string &path)
 {
-    return (std::shared_ptr<Music>(new Music(path)));
+    // _musicMap[id];
+    
 }
 
-std::shared_ptr<rtype::Text> rtype::GraphicalLib::createText(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
+void rtype::GraphicalLib::createText(size_t id, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
 {
-    return (std::shared_ptr<Text>(new Text(posX, posY, fontSize, colorRed, colorGreen, colorBlue, colorAlpha, content, fontPath)));
+    _textMap[id] = Text(0.f, 0.f, fontSize, colorRed, colorGreen, colorBlue, colorAlpha, content, fontPath);
 }
 
-std::shared_ptr<rtype::Sprite> rtype::GraphicalLib::createSprite(float posX, float posY, float rotation, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
+void rtype::GraphicalLib::createSprite(size_t id, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
 {
-    return (std::shared_ptr<Sprite>(new Sprite(posX, posY, rotation, scale, rectX, rectY, rectWidth, rectHeigth, path)));
+    _spriteMap[id] = Sprite(0.f, 0.f, 0.f, scale, rectX, rectY, rectWidth, rectHeigth, path);
 }
 
-void rtype::GraphicalLib::addSound(rtype::constants::SCENE scene, std::shared_ptr<rtype::Sound> sound)
+void rtype::GraphicalLib::deleteSound(size_t id)
 {
-    _sounds.push_back(std::make_pair(scene, sound));
+    _soundMap.erase(id);
 }
 
-void rtype::GraphicalLib::addMusic(rtype::constants::SCENE scene, std::shared_ptr<rtype::Music> music)
+void rtype::GraphicalLib::deleteMusic(size_t id)
 {
-    _musics.push_back(std::make_pair(scene, music));
+    // _musicMap.erase(id);
 }
 
-void rtype::GraphicalLib::addText(rtype::constants::SCENE scene, std::shared_ptr<rtype::Text> text)
+void rtype::GraphicalLib::deleteText(size_t id)
 {
-    _texts.push_back(std::make_pair(scene, text));
+    _textMap.erase(id);
 }
 
-void rtype::GraphicalLib::addSprite(rtype::constants::SCENE scene, std::shared_ptr<rtype::Sprite> sprite)
+void rtype::GraphicalLib::deleteSprite(size_t id)
 {
-    _sprites.push_back(std::make_pair(scene, sprite));
-}
-
-void rtype::GraphicalLib::deleteSound(std::shared_ptr<rtype::Sound> sound)
-{
-    for (size_t i = 0; i < _sounds.size(); i++)
-        if (_sounds.at(i).second == sound)
-            _sounds.erase(_sounds.begin() + i);
-}
-
-void rtype::GraphicalLib::deleteMusic(std::shared_ptr<rtype::Music> music)
-{
-    for (size_t i = 0; i < _musics.size(); i++)
-        if (_musics.at(i).second == music)
-            _musics.erase(_musics.begin() + i);
-}
-
-void rtype::GraphicalLib::deleteText(std::shared_ptr<rtype::Text> text)
-{
-    for (size_t i = 0; i < _texts.size(); i++)
-        if (_texts.at(i).second == text)
-            _texts.erase(_texts.begin() + i);
-}
-
-void rtype::GraphicalLib::deleteSprite(std::shared_ptr<rtype::Sprite> sprite)
-{
-    for (size_t i = 0; i < _sprites.size(); i++)
-        if (_sprites.at(i).second == sprite)
-            _sprites.erase(_sprites.begin() + i);
+    _spriteMap.erase(id);
 }
 
 bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
@@ -129,4 +116,164 @@ void rtype::GraphicalLib::setViewXPos(float viewXPos)
 {
     _viewX = viewXPos;
     _view.setCenter(sf::Vector2f(_viewX, VIEW_Y));
+}
+
+float rtype::GraphicalLib::getSpritePosX(size_t id)
+{
+    return (_spriteMap[id].getPosX());
+}
+
+float rtype::GraphicalLib::getSpritePosY(size_t id)
+{
+    return (_spriteMap[id].getPosY());
+}
+
+float rtype::GraphicalLib::getSpriteRotation(size_t id)
+{
+    return (_spriteMap[id].getRotation());
+}
+
+float rtype::GraphicalLib::getSpriteScale(size_t id)
+{
+    return (_spriteMap[id].getScale());
+}
+
+int rtype::GraphicalLib::getSpriteRectX(size_t id)
+{
+    return (_spriteMap[id].getRectX());
+}
+
+int rtype::GraphicalLib::getSpriteRectY(size_t id)
+{
+    return (_spriteMap[id].getRectY());
+}
+
+int rtype::GraphicalLib::getSpriteRectHeigth(size_t id)
+{
+    return (_spriteMap[id].getRectHeigth());
+}
+
+int rtype::GraphicalLib::getSpriteRectWidth(size_t id)
+{
+    return (_spriteMap[id].getRectWidth());
+}
+
+void rtype::GraphicalLib::setSpritePosX(size_t id, float posX)
+{
+    _spriteMap[id].setPosX(posX);
+}
+
+void rtype::GraphicalLib::setSpritePosY(size_t id, float posY)
+{
+    _spriteMap[id].setPosY(posY);
+}
+
+void rtype::GraphicalLib::setSpriteRotation(size_t id, float rotation)
+{
+    _spriteMap[id].setRotation(rotation);
+}
+
+void rtype::GraphicalLib::setSpriteScale(size_t id, float scale)
+{
+    _spriteMap[id].setScale(scale);
+}
+
+void rtype::GraphicalLib::setSpriteRectX(size_t id, int rectX)
+{
+    _spriteMap[id].setRectX(rectX);
+}
+
+void rtype::GraphicalLib::setSpriteRectY(size_t id, int rectY)
+{
+    _spriteMap[id].setRectY(rectY);
+}
+
+void rtype::GraphicalLib::setSpriteRectWidth(size_t id, int rectWidth)
+{
+    _spriteMap[id].setRectWidth(rectWidth);
+}
+
+void rtype::GraphicalLib::setSpriteRectHeigth(size_t id, int rectHeigth)
+{
+    _spriteMap[id].setRectHeigth(rectHeigth);
+}
+
+float rtype::GraphicalLib::getTextPosX(size_t id)
+{
+    return (_textMap[id].getPosX());
+}
+
+float rtype::GraphicalLib::getTextPosY(size_t id)
+{
+    return (_textMap[id].getPosY());
+}
+
+int rtype::GraphicalLib::getTextFontSize(size_t id)
+{
+    return (_textMap[id].getFontSize());
+}
+
+int rtype::GraphicalLib::getTextColorRed(size_t id)
+{
+    return (_textMap[id].getColorRed());
+}
+
+int rtype::GraphicalLib::getTextColorGreen(size_t id)
+{
+    return (_textMap[id].getColorGreen());
+}
+
+int rtype::GraphicalLib::getTextColorBlue(size_t id)
+{
+    return (_textMap[id].getColorBlue());
+}
+
+int rtype::GraphicalLib::getTextColorAlpha(size_t id)
+{
+    return (_textMap[id].getColorAlpha());
+}
+
+std::string rtype::GraphicalLib::getTextContent(size_t id)
+{
+    return (_textMap[id].getContent());
+}
+
+void rtype::GraphicalLib::setTextPosX(size_t id, float posX)
+{
+    _textMap[id].setPosX(posX);
+}
+
+void rtype::GraphicalLib::setTextPosY(size_t id, float posY)
+{
+    _textMap[id].setPosY(posY);
+}
+
+void rtype::GraphicalLib::setTextFontSize(size_t id, int fontSize)
+{
+    _textMap[id].setFontSize(fontSize);
+}
+
+void rtype::GraphicalLib::setTextColorRed(size_t id, int colorRed)
+{
+    _textMap[id].setColorRed(colorRed);
+}
+
+void rtype::GraphicalLib::setTextColorGreen(size_t id, int colorGreen)
+{
+    _textMap[id].setColorGreen(colorGreen);
+}
+
+void rtype::GraphicalLib::setTextColorBlue(size_t id, int colorBlue)
+{
+    _textMap[id].setColorBlue(colorBlue);
+}
+
+void rtype::GraphicalLib::setTextColorAlpha(size_t id, int colorAlpha)
+{
+    _textMap[id].setColorAlpha(colorAlpha);
+}
+
+void rtype::GraphicalLib::setTextContent(size_t id, std::string &content)
+{
+    _textMap[id].setContent(content);
 }

@@ -48,9 +48,11 @@
 
             private:
                 rtype::IGraphicalLib *_graphicalLib;
-                //std::map<rtype::constants::SCENE, bool> _isSetupNeeded;
+
                 std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &, SparseArray<components::currentScene_s> &)>> _setupScene;
                 std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &,  SparseArray<components::mouseState_s> &, SparseArray<components::keyState_s> &, SparseArray<components::currentScene_s> &)>> _execScene;
+
+                size_t _background_id;
         };
     }
 
