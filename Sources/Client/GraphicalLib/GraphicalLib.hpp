@@ -21,12 +21,12 @@
                 virtual ~GraphicalLib() = default;
 
             public:
-                void draw(size_t id) override; // for sprite
-                void print(size_t id) override; // for text
-                void start(size_t id) override; // for sound
-                void play(size_t id) override; // for music
-                void stop(size_t id) override; //for music
-                void pause(size_t id) override; //for music
+                void draw(size_t id) override;
+                void print(size_t id) override;
+                void start(size_t id) override;
+                void play(size_t id) override;
+                void stop(size_t id) override;
+                void pause(size_t id) override;
                 void refresh() override;
                 void createSound(size_t id, const std::string &path) override;
                 void createMusic(size_t id, const std::string &path) override;
@@ -92,10 +92,10 @@
 
                 float _viewX;
 
-                std::map<size_t, std::shared_ptr<Sprite>> _spriteMap; // There is an id Jules
-                std::map<size_t, std::shared_ptr<Text>> _textMap; // There is an id Jules
-                std::map<size_t, std::shared_ptr<Sound>> _soundMap; // There is an id Jules
-                std::map<size_t, std::shared_ptr<Music>> _musicMap; // There is an id Jules
+                std::map<size_t, std::shared_ptr<Sprite>> _spriteMap;
+                std::map<size_t, std::shared_ptr<Text>> _textMap;
+                std::map<size_t, std::shared_ptr<Sound>> _soundMap;
+                std::map<size_t, std::shared_ptr<Music>> _musicMap;
                 
         };
     }
