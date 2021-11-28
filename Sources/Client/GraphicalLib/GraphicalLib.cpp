@@ -80,22 +80,18 @@ void rtype::GraphicalLib::createSprite(size_t id, float scaleX, float scaleY, in
 
 void rtype::GraphicalLib::deleteSound(size_t id)
 {
-    // _soundMap.erase(id);
 }
 
 void rtype::GraphicalLib::deleteMusic(size_t id)
 {
-    // _musicMap.erase(id);
 }
 
 void rtype::GraphicalLib::deleteText(size_t id)
 {
-    // _textMap.erase(id);
 }
 
 void rtype::GraphicalLib::deleteSprite(size_t id)
 {
-    // _spriteMap.erase(id);
 }
 
 bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)
