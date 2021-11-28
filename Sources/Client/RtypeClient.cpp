@@ -73,7 +73,6 @@ void rtype::RtypeClient::_setupSystems() {
 
 void rtype::RtypeClient::_setupCurrentSceneComponent()
 {
-    // struct components::currentScene_s scene = {constants::SCENE::LOADING_MENU, false};
     _r.addComponent<components::currentScene_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::GRAPH_UPDATE), {constants::SCENE::LOADING_MENU, false});
 }
 
