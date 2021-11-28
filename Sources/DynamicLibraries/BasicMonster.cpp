@@ -3,12 +3,12 @@
 #ifdef __linux__
 	extern "C"
 	{
-		BasicMonster *allocator()
+		rtype::BasicMonster *allocator()
 		{
-			return new BasicMonster();
+			return new rtype::BasicMonster();
 		}
 
-		void deleter(BasicMonster *ptr)
+		void deleter(rtype::BasicMonster *ptr)
 		{
 			delete ptr;
 		}

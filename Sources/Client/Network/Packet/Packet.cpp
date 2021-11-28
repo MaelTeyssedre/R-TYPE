@@ -1,4 +1,4 @@
-#include "cPacket.hpp"
+#include "Packet.hpp"
 
 size_t rtype::Packet::pack(std::vector<uint8_t> &data)
 {

@@ -7,6 +7,8 @@ rtype::UpdateNetwork::UpdateNetwork(ITCPServer *server, IUDPSocket *socket)
 
 void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
 {
+    (void)r;
+    (void)networks;
     // ! Commented while debuging
   /*  (void)r;
     std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];

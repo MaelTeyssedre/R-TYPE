@@ -8,8 +8,8 @@
     #define NETWORKMANAGER_HPP_
 
     #include "INetworkManager.hpp"
-    #include "cTCPClient.hpp"
-    #include "cUDPSocket.hpp"
+    #include "TCPClient.hpp"
+    #include "UDPSocket.hpp"
     #include <asio.hpp>
     #include <thread>
 
@@ -73,7 +73,7 @@
                  *  
                  * \return ITCPClient* the client
                  */
-                ITCPClient *createTCPClient(int port);
+                ITCPClient *createTCPClient(int port) override;
 
                 /**
                  * \fn void deleteTCPClient(ITCPClient *tcp)
@@ -82,7 +82,7 @@
                  * 
                  * \param tcp client to delete
                  */
-                void deleteTCPClient(ITCPClient *tcp);
+                void deleteTCPClient(ITCPClient *tcp) override;
 
                 /**
                  * \fn IUDPSocket *createSocketUDP(int port) override

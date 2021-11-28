@@ -14,7 +14,8 @@ void rtype::Game::run() {
 
 void rtype::Game::setupGame()
 {
-    JsonWrapper wrapper(std::string("test.json"));
+    std::string wrapperFile("test.json");
+    JsonWrapper wrapper(wrapperFile);
 
     registerMapObjectsComponents();
     registerTimeComponent();

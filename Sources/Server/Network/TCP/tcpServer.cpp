@@ -55,7 +55,7 @@ std::vector<std::shared_ptr<rtype::tcpUser>> rtype::TCPServer::getUsers()
 /*
 std::queue<std::shared_ptr<rtype::Packet>> rtype::TCPServer::getRequest()
 {
- /*   for (size_t i = 0; i < _mapUser.size(); i++)
+    for (size_t i = 0; i < _mapUser.size(); i++)
     {
         rtype::Packet packetPtr;
         packetPtr.pack(_mapUser[i]->getInput());

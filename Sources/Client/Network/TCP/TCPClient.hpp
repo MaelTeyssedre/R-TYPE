@@ -7,7 +7,7 @@
 
 #ifndef TCPCLIENT_HPP_
     #include "ITCPClient.hpp"
-    #include "cPacket.hpp"
+    #include "Packet.hpp"
     #include "Logger.hpp"
     #include <asio.hpp>
     #include "Buffer.hpp"

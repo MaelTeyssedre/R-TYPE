@@ -5,7 +5,7 @@
 ** UDPSocket
 */
 
-#include "cUDPSocket.hpp"
+#include "UDPSocket.hpp"
 
 void rtype::UDPSocket::send(IPacket &data)
 {

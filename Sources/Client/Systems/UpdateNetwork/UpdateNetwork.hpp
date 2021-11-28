@@ -6,8 +6,8 @@
     #include "NetworkComponent.hpp"
     #include "Constants.hpp"
     #include "Zipper.hpp"
-    #include "cTCPClient.hpp"
-    #include "cUDPSocket.hpp"
+    #include "TCPClient.hpp"
+    #include "UDPSocket.hpp"
     #include "Buffer.hpp"
 
     namespace rtype {

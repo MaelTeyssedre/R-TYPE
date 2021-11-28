@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** SpriteComponent
-*/
 
 #ifndef SPRITECOMPONENT_HPP_
     #define SPRITECOMPONENT_HPP_

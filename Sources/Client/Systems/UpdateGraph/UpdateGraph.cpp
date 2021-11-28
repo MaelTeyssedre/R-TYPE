@@ -21,6 +21,8 @@ void rtype::UpdateGraph::operator()(Registry &r, SparseArray<components::mouseSt
 
 void rtype::UpdateGraph::_updateGraph(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes)
 {
+    (void)mouseStates;
+    (void)keyStates;
     static constants::SCENE previous_scene = constants::LOADING_MENU;
     for (size_t i = 0; i < currentScenes.size(); i++)
     {
