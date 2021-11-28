@@ -66,16 +66,6 @@
              */
             virtual void eject(size_t client) = 0;
 
-
-            // /**
-            //  * \fn std::shared_ptr<Buffer> getData()
-            //  * 
-            //  * \brief Get the Data object
-            //  * 
-            //  * \return std::shared_ptr<Buffer> 
-            //  */
-            // virtual std::shared_ptr<Buffer> getBuffer() =  0;
-
             virtual std::queue<IPacket *> getBuffer() = 0;
 
     };
