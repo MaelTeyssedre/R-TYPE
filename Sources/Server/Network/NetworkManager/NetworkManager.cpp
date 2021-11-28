@@ -3,7 +3,6 @@
 void rtype::NetworkManager::start()
 {
     _context.run();
-   // _thread = std::thread(&rtype::NetworkManager::startNetworkThread, this);
 }
 
 void rtype::NetworkManager::stop()
