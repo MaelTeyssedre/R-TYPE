@@ -29,21 +29,21 @@
                 void _setupExecScene();
                 void _setupDeleteScene();
 
-            private: // * fill _setupScene map
+            private:
                 void _setupLoadingMenuScene();
                 void _setupLoadingGameScene() {};
                 void _setupGameScene() {};
                 void _setupParamsScene() {};
                 void _setupMainMenuScene();
                 
-            private: // * fill _execScene map
+            private:
                 void _setupExecLoadingMenuScene();
                 void _setupExecLoadingGameScene() {};
                 void _setupExecGameScene() {};
                 void _setupExecParamsScene() {};
                 void _setupExecMainMenuScene();
                 
-            private: // * fill _deleteScene map
+            private:
                 void _setupDeleteLoadingMenuScene();
                 void _setupDeleteLoadingGameScene() {};
                 void _setupDeleteGameScene() {};
