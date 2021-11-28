@@ -140,13 +140,6 @@
                  */
                 virtual void setPosition(std::pair<int, int> pos);
                 
-                /**
-                 * \fn virtual rtype::position_s getPosition() const
-                 * 
-                 * \brief Get the Position object
-                 * 
-                 * \return rtype::position_s position of the monster
-                 */
                 virtual components::position_s getPosition() const;
                 
                 /**
