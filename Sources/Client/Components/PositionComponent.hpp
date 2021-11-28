@@ -10,12 +10,6 @@
     #include <iostream>
 
     namespace rtype {
-        /**
-         * \namespace components
-         * 
-         * \brief namespace for ECS components
-         * 
-         */
         namespace components {
             struct position_s {
                 float x;
