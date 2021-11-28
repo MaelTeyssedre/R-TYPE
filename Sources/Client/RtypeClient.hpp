@@ -4,13 +4,8 @@
 
     #include "Registry.hpp"
     #include "NetworkManager.hpp"
-    #include "TimeComponent.hpp"
-    #include "MouseStateComponent.hpp"
-    #include "KeyStateComponent.hpp"
-    #include "NetworkComponent.hpp"
-    #include "UpdateTime.hpp"
-    #include "UpdateNetwork.hpp"
-    #include "UpdateGraph.hpp"
+    #include "Components.hpp"
+    #include "Systems.hpp"
     #include <iostream>
 
 
@@ -19,21 +14,25 @@
             public:
                 explicit RtypeClient(std::string port, std::string host);
                 virtual ~RtypeClient() = default;
-
-            public:
-                void registerComponents();
                 void run();
 
-            public:
-                void setupTimeComponent();
-                void setupNetworkComponent();
-                void setupMouseStateComponent();
-                void setupKeyStateComponent();
+            private:
+                void _registerComponents();
+                void _setupComponents();
+                void _setupSystems();
 
-            public:
-                void setupUpdateTimeSystem();
-                void setupUpdateNetworkSystem();
-                void setupUpdateGraphSystem();
+            private:
+                void _setupTimeComponent();
+                void _setupNetworkComponent();
+                void _setupMouseStateComponent();
+                void _setupKeyStateComponent();
+
+            private:
+                void _setupUpdateTimeSystem();
+                void _setupUpdateNetworkSystem();
+                void _setupUpdateGraphSystem();
+                void _setupUpdatePositionSystem();
+                void _setupUpdateDirectionSystem();
 
             private:
                 std::string _port;
@@ -43,6 +42,7 @@
                 ITCPClient *_client;
                 IUDPSocket *_socket;
                 UpdateNetwork _networkSystem;
+                UpdateGraph _graphSystem;
         };
     }
 
