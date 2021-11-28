@@ -23,10 +23,9 @@ void rtype::UpdateGraph::_setupGraph(Registry &r)
 
 void rtype::UpdateGraph::_execGraph(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes)
 {
-    if (currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded)
-        _execScene[currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().scene](r, *this, mouseStates, keyStates, currentScenes);
-    else
+    if (!currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded)
         _setupScene[currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().scene](r, *this, currentScenes);
+    _execScene[currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().scene](r, *this, mouseStates, keyStates, currentScenes);
 }
 
 void rtype::UpdateGraph::_updateEvent(SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates)
@@ -72,7 +71,10 @@ void rtype::UpdateGraph::_setupSetupLoadingMenuScene()
                                                                     (void)graph;
                                                                     currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = true;
 
-                                                                    _graphicalLib->addSprite(rtype::constants::LOADING_MENU, _graphicalLib->createSprite(0.f, 0.f, (float)WINDOW_SIZE_X / 384, (float)WINDOW_SIZE_Y / 256, 0, 0, 384, 256, "ressources/LoadingMenu.jpg"));
+                                                                    // TODO Make components linked to Sprite
+                                                                    _background_id = (size_t)(r.spawnEntity());
+
+                                                                    _graphicalLib->createSprite(_background_id, (float)WINDOW_SIZE_X / 384, 0, 0, 384, 256, "ressources/LoadingMenu.jpg");
                                                                 });
 }
 
@@ -82,7 +84,8 @@ void rtype::UpdateGraph::_setupExecLoadingMenuScene()
                                                                {
                                                                    (void)r;
                                                                    (void)graph;
-                                                                   _graphicalLib->draw(currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().scene);
+                                                                   _graphicalLib->draw(_background_id);
                                                                    std::this_thread::sleep_for(std::chrono::seconds(5));
+
                                                                });
 }

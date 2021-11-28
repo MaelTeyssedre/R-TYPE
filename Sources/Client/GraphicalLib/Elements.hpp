@@ -26,6 +26,8 @@
          */
         class Sprite {
             public:
+                explicit Sprite() = default;
+                explicit Sprite(float posX, float posY, float rotation, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path);
                 virtual ~Sprite() = default;
 
                 float getPosX();
@@ -36,7 +38,7 @@
                 int getRectY();
                 int getRectWidth();
                 int getRectHeigth();
-
+                sf::Sprite &getSprite();
                 void setPosX(float posX);
                 void setPosY(float posY);
                 void setRotation(float rotation);
@@ -45,12 +47,10 @@
                 void setRectY(int rectY);
                 void setRectWidth(int rectWith);
                 void setRectHeigth(int rectHeigth);
-            protected:
-                friend class GraphicalLib;
+            // protected:
+            //     friend class GraphicalLib;
 
-                explicit Sprite(float posX, float posY, float rotation, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path);
-
-                sf::Sprite &getSprite();
+                
 
             private:
                 float _posX;
@@ -71,6 +71,8 @@
 
         class Text {
             public:
+                explicit Text() = default;
+                explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
                 virtual ~Text() = default;
 
                 float getPosX();
@@ -81,7 +83,7 @@
                 int getColorBlue();
                 int getColorAlpha();
                 std::string getContent();
-
+                sf::Text &getText();
                 void setPosX(float posX);
                 void setPosY(float posY);
                 void setFontSize(int fontSize);
@@ -91,12 +93,10 @@
                 void setColorAlpha(int colorAlpha);
                 void setContent(std::string &content);
 
-            protected:
-                friend class GraphicalLib;
+            // protected:
+            //     friend class GraphicalLib;
 
-                explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
-
-                sf::Text &getText();
+                
 
             private:
                 float _posX;
@@ -117,10 +117,11 @@
 
         class Sound {
             public:
+                explicit Sound() = default;
                 virtual ~Sound() = default;
 
-            protected:
-                friend class GraphicalLib;
+            // protected:
+            //     friend class GraphicalLib;
 
                 explicit Sound(std::string path);
                 
@@ -135,10 +136,11 @@
 
         class Music {
             public:
+                explicit Music() = default;
                 virtual ~Music() = default;
 
-            protected:
-                friend class GraphicalLib;
+            // protected:
+            //     friend class GraphicalLib;
 
                 explicit Music(std::string path);
 

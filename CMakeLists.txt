@@ -62,37 +62,8 @@ file(
     SOURCES_CLIENT
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateGraph/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateGraph/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateNetwork/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/Updatenetwork/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateTime/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateTime/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Components/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
 )
 
 file(
@@ -407,6 +378,24 @@ target_include_directories(
     rtype_client
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdatePosition/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateDirection/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/
 )
 
 target_include_directories(
