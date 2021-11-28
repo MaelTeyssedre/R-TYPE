@@ -8,12 +8,6 @@
     #define WEAPON_HPP_
 
     namespace rtype {
-        /**
-         * \namespace rtype
-         * 
-         * \brief global namespace for rtype project
-         * 
-         */
         namespace components {
             /**
              * \struct weapon_s
