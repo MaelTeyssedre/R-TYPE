@@ -7,7 +7,6 @@ void rtype::UDPSocket::send(IPacket &data)
 
 void rtype::UDPSocket::handleSend()
 {
-    // std::cout << "send data via udp" << std::endl;
 }
 
 void rtype::UDPSocket::receive()
@@ -23,5 +22,4 @@ void rtype::UDPSocket::receive()
                                        receive();
                                    }
                                });
-    // std::cout << _data << std::endl;
 }
