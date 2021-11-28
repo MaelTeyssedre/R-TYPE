@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** Components
-*/
 
 #ifndef COMPONENTS_HPP_
     #define COMPONENTS_HPP_
