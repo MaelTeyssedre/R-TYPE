@@ -9,6 +9,7 @@ int main(int ac, char **av)
     }
     (void)ac;
     rtype::RtypeClient the_rtype(av[1], av[2]);
-    the_rtype.run();
+    if (the_rtype.checkStatus() == true)
+        the_rtype.run();
     return 0;
 }

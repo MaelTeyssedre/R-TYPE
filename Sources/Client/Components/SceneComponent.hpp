@@ -13,7 +13,7 @@
     namespace rtype {    
         namespace components {
             struct scene_s {
-                rtype::constants::SCENE _currentScene;
+                rtype::constants::SCENE scene;
             };
         }
     }

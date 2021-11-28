@@ -61,6 +61,8 @@
              * \return std::shared_ptr<Buffer> 
              */
             virtual std::shared_ptr<Buffer> getBuffer() = 0;
+
+            virtual bool isConnected() = 0;
     };
 
 #endif /* !ITCPCLIENT_HPP_ */

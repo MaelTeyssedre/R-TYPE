@@ -101,6 +101,9 @@
                  */
                 std::shared_ptr<Buffer> getBuffer() override;
 
+
+                bool isConnected() override;
+
             private:
                 asio::io_context &_context; /*! asio context */
                 asio::ip::tcp::resolver _resolver; /*! asio resolver */
@@ -109,6 +112,7 @@
                 Packet _packet; /*! packet  */
                 std::shared_ptr<Buffer> _buffer; /*! buffer to store input */
                 char _reply[9]; /*! store reply */
+                bool _isConnected;
 
         };
     }

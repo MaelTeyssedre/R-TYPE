@@ -3,6 +3,16 @@
 #include "RoomManager.hpp"
 #include "PacketManager.hpp"
 #include "Constants.hpp"
+#include <csignal>
+
+static bool status = true;
+
+void signalHandler(int signum)
+{
+    (void)signum;
+    std::cout << "Goodbye" << std::endl;
+    status = false;
+}
 
 int main(int ac, char **av)
 {
@@ -15,7 +25,8 @@ int main(int ac, char **av)
     rtype::PacketManager packetManager(bufferOut, bufferIn);
     ITCPServer *server = netManager->createTCPServer(std::stoi(av[1]));
     netManager->start();
-    for (;;)
+    signal(SIGINT, signalHandler);
+    while (status == true)
     {
         server->receive();
         for (auto i : packetManager.getRequests())

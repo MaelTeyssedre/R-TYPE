@@ -39,7 +39,7 @@
                 virtual void createSound(size_t id, const std::string &path) = 0;
                 virtual void createMusic(size_t id, const std::string &path) = 0;
                 virtual void createText(size_t id, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath) = 0;
-                virtual void createSprite(size_t id, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path) = 0;
+                virtual void createSprite(size_t id, float scalex, float scaley, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path) = 0;
                 
                 virtual void deleteSound(size_t id) = 0;
                 virtual void deleteMusic(size_t id) = 0;
@@ -58,15 +58,18 @@
                 virtual int getSpriteRectY(size_t id) = 0;
                 virtual int getSpriteRectWidth(size_t id) = 0;
                 virtual int getSpriteRectHeigth(size_t id) = 0;
+                virtual int getSpriteColorAlpha(size_t id) = 0;
 
                 virtual void setSpritePosX(size_t id, float posX) = 0;
                 virtual void setSpritePosY(size_t id, float posY) = 0;
                 virtual void setSpriteRotation(size_t id, float rotation) = 0;
-                virtual void setSpriteScale(size_t id, float scale) = 0;
+                virtual void setSpriteScale(size_t id, float scaleX, float scaleY) = 0;
                 virtual void setSpriteRectX(size_t id, int rectX) = 0;
                 virtual void setSpriteRectY(size_t id, int rectY) = 0;
                 virtual void setSpriteRectWidth(size_t id, int rectWith) = 0;
                 virtual void setSpriteRectHeigth(size_t id, int rectHeigth) = 0;
+                virtual void setSpriteColorAlpha(size_t id, int colorAlpha) = 0;
+
 
             public:
                 virtual float getTextPosX(size_t id) = 0;

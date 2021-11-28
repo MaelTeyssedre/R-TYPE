@@ -24,7 +24,7 @@
     #endif
     
     #ifndef FRAME_RATE
-        #define FRAME_RATE 244
+        #define FRAME_RATE 10000
     #endif
     
     #ifndef WINDOW_SIZE_X
@@ -36,7 +36,7 @@
     #endif
     
     #ifndef WINDOW_NAME
-        #define WINDOW_NAME "RPR-TYPE"
+        #define WINDOW_NAME "R-TYPE"
     #endif
 
     #ifndef BUF_SIZE

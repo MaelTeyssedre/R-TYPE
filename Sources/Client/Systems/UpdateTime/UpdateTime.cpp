@@ -8,7 +8,8 @@ void rtype::UpdateTime::operator()(Registry &r, SparseArray<components::myTime_s
     //     time.deltaTime = (currentTick - lastTick);
     // }
     std::optional<components::myTime_s> &time = times[rtype::constants::RESERVED_ID::TIME_UPDATE];
-    if (time)
+    if (time) {
         time.value().deltaTime = (currentTick - lastTick);
+    }
     lastTick = currentTick;
 }

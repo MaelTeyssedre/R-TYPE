@@ -1,15 +1,17 @@
 #include "cTCPClient.hpp"
 
 rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
-    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE))
+    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false)
 {
     std::string str = "Client connected to host: ";
     asio::error_code ec;
     asio::connect(*_socket, _resolver.resolve(host, port), ec);
     if (ec) {
+        std::cout << "cant find a connection" << std::endl;
         _logger.logln("Cant find a connection");
         return;
     }
+    _isConnected = true;
     str.append(host);
     str.append(", and port: ");
     str.append(port);
@@ -68,4 +70,10 @@ void rtype::TCPClient::disconnect()
 {
     _socket->close();
     _logger.logln(std::string{"Client disconnect"});
+}
+
+
+bool rtype::TCPClient::isConnected()
+{
+    return (_isConnected);
 }

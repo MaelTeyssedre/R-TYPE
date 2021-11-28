@@ -18,6 +18,7 @@
                 std::vector<std::vector<uint8_t>> request13;
                 std::vector<std::vector<uint8_t>> request14;
                 std::vector<std::vector<uint8_t>> request15;
+                std::vector<std::vector<uint8_t>> sendRequest;
             };
         }
     }

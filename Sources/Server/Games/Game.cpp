@@ -16,7 +16,6 @@ void rtype::Game::setupGame()
 {
     JsonWrapper wrapper(std::string("test.json"));
 
-    std::cout << "In the setup game" << std::endl;
     registerMapObjectsComponents();
     registerTimeComponent();
     addTimeSystem();
@@ -77,7 +76,6 @@ void rtype::Game::sendMapRequest(JsonWrapper &wrapper)
 void rtype::Game::waitForStartingGame()
 {
     while (_roomBuffer->size() != 4) {
-        std::cout << "In waiting star game" << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }

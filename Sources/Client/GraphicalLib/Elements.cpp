@@ -1,12 +1,12 @@
 
 #include "Elements.hpp"
 
-rtype::Sprite::Sprite(float posX, float posY, float rotation, float scale, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
-    : _posX(posX), _posY(posY), _rotation(rotation), _scale(scale), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path), _texture(), _sprite()
+rtype::Sprite::Sprite(float posX, float posY, float rotation, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
+    : _posX(posX), _posY(posY), _rotation(rotation), _scaleX(scaleX), _scaleY(scaleY), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path), _texture(), _sprite()
 {
     _sprite.setPosition(sf::Vector2f(_posX, _posY));
     _sprite.setRotation(_rotation);
-    _sprite.setScale(sf::Vector2f(_scale, _scale));
+    _sprite.setScale(sf::Vector2f(_scaleX, _scaleY));
     if (!_texture.loadFromFile(_path))
         throw std::runtime_error("Fail to load texture");
     _sprite.setTexture(_texture);
@@ -30,7 +30,7 @@ float rtype::Sprite::getRotation()
 
 float rtype::Sprite::getScale()
 {
-    return _scale;
+    return _scaleX;
 }
 
 int rtype::Sprite::getRectX()
@@ -53,6 +53,11 @@ int rtype::Sprite::getRectHeigth()
     return _rectHeigth;
 }
 
+int rtype::Sprite::getColorAlpha()
+{
+    return _colorAlpha;
+}
+
 void rtype::Sprite::setPosX(float posX)
 {
     _posX = posX;
@@ -71,10 +76,16 @@ void rtype::Sprite::setRotation(float rotation)
     _sprite.setRotation(_rotation);
 }
 
-void rtype::Sprite::setScale(float scale)
+void rtype::Sprite::setScaleX(float scaleX)
 {
-    _scale = scale;
-    _sprite.setRotation(scale);
+    _scaleX = scaleX;
+    _sprite.setScale(sf::Vector2f(_scaleX, _scaleY));
+}
+
+void rtype::Sprite::setScaleY(float scaleY)
+{
+    _scaleY = scaleY;
+    _sprite.setScale(sf::Vector2f(_scaleX, _scaleY));
 }
 
 void rtype::Sprite::setRectX(int rectX)
@@ -101,10 +112,22 @@ void rtype::Sprite::setRectHeigth(int rectHeigth)
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
+void rtype::Sprite::setColorAlpha(int colorAlpha)
+{
+    _colorAlpha = colorAlpha;
+    _sprite.setColor(sf::Color(255, 255, 255, colorAlpha));
+}
+
 sf::Sprite &rtype::Sprite::getSprite()
 {
     return _sprite;
 }
+
+void rtype::Sprite::drawSprite(sf::RenderWindow *win)
+{
+    win->draw(_sprite);
+}
+
 
 rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
     : _posX(posX), _posY(posY), _fontSize(fontSize), _colorRed(colorRed), _colorGreen(colorGreen), _colorBlue(colorBlue), _colorAlpha(colorAlpha), _content(content), _fontPath(fontPath)

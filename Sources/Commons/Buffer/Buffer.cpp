@@ -35,7 +35,6 @@ void Buffer::putInBuffer(size_t size, void *data)
     {
         _byteList[_writeCursor] = castedData[i];
         _writeCursor = ((_writeCursor + 1) == _size) ? 0 : _writeCursor + 1;
-        std::cout << " byte size " << i << std::endl;
     }
 }
 
