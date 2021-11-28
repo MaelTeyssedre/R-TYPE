@@ -1,13 +1,5 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** UpdateDirection
-*/
 
 #include "UpdateDirection.hpp"
-
-// TODO rajouter le composant controllable
 
 void rtype::UpdateDirection::operator()(Registry &r, SparseArray<rtype::components::direction_s> &directions, SparseArray<rtype::components::keyState_s> &keys)
 {
