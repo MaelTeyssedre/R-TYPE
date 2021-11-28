@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** Systems
-*/
 
 #ifndef SYSTEMS_HPP_
     #define SYSTEMS_HPP_
