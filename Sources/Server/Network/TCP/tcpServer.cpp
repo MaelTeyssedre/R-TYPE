@@ -52,15 +52,28 @@ std::vector<std::shared_ptr<rtype::tcpUser>> rtype::TCPServer::getUsers()
 {
     return (_mapUser);
 }
-
-std::queue<rtype::Packet> &rtype::TCPServer::getRequest()
+/*
+std::queue<std::shared_ptr<rtype::Packet>> rtype::TCPServer::getRequest()
 {
-    for (size_t i = 0; i < _mapUser.size(); i++)
+ /*   for (size_t i = 0; i < _mapUser.size(); i++)
     {
         rtype::Packet packetPtr;
         packetPtr.pack(_mapUser[i]->getInput());
         packetPtr.setId(i);
         _buffer.push(std::move(packetPtr));
     }
-    return (_buffer);
+    return (_buffers);
+}*/
+
+std::queue<IPacket *> rtype::TCPServer::getBuffer()
+{
+    for (size_t i = 0; i < _mapUser.size(); i++)
+    {
+     //   rtype::Packet packetPtr;
+        IPacket *packetPtr = new rtype::Packet;
+        packetPtr->pack(_mapUser[i]->getInput());
+        packetPtr->setId(i);
+        _buffers.emplace(packetPtr);
+    }
+    return (_buffers);
 }

@@ -27,7 +27,34 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
-
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/PacketManager/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/PacketManager/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Games/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Games/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/*.cpp
 )
 
 file(
@@ -174,6 +201,12 @@ target_include_directories(
     rtype_client
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/
 )
 
 target_include_directories(
