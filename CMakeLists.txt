@@ -53,6 +53,8 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Games/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Server/Games/*.cpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/*.cpp
 )
 
 file(
@@ -228,6 +230,12 @@ target_include_directories(
     rtype_client
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/
 )
 
 target_include_directories(

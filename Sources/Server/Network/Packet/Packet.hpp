@@ -53,7 +53,7 @@
                 */
                 std::vector<uint8_t> unpack() override;     
 
-                void setId(size_t id);
+                void setId(size_t id) override;
 
                 size_t getId() const;
 

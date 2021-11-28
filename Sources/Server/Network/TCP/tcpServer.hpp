@@ -104,7 +104,10 @@
             
                 std::vector<std::shared_ptr<tcpUser>> getUsers();
 
-                std::queue<Packet> &getRequest();
+            
+//                std::queue<std::shared_ptr<rtype::Packet>> getRequest();
+
+                std::queue<IPacket *> getBuffer() override;
 
             private:
             
@@ -112,7 +115,7 @@
                 asio::ip::tcp::acceptor _acceptor; /*! asio acceptor */
                 std::vector<std::shared_ptr<tcpUser>> _mapUser; /*! vector of id and user */
                 int _nbUsers; /*! nb of users */
-                std::queue<Packet> _buffer;
+                std::queue<IPacket *> _buffers; /*! buffer to store input */
         };
     }
 

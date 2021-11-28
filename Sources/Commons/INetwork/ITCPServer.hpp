@@ -10,6 +10,7 @@
     #include "IPacket.hpp"
     #include "Buffer.hpp"
     #include <vector>
+    #include <queue>
 
     /**
      * \class ITCPServer.hpp
@@ -74,6 +75,9 @@
             //  * \return std::shared_ptr<Buffer> 
             //  */
             // virtual std::shared_ptr<Buffer> getBuffer() =  0;
+
+            virtual std::queue<IPacket *> getBuffer() = 0;
+
     };
 
 #endif /* !ITCPSERVER_HPP_ */

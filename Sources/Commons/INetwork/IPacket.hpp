@@ -50,6 +50,8 @@
          * \return data deserialised
          */
         virtual std::vector<uint8_t> unpack() = 0;
+
+        virtual void setId(size_t id) = 0;
   };
 
 #endif /* !IPACKET_HPP_ */

@@ -164,3 +164,8 @@ std::vector<uint8_t> rtype::Packet::unpack()
 {
     return (_rawData);
 }
+
+void rtype::Packet::setId(size_t id)
+{
+    _id = id;
+}
