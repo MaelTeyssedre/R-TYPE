@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** UpdatePosition
-*/
 
 #ifndef UPDATEPOSITION_HPP_
     #define UPDATEPOSITION_HPP_
