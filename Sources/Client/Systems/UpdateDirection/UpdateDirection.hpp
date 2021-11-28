@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** UpdateDirection
-*/
 
 #ifndef UPDATEDIRECTION_HPP_
     #define UPDATEDIRECTION_HPP_
