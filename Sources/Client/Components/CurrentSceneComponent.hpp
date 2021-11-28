@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2021
-** R-TYPE
-** File description:
-** CurrentSceneComponent
-*/
 
 #ifndef CURRENTSCENECOMPONENT_HPP_
     #define CURRENTSCENECOMPONENT_HPP_
