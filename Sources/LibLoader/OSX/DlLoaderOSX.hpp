@@ -1,11 +1,11 @@
 /**
- * \file DlLoaderUnix.hpp
+ * \file DlLoaderOSX.hpp
  *
  * \brief file DynLibs are load on linux
  */
 
-#ifndef DLLOADERUNIX_HPP_
-    #define DLLOADERUNIX_HPP_
+#ifndef DLLOADEROSX_HPP_
+    #define DLLOADEROSX_HPP_
 
     #include <iostream>
     #include <exception>
@@ -14,45 +14,45 @@
     #include "IElement.hpp"
 
     /**
-     * \class DlLoaderUnix DlLoaderUnix.hpp
+     * \class DlLoaderOSX DlLoaderOSX.hpp
      * 
-     * \brief Class that load unix .so
+     * \brief Class that load OSX .so
      */
-    class DlLoaderUnix {
+    class DlLoaderOSX {
         public:
             using allocClass = rtype::IElement*(*)();
             using deleteClass = void(*)(rtype::IElement*);
 
         public:
             /**
-             * \fn DlLoaderUnix() = default
+             * \fn DlLoaderOSX() = default
              * 
              * \brief Default ctor
              */
-            explicit DlLoaderUnix() = default;
+            explicit DlLoaderOSX() = default;
 
             /**
-             * \fn DlLoaderUnix(const DlLoaderUnix&) = default
+             * \fn DlLoaderOSX(const DlLoaderOSX&) = default
              * 
              * \brief Default copy ctor
              */
-            explicit DlLoaderUnix(const DlLoaderUnix&) = default;
+            explicit DlLoaderOSX(const DlLoaderOSX&) = default;
 
             /**
-             * \fn ~DlLoaderUnix() = default
+             * \fn ~DlLoaderOSX() = default
              * 
              * \brief Default dtor
              */
-            virtual ~DlLoaderUnix() = default;
+            virtual ~DlLoaderOSX() = default;
 
             /**
-             * \fn DlLoaderUnix& operator=(const DlLoaderUnix &other) = default
+             * \fn DlLoaderOSX& operator=(const DlLoaderOSX &other) = default
              * 
              * \brief Default operator= overload
              * 
              * \return reference tu the assigned object
              */
-            DlLoaderUnix& operator=(const DlLoaderUnix &other) = default;
+            DlLoaderOSX& operator=(const DlLoaderOSX &other) = default;
 
             /**
              * \fn void *loadLib(std::string path)
@@ -88,4 +88,5 @@
             void closeLib(void *ptr);
     };
 
-#endif /* !DLLOADERUNIX_HPP_ */
+#endif /* !DLLOADEROSX_HPP_ */
+

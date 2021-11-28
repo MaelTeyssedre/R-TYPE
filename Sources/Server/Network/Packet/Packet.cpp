@@ -1,6 +1,6 @@
 #include "Packet.hpp"
 
-size_t Packet::pack(std::vector<uint8_t> &data)
+size_t rtype::Packet::pack(std::vector<uint8_t> &data)
 {
     _packetSize = data.size();
     uint8_t opcode = data.at(0);
@@ -160,22 +160,22 @@ size_t Packet::pack(std::vector<uint8_t> &data)
     return (bytes);
 }
 
-std::vector<uint8_t> Packet::unpack()
+std::vector<uint8_t> rtype::Packet::unpack()
 {
     return (_rawData);
 }
 
-void Packet::setId(size_t id)
+void rtype::Packet::setId(size_t id)
 {
     _id = id;
 }
 
-size_t Packet::getId() const
+size_t rtype::Packet::getId() const
 {
     return (_id);
 }
 
-std::vector<uint8_t> Packet::getData()
+std::vector<uint8_t> rtype::Packet::getData()
 {
     return (_rawData);
 }

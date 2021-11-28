@@ -1,12 +1,12 @@
 #include "PacketManager.hpp"
 
-PacketManager::PacketManager(std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
+rtype::PacketManager::PacketManager(std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
 {
     _bufferIn = bufferIn;
     _bufferOut = bufferOut;
 }
 
-void PacketManager::createRoom(Packet packet)
+void rtype::PacketManager::createRoom(rtype::Packet packet)
 {
     std::vector<uint8_t> vec;
     std::string str = "Create ";
@@ -16,7 +16,7 @@ void PacketManager::createRoom(Packet packet)
     _bufferOut->putInBuffer(vec.size(), vec);
 }
 
-void PacketManager::joinRoom(Packet packet)
+void rtype::PacketManager::joinRoom(rtype::Packet packet)
 {
     std::vector<uint8_t> vec;
     std::string str = "Join ";
@@ -26,13 +26,13 @@ void PacketManager::joinRoom(Packet packet)
     _bufferOut->putInBuffer(vec.size(), vec);
 }
 
-void PacketManager::sendToClient(PlayerData &player, std::vector<uint8_t> request) {
+void rtype::PacketManager::sendToClient(rtype::PlayerData &player, std::vector<uint8_t> request) {
     player._mutexOut->lock();
     player._bufferOut->putInBuffer(request.size(), request);
     player._mutexOut->unlock();
 }
 
-void PacketManager::managePacket(Packet packet)
+void rtype::PacketManager::managePacket(rtype::Packet packet)
 {
     for (size_t i = 0; i < (*_roomList).size(); i++)
         for (size_t j = 0; j < (*_roomList)[i].size(); j++)
@@ -50,12 +50,12 @@ void PacketManager::managePacket(Packet packet)
 }
 
 
-void PacketManager::setBuffer(std::shared_ptr<Buffer> buffer)
+void rtype::PacketManager::setBuffer(std::shared_ptr<Buffer> buffer)
 {
     (void)buffer;
 }
 
-std::vector<Packet> PacketManager::getRequests()
+std::vector<rtype::Packet> rtype::PacketManager::getRequests()
 {
     return _packets;
 }

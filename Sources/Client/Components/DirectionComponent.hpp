@@ -9,17 +9,13 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        struct direction_s {
-            int x;
-            int y;
-        };
+    namespace rtype {
+        namespace components {
+            struct direction_s {
+                int x;
+                int y;
+            };
+        }
     }
 
 #endif /* !DIRECTIONCOMPONENT_HPP_ */

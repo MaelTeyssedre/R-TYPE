@@ -9,16 +9,18 @@
 
     #include "Constants.hpp"
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        struct weaponType_s {
-            rtype::constants::WEAPON_TYPE weaponType;
-        };
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct weaponType_s {
+                rtype::constants::WEAPON_TYPE weaponType;
+            };
+        }
     }
 
 #endif /* !WEAPONTYPE_HPP_ */

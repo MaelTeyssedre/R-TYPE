@@ -1,63 +1,63 @@
 #include "AMonster.hpp"
 
-void AMonster::setHealPoint(size_t healPoint)
+void rtype::AMonster::setHealPoint(size_t healPoint)
 {
     _healPoint.healPoint = healPoint;
 }
 
-rtype::healPoint_s AMonster::getHealPoint() const
+rtype::components::healPoint_s rtype::AMonster::getHealPoint() const
 {
     return (_healPoint);
 }
 
-void AMonster::setFireFrequence(size_t fireFrequence)
+void rtype::AMonster::setFireFrequence(size_t fireFrequence)
 {
     _fireFrequence.fireFrequence = fireFrequence;
 }
 
-rtype::fireFrequence_s AMonster::getFireFrequence() const
+rtype::components::fireFrequence_s rtype::AMonster::getFireFrequence() const
 {
     return (_fireFrequence);
 }
 
-void AMonster::setWeapon(size_t weapon)
+void rtype::AMonster::setWeapon(size_t weapon)
 {
     _weapon.weapon = weapon;
 }
 
-rtype::weapon_s AMonster::getWeapon() const
+rtype::components::weapon_s rtype::AMonster::getWeapon() const
 {
     return (_weapon);
 }
 
-void AMonster::setPosition(std::pair<int, int> pos)
+void rtype::AMonster::setPosition(std::pair<int, int> pos)
 {
     _position.x = pos.first;
     _position.y = pos.second;
 }
 
-rtype::position_s AMonster::getPosition() const
+rtype::components::position_s rtype::AMonster::getPosition() const
 {
     return (_position);
 }
 
-void AMonster::setVelocity(std::pair<int, int> vel)
+void rtype::AMonster::setVelocity(std::pair<int, int> vel)
 {
     _velocity.vx = vel.first;
     _velocity.vy = vel.second;
 }
 
-rtype::velocity_s AMonster::getVelocity() const
+rtype::components::velocity_s rtype::AMonster::getVelocity() const
 {
     return (_velocity);
 }
 
-void AMonster::setName(std::string &name)
+void rtype::AMonster::setName(std::string &name)
 {
     _name = name;
 }
 
-std::string AMonster::getName()
+std::string rtype::AMonster::getName()
 {
     return (_name);
 }

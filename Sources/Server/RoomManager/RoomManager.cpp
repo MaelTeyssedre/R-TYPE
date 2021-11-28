@@ -4,33 +4,33 @@
 #include "RoomManager.hpp"
 #include "Room.hpp"
 
-RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
+rtype::RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
 {
     _roomList = roomList;
     _bufferIn = bufferIn;
     _bufferOut = bufferOut;
 }
 
-RoomManager::~RoomManager()
+rtype::RoomManager::~RoomManager()
 {
     for (size_t i = 0; i != _threadList.size(); i++)
         _threadList.at(i).join();
 }
 
-void RoomManager::runRoom(size_t id)
+void rtype::RoomManager::runRoom(size_t id)
 {
     Room room(id);
     room.run();
 }
 
-void RoomManager::createRoom(std::string &packet)
+void rtype::RoomManager::createRoom(std::string &packet)
 {
     size_t pos = 0;
     size_t playerId = 0;
     std::vector<std::string> parsed;
     std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
     std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
-    std::thread room(&RoomManager::runRoom, this, _roomList->size());
+    std::thread room(&rtype::RoomManager::runRoom, this, _roomList->size());
     std::vector<PlayerData> playerData;
     std::string request = "Join ";
     while ((pos = packet.find(" ")) != std::string::npos)
@@ -47,7 +47,7 @@ void RoomManager::createRoom(std::string &packet)
     joinRoom(request);
 }
 
-std::string RoomManager::joinRoom(std::string &packet)
+std::string rtype::RoomManager::joinRoom(std::string &packet)
 {
     size_t pos = 0;
     size_t roomId = 0;
@@ -74,7 +74,7 @@ std::string RoomManager::joinRoom(std::string &packet)
     return (result);
 }
 
-void RoomManager::redirectRequest(std::vector<std::string> &packetList)
+void rtype::RoomManager::redirectRequest(std::vector<std::string> &packetList)
 {
     std::vector<uint8_t> vec;
     std::string result = "";
@@ -95,7 +95,7 @@ void RoomManager::redirectRequest(std::vector<std::string> &packetList)
         }
 }
 
-void RoomManager::manageRoom()
+void rtype::RoomManager::manageRoom()
 {
     size_t pos = 0;
     uint16_t readSize = 64;

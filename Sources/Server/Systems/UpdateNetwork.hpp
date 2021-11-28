@@ -9,16 +9,18 @@
     #include "udpSocket.hpp"
     #include "Buffer.hpp"
 
-    class UpdateNetwork {
-        public:
-            explicit UpdateNetwork() = default;
-            explicit UpdateNetwork(ITCPServer *server, IUDPSocket *socket);
-            virtual ~UpdateNetwork() = default;
-            void operator()(Registry &r, SparseArray<components::network_s> &networks);
+    namespace rtype {
+        class UpdateNetwork {
+            public:
+                explicit UpdateNetwork() = default;
+                explicit UpdateNetwork(ITCPServer *server, IUDPSocket *socket);
+                virtual ~UpdateNetwork() = default;
+                void operator()(Registry &r, SparseArray<components::network_s> &networks);
 
-        private:
-            ITCPServer *_tcpServer;
-            IUDPSocket *_socket;
-    };
+            private:
+                ITCPServer *_tcpServer;
+                IUDPSocket *_socket;
+        };
+    }
 
 #endif /* !UPDATENETWORK_HPP_ */

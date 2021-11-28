@@ -1,12 +1,12 @@
 #include "NetworkManager.hpp"
 
-void NetworkManager::start()
+void rtype::NetworkManager::start()
 {
     _context.run();
-   // _thread = std::thread(&NetworkManager::startNetworkThread, this);
+   // _thread = std::thread(&rtype::NetworkManager::startNetworkThread, this);
 }
 
-void NetworkManager::stop()
+void rtype::NetworkManager::stop()
 {
     for (std::vector<IUDPSocket *>::iterator it = _udpSockets.begin(); it != _udpSockets.end(); it++)
         _udpSockets.erase(it);
@@ -15,44 +15,44 @@ void NetworkManager::stop()
     _thread.join();
 }
 
-void NetworkManager::startNetworkThread(NetworkManager *netManager)
+void rtype::NetworkManager::startNetworkThread(NetworkManager *netManager)
 {
     netManager->_context.run();
 }
 
-ITCPServer *NetworkManager::createTCPServer(int port)
+ITCPServer *rtype::NetworkManager::createTCPServer(int port)
 {
     TCPServer *server = new TCPServer(_context, port);
     _tcpServers.push_back(server);
     return (server);
 }
 
-IUDPSocket *NetworkManager::createSocketUDP(int port)
+IUDPSocket *rtype::NetworkManager::createSocketUDP(int port)
 {
     UDPSocket *socket = new UDPSocket(_context, port);
     _udpSockets.push_back(socket);
     return (socket);
 }
 
-void NetworkManager::deleteSocketUDP(IUDPSocket *socket)
+void rtype::NetworkManager::deleteSocketUDP(IUDPSocket *socket)
 {
     auto it = std::find(_udpSockets.begin(), _udpSockets.end(), socket);
     _udpSockets.erase(it);
 }
 
-void NetworkManager::deleteTCPServer(ITCPServer *tcp)
+void rtype::NetworkManager::deleteTCPServer(ITCPServer *tcp)
 {
     auto it = std::find(_tcpServers.begin(), _tcpServers.end(), tcp);
     _tcpServers.erase(it);
 }
 
-ITCPClient *NetworkManager::createTCPClient(int port)
+ITCPClient *rtype::NetworkManager::createTCPClient(int port)
 {
     (void)port;
     return nullptr;
 }
 
-void NetworkManager::deleteTCPClient(ITCPClient *tcp)
+void rtype::NetworkManager::deleteTCPClient(ITCPClient *tcp)
 {
     (void)tcp;
 }

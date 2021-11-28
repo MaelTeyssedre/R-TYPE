@@ -20,7 +20,7 @@
                 explicit GraphicalLib();
                 virtual ~GraphicalLib() = default;
 
-                void draw() override;
+                void draw(constants::SCENE scene) override;
                 void play(Sound &sound) override;
                 void play(Music &music) override;
                 void refresh() override;
@@ -39,7 +39,6 @@
                 bool getKeyState(rtype::constants::EVENT event) override;
                 mouse_t getMouseState() override;
                 void setViewXPos(float viewXPos) override;
-                void setCurrentScene(constants::SCENE scene) override;
 
             private:
 
@@ -47,8 +46,6 @@
                 std::vector<std::pair<constants::SCENE, std::shared_ptr<Text>>> _texts;
                 std::vector<std::pair<constants::SCENE, std::shared_ptr<Sound>>> _sounds;
                 std::vector<std::pair<constants::SCENE, std::shared_ptr<Music>>> _musics;
-
-                constants::SCENE _currentScene;
 
                 sf::RenderWindow _renderWindow;
                 sf::Mouse _mouse;

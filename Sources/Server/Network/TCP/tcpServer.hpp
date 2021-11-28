@@ -15,104 +15,106 @@
     #include <map>
     #include <queue>
 
-    /**
-     * \class Packet Packet.hpp 
-     * 
-     * \brief class that containt tcp server
-     */
-    class TCPServer : public ITCPServer {
+    namespace rtype {
+        /**
+         * \class Packet Packet.hpp 
+         * 
+         * \brief class that containt tcp server
+         */
+        class TCPServer : public ITCPServer {
 
-        public:
+            public:
 
-            /**
-             * \fn explicitTCPServer() = default
-             * 
-             * \brief ctor TCP server
-             */
-            explicit TCPServer() = default;
+                /**
+                 * \fn explicitTCPServer() = default
+                 * 
+                 * \brief ctor TCP server
+                 */
+                explicit TCPServer() = default;
 
-            /**
-             * \fn explicit TCPServer(asio::io_context &context, std::uint16_t port)
-             * 
-             * \brief ctor TCP server
-             * 
-             * \param asio context
-             * 
-             * \param port to use
-             * 
-             */
-            explicit TCPServer(asio::io_context &context, std::uint16_t port);
+                /**
+                 * \fn explicit TCPServer(asio::io_context &context, std::uint16_t port)
+                 * 
+                 * \brief ctor TCP server
+                 * 
+                 * \param asio context
+                 * 
+                 * \param port to use
+                 * 
+                 */
+                explicit TCPServer(asio::io_context &context, std::uint16_t port);
 
-            /**
-             * \fn virtual ~TCPServer() = default
-             * 
-             * \brief dtor TCP server
-             */
-            virtual ~TCPServer() = default;
+                /**
+                 * \fn virtual ~TCPServer() = default
+                 * 
+                 * \brief dtor TCP server
+                 */
+                virtual ~TCPServer() = default;
 
-            /**
-             * \fn  void send(size_t target, IPacket &data)
-             * 
-             * \brief send data to a user
-             * 
-             * \param target to send data
-             * 
-             * \param data data to send
-             */
-            void send(size_t target, IPacket &data) override;
+                /**
+                 * \fn  void send(size_t target, IPacket &data)
+                 * 
+                 * \brief send data to a user
+                 * 
+                 * \param target to send data
+                 * 
+                 * \param data data to send
+                 */
+                void send(size_t target, IPacket &data) override;
+                
+                /**
+                 * \fn void send(std::vector<size_t> targets, IPacket &data)
+                 * 
+                 * \brief send data to a user list
+                 * 
+                 * \param target list of user to send data
+                 * 
+                 * \param data data to send
+                 */
+                void send(std::vector<size_t> targets, IPacket &data) override;
+                
+                /**
+                 * \fn std::vector<uint8_t> receive()
+                 * 
+                 * \brief receive data
+                 * 
+                 * \return data received
+                 * 
+                 */
+                void receive() override;
+                
+                /**
+                 * \fn  void eject(size_t client)
+                 * 
+                 * \brief eject client
+                 * 
+                 * \param client client to eject
+                 * 
+                 */
+                void eject(size_t client) override;
+
+                /**
+                 * \fn void startAccept();
+                 * 
+                 * \brief start accepting client
+                 * 
+                 */ 
+                void startAccept();
+
             
-            /**
-             * \fn void send(std::vector<size_t> targets, IPacket &data)
-             * 
-             * \brief send data to a user list
-             * 
-             * \param target list of user to send data
-             * 
-             * \param data data to send
-             */
-            void send(std::vector<size_t> targets, IPacket &data) override;
+                std::vector<std::shared_ptr<tcpUser>> getUsers();
+
+                std::queue<Packet> &getRequest();
+
+            private:
             
-            /**
-             * \fn std::vector<uint8_t> receive()
-             * 
-             * \brief receive data
-             * 
-             * \return data received
-             * 
-             */
-            void receive() override;
-            
-            /**
-             * \fn  void eject(size_t client)
-             * 
-             * \brief eject client
-             * 
-             * \param client client to eject
-             * 
-             */
-            void eject(size_t client) override;
-
-            /**
-             * \fn void startAccept();
-             * 
-             * \brief start accepting client
-             * 
-             */ 
-            void startAccept();
-
-           
-            std::vector<std::shared_ptr<tcpUser>> getUsers();
-
-            std::queue<Packet> &getRequest();
-
-        private:
-        
-            asio::io_context &_context; /*! asio context */
-            asio::ip::tcp::acceptor _acceptor; /*! asio acceptor */
-            std::vector<std::shared_ptr<tcpUser>> _mapUser; /*! vector of id and user */
-            int _nbUsers; /*! nb of users */
-            std::queue<Packet> _buffer;
-    };
+                asio::io_context &_context; /*! asio context */
+                asio::ip::tcp::acceptor _acceptor; /*! asio acceptor */
+                std::vector<std::shared_ptr<tcpUser>> _mapUser; /*! vector of id and user */
+                int _nbUsers; /*! nb of users */
+                std::queue<Packet> _buffer;
+        };
+    }
 
 #endif /* !TCPSERVER_HPP_ */
 

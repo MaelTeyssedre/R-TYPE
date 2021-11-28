@@ -1,6 +1,6 @@
 #include "LibLoader.hpp"
 
-LibLoader::LibLoader()
+rtype::LibLoader::LibLoader()
 {
     #ifdef _WIN32
         _dlLoaderWindows = DlLoaderWindows();
@@ -10,7 +10,7 @@ LibLoader::LibLoader()
     #endif
 }
 
-LibLoader::LibLoader(const LibLoader &other)
+rtype::LibLoader::LibLoader(const LibLoader &other)
 {
     _libs = other._libs;
     _libsfiles = other._libsfiles;
@@ -24,7 +24,7 @@ LibLoader::LibLoader(const LibLoader &other)
     #endif
 }
 
-LibLoader::~LibLoader() {
+rtype::LibLoader::~LibLoader() {
     #ifdef __linux__
         for (void *ptr : _libsPtrUnix)
             _dlLoaderUnix.closeLib(ptr);
@@ -35,20 +35,20 @@ LibLoader::~LibLoader() {
     #endif
 }
 
-std::vector<std::shared_ptr<AMonster>> *LibLoader::getLibs() {
+std::vector<std::shared_ptr<rtype::AMonster>> *rtype::LibLoader::getLibs() {
     return &_libs;
 }
 
-void LibLoader::loadLib() {
+void rtype::LibLoader::loadLib() {
     try {
         for (size_t i = _libs.size(); i < _libsfiles.size(); i++) {
             #ifdef __linux__
                 _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(_libsfiles[i]));
-                _libs.push_back(std::shared_ptr<AMonster>((AMonster*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])()));
+                _libs.push_back(std::shared_ptr<rtype::AMonster>((rtype::AMonster*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])()));
             #endif
             #ifdef _WIN32
                 _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(_libsfiles[i]));
-                _libs.push_back(std::shared_ptr<AMonster>(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])()));
+                _libs.push_back(std::shared_ptr<rtype::AMonster>(_dlLoaderWindows.loadFunc(std::string("allocator"), _libsPtrWindows[i])()));
             #endif
         }
     } catch (const std::runtime_error &e) {
@@ -56,7 +56,7 @@ void LibLoader::loadLib() {
     }
 }
 
-void LibLoader::listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad) {
+void rtype::LibLoader::listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad) {
     for (size_t i = 0; i < toLoad.size(); i++) {
         #ifdef WIN32
             _libsfiles.push_back(path + toLoad[i] + ".dll");
@@ -67,7 +67,7 @@ void LibLoader::listLibDirectory(const std::string &path, const std::vector<std:
     }
 }
 
-void LibLoader::loadLibs(const std::vector<std::string> &toLoad)
+void rtype::LibLoader::loadLibs(const std::vector<std::string> &toLoad)
 {
     listLibDirectory(LIBS_PATH, toLoad);
     loadLib();

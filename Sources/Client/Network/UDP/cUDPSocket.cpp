@@ -7,17 +7,17 @@
 
 #include "cUDPSocket.hpp"
 
-void UDPSocket::send(IPacket &data)
+void rtype::UDPSocket::send(IPacket &data)
 {
-    _socket.async_send_to(asio::buffer(data.unpack()), _endpoint, std::bind(&UDPSocket::handleSend, this));
+    _socket.async_send_to(asio::buffer(data.unpack()), _endpoint, std::bind(&rtype::UDPSocket::handleSend, this));
 }
 
-void UDPSocket::handleSend()
+void rtype::UDPSocket::handleSend()
 {
     _logger.logln(std::string{"UDP client send data"});
 }
 
-void UDPSocket::receive()
+void rtype::UDPSocket::receive()
 {
     std::cout << "udp receive" << std::endl;
     _socket.async_receive_from(asio::buffer(_data, 9), _endpoint, [this](std::error_code ec, std::size_t bytes)

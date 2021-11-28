@@ -1,6 +1,6 @@
 #include "PlayerData.hpp"
 
-size_t PlayerData::getId(void) const
+size_t rtype::PlayerData::getId(void) const
 {
     return (_id);
 }

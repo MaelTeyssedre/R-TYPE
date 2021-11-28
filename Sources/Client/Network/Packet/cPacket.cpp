@@ -1,6 +1,6 @@
 #include "cPacket.hpp"
 
-size_t Packet::pack(std::vector<uint8_t> &data)
+size_t rtype::Packet::pack(std::vector<uint8_t> &data)
 {
     _packetSize = data.size();
     uint8_t opcode = data.at(0);
@@ -160,7 +160,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
     return (bytes);
 }
 
-std::vector<uint8_t> Packet::unpack()
+std::vector<uint8_t> rtype::Packet::unpack()
 {
     return (_rawData);
 }

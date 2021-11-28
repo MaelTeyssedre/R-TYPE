@@ -1,34 +1,34 @@
 #include "NetworkManager.hpp"
 
-ITCPServer *NetworkManager::createTCPServer(int port)
+ITCPServer *rtype::NetworkManager::createTCPServer(int port)
 {
     (void)port;
     return nullptr;
 }
 
-void NetworkManager::deleteTCPServer(ITCPServer *tcp)
+void rtype::NetworkManager::deleteTCPServer(ITCPServer *tcp)
 {
     (void)tcp;
 }
 
-void NetworkManager::start()
+void rtype::NetworkManager::start()
 {
-    _thread = std::thread(&NetworkManager::startNetworkThread, this);
+    _thread = std::thread(&rtype::NetworkManager::startNetworkThread, this);
 }
 
-void NetworkManager::stop()
+void rtype::NetworkManager::stop()
 {
     for (std::vector<ITCPClient *>::iterator it = _tcpClients.begin(); it != _tcpClients.end(); it++)
         _tcpClients.erase(it);
     _thread.join();
 }
 
-void NetworkManager::startNetworkThread(NetworkManager *netManager)
+void rtype::NetworkManager::startNetworkThread(NetworkManager *netManager)
 {
     netManager->_context.run();
 }
 
-ITCPClient *NetworkManager::createTCPClient(int port)
+ITCPClient *rtype::NetworkManager::createTCPClient(int port)
 {
     auto sock = std::make_shared<asio::ip::tcp::socket>(_context);
     ITCPClient *server = new TCPClient(_context, sock, "127.0.0.1", std::to_string(port));
@@ -36,12 +36,12 @@ ITCPClient *NetworkManager::createTCPClient(int port)
     return server;
 }
 
-void NetworkManager::deleteTCPClient(ITCPClient *client)
+void rtype::NetworkManager::deleteTCPClient(ITCPClient *client)
 {
     (void)client;
 }
 
-IUDPSocket *NetworkManager::createSocketUDP(int port)
+IUDPSocket *rtype::NetworkManager::createSocketUDP(int port)
 {
     auto sock = std::make_shared<asio::ip::udp::socket>(_context);
     IUDPSocket *server = new UDPSocket(this->_context, "127.0.0.1", std::to_string(port));
@@ -49,7 +49,7 @@ IUDPSocket *NetworkManager::createSocketUDP(int port)
     return server;
 }
 
-void NetworkManager::deleteSocketUDP(IUDPSocket *socket)
+void rtype::NetworkManager::deleteSocketUDP(IUDPSocket *socket)
 {
     (void)socket;
 }

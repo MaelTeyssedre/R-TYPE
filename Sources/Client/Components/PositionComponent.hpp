@@ -9,17 +9,19 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        struct position_s {
-            float x;
-            float y;
-        };
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct position_s {
+                float x;
+                float y;
+            };
+        }
     }
 
 #endif /* !POSITIONCOMPONENT_HPP_ */

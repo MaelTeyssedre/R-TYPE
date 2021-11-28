@@ -2,19 +2,19 @@
 #include "GraphicalLib.hpp"
 
 rtype::GraphicalLib::GraphicalLib()
-    : _sprites(), _texts(), _sounds(), _musics(), _currentScene(rtype::constants::LOADING_MENU), _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _viewX(WINDOW_SIZE_X / 2)
+    : _sprites(), _texts(), _sounds(), _musics(), _renderWindow (sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), WINDOW_NAME), _mouse(), _viewX(WINDOW_SIZE_X / 2)
 {
     _renderWindow.setFramerateLimit(FRAME_RATE);
     _renderWindow.setView(_view);
 }
 
-void rtype::GraphicalLib::draw()
+void rtype::GraphicalLib::draw(constants::SCENE scene)
 {
     for (const auto &it : _sprites)
-        if (it.first == _currentScene)
+        if (it.first == scene)
             _renderWindow.draw(it.second->getSprite());
     for (const auto &it : _texts)
-        if (it.first == _currentScene)
+        if (it.first == scene)
             _renderWindow.draw(it.second->getText());
 }
 
@@ -129,9 +129,4 @@ void rtype::GraphicalLib::setViewXPos(float viewXPos)
 {
     _viewX = viewXPos;
     _view.setCenter(sf::Vector2f(_viewX, VIEW_Y));
-}
-
-void rtype::GraphicalLib::setCurrentScene(rtype::constants::SCENE scene)
-{
-    _currentScene = scene;
 }

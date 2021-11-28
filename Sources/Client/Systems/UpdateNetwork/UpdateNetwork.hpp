@@ -10,16 +10,18 @@
     #include "cUDPSocket.hpp"
     #include "Buffer.hpp"
 
-    class UpdateNetwork {
-        public:
-            explicit UpdateNetwork() = default;
-            explicit UpdateNetwork(ITCPClient *client, IUDPSocket *socket);
-            virtual ~UpdateNetwork() = default;
-            void operator()(Registry &r, SparseArray<components::network_s> &networks);
+    namespace rtype {
+        class UpdateNetwork {
+            public:
+                explicit UpdateNetwork() = default;
+                explicit UpdateNetwork(ITCPClient *client, IUDPSocket *socket);
+                virtual ~UpdateNetwork() = default;
+                void operator()(Registry &r, SparseArray<components::network_s> &networks);
 
-        private:
-            ITCPClient *_tcpClient;
-            IUDPSocket *_socket;
-    };
+            private:
+                ITCPClient *_tcpClient;
+                IUDPSocket *_socket;
+        };
+    }
 
 #endif /* !UPDATENETWORK_HPP_ */

@@ -14,34 +14,36 @@
     #include <iostream>
 
 
-    class RtypeClient {
-        public:
-            explicit RtypeClient(std::string port, std::string host);
-            virtual ~RtypeClient() = default;
+    namespace rtype {
+        class RtypeClient {
+            public:
+                explicit RtypeClient(std::string port, std::string host);
+                virtual ~RtypeClient() = default;
 
-        public:
-            void registerComponents();
-            void run();
+            public:
+                void registerComponents();
+                void run();
 
-        public:
-            void setupTimeComponent();
-            void setupNetworkComponent();
-            void setupMouseStateComponent();
-            void setupKeyStateComponent();
+            public:
+                void setupTimeComponent();
+                void setupNetworkComponent();
+                void setupMouseStateComponent();
+                void setupKeyStateComponent();
 
-        public:
-            void setupUpdateTimeSystem();
-            void setupUpdateNetworkSystem();
-            void setupUpdateGraphSystem();
+            public:
+                void setupUpdateTimeSystem();
+                void setupUpdateNetworkSystem();
+                void setupUpdateGraphSystem();
 
-        private:
-            std::string _port;
-            std::string _host;
-            Registry _r;
-            NetworkManager _netManager;
-            ITCPClient *_client;
-            IUDPSocket *_socket;
-            UpdateNetwork _networkSystem;
-    };
+            private:
+                std::string _port;
+                std::string _host;
+                Registry _r;
+                NetworkManager _netManager;
+                ITCPClient *_client;
+                IUDPSocket *_socket;
+                UpdateNetwork _networkSystem;
+        };
+    }
 
 #endif /* !RTYPECLIENT_HPP_ */

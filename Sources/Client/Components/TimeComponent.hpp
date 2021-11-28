@@ -9,16 +9,18 @@
 
     #include <chrono>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        struct myTime_s {
-            std::chrono::nanoseconds deltaTime;
-        };
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct myTime_s {
+                std::chrono::nanoseconds deltaTime;
+            };
+        }
     }
 
 #endif /* !TIMECOMPONENT_HPP_ */

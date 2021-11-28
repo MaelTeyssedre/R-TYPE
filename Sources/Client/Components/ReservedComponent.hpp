@@ -9,16 +9,18 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        struct reserved_s {
-            bool reserved;
-        };
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct reserved_s {
+                bool reserved;
+            };
+        }
     }
 
 #endif /* !RESERVEDCOMPONENT_HPP_ */

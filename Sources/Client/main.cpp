@@ -8,7 +8,7 @@ int main(int ac, char **av)
         return 0;
     }
     (void)ac;
-    RtypeClient rtype(av[1], av[2]);
-    rtype.run();
+    rtype::RtypeClient the_rtype(av[1], av[2]);
+    the_rtype.run();
     return 0;
 }

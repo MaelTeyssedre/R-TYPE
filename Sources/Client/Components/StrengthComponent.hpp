@@ -9,16 +9,18 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        struct strength_s {
-            size_t strength;
-        };
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct strength_s {
+                size_t strength;
+            };
+        }
     }
 
 #endif /* !STRENGTHCOMPONENT_HPP_ */

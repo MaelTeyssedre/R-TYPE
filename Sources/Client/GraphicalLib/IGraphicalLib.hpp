@@ -27,7 +27,7 @@
             public:
                 virtual ~IGraphicalLib() = default;
 
-                virtual void draw() = 0;
+                virtual void draw(constants::SCENE scene) = 0;
                 virtual void play(Sound &sound) = 0;
                 virtual void play(Music &music) = 0;
                 virtual void refresh() = 0;
@@ -46,7 +46,6 @@
                 virtual bool getKeyState(rtype::constants::EVENT event) = 0;
                 virtual mouse_t getMouseState() = 0;
                 virtual void setViewXPos(float viewXPos) = 0;
-                virtual void setCurrentScene(constants::SCENE scene) = 0;
         };
     }
 
