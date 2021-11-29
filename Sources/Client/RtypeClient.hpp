@@ -16,9 +16,6 @@
 
 
     namespace rtype {
-
-
-
         class RtypeClient {
             public:
                 explicit RtypeClient(std::string port, std::string host);

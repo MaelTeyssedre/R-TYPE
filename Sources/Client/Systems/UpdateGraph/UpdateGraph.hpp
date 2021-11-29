@@ -54,8 +54,8 @@
                 rtype::IGraphicalLib *_graphicalLib;
 
                 std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &, SparseArray<components::currentScene_s> &)>> _setupScene;
-                std::map<rtype::constants::SCENE, std::function<void(Registry &r, UpdateGraph &graph, SparseArray<components::currentScene_s> &currentScenes, GraphicalLib *lib)>> _execScene;
-                std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &, GraphicalLib *lib)>> _deleteScene;
+                std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &, SparseArray<components::currentScene_s> &currentScenes, GraphicalLib *lib)>> _execScene;
+                std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &, GraphicalLib *)>> _deleteScene;
 
 
                 size_t _background_id;

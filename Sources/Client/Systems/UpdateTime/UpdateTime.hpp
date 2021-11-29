@@ -11,7 +11,7 @@
     #include <chrono>
     #include "Constants.hpp"
     #include "Zipper.hpp"
-    #include "TimeComponent.hpp"
+    #include "Components.hpp"
 
     namespace rtype {
         /**
@@ -34,7 +34,7 @@
                  * \brief dtor UpdateTime
                  */
                 virtual ~UpdateTime() = default;
-                void operator()(Registry &r, SparseArray<components::myTime_s> &times);
+                void operator()(Registry &r, SparseArray<rtype::components::myTime_s> &times);
             private:
                 std::chrono::nanoseconds _currentDeltaTime; /*! The current delta time*/
         };
