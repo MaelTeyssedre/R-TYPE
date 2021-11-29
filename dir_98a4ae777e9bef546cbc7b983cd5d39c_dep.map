@@ -1,9 +1,6 @@
 <map id="Sources/Server/Network/UDP" name="Sources/Server/Network/UDP">
-<area shape="rect" id="node1" href="dir_003a664f54e68b9af9d53d22532e3ced.html" title="Packet" alt="" coords="27,148,99,196"/>
-<area shape="rect" id="node3" href="dir_72d443fabe260bb309a496666b2a443a.html" title="Commons" alt="" coords="58,244,139,292"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000029_000011.html" title="1" alt="" coords="87,217,95,231"/>
-<area shape="rect" id="node2" href="dir_98a4ae777e9bef546cbc7b983cd5d39c.html" title="UDP" alt="" coords="27,52,99,100"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000031_000029.html" title="1" alt="" coords="67,122,75,137"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000031_000011.html" title="1" alt="" coords="115,221,123,236"/>
-<area shape="rect" id="clust1" href="dir_e703557a38ca0ccb50563e7ffaa38785.html" title="Network" alt="" coords="16,16,109,207"/>
+<area shape="rect" id="node1" href="dir_98a4ae777e9bef546cbc7b983cd5d39c.html" title="UDP" alt="" coords="27,52,99,100"/>
+<area shape="rect" id="node2" href="dir_72d443fabe260bb309a496666b2a443a.html" title="Commons" alt="" coords="22,148,103,196"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000014_000023.html" title="1" alt="" coords="67,122,75,137"/>
+<area shape="rect" id="clust1" href="dir_e703557a38ca0ccb50563e7ffaa38785.html" title="Network" alt="" coords="16,16,109,111"/>
 </map>

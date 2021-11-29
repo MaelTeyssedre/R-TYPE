@@ -1,0 +1,12 @@
+<map id="rtype::BasicMonster" name="rtype::BasicMonster">
+<area shape="rect" id="node1" title="Class that contain a monster in a .so/.dll." alt="" coords="437,224,573,251"/>
+<area shape="rect" id="node2" href="$classrtype_1_1_a_monster.html" title="Abstract class for every type of monsters." alt="" coords="276,224,388,251"/>
+<area shape="rect" id="node3" href="$classrtype_1_1_i_element.html" title="Interface for dynlibs." alt="" coords="19,5,125,32"/>
+<area shape="rect" id="node4" href="$structrtype_1_1components_1_1velocity__s.html" title="velocity component" alt="" coords="5,57,139,98"/>
+<area shape="rect" id="node5" href="$structrtype_1_1components_1_1loot__s.html" title="loot component" alt="" coords="5,122,139,163"/>
+<area shape="rect" id="node6" href="$structrtype_1_1components_1_1fire_frequence__s.html" title="fireFrequence component" alt="" coords="5,187,139,229"/>
+<area shape="rect" id="node7" href="$class_registry.html" title="declaration of class registry to avoid circular includes..." alt="" coords="37,253,107,280"/>
+<area shape="rect" id="node8" href="$structrtype_1_1components_1_1position__s.html" title="position component" alt="" coords="5,305,139,346"/>
+<area shape="rect" id="node9" href="$structrtype_1_1components_1_1weapon__s.html" title="weapon component" alt="" coords="5,370,139,411"/>
+<area shape="rect" id="node10" href="$structrtype_1_1components_1_1heal_point__s.html" title="healPoint component" alt="" coords="5,435,139,477"/>
+</map>

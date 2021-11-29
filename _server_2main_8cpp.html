@@ -59,50 +59,54 @@ $(document).ready(function(){initNavTree('_server_2main_8cpp.html',''); initResi
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
-<code>#include &lt;asio/ts/buffer.hpp&gt;</code><br />
-<code>#include &lt;asio/ts/internet.hpp&gt;</code><br />
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;NetworkManager.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="_room_manager_8hpp_source.html">RoomManager.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_packet_manager_8hpp_source.html">PacketManager.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_server_2_constants_8hpp_source.html">Constants.hpp</a>&quot;</code><br />
+<code>#include &lt;csignal&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_server_2main_8cpp__incl.png" border="0" usemap="#a_sources_2_server_2main_8cpp" alt=""/></div>
 <map name="a_sources_2_server_2main_8cpp" id="a_sources_2_server_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="178,5,346,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,65,107"/>
-<area shape="rect" title=" " alt="" coords="90,80,162,107"/>
-<area shape="rect" title=" " alt="" coords="187,80,255,107"/>
-<area shape="rect" title=" " alt="" coords="279,80,331,107"/>
-<area shape="rect" title=" " alt="" coords="355,80,476,107"/>
-<area shape="rect" title=" " alt="" coords="500,80,632,107"/>
+<area shape="rect" title=" " alt="" coords="454,5,622,32"/>
+<area shape="rect" title=" " alt="" coords="60,304,132,331"/>
+<area shape="rect" title=" " alt="" coords="546,80,692,107"/>
+<area shape="rect" href="_room_manager_8hpp.html" title="file where RoomManager class is defined" alt="" coords="391,80,522,107"/>
+<area shape="rect" href="_packet_manager_8hpp.html" title="file where PacketManager class is defined" alt="" coords="154,80,292,107"/>
+<area shape="rect" href="_server_2_constants_8hpp.html" title="file where constants are stocked" alt="" coords="716,80,821,107"/>
+<area shape="rect" title=" " alt="" coords="845,80,908,107"/>
+<area shape="rect" title=" " alt="" coords="516,304,570,331"/>
+<area shape="rect" title=" " alt="" coords="514,155,572,181"/>
+<area shape="rect" title=" " alt="" coords="264,304,323,331"/>
+<area shape="rect" title=" " alt="" coords="500,229,557,256"/>
+<area shape="rect" title=" " alt="" coords="342,229,410,256"/>
+<area shape="rect" title=" " alt="" coords="748,155,799,181"/>
+<area shape="rect" title=" " alt="" coords="423,155,490,181"/>
+<area shape="rect" href="_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="171,229,251,256"/>
+<area shape="rect" href="_player_data_8hpp.html" title="file where the PlayerData class is defined" alt="" coords="239,155,348,181"/>
+<area shape="rect" title=" " alt="" coords="26,155,113,181"/>
 </map>
 </div>
 </div>
 <p><a href="_server_2main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsession.html">session</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver.html">server</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_server_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee3282bc313e547dbbb8d4f4010db61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_server_2main_8cpp.html#a8ee3282bc313e547dbbb8d4f4010db61">signalHandler</a> (int signum)</td></tr>
+<tr class="separator:a8ee3282bc313e547dbbb8d4f4010db61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c99d968a34e803d378692bde2e3f18f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_server_2main_8cpp.html#a0c99d968a34e803d378692bde2e3f18f">main</a> (int ac, char **av)</td></tr>
+<tr class="separator:a0c99d968a34e803d378692bde2e3f18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+<a id="a0c99d968a34e803d378692bde2e3f18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c99d968a34e803d378692bde2e3f18f">&#9670;&nbsp;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,13 +115,13 @@ Functions</h2></td></tr>
           <td class="memname">int main </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
+          <td class="paramname"><em>ac</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>av</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -127,7 +131,27 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_server_2main_8cpp_source.html#l00086">86</a> of file <a class="el" href="_server_2main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_2main_8cpp_source.html#l00017">17</a> of file <a class="el" href="_server_2main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8ee3282bc313e547dbbb8d4f4010db61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee3282bc313e547dbbb8d4f4010db61">&#9670;&nbsp;</a></span>signalHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void signalHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>signum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_server_2main_8cpp_source.html#l00010">10</a> of file <a class="el" href="_server_2main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>

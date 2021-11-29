@@ -1,0 +1,5 @@
+<map id="rtype::AMonster" name="rtype::AMonster">
+<area shape="rect" id="node1" title="Abstract class for every type of monsters." alt="" coords="17,80,129,107"/>
+<area shape="rect" id="node3" href="$classrtype_1_1_basic_monster.html" title="Class that contain a monster in a .so/.dll." alt="" coords="5,155,141,181"/>
+<area shape="rect" id="node2" href="$classrtype_1_1_i_element.html" title="Interface for dynlibs." alt="" coords="20,5,127,32"/>
+</map>

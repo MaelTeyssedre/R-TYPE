@@ -1,10 +1,12 @@
 <map id="Sources/Client/GraphicalLib/IGraphicalLib.hpp" name="Sources/Client/GraphicalLib/IGraphicalLib.hpp">
-<area shape="rect" id="node1" title="file where the graphical lib interface is defined" alt="" coords="114,5,281,47"/>
-<area shape="rect" id="node2" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="114,95,281,136"/>
-<area shape="rect" id="node3" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="19,184,186,225"/>
-<area shape="rect" id="node4" href="$_update_graph_8hpp.html" title="file where the update graph system is defined" alt="" coords="211,184,373,225"/>
-<area shape="rect" id="node5" href="$_rtype_client_8hpp.html" title="file where the r&#45;type&#45;client is defined" alt="" coords="89,281,290,307"/>
-<area shape="rect" id="node8" href="$_update_graph_8cpp.html" title=" " alt="" coords="315,273,477,315"/>
-<area shape="rect" id="node6" href="$_client_2main_8cpp.html" title=" " alt="" coords="5,363,168,389"/>
-<area shape="rect" id="node7" href="$_rtype_client_8cpp.html" title=" " alt="" coords="193,363,394,389"/>
+<area shape="rect" id="node1" title="file where the graphical lib interface is defined" alt="" coords="217,5,384,47"/>
+<area shape="rect" id="node2" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="217,95,384,136"/>
+<area shape="rect" id="node3" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="5,184,172,225"/>
+<area shape="rect" id="node4" href="$_update_graph_2_update_graph_8hpp.html" title=" " alt="" coords="197,184,405,225"/>
+<area shape="rect" id="node6" href="$_update_graph_8hpp.html" title="file where the update graph system is defined" alt="" coords="429,184,591,225"/>
+<area shape="rect" id="node5" href="$_update_graph_8cpp.html" title=" " alt="" coords="197,273,405,315"/>
+<area shape="rect" id="node7" href="$_systems_8hpp.html" title=" " alt="" coords="429,273,591,315"/>
+<area shape="rect" id="node8" href="$_rtype_client_8hpp.html" title="file where the r&#45;type&#45;client is defined" alt="" coords="409,363,611,389"/>
+<area shape="rect" id="node9" href="$_client_2main_8cpp.html" title=" " alt="" coords="326,437,489,464"/>
+<area shape="rect" id="node10" href="$_rtype_client_8cpp.html" title=" " alt="" coords="513,437,715,464"/>
 </map>

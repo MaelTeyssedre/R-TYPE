@@ -68,123 +68,125 @@ $(document).ready(function(){initNavTree('_room_manager_8cpp_source.html',''); i
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_room_manager_8hpp.html">RoomManager.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_room_8hpp.html">Room.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_room_manager.html#a655628802d0f538636d3010a3acb7555">    7</a></span>&#160;<a class="code" href="class_room_manager.html#a655628802d0f538636d3010a3acb7555">RoomManager::RoomManager</a>(std::shared_ptr&lt;std::vector&lt;std::vector&lt;PlayerData&gt;&gt;&gt; roomList, std::shared_ptr&lt;Buffer&gt; bufferIn, std::shared_ptr&lt;Buffer&gt; bufferOut)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#a34c6cbcd2f28cc9739513530a11bbaee">    7</a></span>&#160;<a class="code" href="classrtype_1_1_room_manager.html#a34c6cbcd2f28cc9739513530a11bbaee">rtype::RoomManager::RoomManager</a>(std::shared_ptr&lt;std::vector&lt;std::vector&lt;PlayerData&gt;&gt;&gt; roomList, std::shared_ptr&lt;Buffer&gt; bufferIn, std::shared_ptr&lt;Buffer&gt; bufferOut)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    _roomList = roomList;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    _bufferIn = bufferIn;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    _bufferOut = bufferOut;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_room_manager.html#a8f3db547e6f1d5fddbf7e4c7e09e29b9">   14</a></span>&#160;<a class="code" href="class_room_manager.html#a8f3db547e6f1d5fddbf7e4c7e09e29b9">RoomManager::~RoomManager</a>()</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#ae9dfcfc833b9ba52fb81be2875d8adfa">   14</a></span>&#160;<a class="code" href="classrtype_1_1_room_manager.html#ae9dfcfc833b9ba52fb81be2875d8adfa">rtype::RoomManager::~RoomManager</a>()</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i != _threadList.size(); i++)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        _threadList.at(i).join();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_room_manager.html#a26f9691545c3f89531e05a0f99108ad2">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_room_manager.html#a26f9691545c3f89531e05a0f99108ad2">RoomManager::isRoom</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">rtype::RoomManager::runRoom</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_room.html">Room</a> room(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_room_manager.html#a222eccd1d997336215633cf1bda0c99e">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_room_manager.html#a222eccd1d997336215633cf1bda0c99e">RoomManager::createRoom</a>(std::string &amp;packet)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">size_t</span> pos = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">size_t</span> playerId = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::vector&lt;std::string&gt; parsed;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffIn(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffOut(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::thread room(&amp;<a class="code" href="class_room_manager.html#a26f9691545c3f89531e05a0f99108ad2">RoomManager::isRoom</a>, <span class="keyword">this</span>, _roomList-&gt;size());</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::vector&lt;PlayerData&gt; playerData;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::string request = <span class="stringliteral">&quot;Join &quot;</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">while</span> ((pos = packet.find(<span class="stringliteral">&quot; &quot;</span>)) != std::string::npos)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        parsed.push_back(packet.substr(0, pos + 1));</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        packet.erase(0, pos + 1);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    parsed.push_back(packet.substr(0, packet.size()));</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    packet.erase(0, packet.size());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    playerId = std::stoi(parsed[1]);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    request += std::to_string(_roomList-&gt;size()) + <span class="stringliteral">&quot; &quot;</span> + std::to_string(playerId);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    _threadList.push_back(move(room));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    _roomList-&gt;push_back(playerData);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_room_manager.html#aa8d15a4ab7ffa2f677fe2a01029eff3a">joinRoom</a>(request);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_room_manager.html#aa8d15a4ab7ffa2f677fe2a01029eff3a">   49</a></span>&#160;std::string <a class="code" href="class_room_manager.html#aa8d15a4ab7ffa2f677fe2a01029eff3a">RoomManager::joinRoom</a>(std::string &amp;packet)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">size_t</span> pos = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">size_t</span> roomId = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">size_t</span> playerId = 0;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::vector&lt;std::string&gt; parsed;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffIn(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffOut(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::shared_ptr&lt;std::mutex&gt; mutexIn(std::make_shared&lt;std::mutex&gt;());</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::shared_ptr&lt;std::mutex&gt; mutexOut(std::make_shared&lt;std::mutex&gt;());</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::string result = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">while</span> ((pos = packet.find(<span class="stringliteral">&quot; &quot;</span>)) != std::string::npos)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        parsed.push_back(packet.substr(0, pos + 1));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        packet.erase(0, pos + 1);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    parsed.push_back(packet.substr(0, packet.size()));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    packet.erase(0, packet.size());</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    playerId = std::stoi(parsed[2]);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    roomId = std::stoi(parsed[1]);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (_roomList-&gt;at(roomId).size() &gt; 3)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> (<span class="stringliteral">&quot;KO&quot;</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    _roomList-&gt;at(roomId).push_back(<a class="code" href="class_player_data.html">PlayerData</a>(playerId, buffIn, buffOut, mutexIn, mutexOut));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    result = std::to_string(playerId) + <span class="stringliteral">&quot; OK &quot;</span> + std::to_string(roomId);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> (result);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_room_manager.html#aa55d22e1509e0a20ba32b55582630dec">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_room_manager.html#aa55d22e1509e0a20ba32b55582630dec">RoomManager::redirectRequest</a>(std::vector&lt;std::string&gt; &amp;packetList)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::vector&lt;uint8_t&gt; vec;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::string result = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;packet : packetList)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (packet.find(<span class="stringliteral">&quot;Join&quot;</span>) != std::string::npos)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            result = <a class="code" href="class_room_manager.html#aa8d15a4ab7ffa2f677fe2a01029eff3a">joinRoom</a>(packet);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            vec.assign(result.begin(), result.end());</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            _bufferOut-&gt;putInBuffer(<span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(vec.size()), vec);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (packet.find(<span class="stringliteral">&quot;Create&quot;</span>) != std::string::npos)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="class_room_manager.html#a222eccd1d997336215633cf1bda0c99e">createRoom</a>(packet);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            result = <span class="stringliteral">&quot;KO&quot;</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            vec.assign(result.begin(), result.end());</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            _bufferOut-&gt;putInBuffer(<span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(vec.size()), vec);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_room_manager.html#a91dc6871a9e67eca0208c29d5535936f">   97</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_room_manager.html#a91dc6871a9e67eca0208c29d5535936f">RoomManager::manageRoom</a>()</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">size_t</span> pos = 0;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    uint16_t readSize = 64;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    std::vector&lt;uint8_t&gt; buff(8192);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    std::vector&lt;std::string&gt; packetList;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    _bufferIn-&gt;readFromBuffer(readSize, buff);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    std::string str(buff.begin(), buff.end());</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">while</span> ((pos = str.find(<span class="stringliteral">&quot;;&quot;</span>)) != std::string::npos)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        packetList.push_back(str.substr(0, pos + 1));</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        str.erase(0, pos + 1);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="class_room_manager.html#aa55d22e1509e0a20ba32b55582630dec">redirectRequest</a>(packetList);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classrtype_1_1_room.html">Room</a> room(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    room.<a class="code" href="classrtype_1_1_room.html#a4a0de0ad94254e399e463a4d1e770a13">run</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#ab66c4ca8328ffd448ac50f9544d5e34d">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#ab66c4ca8328ffd448ac50f9544d5e34d">rtype::RoomManager::createRoom</a>(std::string &amp;packet)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">size_t</span> pos = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">size_t</span> playerId = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::vector&lt;std::string&gt; parsed;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffIn(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffOut(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::thread room(&amp;<a class="code" href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">rtype::RoomManager::runRoom</a>, <span class="keyword">this</span>, _roomList-&gt;size());</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::vector&lt;PlayerData&gt; playerData;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::string request = <span class="stringliteral">&quot;Join &quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">while</span> ((pos = packet.find(<span class="stringliteral">&quot; &quot;</span>)) != std::string::npos)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        parsed.push_back(packet.substr(0, pos + 1));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        packet.erase(0, pos + 1);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    parsed.push_back(packet.substr(0, packet.size()));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    packet.erase(0, packet.size());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    playerId = std::stoi(parsed[1]);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    request += std::to_string(_roomList-&gt;size()) + <span class="stringliteral">&quot; &quot;</span> + std::to_string(playerId);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    _threadList.push_back(move(room));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    _roomList-&gt;push_back(playerData);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    joinRoom(request);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#a35603d07738dda626469115771c09ed7">   50</a></span>&#160;std::string <a class="code" href="classrtype_1_1_room_manager.html#a35603d07738dda626469115771c09ed7">rtype::RoomManager::joinRoom</a>(std::string &amp;packet)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">size_t</span> pos = 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">size_t</span> roomId = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">size_t</span> playerId = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::vector&lt;std::string&gt; parsed;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffIn(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::shared_ptr&lt;Buffer&gt; buffOut(std::make_shared&lt;Buffer&gt;(<a class="code" href="class_buffer.html">Buffer</a>(8192)));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::shared_ptr&lt;std::mutex&gt; mutexIn(std::make_shared&lt;std::mutex&gt;());</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::shared_ptr&lt;std::mutex&gt; mutexOut(std::make_shared&lt;std::mutex&gt;());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::string result = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">while</span> ((pos = packet.find(<span class="stringliteral">&quot; &quot;</span>)) != std::string::npos)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        parsed.push_back(packet.substr(0, pos + 1));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        packet.erase(0, pos + 1);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    parsed.push_back(packet.substr(0, packet.size()));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    packet.erase(0, packet.size());</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    playerId = std::stoi(parsed[2]);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    roomId = std::stoi(parsed[1]);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (_roomList-&gt;at(roomId).size() &gt; 3)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> (<span class="stringliteral">&quot;KO&quot;</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    _roomList-&gt;at(roomId).push_back(<a class="code" href="classrtype_1_1_player_data.html">PlayerData</a>(playerId, buffIn, buffOut, mutexIn, mutexOut));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    result = std::to_string(playerId) + <span class="stringliteral">&quot; OK &quot;</span> + std::to_string(roomId);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> (result);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#a94ecc089a1c449b1566ef0161a13f642">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#a94ecc089a1c449b1566ef0161a13f642">rtype::RoomManager::redirectRequest</a>(std::vector&lt;std::string&gt; &amp;packetList)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::vector&lt;uint8_t&gt; vec;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::string result = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;packet : packetList)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> (packet.find(<span class="stringliteral">&quot;Join&quot;</span>) != std::string::npos)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            result = joinRoom(packet);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            vec.assign(result.begin(), result.end());</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            _bufferOut-&gt;putInBuffer(<span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(vec.size()), vec);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (packet.find(<span class="stringliteral">&quot;Create&quot;</span>) != std::string::npos)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            createRoom(packet);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            result = <span class="stringliteral">&quot;KO&quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            vec.assign(result.begin(), result.end());</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            _bufferOut-&gt;putInBuffer(<span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(vec.size()), vec);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html#ac534e8bb59741f148ab8566390f090ea">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#ac534e8bb59741f148ab8566390f090ea">rtype::RoomManager::manageRoom</a>()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">size_t</span> pos = 0;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    uint16_t readSize = 64;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    std::vector&lt;uint8_t&gt; buff(8192);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    std::vector&lt;std::string&gt; packetList;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    _bufferIn-&gt;readFromBuffer(readSize, buff);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    std::string str(buff.begin(), buff.end());</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">while</span> ((pos = str.find(<span class="stringliteral">&quot;;&quot;</span>)) != std::string::npos)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        packetList.push_back(str.substr(0, pos + 1));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        str.erase(0, pos + 1);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    redirectRequest(packetList);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
 <div class="ttc" id="a_room_8hpp_html"><div class="ttname"><a href="_room_8hpp.html">Room.hpp</a></div><div class="ttdoc">file where the Room class is defined</div></div>
 <div class="ttc" id="a_room_manager_8hpp_html"><div class="ttname"><a href="_room_manager_8hpp.html">RoomManager.hpp</a></div><div class="ttdoc">file where RoomManager class is defined</div></div>
 <div class="ttc" id="aclass_buffer_html"><div class="ttname"><a href="class_buffer.html">Buffer</a></div><div class="ttdoc">Circular Buffer class.</div><div class="ttdef"><b>Definition:</b> <a href="_buffer_8hpp_source.html#l00020">Buffer.hpp:20</a></div></div>
-<div class="ttc" id="aclass_player_data_html"><div class="ttname"><a href="class_player_data.html">PlayerData</a></div><div class="ttdef"><b>Definition:</b> <a href="_player_data_8hpp_source.html#l00016">PlayerData.hpp:16</a></div></div>
-<div class="ttc" id="aclass_room_html"><div class="ttname"><a href="class_room.html">Room</a></div><div class="ttdoc">class for Room, a room represent a game</div><div class="ttdef"><b>Definition:</b> <a href="_room_8hpp_source.html#l00022">Room.hpp:22</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_a222eccd1d997336215633cf1bda0c99e"><div class="ttname"><a href="class_room_manager.html#a222eccd1d997336215633cf1bda0c99e">RoomManager::createRoom</a></div><div class="ttdeci">void createRoom(std::string &amp;packet)</div><div class="ttdoc">Create a Room object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00025">RoomManager.cpp:25</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_a26f9691545c3f89531e05a0f99108ad2"><div class="ttname"><a href="class_room_manager.html#a26f9691545c3f89531e05a0f99108ad2">RoomManager::isRoom</a></div><div class="ttdeci">void isRoom(size_t id)</div><div class="ttdoc">execute the Room</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00020">RoomManager.cpp:20</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_a655628802d0f538636d3010a3acb7555"><div class="ttname"><a href="class_room_manager.html#a655628802d0f538636d3010a3acb7555">RoomManager::RoomManager</a></div><div class="ttdeci">RoomManager(std::shared_ptr&lt; std::vector&lt; std::vector&lt; PlayerData &gt;&gt;&gt; roomList, std::shared_ptr&lt; Buffer &gt; bufferIn, std::shared_ptr&lt; Buffer &gt;bufferOut)</div><div class="ttdoc">Construct a new Room Manager object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00007">RoomManager.cpp:7</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_a8f3db547e6f1d5fddbf7e4c7e09e29b9"><div class="ttname"><a href="class_room_manager.html#a8f3db547e6f1d5fddbf7e4c7e09e29b9">RoomManager::~RoomManager</a></div><div class="ttdeci">virtual ~RoomManager()</div><div class="ttdoc">Destroy the Room Manager object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00014">RoomManager.cpp:14</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_a91dc6871a9e67eca0208c29d5535936f"><div class="ttname"><a href="class_room_manager.html#a91dc6871a9e67eca0208c29d5535936f">RoomManager::manageRoom</a></div><div class="ttdeci">void manageRoom()</div><div class="ttdoc">fill the packet list</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00097">RoomManager.cpp:97</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_aa55d22e1509e0a20ba32b55582630dec"><div class="ttname"><a href="class_room_manager.html#aa55d22e1509e0a20ba32b55582630dec">RoomManager::redirectRequest</a></div><div class="ttdeci">void redirectRequest(std::vector&lt; std::string &gt; &amp;packetList)</div><div class="ttdoc">call the proper function according to the packet received</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00076">RoomManager.cpp:76</a></div></div>
-<div class="ttc" id="aclass_room_manager_html_aa8d15a4ab7ffa2f677fe2a01029eff3a"><div class="ttname"><a href="class_room_manager.html#aa8d15a4ab7ffa2f677fe2a01029eff3a">RoomManager::joinRoom</a></div><div class="ttdeci">std::string joinRoom(std::string &amp;packet)</div><div class="ttdoc">put a player inside a room</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00049">RoomManager.cpp:49</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_player_data_html"><div class="ttname"><a href="classrtype_1_1_player_data.html">rtype::PlayerData</a></div><div class="ttdef"><b>Definition:</b> <a href="_player_data_8hpp_source.html#l00017">PlayerData.hpp:17</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_html"><div class="ttname"><a href="classrtype_1_1_room.html">rtype::Room</a></div><div class="ttdoc">class for Room, a room represent a game</div><div class="ttdef"><b>Definition:</b> <a href="_room_8hpp_source.html#l00024">Room.hpp:24</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_html_a4a0de0ad94254e399e463a4d1e770a13"><div class="ttname"><a href="classrtype_1_1_room.html#a4a0de0ad94254e399e463a4d1e770a13">rtype::Room::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="_room_8cpp_source.html#l00036">Room.cpp:36</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_a1cca8e455058ce7a75ddff7cb1c71f20"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">rtype::RoomManager::runRoom</a></div><div class="ttdeci">void runRoom(size_t id)</div><div class="ttdoc">execute the Room</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00020">RoomManager.cpp:20</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_a34c6cbcd2f28cc9739513530a11bbaee"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a34c6cbcd2f28cc9739513530a11bbaee">rtype::RoomManager::RoomManager</a></div><div class="ttdeci">RoomManager(std::shared_ptr&lt; std::vector&lt; std::vector&lt; PlayerData &gt;&gt;&gt; roomList, std::shared_ptr&lt; Buffer &gt; bufferIn, std::shared_ptr&lt; Buffer &gt;bufferOut)</div><div class="ttdoc">Construct a new Room Manager object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00007">RoomManager.cpp:7</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_a35603d07738dda626469115771c09ed7"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a35603d07738dda626469115771c09ed7">rtype::RoomManager::joinRoom</a></div><div class="ttdeci">std::string joinRoom(std::string &amp;packet)</div><div class="ttdoc">put a player inside a room</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00050">RoomManager.cpp:50</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_a94ecc089a1c449b1566ef0161a13f642"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a94ecc089a1c449b1566ef0161a13f642">rtype::RoomManager::redirectRequest</a></div><div class="ttdeci">void redirectRequest(std::vector&lt; std::string &gt; &amp;packetList)</div><div class="ttdoc">call the proper function according to the packet received</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00077">RoomManager.cpp:77</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_ab66c4ca8328ffd448ac50f9544d5e34d"><div class="ttname"><a href="classrtype_1_1_room_manager.html#ab66c4ca8328ffd448ac50f9544d5e34d">rtype::RoomManager::createRoom</a></div><div class="ttdeci">void createRoom(std::string &amp;packet)</div><div class="ttdoc">Create a Room object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00026">RoomManager.cpp:26</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_ac534e8bb59741f148ab8566390f090ea"><div class="ttname"><a href="classrtype_1_1_room_manager.html#ac534e8bb59741f148ab8566390f090ea">rtype::RoomManager::manageRoom</a></div><div class="ttdeci">void manageRoom()</div><div class="ttdoc">fill the packet list</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00098">RoomManager.cpp:98</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html_ae9dfcfc833b9ba52fb81be2875d8adfa"><div class="ttname"><a href="classrtype_1_1_room_manager.html#ae9dfcfc833b9ba52fb81be2875d8adfa">rtype::RoomManager::~RoomManager</a></div><div class="ttdeci">virtual ~RoomManager()</div><div class="ttdoc">Destroy the Room Manager object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00014">RoomManager.cpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

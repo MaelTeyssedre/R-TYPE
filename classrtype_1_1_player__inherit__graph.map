@@ -1,0 +1,4 @@
+<map id="rtype::Player" name="rtype::Player">
+<area shape="rect" id="node1" title="class Player that inherit of IElement" alt="" coords="13,80,105,107"/>
+<area shape="rect" id="node2" href="$classrtype_1_1_i_element.html" title="Interface for dynlibs." alt="" coords="5,5,112,32"/>
+</map>

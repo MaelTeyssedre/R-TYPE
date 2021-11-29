@@ -1,9 +1,11 @@
 <map id="Sources/Client/GraphicalLib/GraphicalLib.hpp" name="Sources/Client/GraphicalLib/GraphicalLib.hpp">
-<area shape="rect" id="node1" title="file where the graphical lib abstraction is defined" alt="" coords="114,5,281,47"/>
-<area shape="rect" id="node2" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="19,95,186,136"/>
-<area shape="rect" id="node3" href="$_update_graph_8hpp.html" title="file where the update graph system is defined" alt="" coords="211,95,373,136"/>
-<area shape="rect" id="node4" href="$_rtype_client_8hpp.html" title="file where the r&#45;type&#45;client is defined" alt="" coords="89,191,290,218"/>
-<area shape="rect" id="node7" href="$_update_graph_8cpp.html" title=" " alt="" coords="315,184,477,225"/>
-<area shape="rect" id="node5" href="$_client_2main_8cpp.html" title=" " alt="" coords="5,273,168,300"/>
-<area shape="rect" id="node6" href="$_rtype_client_8cpp.html" title=" " alt="" coords="193,273,394,300"/>
+<area shape="rect" id="node1" title="file where the graphical lib abstraction is defined" alt="" coords="217,5,384,47"/>
+<area shape="rect" id="node2" href="$_graphical_lib_8cpp.html" title=" " alt="" coords="5,95,172,136"/>
+<area shape="rect" id="node3" href="$_update_graph_2_update_graph_8hpp.html" title=" " alt="" coords="197,95,405,136"/>
+<area shape="rect" id="node5" href="$_update_graph_8hpp.html" title="file where the update graph system is defined" alt="" coords="429,95,591,136"/>
+<area shape="rect" id="node4" href="$_update_graph_8cpp.html" title=" " alt="" coords="197,184,405,225"/>
+<area shape="rect" id="node6" href="$_systems_8hpp.html" title=" " alt="" coords="429,184,591,225"/>
+<area shape="rect" id="node7" href="$_rtype_client_8hpp.html" title="file where the r&#45;type&#45;client is defined" alt="" coords="409,273,611,300"/>
+<area shape="rect" id="node8" href="$_client_2main_8cpp.html" title=" " alt="" coords="326,348,489,375"/>
+<area shape="rect" id="node9" href="$_rtype_client_8cpp.html" title=" " alt="" coords="513,348,715,375"/>
 </map>

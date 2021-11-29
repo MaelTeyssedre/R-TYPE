@@ -59,7 +59,8 @@ $(document).ready(function(){initNavTree('_rtype_client_8hpp.html',''); initResi
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">RtypeClient.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -68,68 +69,66 @@ $(document).ready(function(){initNavTree('_rtype_client_8hpp.html',''); initResi
 <p>file where the r-type-client is defined  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_registry_8hpp_source.html">Registry.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="c_network_manager_8hpp_source.html">cNetworkManager.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_time_component_8hpp_source.html">TimeComponent.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_mouse_state_component_8hpp_source.html">MouseStateComponent.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_key_state_component_8hpp_source.html">KeyStateComponent.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_network_component_8hpp_source.html">NetworkComponent.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_update_time_8hpp_source.html">UpdateTime.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_update_network_8hpp_source.html">UpdateNetwork.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_update_graph_8hpp_source.html">UpdateGraph.hpp</a>&quot;</code><br />
+<code>#include &quot;NetworkManager.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="_components_8hpp_source.html">Components.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_systems_8hpp_source.html">Systems.hpp</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;csignal&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for RtypeClient.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_rtype_client_8hpp__incl.png" border="0" usemap="#a_sources_2_client_2_rtype_client_8hpp" alt=""/></div>
 <map name="a_sources_2_client_2_rtype_client_8hpp" id="a_sources_2_client_2_rtype_client_8hpp">
-<area shape="rect" title="file where the r&#45;type&#45;client is defined" alt="" coords="1308,5,1510,32"/>
-<area shape="rect" href="_registry_8hpp.html" title="file where the Registry class is defined" alt="" coords="1430,155,1524,181"/>
-<area shape="rect" title=" " alt="" coords="1905,379,1977,405"/>
-<area shape="rect" href="c_network_manager_8hpp.html" title=" " alt="" coords="328,80,480,107"/>
-<area shape="rect" href="_time_component_8hpp.html" title="file for the time component" alt="" coords="1113,155,1254,181"/>
-<area shape="rect" href="_mouse_state_component_8hpp.html" title="file for the mouse state component" alt="" coords="1696,155,1879,181"/>
-<area shape="rect" href="_key_state_component_8hpp.html" title="file for the Key state component" alt="" coords="1904,155,2069,181"/>
-<area shape="rect" href="_network_component_8hpp.html" title="file for the network component" alt="" coords="927,155,1088,181"/>
-<area shape="rect" href="_update_time_8hpp.html" title="file where the update time system is defined" alt="" coords="1284,80,1401,107"/>
-<area shape="rect" href="_update_network_8hpp.html" title="file where the update network system is defined" alt="" coords="820,80,958,107"/>
-<area shape="rect" href="_update_graph_8hpp.html" title="file where the update graph system is defined" alt="" coords="1524,80,1646,107"/>
-<area shape="rect" href="_sparse_array_8hpp.html" title="file where the templated SparseArray class is defined" alt="" coords="1685,304,1802,331"/>
-<area shape="rect" title=" " alt="" coords="1368,229,1415,256"/>
-<area shape="rect" title=" " alt="" coords="1439,229,1515,256"/>
-<area shape="rect" href="_entity_8hpp.html" title="file where the class Entity is defined" alt="" coords="1539,229,1618,256"/>
-<area shape="rect" title=" " alt="" coords="1049,379,1092,405"/>
-<area shape="rect" title=" " alt="" coords="1266,229,1344,256"/>
-<area shape="rect" title=" " alt="" coords="697,379,756,405"/>
-<area shape="rect" title=" " alt="" coords="1524,379,1592,405"/>
-<area shape="rect" title=" " alt="" coords="1724,379,1790,405"/>
-<area shape="rect" title=" " alt="" coords="1617,379,1700,405"/>
-<area shape="rect" title=" " alt="" coords="1440,304,1508,331"/>
-<area shape="rect" href="_i_network_manager_8hpp.html" title="file where INetworkManager class is defined" alt="" coords="249,155,398,181"/>
-<area shape="rect" href="c_t_c_p_client_8hpp.html" title=" " alt="" coords="649,155,761,181"/>
-<area shape="rect" title=" " alt="" coords="366,229,436,256"/>
-<area shape="rect" href="c_u_d_p_socket_8hpp.html" title=" " alt="" coords="422,155,545,181"/>
-<area shape="rect" title=" " alt="" coords="166,155,225,181"/>
-<area shape="rect" href="_i_t_c_p_client_8hpp.html" title="file where inteface ITCPClient class is defined" alt="" coords="580,229,689,256"/>
-<area shape="rect" href="_i_t_c_p_server_8hpp.html" title="file where ITCPServer class is defined" alt="" coords="84,229,198,256"/>
-<area shape="rect" href="_i_u_d_p_socket_8hpp.html" title="file where IUDPSocket class is defined" alt="" coords="223,229,342,256"/>
-<area shape="rect" href="_i_packet_8hpp.html" title="file where IPacket class is defined" alt="" coords="620,304,710,331"/>
-<area shape="rect" href="_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="798,304,878,331"/>
-<area shape="rect" title=" " alt="" coords="811,379,866,405"/>
-<area shape="rect" href="c_packet_8hpp.html" title=" " alt="" coords="460,229,555,256"/>
-<area shape="rect" href="_logger_8hpp.html" title="header for logger lib" alt="" coords="714,229,800,256"/>
-<area shape="rect" href="_constants_8hpp.html" title="file where constants are stocked" alt="" coords="1074,304,1179,331"/>
-<area shape="rect" href="_i_logger_8hpp.html" title="Interface for the logger lib." alt="" coords="1826,304,1917,331"/>
-<area shape="rect" title=" " alt="" coords="1814,379,1881,405"/>
-<area shape="rect" title=" " alt="" coords="1028,229,1089,256"/>
-<area shape="rect" href="_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="1554,155,1672,181"/>
-<area shape="rect" href="_i_graphical_lib_8hpp.html" title="file where the graphical lib interface is defined" alt="" coords="1794,229,1917,256"/>
-<area shape="rect" title=" " alt="" coords="2582,379,2714,405"/>
-<area shape="rect" title=" " alt="" coords="2001,379,2140,405"/>
-<area shape="rect" href="_elements_8hpp.html" title="file where the graphical lib interface is defined" alt="" coords="2226,304,2326,331"/>
-<area shape="rect" title=" " alt="" coords="2511,379,2558,405"/>
-<area shape="rect" title=" " alt="" coords="2164,379,2243,405"/>
-<area shape="rect" title=" " alt="" coords="2268,379,2345,405"/>
-<area shape="rect" title=" " alt="" coords="2368,379,2487,405"/>
+<area shape="rect" title="file where the r&#45;type&#45;client is defined" alt="" coords="1702,5,1903,32"/>
+<area shape="rect" href="_registry_8hpp.html" title="file where the Registry class is defined" alt="" coords="868,229,961,256"/>
+<area shape="rect" title=" " alt="" coords="1648,379,1720,405"/>
+<area shape="rect" title=" " alt="" coords="1658,80,1803,107"/>
+<area shape="rect" href="_components_8hpp.html" title=" " alt="" coords="2173,229,2291,256"/>
+<area shape="rect" href="_systems_8hpp.html" title=" " alt="" coords="1827,80,1925,107"/>
+<area shape="rect" title=" " alt="" coords="2021,80,2083,107"/>
+<area shape="rect" href="_sparse_array_8hpp.html" title="file where the templated SparseArray class is defined" alt="" coords="120,304,237,331"/>
+<area shape="rect" title=" " alt="" coords="715,304,762,331"/>
+<area shape="rect" title=" " alt="" coords="786,304,862,331"/>
+<area shape="rect" href="_entity_8hpp.html" title="file where the class Entity is defined" alt="" coords="510,304,589,331"/>
+<area shape="rect" title=" " alt="" coords="887,304,929,331"/>
+<area shape="rect" title=" " alt="" coords="613,304,691,331"/>
+<area shape="rect" title=" " alt="" coords="296,379,355,405"/>
+<area shape="rect" title=" " alt="" coords="97,379,165,405"/>
+<area shape="rect" title=" " alt="" coords="5,379,72,405"/>
+<area shape="rect" title=" " alt="" coords="189,379,272,405"/>
+<area shape="rect" title=" " alt="" coords="515,379,583,405"/>
+<area shape="rect" href="_current_scene_component_8hpp.html" title=" " alt="" coords="3613,304,3803,331"/>
+<area shape="rect" href="_direction_component_8hpp.html" title="file for the direction component" alt="" coords="1880,304,2043,331"/>
+<area shape="rect" href="_entity_type_component_8hpp.html" title="file for the entity type component" alt="" coords="2615,304,2787,331"/>
+<area shape="rect" href="_health_component_8hpp.html" title="file for the health component" alt="" coords="2067,304,2218,331"/>
+<area shape="rect" href="_key_state_component_8hpp.html" title="file for the Key state component" alt="" coords="953,304,1119,331"/>
+<area shape="rect" href="_mouse_state_component_8hpp.html" title="file for the mouse state component" alt="" coords="1143,304,1326,331"/>
+<area shape="rect" href="_client_2_components_2_network_component_8hpp.html" title="file for the network component" alt="" coords="2811,304,2973,331"/>
+<area shape="rect" href="_position_component_8hpp.html" title="file for the position component" alt="" coords="2242,304,2401,331"/>
+<area shape="rect" href="_reserved_component_8hpp.html" title="file for the reserved component" alt="" coords="2425,304,2591,331"/>
+<area shape="rect" href="_scene_component_8hpp.html" title=" " alt="" coords="3188,304,3337,331"/>
+<area shape="rect" href="_size_component_8hpp.html" title="file for the size component" alt="" coords="1350,304,1487,331"/>
+<area shape="rect" href="_strength_component_8hpp.html" title="file for the strength component" alt="" coords="1511,304,1673,331"/>
+<area shape="rect" href="_client_2_components_2_time_component_8hpp.html" title="file for the time component" alt="" coords="4151,304,4292,331"/>
+<area shape="rect" href="_velocity_component_8hpp.html" title="file for the velocity component" alt="" coords="1697,304,1855,331"/>
+<area shape="rect" href="_sprite_component_8hpp.html" title=" " alt="" coords="3828,304,3975,331"/>
+<area shape="rect" href="_weapon_type_8hpp.html" title="file for WeaponType component" alt="" coords="3362,304,3483,331"/>
+<area shape="rect" href="_drawable_component_8hpp.html" title=" " alt="" coords="2997,304,3163,331"/>
+<area shape="rect" title=" " alt="" coords="3381,379,3486,405"/>
+<area shape="rect" title=" " alt="" coords="4244,379,4305,405"/>
+<area shape="rect" title=" " alt="" coords="3697,379,3751,405"/>
+<area shape="rect" href="_client_2_systems_2_update_time_8hpp.html" title="file where the update time system is defined" alt="" coords="4055,155,4172,181"/>
+<area shape="rect" href="_update_graph_8hpp.html" title="file where the update graph system is defined" alt="" coords="1068,155,1191,181"/>
+<area shape="rect" href="_update_position_8hpp.html" title=" " alt="" coords="1647,155,1782,181"/>
+<area shape="rect" href="_update_direction_8hpp.html" title=" " alt="" coords="1807,155,1945,181"/>
+<area shape="rect" href="_client_2_systems_2_update_network_8hpp.html" title="file where the update network system is defined" alt="" coords="3594,155,3731,181"/>
+<area shape="rect" title=" " alt="" coords="4151,229,4292,256"/>
+<area shape="rect" href="_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="265,229,383,256"/>
+<area shape="rect" href="_i_graphical_lib_8hpp.html" title="file where the graphical lib interface is defined" alt="" coords="312,304,435,331"/>
+<area shape="rect" title=" " alt="" coords="3582,229,3743,256"/>
+<area shape="rect" title=" " alt="" coords="3767,229,3879,256"/>
+<area shape="rect" title=" " alt="" coords="3903,229,4025,256"/>
+<area shape="rect" href="_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="3508,304,3588,331"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -147,8 +146,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtype_client.html">RtypeClient</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class that contain the <a class="el" href="class_rtype_client.html" title="class that contain the RtypeClient">RtypeClient</a>  <a href="class_rtype_client.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_rtype_client.html">rtype::RtypeClient</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacertype"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertype.html">rtype</a></td></tr>
+<tr class="memdesc:namespacertype"><td class="mdescLeft">&#160;</td><td class="mdescRight">global namespace for the rtype project <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

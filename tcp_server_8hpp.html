@@ -59,32 +59,37 @@ $(document).ready(function(){initNavTree('tcp_server_8hpp.html',''); initResizab
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">tcpServer.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_packet_8hpp_source.html">Packet.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;Packet.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="tcp_user_8hpp_source.html">tcpUser.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_i_t_c_p_server_8hpp_source.html">ITCPServer.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_buffer_8hpp_source.html">Buffer.hpp</a>&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tcpServer.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="tcp_server_8hpp__incl.png" border="0" usemap="#a_sources_2_server_2_network_2_t_c_p_2tcp_server_8hpp" alt=""/></div>
 <map name="a_sources_2_server_2_network_2_t_c_p_2tcp_server_8hpp" id="a_sources_2_server_2_network_2_t_c_p_2tcp_server_8hpp">
-<area shape="rect" title=" " alt="" coords="149,5,315,47"/>
-<area shape="rect" href="_packet_8hpp.html" title="file where Packet class is defined" alt="" coords="149,95,235,121"/>
-<area shape="rect" href="tcp_user_8hpp.html" title="file where tcpUser class is defined" alt="" coords="238,169,330,196"/>
-<area shape="rect" href="_i_t_c_p_server_8hpp.html" title="file where ITCPServer class is defined" alt="" coords="9,95,124,121"/>
-<area shape="rect" title=" " alt="" coords="311,95,358,121"/>
-<area shape="rect" href="_i_packet_8hpp.html" title="file where IPacket class is defined" alt="" coords="108,169,199,196"/>
-<area shape="rect" title=" " alt="" coords="5,244,64,271"/>
-<area shape="rect" title=" " alt="" coords="155,244,223,271"/>
-<area shape="rect" title=" " alt="" coords="248,244,320,271"/>
-<area shape="rect" title=" " alt="" coords="88,244,131,271"/>
-<area shape="rect" title=" " alt="" coords="345,244,415,271"/>
-<area shape="rect" title=" " alt="" coords="439,244,497,271"/>
+<area shape="rect" title=" " alt="" coords="210,5,375,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,92,121"/>
+<area shape="rect" href="tcp_user_8hpp.html" title="file where tcpUser class is defined" alt="" coords="116,95,208,121"/>
+<area shape="rect" title=" " alt="" coords="207,169,264,196"/>
+<area shape="rect" href="_i_t_c_p_server_8hpp.html" title="file where ITCPServer class is defined" alt="" coords="283,95,398,121"/>
+<area shape="rect" href="_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="454,169,534,196"/>
+<area shape="rect" title=" " alt="" coords="473,95,520,121"/>
+<area shape="rect" title=" " alt="" coords="9,169,80,196"/>
+<area shape="rect" title=" " alt="" coords="105,244,173,271"/>
+<area shape="rect" title=" " alt="" coords="218,244,290,271"/>
+<area shape="rect" href="_i_packet_8hpp.html" title="file where IPacket class is defined" alt="" coords="289,169,379,196"/>
+<area shape="rect" title=" " alt="" coords="385,244,443,271"/>
+<area shape="rect" title=" " alt="" coords="314,244,357,271"/>
+<area shape="rect" title=" " alt="" coords="468,244,523,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -92,10 +97,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="tcp_server_8hpp__dep__incl.png" border="0" usemap="#a_sources_2_server_2_network_2_t_c_p_2tcp_server_8hppdep" alt=""/></div>
 <map name="a_sources_2_server_2_network_2_t_c_p_2tcp_server_8hppdep" id="a_sources_2_server_2_network_2_t_c_p_2tcp_server_8hppdep">
-<area shape="rect" title=" " alt="" coords="165,5,330,47"/>
-<area shape="rect" href="_network_manager_8hpp.html" title="file where NetworkManger class is defined" alt="" coords="5,95,257,136"/>
+<area shape="rect" title=" " alt="" coords="282,5,447,47"/>
+<area shape="rect" href="_server_2_network_2_network_manager_2_network_manager_8hpp.html" title="file where NetworkManger class is defined" alt="" coords="5,95,257,136"/>
 <area shape="rect" href="tcp_server_8cpp.html" title=" " alt="" coords="282,95,447,136"/>
-<area shape="rect" href="_network_manager_8cpp.html" title=" " alt="" coords="5,184,257,225"/>
+<area shape="rect" href="_server_2_systems_2_update_network_8hpp.html" title=" " alt="" coords="472,95,639,136"/>
+<area shape="rect" href="_server_2_network_2_network_manager_2_network_manager_8cpp.html" title=" " alt="" coords="5,184,257,225"/>
+<area shape="rect" href="_server_2_systems_2_update_network_8cpp.html" title=" " alt="" coords="472,184,639,225"/>
 </map>
 </div>
 </div>
@@ -103,7 +110,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_c_p_server.html">TCPServer</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_t_c_p_server.html">rtype::TCPServer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacertype"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertype.html">rtype</a></td></tr>
+<tr class="memdesc:namespacertype"><td class="mdescLeft">&#160;</td><td class="mdescRight">global namespace for the rtype project <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

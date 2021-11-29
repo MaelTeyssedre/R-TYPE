@@ -1,12 +1,9 @@
 <map id="Sources/Server/Network/NetworkManager" name="Sources/Server/Network/NetworkManager">
-<area shape="rect" id="node1" href="dir_98a4ae777e9bef546cbc7b983cd5d39c.html" title="UDP" alt="" coords="27,148,99,196"/>
-<area shape="rect" id="node4" href="dir_72d443fabe260bb309a496666b2a443a.html" title="Commons" alt="" coords="118,244,199,292"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000031_000011.html" title="1" alt="" coords="124,218,132,232"/>
-<area shape="rect" id="node2" href="dir_e613bfb38287db802063c0614e2aef89.html" title="TCP" alt="" coords="123,148,195,196"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000030_000011.html" title="1" alt="" coords="163,218,171,233"/>
-<area shape="rect" id="node3" href="dir_e73546f79345903608bef09796e284b5.html" title="NetworkManager" alt="" coords="73,52,194,100"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000028_000031.html" title="1" alt="" coords="94,131,102,146"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000028_000030.html" title="1" alt="" coords="152,121,160,135"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000028_000011.html" title="1" alt="" coords="197,228,205,243"/>
-<area shape="rect" id="clust1" href="dir_e703557a38ca0ccb50563e7ffaa38785.html" title="Network" alt="" coords="16,16,205,207"/>
+<area shape="rect" id="node1" href="dir_e613bfb38287db802063c0614e2aef89.html" title="TCP" alt="" coords="39,148,111,196"/>
+<area shape="rect" id="node3" href="dir_72d443fabe260bb309a496666b2a443a.html" title="Commons" alt="" coords="70,244,151,292"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000041_000023.html" title="2" alt="" coords="99,217,107,231"/>
+<area shape="rect" id="node2" href="dir_e73546f79345903608bef09796e284b5.html" title="NetworkManager" alt="" coords="27,52,149,100"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000009_000041.html" title="1" alt="" coords="85,124,93,138"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000009_000023.html" title="1" alt="" coords="126,221,134,235"/>
+<area shape="rect" id="clust1" href="dir_e703557a38ca0ccb50563e7ffaa38785.html" title="Network" alt="" coords="16,16,160,207"/>
 </map>

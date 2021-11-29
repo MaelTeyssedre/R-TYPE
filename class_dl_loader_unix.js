@@ -1,7 +1,7 @@
 var class_dl_loader_unix =
 [
-    [ "allocClass", "class_dl_loader_unix.html#a939d3388899f065d4b83344a1e4d9818", null ],
-    [ "deleteClass", "class_dl_loader_unix.html#a7a570c89c85286856ca30a2c9c67188a", null ],
+    [ "allocClass", "class_dl_loader_unix.html#ace2507722344d2eceeb47926cc933a58", null ],
+    [ "deleteClass", "class_dl_loader_unix.html#a435cc3968ed981fccf56d84184eaa452", null ],
     [ "DlLoaderUnix", "class_dl_loader_unix.html#a0c60ccc8b8dfe1e0864480ea970cc49f", null ],
     [ "DlLoaderUnix", "class_dl_loader_unix.html#a9487204ed80bb7b8d00a3d6640359d9a", null ],
     [ "~DlLoaderUnix", "class_dl_loader_unix.html#a3e74ebefcd0274ff8574224eb83c3976", null ],

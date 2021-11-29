@@ -72,8 +72,8 @@ Inheritance diagram for IPacket:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_packet__inherit__graph.png" border="0" usemap="#a_i_packet_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_packet_inherit__map" id="a_i_packet_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,5,72,32"/>
-<area shape="rect" href="class_packet.html" title="class that contain packet" alt="" coords="7,80,70,107"/>
+<area shape="rect" title=" " alt="" coords="21,5,87,32"/>
+<area shape="rect" href="classrtype_1_1_packet.html" title="class that contain packet" alt="" coords="5,80,103,107"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -85,8 +85,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8715b6c244b53282cdb6c913e933baf1"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_packet.html#a8715b6c244b53282cdb6c913e933baf1">pack</a> (std::vector&lt; uint8_t &gt; &amp;data)=0</td></tr>
 <tr class="memdesc:a8715b6c244b53282cdb6c913e933baf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize data.  <a href="class_i_packet.html#a8715b6c244b53282cdb6c913e933baf1">More...</a><br /></td></tr>
 <tr class="separator:a8715b6c244b53282cdb6c913e933baf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a376c60cd6367eecd48d47772179e8c0a"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; std::vector&lt; uint8_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_packet.html#a376c60cd6367eecd48d47772179e8c0a">unpack</a> ()=0</td></tr>
-<tr class="separator:a376c60cd6367eecd48d47772179e8c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66574049592c39d8e4100f9174e13813"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_packet.html#a66574049592c39d8e4100f9174e13813">unpack</a> ()=0</td></tr>
+<tr class="separator:a66574049592c39d8e4100f9174e13813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c030b9e0b5d5c687a1a893bb9b14eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_packet.html#a3c030b9e0b5d5c687a1a893bb9b14eaa">setId</a> (size_t id)=0</td></tr>
+<tr class="separator:a3c030b9e0b5d5c687a1a893bb9b14eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -154,12 +156,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>size of data serialized </dd></dl>
 
-<p>Implemented in <a class="el" href="class_packet.html#a7f09ef729048fddf172770fe44cf55e0">Packet</a>, and <a class="el" href="class_packet.html#a7f09ef729048fddf172770fe44cf55e0">Packet</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_packet.html#ab8ebd790eb88f10950422d70c54b5e17">rtype::Packet</a>, and <a class="el" href="classrtype_1_1_packet.html#ab8ebd790eb88f10950422d70c54b5e17">rtype::Packet</a>.</p>
 
 </div>
 </div>
-<a id="a376c60cd6367eecd48d47772179e8c0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a376c60cd6367eecd48d47772179e8c0a">&#9670;&nbsp;</a></span>unpack()</h2>
+<a id="a3c030b9e0b5d5c687a1a893bb9b14eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c030b9e0b5d5c687a1a893bb9b14eaa">&#9670;&nbsp;</a></span>setId()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,7 +170,35 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::shared_ptr&lt;std::vector&lt;uint8_t&gt; &gt; IPacket::unpack </td>
+          <td class="memname">virtual void IPacket::setId </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classrtype_1_1_packet.html#aa2458a11a5b8c192412f5c96dec4c300">rtype::Packet</a>, and <a class="el" href="classrtype_1_1_packet.html#aa2458a11a5b8c192412f5c96dec4c300">rtype::Packet</a>.</p>
+
+</div>
+</div>
+<a id="a66574049592c39d8e4100f9174e13813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66574049592c39d8e4100f9174e13813">&#9670;&nbsp;</a></span>unpack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt;uint8_t&gt; IPacket::unpack </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -181,7 +211,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_packet.html#aec18780dd3de3405b6930ba63bb5668a">Packet</a>, and <a class="el" href="class_packet.html#ab0abab39737e16c2ccb7bc0f7c5a4761">Packet</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_packet.html#aee27f658f81d5ed284e6d54f42358e44">rtype::Packet</a>, and <a class="el" href="classrtype_1_1_packet.html#abdc17c979df470d25f5a6b0e04fcfd41">rtype::Packet</a>.</p>
 
 </div>
 </div>

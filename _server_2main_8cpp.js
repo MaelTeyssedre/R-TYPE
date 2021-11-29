@@ -1,6 +1,5 @@
 var _server_2main_8cpp =
 [
-    [ "session", "classsession.html", "classsession" ],
-    [ "server", "classserver.html", "classserver" ],
-    [ "main", "_server_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97", null ]
+    [ "main", "_server_2main_8cpp.html#a0c99d968a34e803d378692bde2e3f18f", null ],
+    [ "signalHandler", "_server_2main_8cpp.html#a8ee3282bc313e547dbbb8d4f4010db61", null ]
 ];

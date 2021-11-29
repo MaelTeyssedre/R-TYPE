@@ -72,8 +72,8 @@ Inheritance diagram for ITCPServer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_t_c_p_server__inherit__graph.png" border="0" usemap="#a_i_t_c_p_server_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_i_t_c_p_server_inherit__map" id="a_i_t_c_p_server_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,5,96,32"/>
-<area shape="rect" href="class_t_c_p_server.html" title=" " alt="" coords="7,80,94,107"/>
+<area shape="rect" title=" " alt="" coords="20,5,111,32"/>
+<area shape="rect" href="classrtype_1_1_t_c_p_server.html" title=" " alt="" coords="5,80,125,107"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -94,10 +94,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e53a816351123145e6014ae937e88e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_t_c_p_server.html#a0e53a816351123145e6014ae937e88e6">eject</a> (size_t client)=0</td></tr>
 <tr class="memdesc:a0e53a816351123145e6014ae937e88e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">eject client  <a href="class_i_t_c_p_server.html#a0e53a816351123145e6014ae937e88e6">More...</a><br /></td></tr>
 <tr class="separator:a0e53a816351123145e6014ae937e88e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea9dcde16214efdda4862b752013aef"><td class="memItemLeft" align="right" valign="top">virtual std::queue&lt; <a class="el" href="class_i_packet.html">IPacket</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_t_c_p_server.html#a0ea9dcde16214efdda4862b752013aef">getBuffer</a> ()=0</td></tr>
+<tr class="separator:a0ea9dcde16214efdda4862b752013aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_i_t_c_p_server_8hpp_source.html#l00019">19</a> of file <a class="el" href="_i_t_c_p_server_8hpp_source.html">ITCPServer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_t_c_p_server_8hpp_source.html#l00021">21</a> of file <a class="el" href="_i_t_c_p_server_8hpp_source.html">ITCPServer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6d2470034d777df8c3dea59f14259edd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d2470034d777df8c3dea59f14259edd">&#9670;&nbsp;</a></span>~ITCPServer()</h2>
@@ -159,7 +161,34 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_t_c_p_server.html#aae968abad0d70dc30ab88bc10a60fa45">TCPServer</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_t_c_p_server.html#a698b6caefd16866d5ea74465955f9849">rtype::TCPServer</a>.</p>
+
+</div>
+</div>
+<a id="a0ea9dcde16214efdda4862b752013aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea9dcde16214efdda4862b752013aef">&#9670;&nbsp;</a></span>getBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::queue&lt;<a class="el" href="class_i_packet.html">IPacket</a> *&gt; ITCPServer::getBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classrtype_1_1_t_c_p_server.html#a5c61ca56865dd560622c29517554ad73">rtype::TCPServer</a>.</p>
 
 </div>
 </div>
@@ -189,7 +218,7 @@ Public Member Functions</h2></td></tr>
 <p>receive data </p>
 <dl class="section return"><dt>Returns</dt><dd>return data in packet </dd></dl>
 
-<p>Implemented in <a class="el" href="class_t_c_p_server.html#a7681d3964d2ba843f1287da347bd2d8c">TCPServer</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_t_c_p_server.html#abcdc16a4dcbe4aaa3296c48d943b3838">rtype::TCPServer</a>.</p>
 
 </div>
 </div>
@@ -236,7 +265,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_t_c_p_server.html#aa6ea4eae837a5a433118ffa7ec357f02">TCPServer</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_t_c_p_server.html#a0f91667f839f6cb406182425ce4dcc00">rtype::TCPServer</a>.</p>
 
 </div>
 </div>
@@ -283,7 +312,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_t_c_p_server.html#a9a169796460834e5eeae81994aacbbe3">TCPServer</a>.</p>
+<p>Implemented in <a class="el" href="classrtype_1_1_t_c_p_server.html#a3ccc7b305d869b91b5f688e455f96099">rtype::TCPServer</a>.</p>
 
 </div>
 </div>

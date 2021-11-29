@@ -1,7 +1,7 @@
 var class_dl_loader_windows =
 [
-    [ "allocClass", "class_dl_loader_windows.html#ac19ebcdb766835e563060d1cae4a4875", null ],
-    [ "deleteClass", "class_dl_loader_windows.html#ae6a1fafff381df90ec87cff582b2db72", null ],
+    [ "allocClass", "class_dl_loader_windows.html#a5c2bc8921e29ffaabeb7f4eb4702b2e9", null ],
+    [ "deleteClass", "class_dl_loader_windows.html#a0fadfb47161c2758c94839940fc7aafc", null ],
     [ "DlLoaderWindows", "class_dl_loader_windows.html#a2a390fbc7dfefd43a0125abce4100bb8", null ],
     [ "DlLoaderWindows", "class_dl_loader_windows.html#a58628d97ed5889db86e0661007103b84", null ],
     [ "~DlLoaderWindows", "class_dl_loader_windows.html#a6c3011b7f5c3b04d5cf933f1c2d5fbc5", null ],

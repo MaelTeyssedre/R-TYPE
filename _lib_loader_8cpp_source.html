@@ -64,7 +64,7 @@ $(document).ready(function(){initNavTree('_lib_loader_8cpp_source.html',''); ini
 <div class="contents">
 <a href="_lib_loader_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_lib_loader_8hpp.html">LibLoader.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_lib_loader.html#ae277f1ed091ff5bb6984a3d61cad2658">    3</a></span>&#160;<a class="code" href="class_lib_loader.html#ae277f1ed091ff5bb6984a3d61cad2658">LibLoader::LibLoader</a>()</div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="classrtype_1_1_lib_loader.html#aefa73867479c1a852dbd7319ef46d0ec">    3</a></span>&#160;<a class="code" href="classrtype_1_1_lib_loader.html#aefa73867479c1a852dbd7319ef46d0ec">rtype::LibLoader::LibLoader</a>()</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">    #ifdef _WIN32</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        _dlLoaderWindows = <a class="code" href="class_dl_loader_windows.html">DlLoaderWindows</a>();</div>
@@ -74,7 +74,7 @@ $(document).ready(function(){initNavTree('_lib_loader_8cpp_source.html',''); ini
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_lib_loader.html#ae81df02d324b232bd554787b55652032">   13</a></span>&#160;<a class="code" href="class_lib_loader.html#ae277f1ed091ff5bb6984a3d61cad2658">LibLoader::LibLoader</a>(<span class="keyword">const</span> <a class="code" href="class_lib_loader.html">LibLoader</a> &amp;other)</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classrtype_1_1_lib_loader.html#a7974f8f59c84e7492d8a17f232d222e9">   13</a></span>&#160;<a class="code" href="classrtype_1_1_lib_loader.html#aefa73867479c1a852dbd7319ef46d0ec">rtype::LibLoader::LibLoader</a>(<span class="keyword">const</span> <a class="code" href="classrtype_1_1_lib_loader.html">LibLoader</a> &amp;other)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    _libs = other._libs;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    _libsfiles = other._libsfiles;</div>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('_lib_loader_8cpp_source.html',''); ini
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_lib_loader.html#a6dbf1029029f9517c0e0c1253d7e7ada">   27</a></span>&#160;<a class="code" href="class_lib_loader.html#a6dbf1029029f9517c0e0c1253d7e7ada">LibLoader::~LibLoader</a>() {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classrtype_1_1_lib_loader.html#a9d3fd300321d6d8d1b8c5110a150592d">   27</a></span>&#160;<a class="code" href="classrtype_1_1_lib_loader.html#a9d3fd300321d6d8d1b8c5110a150592d">rtype::LibLoader::~LibLoader</a>() {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">    #ifdef __linux__</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">void</span> *ptr : _libsPtrUnix)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            _dlLoaderUnix.closeLib(ptr);</div>
@@ -99,20 +99,20 @@ $(document).ready(function(){initNavTree('_lib_loader_8cpp_source.html',''); ini
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_lib_loader.html#a5e508c0bef798a9a718a357b73e812f1">   38</a></span>&#160;std::vector&lt;std::shared_ptr&lt;AMonster&gt;&gt; *<a class="code" href="class_lib_loader.html#a5e508c0bef798a9a718a357b73e812f1">LibLoader::getLibs</a>() {</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classrtype_1_1_lib_loader.html#a938a16ca32a8a3963afa685e3760231a">   38</a></span>&#160;std::vector&lt;std::shared_ptr&lt;rtype::AMonster&gt;&gt; *<a class="code" href="classrtype_1_1_lib_loader.html#a938a16ca32a8a3963afa685e3760231a">rtype::LibLoader::getLibs</a>() {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> &amp;_libs;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> LibLoader::loadLib() {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> rtype::LibLoader::loadLib() {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">try</span> {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = _libs.size(); i &lt; _libsfiles.size(); i++) {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">            #ifdef __linux__</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(_libsfiles[i]));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                _libs.push_back(std::shared_ptr&lt;AMonster&gt;((<a class="code" href="class_a_monster.html">AMonster</a>*)_dlLoaderUnix.loadFunc(std::string(<span class="stringliteral">&quot;allocator&quot;</span>), _libsPtrUnix[i])()));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                _libs.push_back(std::shared_ptr&lt;rtype::AMonster&gt;((<a class="code" href="classrtype_1_1_a_monster.html">rtype::AMonster</a>*)_dlLoaderUnix.loadFunc(std::string(<span class="stringliteral">&quot;allocator&quot;</span>), _libsPtrUnix[i])()));</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">            #endif</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">            #ifdef _WIN32</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                _libsPtrWindows.push_back(_dlLoaderWindows.loadLib(_libsfiles[i]));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                _libs.push_back(std::shared_ptr&lt;AMonster&gt;(_dlLoaderWindows.loadFunc(std::string(<span class="stringliteral">&quot;allocator&quot;</span>), _libsPtrWindows[i])()));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                _libs.push_back(std::shared_ptr&lt;rtype::AMonster&gt;(_dlLoaderWindows.loadFunc(std::string(<span class="stringliteral">&quot;allocator&quot;</span>), _libsPtrWindows[i])()));</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">            #endif</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::runtime_error &amp;e) {</div>
@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('_lib_loader_8cpp_source.html',''); ini
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> LibLoader::listLibDirectory(<span class="keyword">const</span> std::string &amp;path, <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;toLoad) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> rtype::LibLoader::listLibDirectory(<span class="keyword">const</span> std::string &amp;path, <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;toLoad) {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; toLoad.size(); i++) {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">        #ifdef WIN32</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            _libsfiles.push_back(path + toLoad[i] + <span class="stringliteral">&quot;.dll&quot;</span>);</div>
@@ -131,20 +131,20 @@ $(document).ready(function(){initNavTree('_lib_loader_8cpp_source.html',''); ini
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_lib_loader.html#aaaabdf1c3b11dcde93bea987ceca71c2">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_lib_loader.html#aaaabdf1c3b11dcde93bea987ceca71c2">LibLoader::loadLibs</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;toLoad)</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classrtype_1_1_lib_loader.html#a167dc39fe8c2f9f29421d5e1c83537ff">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_lib_loader.html#a167dc39fe8c2f9f29421d5e1c83537ff">rtype::LibLoader::loadLibs</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;toLoad)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    listLibDirectory(LIBS_PATH, toLoad);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    loadLib();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
 <div class="ttc" id="a_lib_loader_8hpp_html"><div class="ttname"><a href="_lib_loader_8hpp.html">LibLoader.hpp</a></div><div class="ttdoc">file where the LibLoader class is defined</div></div>
-<div class="ttc" id="aclass_a_monster_html"><div class="ttname"><a href="class_a_monster.html">AMonster</a></div><div class="ttdoc">Abstract class for every type of monsters.</div><div class="ttdef"><b>Definition:</b> <a href="_a_monster_8hpp_source.html#l00024">AMonster.hpp:24</a></div></div>
 <div class="ttc" id="aclass_dl_loader_unix_html"><div class="ttname"><a href="class_dl_loader_unix.html">DlLoaderUnix</a></div><div class="ttdoc">Class that load unix .so.</div><div class="ttdef"><b>Definition:</b> <a href="_dl_loader_unix_8hpp_source.html#l00021">DlLoaderUnix.hpp:21</a></div></div>
 <div class="ttc" id="aclass_dl_loader_windows_html"><div class="ttname"><a href="class_dl_loader_windows.html">DlLoaderWindows</a></div><div class="ttdoc">class for DlLoader for windows</div><div class="ttdef"><b>Definition:</b> <a href="_dl_loader_windows_8hpp_source.html#l00022">DlLoaderWindows.hpp:22</a></div></div>
-<div class="ttc" id="aclass_lib_loader_html"><div class="ttname"><a href="class_lib_loader.html">LibLoader</a></div><div class="ttdoc">Class that load libs.</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8hpp_source.html#l00035">LibLoader.hpp:35</a></div></div>
-<div class="ttc" id="aclass_lib_loader_html_a5e508c0bef798a9a718a357b73e812f1"><div class="ttname"><a href="class_lib_loader.html#a5e508c0bef798a9a718a357b73e812f1">LibLoader::getLibs</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; AMonster &gt; &gt; * getLibs()</div><div class="ttdoc">getter for loaded and constructed Element</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00038">LibLoader.cpp:38</a></div></div>
-<div class="ttc" id="aclass_lib_loader_html_a6dbf1029029f9517c0e0c1253d7e7ada"><div class="ttname"><a href="class_lib_loader.html#a6dbf1029029f9517c0e0c1253d7e7ada">LibLoader::~LibLoader</a></div><div class="ttdeci">virtual ~LibLoader()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00027">LibLoader.cpp:27</a></div></div>
-<div class="ttc" id="aclass_lib_loader_html_aaaabdf1c3b11dcde93bea987ceca71c2"><div class="ttname"><a href="class_lib_loader.html#aaaabdf1c3b11dcde93bea987ceca71c2">LibLoader::loadLibs</a></div><div class="ttdeci">void loadLibs(const std::vector&lt; std::string &gt; &amp;)</div><div class="ttdoc">load the .so/.dll contain in _libsfiles, construct the class inside and store them in _libs</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00070">LibLoader.cpp:70</a></div></div>
-<div class="ttc" id="aclass_lib_loader_html_ae277f1ed091ff5bb6984a3d61cad2658"><div class="ttname"><a href="class_lib_loader.html#ae277f1ed091ff5bb6984a3d61cad2658">LibLoader::LibLoader</a></div><div class="ttdeci">LibLoader()</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00003">LibLoader.cpp:3</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_a_monster_html"><div class="ttname"><a href="classrtype_1_1_a_monster.html">rtype::AMonster</a></div><div class="ttdoc">Abstract class for every type of monsters.</div><div class="ttdef"><b>Definition:</b> <a href="_a_monster_8hpp_source.html#l00025">AMonster.hpp:25</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_lib_loader_html"><div class="ttname"><a href="classrtype_1_1_lib_loader.html">rtype::LibLoader</a></div><div class="ttdoc">Class that load libs.</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8hpp_source.html#l00036">LibLoader.hpp:36</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_lib_loader_html_a167dc39fe8c2f9f29421d5e1c83537ff"><div class="ttname"><a href="classrtype_1_1_lib_loader.html#a167dc39fe8c2f9f29421d5e1c83537ff">rtype::LibLoader::loadLibs</a></div><div class="ttdeci">void loadLibs(const std::vector&lt; std::string &gt; &amp;)</div><div class="ttdoc">load the .so/.dll contain in _libsfiles, construct the class inside and store them in _libs</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00070">LibLoader.cpp:70</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_lib_loader_html_a938a16ca32a8a3963afa685e3760231a"><div class="ttname"><a href="classrtype_1_1_lib_loader.html#a938a16ca32a8a3963afa685e3760231a">rtype::LibLoader::getLibs</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; AMonster &gt; &gt; * getLibs()</div><div class="ttdoc">getter for loaded and constructed Element</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00038">LibLoader.cpp:38</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_lib_loader_html_a9d3fd300321d6d8d1b8c5110a150592d"><div class="ttname"><a href="classrtype_1_1_lib_loader.html#a9d3fd300321d6d8d1b8c5110a150592d">rtype::LibLoader::~LibLoader</a></div><div class="ttdeci">virtual ~LibLoader()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00027">LibLoader.cpp:27</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_lib_loader_html_aefa73867479c1a852dbd7319ef46d0ec"><div class="ttname"><a href="classrtype_1_1_lib_loader.html#aefa73867479c1a852dbd7319ef46d0ec">rtype::LibLoader::LibLoader</a></div><div class="ttdeci">LibLoader()</div><div class="ttdef"><b>Definition:</b> <a href="_lib_loader_8cpp_source.html#l00003">LibLoader.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

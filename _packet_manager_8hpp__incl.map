@@ -1,13 +1,11 @@
 <map id="Sources/Server/PacketManager/PacketManager.hpp" name="Sources/Server/PacketManager/PacketManager.hpp">
-<area shape="rect" id="node1" title="file where PacketManager class is defined" alt="" coords="54,5,261,47"/>
-<area shape="rect" id="node2" href="$_packet_8hpp.html" title="file where Packet class is defined" alt="" coords="241,95,327,121"/>
-<area shape="rect" id="node8" href="$_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="5,169,85,196"/>
-<area shape="rect" id="node10" href="$_player_data_8hpp.html" title="file where the PlayerData class is defined" alt="" coords="103,95,212,121"/>
-<area shape="rect" id="node3" href="$_i_packet_8hpp.html" title="file where IPacket class is defined" alt="" coords="243,169,333,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="91,244,149,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="337,244,405,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="173,244,245,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="269,244,312,271"/>
-<area shape="rect" id="node9" title=" " alt="" coords="11,244,66,271"/>
-<area shape="rect" id="node11" title=" " alt="" coords="161,169,218,196"/>
+<area shape="rect" id="node1" title="file where PacketManager class is defined" alt="" coords="27,5,234,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="6,95,93,121"/>
+<area shape="rect" id="node3" href="$_buffer_8hpp.html" title="header for the circular buffer lib" alt="" coords="91,169,171,196"/>
+<area shape="rect" id="node7" href="$_player_data_8hpp.html" title="file where the PlayerData class is defined" alt="" coords="168,95,277,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,244,77,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="181,244,240,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="102,244,157,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="247,169,305,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="329,169,397,196"/>
 </map>

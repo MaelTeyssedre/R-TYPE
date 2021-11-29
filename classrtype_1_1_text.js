@@ -1,6 +1,7 @@
 var classrtype_1_1_text =
 [
     [ "~Text", "classrtype_1_1_text.html#a4b75120c762c5d9849c6af3830e38994", null ],
+    [ "Text", "classrtype_1_1_text.html#ae27741a7e943fecb60571eb6fdf712e4", null ],
     [ "Text", "classrtype_1_1_text.html#ab3da2959f6e8aa3aa63e01fc350db421", null ],
     [ "getColorAlpha", "classrtype_1_1_text.html#a468b38892f9d66e77f075e0af0513ffc", null ],
     [ "getColorBlue", "classrtype_1_1_text.html#a0a7033c6f52506a629d62439af38d5c1", null ],

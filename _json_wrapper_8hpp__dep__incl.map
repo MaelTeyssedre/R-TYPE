@@ -1,4 +1,9 @@
 <map id="Sources/Server/JsonWrapper/JsonWrapper.hpp" name="Sources/Server/JsonWrapper/JsonWrapper.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,197,47"/>
-<area shape="rect" id="node2" href="$_json_wrapper_8cpp.html" title=" " alt="" coords="5,95,197,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="178,5,370,47"/>
+<area shape="rect" id="node2" href="$_game_8hpp.html" title=" " alt="" coords="95,95,253,136"/>
+<area shape="rect" id="node7" href="$_json_wrapper_8cpp.html" title=" " alt="" coords="278,95,470,136"/>
+<area shape="rect" id="node3" href="$_game_8cpp.html" title=" " alt="" coords="5,184,164,225"/>
+<area shape="rect" id="node4" href="$_room_8hpp.html" title="file where the Room class is defined" alt="" coords="188,184,339,225"/>
+<area shape="rect" id="node5" href="$_room_8cpp.html" title=" " alt="" coords="88,273,239,315"/>
+<area shape="rect" id="node6" href="$_room_manager_8cpp.html" title=" " alt="" coords="263,273,463,315"/>
 </map>
