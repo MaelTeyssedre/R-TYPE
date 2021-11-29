@@ -1,4 +1,8 @@
-
+/**
+ * \file MouseStateComponent.hpp
+ * 
+ * \brief file for the mouse state component 
+ */
 #ifndef MOUSESTATECOMPONENT_HPP_
     #define MOUSESTATECOMPONENT_HPP_
 

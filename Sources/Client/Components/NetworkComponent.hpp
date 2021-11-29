@@ -1,4 +1,8 @@
-
+/**
+ * \file NetworkComponent.hpp
+ * 
+ * \brief file for the network component 
+ */
 #ifndef NETWORKCOMPONENT_HPP_
     #define NETWORKCOMPONENT_HPP_
 

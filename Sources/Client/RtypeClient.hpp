@@ -1,3 +1,8 @@
+/**
+ * \file RtypeClient.hpp
+ *
+ * \brief file where the r-type-client is defined
+ */
 
 #ifndef RTYPECLIENT_HPP_
     #define RTYPECLIENT_HPP_

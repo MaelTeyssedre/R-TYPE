@@ -1,4 +1,8 @@
-
+/**
+ * \file KeyStateComponent.hpp
+ * 
+ * \brief file for the Key state component 
+ */
 #ifndef KEYSTATECOMPONENT_HPP_
     #define KEYSTATECOMPONENT_HPP_
 
