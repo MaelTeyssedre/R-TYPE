@@ -10,16 +10,12 @@
     #include <iostream>
     #include "Constants.hpp"
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        typedef struct entityType_s {
-            rtype::constants::ENTITY_TYPE entityType; 
-        } entityType_t;
+    namespace rtype {
+        namespace components {
+            struct entityType_s {
+                rtype::constants::ENTITY_TYPE entityType; 
+            };
+        }
     }
 
 #endif /* !ENTITYTYPECOMPONENT_HPP_ */

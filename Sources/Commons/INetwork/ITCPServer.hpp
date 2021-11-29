@@ -8,7 +8,9 @@
     #define ITCPSERVER_HPP_
 
     #include "IPacket.hpp"
+    #include "Buffer.hpp"
     #include <vector>
+    #include <queue>
 
     /**
      * \class ITCPServer.hpp
@@ -63,6 +65,9 @@
              * \param client to eject
              */
             virtual void eject(size_t client) = 0;
+
+            virtual std::queue<IPacket *> getBuffer() = 0;
+
     };
 
 #endif /* !ITCPSERVER_HPP_ */

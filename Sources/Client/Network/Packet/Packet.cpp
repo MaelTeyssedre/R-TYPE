@@ -1,6 +1,6 @@
-#include "cPacket.hpp"
+#include "Packet.hpp"
 
-size_t Packet::pack(std::vector<uint8_t> &data)
+size_t rtype::Packet::pack(std::vector<uint8_t> &data)
 {
     _packetSize = data.size();
     uint8_t opcode = data.at(0);
@@ -10,7 +10,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 1:
             for (int i = 0; i != 16; i++)
             {
-                _rawData->push_back(data.at(i));
+                _rawData.push_back(data.at(i));
                 data.erase(data.begin(), data.begin() + 16);
             }
             bytes = 16;
@@ -18,7 +18,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 2:
             for (int i = 0; i != 14; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 14);
             }
             bytes = 14;
@@ -26,7 +26,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 3:
             for (int i = 0; i != 13; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 13);
             }
             bytes = 13;
@@ -34,7 +34,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 4:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -42,7 +42,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 5:
             for (int i = 0; i != 6; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 6);
             }
             bytes = 6;
@@ -50,7 +50,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 6:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -58,7 +58,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 7:
             for (int i = 0; i != 9; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 9);
             }
             bytes = 9;
@@ -66,7 +66,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 8:
             for (int i = 0; i != 17; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 17);
             }
             bytes = 17;
@@ -75,7 +75,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
             int value = data.at(1) | (data.at(2) << 8) | (data.at(3) << 16) | (data.at(4) << 24);
             for (int i = 0; i != 5 + value; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + value);
             }
             bytes = 5 + value;
@@ -84,7 +84,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 10:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -92,7 +92,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 11:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -100,7 +100,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 12:
             for (int i = 0; i != 9; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 9);
             }
             bytes = 9;
@@ -108,7 +108,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 13:
             for (int i = 0; i != 2; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 2);
             }
             bytes = 2;
@@ -116,7 +116,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 14:
             for (int i = 0; i != 2; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 2);
             }
             bytes = 2;
@@ -124,7 +124,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 15:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -132,7 +132,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 16:
             for (int i = 0; i != 9; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 9);
             }
             bytes = 9;
@@ -140,7 +140,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 17:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -148,7 +148,7 @@ size_t Packet::pack(std::vector<uint8_t> &data)
         case 18:
             for (int i = 0; i != 1; i++)
             {
-                _rawData->push_back(i);
+                _rawData.push_back(i);
                 data.erase(data.begin(), data.begin() + 1);
             }
             bytes = 1;
@@ -160,7 +160,12 @@ size_t Packet::pack(std::vector<uint8_t> &data)
     return (bytes);
 }
 
-std::shared_ptr<std::vector<uint8_t>> Packet::unpack()
+std::vector<uint8_t> rtype::Packet::unpack()
 {
     return (_rawData);
+}
+
+void rtype::Packet::setId(size_t id)
+{
+    _id = id;
 }

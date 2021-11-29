@@ -1,50 +1,48 @@
 #include "tcpUser.hpp"
 #include <iostream>
 
-void tcpUser::start()
+void rtype::tcpUser::start()
 {
-    std::cout << "in new user" << std::endl;
     write();
     read();
-    std::cout << "out new user" << std::endl;
 }
 
-void tcpUser::addToQueue(std::vector<uint8_t> message)
+void rtype::tcpUser::addToQueue(std::vector<uint8_t> message)
 {
     _queue.push(message);
 }
 
-void tcpUser::read()
+void rtype::tcpUser::read()
 {
-    asio::async_read(*_socket, asio::buffer(_input, 1), std::bind(&tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    asio::async_read(*_socket, asio::buffer(_input, 1), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
 }
 
-void tcpUser::doRead(const std::error_code &ec, size_t bytes)
+void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
+    (void)bytes;
     if (!ec)
     {
-        std::cout << bytes << std::endl;
         read();
+        _sizeInput++;
     }
     else
         std::cerr << ec.message() << std::endl;
 }
 
-void tcpUser::write()
+void rtype::tcpUser::write()
 {
     if (_queue.empty())
     {
-        std::cout << "IN WRITE EMPTY" << std::endl;
         return;
     }
-    asio::async_write(*_socket, asio::buffer(_queue.front()), std::bind(&tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+    asio::async_write(*_socket, asio::buffer(_queue.front()), std::bind(&rtype::tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }
 
-void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
+void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
+    (void)bytes_transfered;
     if (!ec)
     {
-        std::cout << bytes_transfered << std::endl;
         _queue.pop();
         if (!_queue.empty())
             write();
@@ -53,7 +51,13 @@ void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
         std::cerr << ec.message() << std::endl;
 }
 
-uint8_t *tcpUser::getInput()
+std::vector<uint8_t> &rtype::tcpUser::getInput()
 {
     return (_input);
+}
+
+
+size_t &rtype::tcpUser::getSizeInput()
+{
+    return (_sizeInput);
 }

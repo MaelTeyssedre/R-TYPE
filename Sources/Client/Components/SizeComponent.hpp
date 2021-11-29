@@ -9,17 +9,19 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        typedef struct mySize_s {
-            size_t width;
-            size_t heigth;
-        } mySize_t;
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct mySize_s {
+                size_t width;
+                size_t heigth;
+            };
+        }
     }
 
 #endif /* !SIZECOMPONENT_HPP_ */

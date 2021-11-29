@@ -4,13 +4,15 @@
 
     #include <iostream>
 
-    namespace components {
-        typedef struct mouseState_s {
-            int mousePosX;
-            int mousePosY;
-            bool mouseRightClick;
-            bool mouseLeftClick;
-        } mouseState_t;
+    namespace rtype {
+        namespace components {
+            struct mouseState_s {
+                int mousePosX;
+                int mousePosY;
+                bool mouseRightClick;
+                bool mouseLeftClick;
+            };
+        }
     }
 
 #endif /* !MOUSESTATECOMPONENT_HPP_ */

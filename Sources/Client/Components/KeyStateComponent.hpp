@@ -4,15 +4,17 @@
 
     #include <iostream>
 
-    namespace components {
-        typedef struct keyState_s {
-            bool keyUp;
-            bool keyDown;
-            bool keyRight;
-            bool keyLeft;
-            bool keyEnter;
-            bool keySpace;
-        } keyState_t;
+    namespace rtype {
+        namespace components {
+            struct keyState_s {
+                bool keyUp;
+                bool keyDown;
+                bool keyRight;
+                bool keyLeft;
+                bool keyEnter;
+                bool keySpace;
+            };
+        }
     }
 
 #endif /* !KEYSTATECOMPONENT_HPP_ */

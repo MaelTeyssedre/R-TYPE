@@ -40,16 +40,9 @@
          */
         virtual size_t pack(std::vector<uint8_t> &data) = 0;
 
-        /**
-         * \fn virual std::shared_ptr<std::vector<uint8_t>> unpack() = 0
-         * 
-         * \brief deserialize packet
-         * 
-         * \param size of packet to deserialize
-         * 
-         * \return data deserialised
-         */
-        virtual std::shared_ptr<std::vector<uint8_t>> unpack() = 0;
+        virtual std::vector<uint8_t> unpack() = 0;
+
+        virtual void setId(size_t id) = 0;
   };
 
 #endif /* !IPACKET_HPP_ */

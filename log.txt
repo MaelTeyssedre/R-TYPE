@@ -1,1 +1,0 @@
-Client connected to host: 127.0.0.1, and port: 3434

@@ -1,45 +1,61 @@
 #include "PacketManager.hpp"
 
-PacketManager::PacketManager(std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
+rtype::PacketManager::PacketManager(std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
 {
     _bufferIn = bufferIn;
     _bufferOut = bufferOut;
 }
 
-void PacketManager::createRoom(std::pair<size_t, std::vector<uint8_t>> packet)
+void rtype::PacketManager::createRoom(rtype::Packet packet)
 {
     std::vector<uint8_t> vec;
     std::string str = "Create ";
-    str.append(std::to_string(packet.first));
+    str.append(std::to_string(packet.getId()));
     str.append(";");
     vec.assign(str.begin(), str.end());
     _bufferOut->putInBuffer(vec.size(), vec);
 }
 
-void PacketManager::joinRoom(std::pair<size_t, std::vector<uint8_t>> packet)
+void rtype::PacketManager::joinRoom(rtype::Packet packet)
 {
     std::vector<uint8_t> vec;
     std::string str = "Join ";
-    str.append(std::to_string(packet.first));
+    str.append(std::to_string(packet.getId()));
     str.append(";");
     vec.assign(str.begin(), str.end());
     _bufferOut->putInBuffer(vec.size(), vec);
 }
 
-void PacketManager::managePacket(std::pair<size_t, std::vector<uint8_t>> packet)
+void rtype::PacketManager::sendToClient(rtype::PlayerData &player, std::vector<uint8_t> request) {
+    player._mutexOut->lock();
+    player._bufferOut->putInBuffer(request.size(), request);
+    player._mutexOut->unlock();
+}
+
+void rtype::PacketManager::managePacket(rtype::Packet packet)
 {
-    std::string str(packet.second.begin(), packet.second.end());
-    for (auto it = _roomList->begin(); it != _roomList->end(); it++)
-    {
-        for (auto it2 = it->begin(); it2 != it->end(); it2++)
-        {
-            if (it2->getId() == packet.first)
+    for (size_t i = 0; i < (*_roomList).size(); i++)
+        for (size_t j = 0; j < (*_roomList)[i].size(); j++)
+            if ((*_roomList)[i][j].getId() == packet.getId())
             {
-                if (packet.second.at(0) == 15)
-                    createRoom(packet);
-                else if (packet.second.at(0) == 16)
-                    joinRoom(packet);
+                sendToClient((*_roomList)[i][j], packet.getData());
+                return;
             }
-        }
-    }
+    if (packet.getData().at(0) == 15)
+        createRoom(packet);
+    else if (packet.getData().at(0) == 16)
+        joinRoom(packet);
+    else
+        std::cerr << "Packet received from " << packet.getId() << " is undefined" << std::endl;
+}
+
+
+void rtype::PacketManager::setBuffer(std::shared_ptr<Buffer> buffer)
+{
+    (void)buffer;
+}
+
+std::vector<rtype::Packet> rtype::PacketManager::getRequests()
+{
+    return _packets;
 }

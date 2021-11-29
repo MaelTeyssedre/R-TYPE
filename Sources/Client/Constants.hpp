@@ -24,7 +24,7 @@
     #endif
     
     #ifndef FRAME_RATE
-        #define FRAME_RATE 244
+        #define FRAME_RATE 60
     #endif
     
     #ifndef WINDOW_SIZE_X
@@ -36,11 +36,11 @@
     #endif
     
     #ifndef WINDOW_NAME
-        #define WINDOW_NAME "RPR-TYPE"
+        #define WINDOW_NAME "R-TYPE"
     #endif
 
     #ifndef BUF_SIZE
-        #define BUF_SIZE 4
+        #define BUF_SIZE 8192
     #endif
 
     #ifndef BUF_READ_SIZE
@@ -70,7 +70,8 @@
                 MAIN_MENU,
                 PARAMS,
                 GAME,
-                LOADING_MENU
+                LOADING_MENU,
+                LOADING_GAME
             };
 
             enum TYPE {

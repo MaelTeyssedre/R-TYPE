@@ -9,16 +9,12 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        typedef struct health_s {
-            size_t health;
-        } health_t;
+    namespace rtype {
+        namespace components {
+            struct health_s {
+                size_t health;
+            };
+        }
     }
 
 #endif /* !HEALTHCOMPONENT_HPP_ */

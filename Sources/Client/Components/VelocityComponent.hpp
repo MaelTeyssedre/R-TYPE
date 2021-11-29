@@ -9,17 +9,19 @@
 
     #include <iostream>
 
-    /**
-     * \namespace components
-     * 
-     * \brief namespace for ECS components
-     * 
-     */
-    namespace components {
-        typedef struct velocity_s {
-            size_t x;
-            size_t y;
-        } velocity_t;
+    namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
+        namespace components {
+            struct velocity_s {
+                size_t x;
+                size_t y;
+            };
+        }
     }
 
 #endif /* !VELOCITYCOMPONENT_HPP_ */

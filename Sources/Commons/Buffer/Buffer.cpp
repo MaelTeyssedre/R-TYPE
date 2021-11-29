@@ -35,7 +35,6 @@ void Buffer::putInBuffer(size_t size, void *data)
     {
         _byteList[_writeCursor] = castedData[i];
         _writeCursor = ((_writeCursor + 1) == _size) ? 0 : _writeCursor + 1;
-        std::cout << " byte size " << i << std::endl;
     }
 }
 
@@ -44,7 +43,6 @@ void Buffer::readFromBuffer(size_t size, void *data)
     uint8_t *castedData;
     if (!data || size < 1 || !_usedSize)
     {
-        std::cerr << "ERROR: readFromBuffer() invalid arguments!" << std::endl;
         return;
     }
     castedData = static_cast<uint8_t *>(data);
@@ -77,7 +75,6 @@ void Buffer::readFromBuffer(size_t size, std::vector<uint8_t> &data)
 {
     if (!_usedSize)
     {
-        std::cerr << "ERROR: readFromBuffer() invalid arguments! (!usedSize)" << std::endl;
         return;
     }
     if (data.size() < size || size < 1)

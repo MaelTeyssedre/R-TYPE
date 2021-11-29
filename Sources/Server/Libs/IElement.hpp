@@ -11,35 +11,37 @@
     #include <iostream>
     #include "Registry.hpp"
 
-    /**
-     * \class IElement IElement.hpp
-     * 
-     * \brief Interface for dynlibs
-     */
-    class IElement { 
-        public:
-            /**
-             * \fn ~IElement() = default
-             * 
-             * \brief Default dtor
-             */
-            virtual ~IElement() = default;
+    namespace rtype {
+        /**
+         * \class IElement IElement.hpp
+         * 
+         * \brief Interface for dynlibs
+         */
+        class IElement { 
+            public:
+                /**
+                 * \fn ~IElement() = default
+                 * 
+                 * \brief Default dtor
+                 */
+                virtual ~IElement() = default;
 
-            /**
-             * \fn virtual void init(Registery &) = 0
-             *
-             * \param Registery of the ECS
-             * 
-             * \brief Pure virtual init 
-             */
-            virtual void init(Registry &) = 0;
+                /**
+                 * \fn virtual void init(Registery &) = 0
+                 *
+                 * \param Registery of the ECS
+                 * 
+                 * \brief Pure virtual init 
+                 */
+                virtual void init(Registry &) = 0;
 
-            /**
-             * \fn virtual void update(void) = 0
-             * 
-             * \brief Pure virtual update 
-             */
-            virtual void update(void) = 0;
-    };
+                /**
+                 * \fn virtual void update(void) = 0
+                 * 
+                 * \brief Pure virtual update 
+                 */
+                virtual void update(void) = 0;
+        };
+    }
 
 #endif /* !IELEMENT_HPP_ */

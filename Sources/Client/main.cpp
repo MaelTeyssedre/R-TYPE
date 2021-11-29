@@ -6,8 +6,10 @@ int main(int ac, char **av)
     if (ac != 3) {
         std::cout << HELPER << std::endl;
         return 0;
-    } 
-    RtypeClient rtype (av[1], av[2]);
-    rtype.run();
+    }
+    (void)ac;
+    rtype::RtypeClient the_rtype(av[1], av[2]);
+    if (the_rtype.checkStatus() == true)
+        the_rtype.run();
     return 0;
 }

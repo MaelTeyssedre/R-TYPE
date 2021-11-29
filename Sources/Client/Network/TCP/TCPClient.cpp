@@ -1,30 +1,29 @@
-#include "cTCPClient.hpp"
+#include "TCPClient.hpp"
 
-TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
-    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE))
+rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
+    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false)
 {
     std::string str = "Client connected to host: ";
     asio::error_code ec;
     asio::connect(*_socket, _resolver.resolve(host, port), ec);
     if (ec) {
+        std::cerr << "cant find a connection" << std::endl;
         _logger.logln("Cant find a connection");
         return;
     }
+    _isConnected = true;
     str.append(host);
     str.append(", and port: ");
     str.append(port);
     _logger.logln(str);
 }
 
-void TCPClient::receive()
+void rtype::TCPClient::receive()
 {
-
-    _socket->async_read_some(asio::buffer(_reply), std::bind(&TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
-    for (size_t i = 0; i <= 9; i++)
-        std::cout << _reply[i];
+    _socket->async_read_some(asio::buffer(_reply), std::bind(&rtype::TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
 }
 
-void TCPClient::doRead(const std::error_code &ec, size_t bytes)
+void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
 {
     std::string str;
     if (!ec)
@@ -40,16 +39,16 @@ void TCPClient::doRead(const std::error_code &ec, size_t bytes)
         std::cerr << ec.message() << std::endl;
 }
 
-void TCPClient::send(IPacket &packet)
+void rtype::TCPClient::send(IPacket &packet)
 {
     std::vector<uint8_t> vec;
     std::string str = "handshake";
     vec.assign(str.begin(), str.end());
     packet.pack(vec);
-    _socket->async_write_some(asio::buffer(vec, vec.size()), std::bind(&TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+    _socket->async_write_some(asio::buffer(packet.unpack()), std::bind(&rtype::TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }
 
-void TCPClient::doWrite(const std::error_code &ec, size_t bytes)
+void rtype::TCPClient::doWrite(const std::error_code &ec, size_t bytes)
 {
     std::string str = "Send: ";
     if (!ec)
@@ -62,13 +61,19 @@ void TCPClient::doWrite(const std::error_code &ec, size_t bytes)
         std::cerr << ec.message() << std::endl;
 }
 
-std::shared_ptr<Buffer> TCPClient::getBuffer()
+std::shared_ptr<Buffer> rtype::TCPClient::getBuffer()
 {
     return _buffer;
 }
 
-void TCPClient::disconnect()
+void rtype::TCPClient::disconnect()
 {
     _socket->close();
     _logger.logln(std::string{"Client disconnect"});
+}
+
+
+bool rtype::TCPClient::isConnected()
+{
+    return (_isConnected);
 }

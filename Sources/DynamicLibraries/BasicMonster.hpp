@@ -15,58 +15,60 @@
     #include "Velocity.hpp"
     #include "Weapon.hpp"
 
-    /**
-     * \class BasicMonster BasicMonster.hpp
-     * 
-     * \brief Class that contain a monster in a .so/.dll
-     */
-    class BasicMonster : public AMonster {
-        public:
-        
-            /**
-             * \fn BasicMonster() = default
-             * 
-             * \brief Default ctor
-             */
-            explicit BasicMonster();
+    namespace rtype {
+        /**
+         * \class BasicMonster BasicMonster.hpp
+         * 
+         * \brief Class that contain a monster in a .so/.dll
+         */
+        class BasicMonster : public AMonster {
+            public:
+            
+                /**
+                 * \fn BasicMonster() = default
+                 * 
+                 * \brief Default ctor
+                 */
+                explicit BasicMonster();
 
-            /**
-             * \fn BasicMonster(const BasicMonster&) = default
-             * 
-             * \brief Default copy ctor
-             */
-            explicit BasicMonster(const BasicMonster&) = default;
+                /**
+                 * \fn BasicMonster(const BasicMonster&) = default
+                 * 
+                 * \brief Default copy ctor
+                 */
+                explicit BasicMonster(const BasicMonster&) = default;
 
-            /**
-             * \fn ~BasicMonster() = default
-             * 
-             * \brief Default dtor
-             */
-            virtual ~BasicMonster() = default;
+                /**
+                 * \fn ~BasicMonster() = default
+                 * 
+                 * \brief Default dtor
+                 */
+                virtual ~BasicMonster() = default;
 
-            /**
-             * \fn BasicMonster& operator=(const BasicMonster &other) = default
-             * 
-             * \brief Default operator= overload
-             */
-            BasicMonster& operator=(const BasicMonster &other) = default;
+                /**
+                 * \fn BasicMonster& operator=(const BasicMonster &other) = default
+                 * 
+                 * \brief Default operator= overload
+                 */
+                BasicMonster& operator=(const BasicMonster &other) = default;
 
-            /**
-             * \fn void init(Registery &) override
-             *
-             * \param Registery of the ECS
-             * 
-             * \brief Override init of the class
-             */
-            void init(Registry &r) override;
+                /**
+                 * \fn void init(Registery &) override
+                 *
+                 * \param Registery of the ECS
+                 * 
+                 * \brief Override init of the class
+                 */
+                void init(Registry &r) override;
 
-            /**
-             * \fn void update(void) override
-             * 
-             * \brief Override update of the class
-             */
-            void update(void) override;
+                /**
+                 * \fn void update(void) override
+                 * 
+                 * \brief Override update of the class
+                 */
+                void update(void) override;
 
-    };
+        };
+    }
 
 #endif /* !BASICMONSTER_HPP_ */

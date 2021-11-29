@@ -21,8 +21,8 @@
      */
     class DlLoaderWindows {
         public:
-            using allocClass = AMonster*(*)();
-            using deleteClass = void(*)(IElement*);
+            using allocClass = rtype::AMonster*(*)();
+            using deleteClass = void(*)(rtype::IElement*);
 
         public:
             /**

@@ -20,8 +20,8 @@
      */
     class DlLoaderUnix {
         public:
-            using allocClass = IElement*(*)();
-            using deleteClass = void(*)(IElement*);
+            using allocClass = rtype::IElement*(*)();
+            using deleteClass = void(*)(rtype::IElement*);
 
         public:
             /**
