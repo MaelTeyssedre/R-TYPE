@@ -110,6 +110,11 @@ void rtype::UpdateGraph::_setupLoadingMenuScene()
                                                                     (void)graph;
                                                                     _background_id = (size_t)(r.spawnEntity());
                                                                     _switchId = (size_t)(r.spawnEntity());
+                                                                    if (_switchId < _background_id) {
+                                                                        size_t tmp = _switchId;
+                                                                        _switchId = _background_id;
+                                                                        _background_id = tmp;
+                                                                    }
                                                                     struct components::sprite_s sprite = {(float)WINDOW_SIZE_X / 660, (float)WINDOW_SIZE_Y / 248, 0, 0, 384, 256, "ressources/LoadingMenu.jpg"};
                                                                     struct components::sprite_s switcher = {(float)WINDOW_SIZE_X / 250, (float)WINDOW_SIZE_Y / 250, 0, 0, 1920, 1080, "ressources/noir.jpg"};
                                                                     struct components::position_s posSprite = {0, 0};
@@ -189,7 +194,7 @@ void rtype::UpdateGraph::_setupExecLoadingMenuScene()
                                                                        dtimeAnim = std::chrono::nanoseconds(0);
                                                                        lib->setSpriteColorAlpha(_switchId, lib->getSpriteColorAlpha(_switchId) + 1);
                                                                    }
-                                                                   if (dtime.count() > 10000000000)
+                                                                   if (dtime.count() > 14000000000)
                                                                    {
                                                                        auto &current = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
                                                                        current.value().isLoaded = false;
@@ -224,6 +229,11 @@ void rtype::UpdateGraph::_setupMainMenuScene()
                                                                  (void)graph;
                                                                  _switchId = (size_t)(r.spawnEntity());
                                                                  _background_id = (size_t)(r.spawnEntity());
+                                                                 if (_switchId < _background_id) {
+                                                                     size_t tmp = _switchId;
+                                                                     _switchId = _background_id;
+                                                                     _background_id = tmp;
+                                                                 }
                                                                  struct components::sprite_s sprite = {(float)WINDOW_SIZE_X / 660, (float)WINDOW_SIZE_Y / 248, 0, 0, 384, 256, "ressources/LoadingMenu.jpg"};
                                                                  struct components::sprite_s switcher = {(float)WINDOW_SIZE_X / 250, (float)WINDOW_SIZE_Y / 250, 0, 0, 1920, 1080, "ressources/noir.jpg"};
                                                                  struct components::position_s posSprite = {0, 0};
@@ -238,8 +248,6 @@ void rtype::UpdateGraph::_setupMainMenuScene()
                                                                  struct components::scene_s my_sceneSwitcher = {constants::SCENE::MAIN_MENU};
                                                                  _graphicalLib->createSprite(_background_id, sprite.scaleX, sprite.scaleY, sprite.rectX, sprite.rectY, sprite.rectWidth, sprite.rectHeight, sprite.path);
                                                                  _graphicalLib->createSprite(_switchId, switcher.scaleX, switcher.scaleY, switcher.rectX, switcher.rectY, switcher.rectWidth, switcher.rectHeight, switcher.path);
-                                                                 std::cout << "PAS LE SWITCH ID " << (size_t)(_background_id) << std::endl;
-                                                                 std::cout << "SWITCH ID " << (size_t)(_switchId) << std::endl;
                                                                  r.addComponent<components::sprite_s>(r.entityFromIndex(_background_id), std::move(sprite));
                                                                  r.addComponent<components::position_s>(r.entityFromIndex(_background_id), std::move(posSprite));
                                                                  r.addComponent<components::velocity_s>(r.entityFromIndex(_background_id), std::move(velSprite));
@@ -307,7 +315,7 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
                                                                     dtimeAnim = std::chrono::nanoseconds(0);
                                                                     lib->setSpriteColorAlpha(_switchId, lib->getSpriteColorAlpha(_switchId) + 1);
                                                                 }
-                                                                if (dtime.count() > 10000000000)
+                                                                if (dtime.count() > 14000000000)
                                                                 {
                                                                     auto &current = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
                                                                     current.value().isLoaded = false;
