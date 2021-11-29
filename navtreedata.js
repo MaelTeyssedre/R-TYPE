@@ -25,9 +25,7 @@
 var NAVTREE =
 [
   [ "R-Type", "index.html", [
-    [ "R-TYPE", "md__r_e_a_d_m_e.html", [
-      [ "Questions for St Julian:", "md__r_e_a_d_m_e.html#autotoc_md1", null ]
-    ] ],
+    [ "README", "md__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -66,7 +64,7 @@ var NAVTREEINDEX =
 "_server_2main_8cpp_source.html",
 "classrtype_1_1_a_monster.html#ac6f90b306560b78e0c7ce840b50c6bc5",
 "classrtype_1_1_sound.html#a9c13dc9fc600f282a9ae6b3e41d54e67",
-"namespacemembers.html"
+"namespacemembers_enum.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
