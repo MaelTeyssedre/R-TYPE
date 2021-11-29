@@ -78,9 +78,6 @@ var annotated_dup =
     [ "Registry", "class_registry.html", "class_registry" ],
     [ "SparseArray", "class_sparse_array.html", "class_sparse_array" ],
     [ "udpSocket", "classudp_socket.html", null ],
-    [ "UpdateGraph", "class_update_graph.html", "class_update_graph" ],
-    [ "UpdateNetwork", "class_update_network.html", "class_update_network" ],
-    [ "UpdateTime", "class_update_time.html", "class_update_time" ],
     [ "Zipper", "class_zipper.html", "class_zipper" ],
     [ "ZipperIterator", "class_zipper_iterator.html", "class_zipper_iterator" ]
 ];

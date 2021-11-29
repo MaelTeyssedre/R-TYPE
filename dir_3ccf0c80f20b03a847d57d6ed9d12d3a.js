@@ -5,14 +5,5 @@ var dir_3ccf0c80f20b03a847d57d6ed9d12d3a =
     [ "UpdateNetwork", "dir_04f30c6560f7ba86af557447c1b80420.html", "dir_04f30c6560f7ba86af557447c1b80420" ],
     [ "UpdatePosition", "dir_b376fb3c7909a0e5bb8eaf5b24a4b09c.html", "dir_b376fb3c7909a0e5bb8eaf5b24a4b09c" ],
     [ "UpdateTime", "dir_a3b3239bda0186a671325309e8765f54.html", "dir_a3b3239bda0186a671325309e8765f54" ],
-    [ "Systems.hpp", "_systems_8hpp.html", null ],
-    [ "UpdateGraph.hpp", "_update_graph_8hpp.html", [
-      [ "UpdateGraph", "class_update_graph.html", "class_update_graph" ]
-    ] ],
-    [ "UpdateNetwork.hpp", "_client_2_systems_2_update_network_8hpp.html", [
-      [ "UpdateNetwork", "class_update_network.html", "class_update_network" ]
-    ] ],
-    [ "UpdateTime.hpp", "_client_2_systems_2_update_time_8hpp.html", [
-      [ "UpdateTime", "class_update_time.html", "class_update_time" ]
-    ] ]
+    [ "Systems.hpp", "_systems_8hpp.html", null ]
 ];
