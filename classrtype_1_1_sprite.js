@@ -1,6 +1,6 @@
 var classrtype_1_1_sprite =
 [
-    [ "~Sprite", "classrtype_1_1_sprite.html#a6945259b5df52fe2f288d5ce31c98fcc", null ],
+    [ "~Sprite", "classrtype_1_1_sprite.html#a31bc3a21f711b641e1d0f915178128cc", null ],
     [ "Sprite", "classrtype_1_1_sprite.html#a4a5b7585777743ecdc7624b241ca2fc9", null ],
     [ "Sprite", "classrtype_1_1_sprite.html#a336335cb68e3d51259d7525c42a51896", null ],
     [ "drawSprite", "classrtype_1_1_sprite.html#a38d2009a3adc45029b57421c2dc148e4", null ],

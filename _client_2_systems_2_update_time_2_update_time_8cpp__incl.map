@@ -22,7 +22,7 @@
 <area shape="rect" id="node22" title=" " alt="" coords="659,244,734,271"/>
 <area shape="rect" id="node20" title=" " alt="" coords="793,319,856,345"/>
 <area shape="rect" id="node21" title=" " alt="" coords="717,319,769,345"/>
-<area shape="rect" id="node24" href="$_current_scene_component_8hpp.html" title=" " alt="" coords="3501,244,3692,271"/>
+<area shape="rect" id="node24" href="$_current_scene_component_8hpp.html" title="file for the current scene component" alt="" coords="3501,244,3692,271"/>
 <area shape="rect" id="node25" href="$_direction_component_8hpp.html" title="file for the direction component" alt="" coords="2070,244,2233,271"/>
 <area shape="rect" id="node26" href="$_entity_type_component_8hpp.html" title="file for the entity type component" alt="" coords="3160,244,3332,271"/>
 <area shape="rect" id="node27" href="$_health_component_8hpp.html" title="file for the health component" alt="" coords="2419,244,2569,271"/>
@@ -31,13 +31,13 @@
 <area shape="rect" id="node30" href="$_client_2_components_2_network_component_8hpp.html" title="file for the network component" alt="" coords="1121,244,1283,271"/>
 <area shape="rect" id="node31" href="$_position_component_8hpp.html" title="file for the position component" alt="" coords="1704,244,1863,271"/>
 <area shape="rect" id="node32" href="$_reserved_component_8hpp.html" title="file for the reserved component" alt="" coords="2593,244,2760,271"/>
-<area shape="rect" id="node33" href="$_scene_component_8hpp.html" title=" " alt="" coords="3717,244,3866,271"/>
+<area shape="rect" id="node33" href="$_scene_component_8hpp.html" title="file for the scene component" alt="" coords="3717,244,3866,271"/>
 <area shape="rect" id="node34" href="$_size_component_8hpp.html" title="file for the size component" alt="" coords="2257,244,2395,271"/>
 <area shape="rect" id="node35" href="$_strength_component_8hpp.html" title="file for the strength component" alt="" coords="2784,244,2945,271"/>
 <area shape="rect" id="node36" href="$_client_2_components_2_time_component_8hpp.html" title="file for the time component" alt="" coords="955,244,1097,271"/>
 <area shape="rect" id="node37" href="$_velocity_component_8hpp.html" title="file for the velocity component" alt="" coords="1887,244,2045,271"/>
 <area shape="rect" id="node38" href="$_sprite_component_8hpp.html" title=" " alt="" coords="3941,244,4087,271"/>
 <area shape="rect" id="node40" href="$_weapon_type_8hpp.html" title="file for WeaponType component" alt="" coords="3356,244,3477,271"/>
-<area shape="rect" id="node41" href="$_drawable_component_8hpp.html" title=" " alt="" coords="2969,244,3136,271"/>
+<area shape="rect" id="node41" href="$_drawable_component_8hpp.html" title="file for the drawable component" alt="" coords="2969,244,3136,271"/>
 <area shape="rect" id="node39" title=" " alt="" coords="3987,319,4041,345"/>
 </map>

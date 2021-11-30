@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classrtype_1_1_i_graphical_lib.html" title=" " alt="" coords="5,5,139,32"/>
-<area shape="rect" id="node2" href="$classrtype_1_1_graphical_lib.html" title=" " alt="" coords="187,5,316,32"/>
+<area shape="rect" id="node1" href="$classrtype_1_1_i_graphical_lib.html" title="Interface of the class that encapsulate the sfml lib." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="node2" href="$classrtype_1_1_graphical_lib.html" title="declaration of class graphicalLib to avoid circular includes..." alt="" coords="187,5,316,32"/>
 </map>

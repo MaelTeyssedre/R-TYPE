@@ -74,65 +74,80 @@ $(document).ready(function(){initNavTree('_rtype_client_8hpp_source.html',''); i
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">    #include &lt;csignal&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespacertype.html">rtype</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classrtype_1_1_rtype_client.html">   19</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classrtype_1_1_rtype_client.html">RtypeClient</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_rtype_client.html#a7c5fdbf5ab0e8db84cc3120d0b16ce09">RtypeClient</a>(std::string port, std::string host);</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classrtype_1_1_rtype_client.html#aeb6a2dd997bf24fc491d94d16cec86f8">   22</a></span>&#160;                <span class="keyword">virtual</span> <a class="code" href="classrtype_1_1_rtype_client.html#aeb6a2dd997bf24fc491d94d16cec86f8">~RtypeClient</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_rtype_client.html#abb39ddd1e363a4b9aaf963c002ff955e">run</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_rtype_client.html#acb56702d12080b5633c84cf0acdbfef0">signalHandler</a>(<span class="keywordtype">int</span> signums);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="classrtype_1_1_rtype_client.html#adf84a5f0662f4f6cf3b4a8452d206f9a">checkStatus</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordtype">void</span> _registerComponents();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordtype">void</span> _setupComponents();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordtype">void</span> _setupSystems();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordtype">void</span> _setupTimeComponent();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordtype">void</span> _setupNetworkComponent();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordtype">void</span> _setupMouseStateComponent();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordtype">void</span> _setupKeyStateComponent();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordtype">void</span> _setupCurrentSceneComponent();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordtype">void</span> _setupUpdateTimeSystem();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordtype">void</span> _setupUpdateNetworkSystem();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordtype">void</span> _setupUpdateGraphSystem();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordtype">void</span> _setupUpdatePositionSystem();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordtype">void</span> _setupUpdateDirectionSystem();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordtype">void</span> _setupUpdateScene();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                std::string _port;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                std::string _host;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <a class="code" href="class_registry.html">Registry</a> _r;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="classrtype_1_1_network_manager.html">NetworkManager</a> _netManager;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="class_i_t_c_p_client.html">ITCPClient</a> *_client;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <a class="code" href="class_i_u_d_p_socket.html">IUDPSocket</a> *_socket;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <a class="code" href="classrtype_1_1_update_network.html">UpdateNetwork</a> _networkSystem;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="classrtype_1_1_update_graph.html">UpdateGraph</a> _graphSystem;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">bool</span> _status;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        };</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !RTYPECLIENT_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespacertype.html">rtype</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classrtype_1_1_rtype_client.html">   30</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classrtype_1_1_rtype_client.html">RtypeClient</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_rtype_client.html#a7c5fdbf5ab0e8db84cc3120d0b16ce09">RtypeClient</a>(std::string port, std::string host);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classrtype_1_1_rtype_client.html#a2c28387629978a750a67df5b2e9b8134">   48</a></span>&#160;                <span class="keyword">virtual</span> <a class="code" href="classrtype_1_1_rtype_client.html#a2c28387629978a750a67df5b2e9b8134">~RtypeClient</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_rtype_client.html#abb39ddd1e363a4b9aaf963c002ff955e">run</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_rtype_client.html#af83f1ad8787f030789af3b7b2c34ad60">signalHandler</a>(<span class="keywordtype">int</span> signums);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="classrtype_1_1_rtype_client.html#adf84a5f0662f4f6cf3b4a8452d206f9a">checkStatus</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordtype">void</span> _registerComponents();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordtype">void</span> _setupComponents();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordtype">void</span> _setupSystems();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordtype">void</span> _setupTimeComponent();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordtype">void</span> _setupNetworkComponent();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordtype">void</span> _setupMouseStateComponent();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordtype">void</span> _setupKeyStateComponent();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="keywordtype">void</span> _setupCurrentSceneComponent();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordtype">void</span> _setupUpdateTimeSystem();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="keywordtype">void</span> _setupUpdateNetworkSystem();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordtype">void</span> _setupUpdateGraphSystem();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordtype">void</span> _setupUpdatePositionSystem();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="keywordtype">void</span> _setupUpdateDirectionSystem();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="keywordtype">void</span> _setupUpdateScene();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                std::string _port; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                std::string _host; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                <a class="code" href="class_registry.html">Registry</a> _r; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <a class="code" href="classrtype_1_1_network_manager.html">NetworkManager</a> _netManager; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                <a class="code" href="class_i_t_c_p_client.html">ITCPClient</a> *_client; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <a class="code" href="class_i_u_d_p_socket.html">IUDPSocket</a> *_socket; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                <a class="code" href="classrtype_1_1_update_network.html">UpdateNetwork</a> _networkSystem; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <a class="code" href="classrtype_1_1_update_graph.html">UpdateGraph</a> _graphSystem; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">bool</span> _status; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        };</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !RTYPECLIENT_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_components_8hpp_html"><div class="ttname"><a href="_components_8hpp.html">Components.hpp</a></div></div>
 <div class="ttc" id="a_registry_8hpp_html"><div class="ttname"><a href="_registry_8hpp.html">Registry.hpp</a></div><div class="ttdoc">file where the Registry class is defined</div></div>
-<div class="ttc" id="a_systems_8hpp_html"><div class="ttname"><a href="_systems_8hpp.html">Systems.hpp</a></div></div>
+<div class="ttc" id="a_systems_8hpp_html"><div class="ttname"><a href="_systems_8hpp.html">Systems.hpp</a></div><div class="ttdoc">file where all system are includes</div></div>
 <div class="ttc" id="aclass_i_t_c_p_client_html"><div class="ttname"><a href="class_i_t_c_p_client.html">ITCPClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_t_c_p_client_8hpp_source.html#l00019">ITCPClient.hpp:19</a></div></div>
 <div class="ttc" id="aclass_i_u_d_p_socket_html"><div class="ttname"><a href="class_i_u_d_p_socket.html">IUDPSocket</a></div><div class="ttdoc">file where interface IUDPSocket is defined</div><div class="ttdef"><b>Definition:</b> <a href="_i_u_d_p_socket_8hpp_source.html#l00018">IUDPSocket.hpp:18</a></div></div>
 <div class="ttc" id="aclass_registry_html"><div class="ttname"><a href="class_registry.html">Registry</a></div><div class="ttdoc">declaration of class registry to avoid circular includes...</div><div class="ttdef"><b>Definition:</b> <a href="_registry_8hpp_source.html#l00022">Registry.hpp:22</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_network_manager_html"><div class="ttname"><a href="classrtype_1_1_network_manager.html">rtype::NetworkManager</a></div><div class="ttdoc">class that contain methode to manage network</div><div class="ttdef"><b>Definition:</b> <a href="_client_2_network_2_network_manager_2_network_manager_8hpp_source.html#l00023">NetworkManager.hpp:23</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_rtype_client_html"><div class="ttname"><a href="classrtype_1_1_rtype_client.html">rtype::RtypeClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8hpp_source.html#l00019">RtypeClient.hpp:19</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_rtype_client_html_a7c5fdbf5ab0e8db84cc3120d0b16ce09"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#a7c5fdbf5ab0e8db84cc3120d0b16ce09">rtype::RtypeClient::RtypeClient</a></div><div class="ttdeci">RtypeClient(std::string port, std::string host)</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00006">RtypeClient.cpp:6</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_rtype_client_html_abb39ddd1e363a4b9aaf963c002ff955e"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#abb39ddd1e363a4b9aaf963c002ff955e">rtype::RtypeClient::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00017">RtypeClient.cpp:17</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_rtype_client_html_acb56702d12080b5633c84cf0acdbfef0"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#acb56702d12080b5633c84cf0acdbfef0">rtype::RtypeClient::signalHandler</a></div><div class="ttdeci">static void signalHandler(int signums)</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00024">RtypeClient.cpp:24</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_rtype_client_html_adf84a5f0662f4f6cf3b4a8452d206f9a"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#adf84a5f0662f4f6cf3b4a8452d206f9a">rtype::RtypeClient::checkStatus</a></div><div class="ttdeci">bool checkStatus()</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00148">RtypeClient.cpp:148</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_rtype_client_html_aeb6a2dd997bf24fc491d94d16cec86f8"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#aeb6a2dd997bf24fc491d94d16cec86f8">rtype::RtypeClient::~RtypeClient</a></div><div class="ttdeci">virtual ~RtypeClient()=default</div></div>
-<div class="ttc" id="aclassrtype_1_1_update_graph_html"><div class="ttname"><a href="classrtype_1_1_update_graph.html">rtype::UpdateGraph</a></div><div class="ttdef"><b>Definition:</b> <a href="_update_graph_8hpp_source.html#l00017">UpdateGraph.hpp:17</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_update_network_html"><div class="ttname"><a href="classrtype_1_1_update_network.html">rtype::UpdateNetwork</a></div><div class="ttdef"><b>Definition:</b> <a href="_client_2_systems_2_update_network_2_update_network_8hpp_source.html#l00014">UpdateNetwork.hpp:14</a></div></div>
-<div class="ttc" id="anamespacertype_html"><div class="ttname"><a href="namespacertype.html">rtype</a></div><div class="ttdoc">global namespace for the rtype project</div><div class="ttdef"><b>Definition:</b> <a href="_current_scene_component_8hpp_source.html#l00007">CurrentSceneComponent.hpp:7</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_rtype_client_html"><div class="ttname"><a href="classrtype_1_1_rtype_client.html">rtype::RtypeClient</a></div><div class="ttdoc">class that contain the r-type client</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8hpp_source.html#l00030">RtypeClient.hpp:30</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_rtype_client_html_a2c28387629978a750a67df5b2e9b8134"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#a2c28387629978a750a67df5b2e9b8134">rtype::RtypeClient::~RtypeClient</a></div><div class="ttdeci">virtual ~RtypeClient()=default</div><div class="ttdoc">dtor RtypeClient</div></div>
+<div class="ttc" id="aclassrtype_1_1_rtype_client_html_a7c5fdbf5ab0e8db84cc3120d0b16ce09"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#a7c5fdbf5ab0e8db84cc3120d0b16ce09">rtype::RtypeClient::RtypeClient</a></div><div class="ttdeci">RtypeClient(std::string port, std::string host)</div><div class="ttdoc">an R-Type ctor</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00006">RtypeClient.cpp:6</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_rtype_client_html_abb39ddd1e363a4b9aaf963c002ff955e"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#abb39ddd1e363a4b9aaf963c002ff955e">rtype::RtypeClient::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">run the r-type client system</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00017">RtypeClient.cpp:17</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_rtype_client_html_adf84a5f0662f4f6cf3b4a8452d206f9a"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#adf84a5f0662f4f6cf3b4a8452d206f9a">rtype::RtypeClient::checkStatus</a></div><div class="ttdeci">bool checkStatus()</div><div class="ttdoc">check the status of the client</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00148">RtypeClient.cpp:148</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_rtype_client_html_af83f1ad8787f030789af3b7b2c34ad60"><div class="ttname"><a href="classrtype_1_1_rtype_client.html#af83f1ad8787f030789af3b7b2c34ad60">rtype::RtypeClient::signalHandler</a></div><div class="ttdeci">static void signalHandler(int signums)</div><div class="ttdoc">catch signal and apply corresponding callback</div><div class="ttdef"><b>Definition:</b> <a href="_rtype_client_8cpp_source.html#l00024">RtypeClient.cpp:24</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_update_graph_html"><div class="ttname"><a href="classrtype_1_1_update_graph.html">rtype::UpdateGraph</a></div><div class="ttdoc">class that contain the system UpdateGraph</div><div class="ttdef"><b>Definition:</b> <a href="_update_graph_8hpp_source.html#l00032">UpdateGraph.hpp:32</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_update_network_html"><div class="ttname"><a href="classrtype_1_1_update_network.html">rtype::UpdateNetwork</a></div><div class="ttdoc">class that contain the system UpdateNetwork</div><div class="ttdef"><b>Definition:</b> <a href="_client_2_systems_2_update_network_2_update_network_8hpp_source.html#l00029">UpdateNetwork.hpp:29</a></div></div>
+<div class="ttc" id="anamespacertype_html"><div class="ttname"><a href="namespacertype.html">rtype</a></div><div class="ttdoc">namespace forthe R-Type</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

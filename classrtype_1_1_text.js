@@ -1,6 +1,6 @@
 var classrtype_1_1_text =
 [
-    [ "~Text", "classrtype_1_1_text.html#a4b75120c762c5d9849c6af3830e38994", null ],
+    [ "~Text", "classrtype_1_1_text.html#a224f866d5f2567d08b594d6ac277fb29", null ],
     [ "Text", "classrtype_1_1_text.html#ae27741a7e943fecb60571eb6fdf712e4", null ],
     [ "Text", "classrtype_1_1_text.html#ab3da2959f6e8aa3aa63e01fc350db421", null ],
     [ "getColorAlpha", "classrtype_1_1_text.html#a468b38892f9d66e77f075e0af0513ffc", null ],
@@ -10,7 +10,7 @@ var classrtype_1_1_text =
     [ "getContent", "classrtype_1_1_text.html#aac0b2594357b482096736f39e21b5779", null ],
     [ "getFontSize", "classrtype_1_1_text.html#a5ce7c0da79c8fdf4151a5a1150b346bd", null ],
     [ "getPosX", "classrtype_1_1_text.html#a5f964d6eddc7169dfd0acb1c3348a9d2", null ],
-    [ "getPosY", "classrtype_1_1_text.html#a344db93f35ecd6f23aae647b0e108e48", null ],
+    [ "getPosY", "classrtype_1_1_text.html#a4dc8cddf0f3c4bb8cffd2a59c008b9b6", null ],
     [ "getText", "classrtype_1_1_text.html#a56e4d96972f834583ab642b30cabf318", null ],
     [ "setColorAlpha", "classrtype_1_1_text.html#a0471fe15b52bd5d6b584a55f09728879", null ],
     [ "setColorBlue", "classrtype_1_1_text.html#a4acdc0d3eb875dda2cbe0f044fde0a61", null ],

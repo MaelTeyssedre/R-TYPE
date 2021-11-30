@@ -1,5 +1,5 @@
 <map id="Sources/Client/Systems/UpdateNetwork/UpdateNetwork.hpp" name="Sources/Client/Systems/UpdateNetwork/UpdateNetwork.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="893,5,1129,47"/>
+<area shape="rect" id="node1" title="file where the update network system is defined" alt="" coords="893,5,1129,47"/>
 <area shape="rect" id="node2" href="$_registry_8hpp.html" title="file where the Registry class is defined" alt="" coords="313,169,406,196"/>
 <area shape="rect" id="node15" title=" " alt="" coords="1140,95,1301,121"/>
 <area shape="rect" id="node16" title=" " alt="" coords="1325,169,1431,196"/>

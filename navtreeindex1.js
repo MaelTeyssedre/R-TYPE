@@ -247,7 +247,7 @@ var NAVTREEINDEX1 =
 "classrtype_1_1_game.html#afef36341f8d581a82d98a60b839fcbba":[2,0,0,21,0],
 "classrtype_1_1_graphical_lib.html":[2,0,0,5],
 "classrtype_1_1_graphical_lib.html#a056dad34c0942527da32afd7cdec60b5":[2,0,0,5,3],
+"classrtype_1_1_graphical_lib.html#a0d4c3fcd79e99a6608ee326e5c18802b":[2,0,0,5,5],
 "classrtype_1_1_graphical_lib.html#a0d5f607b93816eeb1d73b75853535e1c":[2,0,0,5,38],
-"classrtype_1_1_graphical_lib.html#a1616cd15ad63a5c3c60f09191aa3a895":[2,0,0,5,15],
-"classrtype_1_1_graphical_lib.html#a177c4e8ed17400ba51221f37de449575":[2,0,0,5,45]
+"classrtype_1_1_graphical_lib.html#a1616cd15ad63a5c3c60f09191aa3a895":[2,0,0,5,15]
 };
