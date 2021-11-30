@@ -136,7 +136,7 @@ void rtype::UpdateGraph::_setupLoadingMenuScene()
                                                                     r.addComponent<components::scene_s>(r.entityFromIndex(_background_id), std::move(my_sceneSprite));
                                                                     r.addComponent<components::drawable_s>(r.entityFromIndex(_background_id), std::move(drawableSprite));
                                                                     r.addComponent<components::sprite_s>(r.entityFromIndex(_switchId), std::move(switcher));
-                                                                    r.addComponent<components::index_s>(r.entityFromIndex(_background_id), std::move(indexSwitch));
+                                                                    r.addComponent<components::index_s>(r.entityFromIndex(_switchId), std::move(indexSwitch));
                                                                     r.addComponent<components::position_s>(r.entityFromIndex(_switchId), std::move(posSwitcher));
                                                                     r.addComponent<components::velocity_s>(r.entityFromIndex(_switchId), std::move(velSwitcher));
                                                                     r.addComponent<components::direction_s>(r.entityFromIndex(_switchId), std::move(dirSwitcher));
@@ -251,9 +251,9 @@ void rtype::UpdateGraph::_setupMainMenuScene()
                                                                      _switchId = _background_id;
                                                                      _background_id = tmp;
                                                                  }
-                                                                 struct components::sprite_s sprite = {(float)WINDOW_SIZE_X / 380, (float)WINDOW_SIZE_Y / 248, 0, 0, 384, 256, "ressources/LoadingMenu.jpg"};
+                                                                 struct components::sprite_s sprite = { (float)WINDOW_SIZE_X / 380, (float)WINDOW_SIZE_Y / 248, 0, 0, 384, 256, "ressources/LoadingMenu.jpg" };
                                                                  struct components::sprite_s switcher = {(float)WINDOW_SIZE_X / 250, (float)WINDOW_SIZE_Y / 250, 0, 0, 1920, 1080, "ressources/noir.jpg"};
-                                                                 struct components::sprite_s buttonStartSprite = {(float)1, (float)1, 0, 0, 1100, 965, "ressources/noir.jpg"};
+                                                                 struct components::sprite_s buttonStartSprite = {(float)1, (float)1, 0, 0, 1100, 965, "ressources/canard.png"};
                                                                  struct components::clickable_s buttonStart = {false};
                                                                  struct components::position_s posSprite = {0, 0};
                                                                  struct components::direction_s dirSprite = {0, 0};
@@ -323,7 +323,7 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
                                                                 dtimeAnim += time.value().deltaTime;
                                                                 dtime += time.value().deltaTime;
                                                                 lib->clearScreen();
-                                                                for (auto &&[pos, sprite, scene, drawable, index, button] : Zipper(positions, sprites, scenes, drawables, indexes, buttons))
+                                                                for (auto &&[pos, sprite, scene, drawable, index] : Zipper(positions, sprites, scenes, drawables, indexes))
                                                                 {
                                                                     if (!(drawable.drawable))
                                                                     {

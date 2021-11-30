@@ -51,7 +51,7 @@
                 void _setupDeleteMainMenuScene();
 
             private:
-                void _createBackgroundLoadingMeni(Registry &r)
+                // void _createBackgroundLoadingMeni(Registry &r)
 
             private:
                 rtype::IGraphicalLib *_graphicalLib;
