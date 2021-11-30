@@ -53,13 +53,20 @@
                 */
                 std::vector<uint8_t> unpack() override;
 
+                /**
+                * \fn void setId(size_t id) override
+                *
+                * \brief set id to a packet
+                * 
+                * \param id packet id
+                */
                 void setId(size_t id) override;
 
             private:
 
                 std::vector<uint8_t> _rawData; /*! data */
                 size_t _packetSize; /*! size of the packet */
-                size_t _id;
+                size_t _id; /*! the packet id */
         };
     }
 

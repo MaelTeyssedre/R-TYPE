@@ -9,6 +9,12 @@
 
     #include <iostream>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace forthe R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \namespace components
@@ -17,8 +23,14 @@
          * 
          */
         namespace components {
+            /**
+             * \struct reserved_s
+             * 
+             * \brief reserved component
+             *
+             */
             struct reserved_s {
-                bool reserved;
+                bool reserved; /*!< To check if it is reserved */
             };
         }
     }

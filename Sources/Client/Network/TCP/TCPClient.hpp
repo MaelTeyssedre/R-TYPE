@@ -101,7 +101,13 @@
                  */
                 std::shared_ptr<Buffer> getBuffer() override;
 
-
+                /**
+                 * \fn bool isConnected() override
+                 * 
+                 * \brief Check if the client is connected
+                 * 
+                 * \return true if the client is connected
+                 */
                 bool isConnected() override;
 
             private:
@@ -112,7 +118,7 @@
                 Packet _packet; /*! packet  */
                 std::shared_ptr<Buffer> _buffer; /*! buffer to store input */
                 char _reply[9]; /*! store reply */
-                bool _isConnected;
+                bool _isConnected; /*! check if client is connected */
 
         };
     }

@@ -13,6 +13,12 @@
     #include "Zipper.hpp"
     #include "Components.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class UpdateTime UpdateTime.hpp 
@@ -34,9 +40,19 @@
                  * \brief dtor UpdateTime
                  */
                 virtual ~UpdateTime() = default;
+
+                /**
+                 * \fn void operator()(Registry &r, SparseArray<rtype::components::myTime_s> &times)
+                 *
+                 * \brief operator to be used by the ECS
+                 * 
+                 * \param r A reference to the registry
+                 * 
+                 * \param times reference to a sparseArray of time components
+                 */
                 void operator()(Registry &r, SparseArray<rtype::components::myTime_s> &times);
             private:
-                std::chrono::nanoseconds _currentDeltaTime; /*! The current delta time*/
+                std::chrono::nanoseconds _currentDeltaTime; /*! The current delta time */
         };
     }
 

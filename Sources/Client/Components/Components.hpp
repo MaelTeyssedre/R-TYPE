@@ -1,3 +1,8 @@
+/**
+ * \file Component.hpp
+ * 
+ * \brief file which contain include of all components 
+ */
 
 #ifndef COMPONENTS_HPP_
     #define COMPONENTS_HPP_

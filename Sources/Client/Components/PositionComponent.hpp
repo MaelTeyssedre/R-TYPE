@@ -9,11 +9,29 @@
 
     #include <iostream>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
         namespace components {
+            /**
+             * \struct position_s
+             * 
+             * \brief position component
+             *
+             */
             struct position_s {
-                float x;
-                float y;
+                float x; /*!< the x position */
+                float y; /*!< the y position */
             };
         }
     }

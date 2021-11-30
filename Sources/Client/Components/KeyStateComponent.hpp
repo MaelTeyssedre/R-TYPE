@@ -8,15 +8,33 @@
 
     #include <iostream>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace forthe R-Type
+     * 
+     */
     namespace rtype {
+        /**
+         * \namespace components
+         * 
+         * \brief namespace for ECS components
+         * 
+         */
         namespace components {
+            /**
+             * \struct keyState_s
+             * 
+             * \brief key state component
+             *
+             */
             struct keyState_s {
-                bool keyUp;
-                bool keyDown;
-                bool keyRight;
-                bool keyLeft;
-                bool keyEnter;
-                bool keySpace;
+                bool keyUp; /*!< The up key */
+                bool keyDown; /*!< The down key */
+                bool keyRight; /*!< The right key */
+                bool keyLeft; /*!< The left key */
+                bool keyEnter; /*!< The enter key */
+                bool keySpace; /*!< The space key */
             };
         }
     }
