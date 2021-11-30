@@ -7,7 +7,6 @@
 #ifndef BUFFER_HPP_
 #define BUFFER_HPP_
 
-#include <iostream>
 #include <vector>
 #include <string>
 

@@ -154,6 +154,8 @@
              */
             template <typename Component>
             typename SparseArray<Component>::reference_type addComponent(Entity const &to, Component &&c) {
+                if ((size_t)to > (std::any_cast<SparseArray<Component> &>(_componentsArrays[std::type_index(typeid(Component))])).size())
+                    (std::any_cast<SparseArray<Component> &>(_componentsArrays[std::type_index(typeid(Component))])).extend((size_t)to - (std::any_cast<SparseArray<Component> &>(_componentsArrays[std::type_index(typeid(Component))])).size());
                 return (std::any_cast<SparseArray<Component> &>(_componentsArrays[std::type_index(typeid(Component))])).insertAt(to, c);
             }
 
@@ -172,6 +174,9 @@
              */
             template <typename Component, typename ...Params>
             typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p) {
+                SparseArray<Component> &tmp = std::any_cast<SparseArray<Component> &>(_componentsArrays[std::type_index(typeid(Component))]);
+                if ((size_t)to < tmp.size())
+                    tmp.extend(tmp.size() - (size_t)to);
                 return (std::any_cast<SparseArray<Component>>(_componentsArrays[std::type_index(typeid(Component))])).emplaceAt(to, p...);
             }
 

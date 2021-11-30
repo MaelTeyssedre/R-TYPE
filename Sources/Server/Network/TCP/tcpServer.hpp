@@ -12,7 +12,6 @@
     #include "tcpUser.hpp"
     #include "ITCPServer.hpp"
     #include "Buffer.hpp"
-    #include <map>
     #include <queue>
 
     namespace rtype {

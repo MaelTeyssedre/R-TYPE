@@ -4,7 +4,7 @@
 void rtype::UpdateDirection::operator()(Registry &r, SparseArray<rtype::components::direction_s> &directions, SparseArray<rtype::components::keyState_s> &keys)
 {
     (void)r;
-    for (size_t i = 0; i < directions.size(); i++) {
+    for (size_t i = 0; i < directions.size() && i < keys.size(); i++) {
         auto &dir = directions[i];
         auto &key = keys[i];
         if (!(dir && key))

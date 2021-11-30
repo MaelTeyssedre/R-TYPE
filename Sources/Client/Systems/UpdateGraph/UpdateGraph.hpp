@@ -51,6 +51,9 @@
                 void _setupDeleteMainMenuScene();
 
             private:
+                void _createBackgroundLoadingMeni(Registry &r)
+
+            private:
                 rtype::IGraphicalLib *_graphicalLib;
 
                 std::map<rtype::constants::SCENE, std::function<void(Registry &, UpdateGraph &, SparseArray<components::currentScene_s> &)>> _setupScene;
@@ -60,6 +63,8 @@
 
                 size_t _background_id;
                 size_t _switchId;
+                size_t _musicId;
+                size_t _buttonStart;
         };
     }
 

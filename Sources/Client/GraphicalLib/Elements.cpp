@@ -1,5 +1,9 @@
 
 #include "Elements.hpp"
+#include <iostream>
+#include <new>
+#include <stdexcept>
+#include <exception>
 
 rtype::Sprite::Sprite(float posX, float posY, float rotation, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
     : _posX(posX), _posY(posY), _rotation(rotation), _scaleX(scaleX), _scaleY(scaleY), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path), _texture(), _sprite()
@@ -250,7 +254,7 @@ sf::Sound &rtype::Sound::getSound()
 rtype::Music::Music(std::string path)
     : _path(path)
 {
-    if (_music.openFromFile(_path))
+    if (!_music.openFromFile(_path))
         throw std::runtime_error("Fail to load music");
 }
 

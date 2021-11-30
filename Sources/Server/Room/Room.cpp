@@ -1,4 +1,5 @@
 #include "Room.hpp"
+#include <string>
 
 rtype::Room::Room(size_t id)
 {

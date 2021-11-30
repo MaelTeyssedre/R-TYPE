@@ -30,24 +30,27 @@ void rtype::RtypeClient::signalHandler(int signum)
 
 void rtype::RtypeClient::_registerComponents()
 {
-    _r.registerComponent<components::myTime_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::network_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::mouseState_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::keyState_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::currentScene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::direction_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::entityType_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::health_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::reserved_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::mySize_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::strength_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::velocity_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::weaponType_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::sprite_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::scene_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
-    _r.registerComponent<components::drawable_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
+    _r.registerComponent<components::myTime_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::network_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::mouseState_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::keyState_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::currentScene_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::direction_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::entityType_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::health_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::position_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::reserved_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::scene_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::index_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::mySize_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::strength_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::velocity_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::weaponType_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::clickable_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::sprite_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::scene_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::drawable_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::music_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
 }
 
 void rtype::RtypeClient::_setupComponents()

@@ -1,4 +1,5 @@
 #include "Buffer.hpp"
+#include <iostream>
 
 Buffer::Buffer(size_t size)
     : _size(size), _usedSize(0), _writeCursor(0), _readCursor(0)

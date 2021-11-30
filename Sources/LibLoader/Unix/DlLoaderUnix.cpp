@@ -1,4 +1,5 @@
 #include "DlLoaderUnix.hpp"
+#include <iostream>
 
 void *DlLoaderUnix::loadLib(std::string path)
 {

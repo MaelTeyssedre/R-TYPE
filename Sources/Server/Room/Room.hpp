@@ -8,8 +8,6 @@
 #ifndef ROOM_HPP_
     #define ROOM_HPP_
 
-    #include <string>
-    #include <thread>
     #include <vector>
     #include "Buffer.hpp"
     #include "Game.hpp"

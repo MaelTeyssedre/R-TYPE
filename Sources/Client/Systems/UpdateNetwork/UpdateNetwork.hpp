@@ -18,6 +18,12 @@
                 virtual ~UpdateNetwork() = default;
                 void operator()(Registry &r, SparseArray<components::network_s> &networks);
 
+
+            private:
+                void LoadingMenuSetupComponentForBackground();
+                void LoadingMenuSetupComponentForSwitch();
+                void LoadingMenuSetupComponentForMusic();
+
             private:
                 ITCPClient *_tcpClient;
                 IUDPSocket *_socket;

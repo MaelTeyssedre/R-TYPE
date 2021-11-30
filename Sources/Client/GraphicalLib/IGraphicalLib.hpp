@@ -47,7 +47,6 @@
                 virtual void deleteSprite(size_t id) = 0;
                 virtual bool getKeyState(rtype::constants::EVENT event) = 0;
                 virtual mouse_t getMouseState() = 0;
-                virtual void setViewXPos(float viewXPos) = 0;
 
             public:
                 virtual float getSpritePosX(size_t id) = 0;

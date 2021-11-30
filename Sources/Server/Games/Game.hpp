@@ -3,14 +3,11 @@
     #define GAME_HPP_
 
 
-    #include <memory>
     #include "Buffer.hpp"
     #include "Registry.hpp"
     #include "JsonWrapper.hpp"
     #include "NetworkComponent.hpp"
     #include <vector>
-    #include <thread>
-    #include <chrono>
 
     namespace rtype {
         class Game {

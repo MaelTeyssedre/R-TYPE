@@ -1,5 +1,7 @@
 #include "tcpUser.hpp"
 #include <iostream>
+#include <memory>
+
 
 void rtype::tcpUser::start()
 {

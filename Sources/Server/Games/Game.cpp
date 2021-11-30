@@ -1,12 +1,16 @@
 #include "Game.hpp"
 #include "UpdateTime.hpp"
+#include <thread>
+#include <memory>
+#include <chrono>
 
 rtype::Game::Game(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer)
     : _r(Registry(2)), _roomBuffer(roomBuffer)
 {
 }
 
-void rtype::Game::run() {
+void rtype::Game::run()
+{
     waitForStartingGame();
     setupGame();
     startGame();
@@ -76,7 +80,8 @@ void rtype::Game::sendMapRequest(JsonWrapper &wrapper)
 
 void rtype::Game::waitForStartingGame()
 {
-    while (_roomBuffer->size() != 4) {
+    while (_roomBuffer->size() != 4)
+    {
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }

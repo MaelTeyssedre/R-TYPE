@@ -5,161 +5,161 @@
  */
 
 #ifndef ELEMENT_HPP_
-    #define ELEMENT_HPP_
+#define ELEMENT_HPP_
 
-    #include <iostream>
-    #include <new>
-    #include <stdexcept>
-    #include <exception>
-    #include <SFML/Window.hpp>
-    #include <SFML/Graphics.hpp>
-    #include <SFML/Audio.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
-    namespace rtype {
+namespace rtype
+{
 
-        class GraphicalLib;
+    class GraphicalLib;
 
-        /**
+    /**
          * \class Sprite IGraphicalLib.hpp
          *
          * \brief Class that define sprite
          */
-        class Sprite {
-            public:
-               virtual ~Sprite() = default;
+    class Sprite
+    {
+    public:
+        virtual ~Sprite() = default;
 
-                float getPosX();
-                float getPosY();
-                float getRotation();
-                float getScale();
-                int getRectX();
-                int getRectY();
-                int getRectWidth();
-                int getRectHeigth();
-                int getColorAlpha();
-                void setPosX(float posX);
-                void setPosY(float posY);
-                void setRotation(float rotation);
-                void setScaleX(float scaleX);
-                void setScaleY(float scaleY);
-                void setRectX(int rectX);
-                void setRectY(int rectY);
-                void setRectWidth(int rectWith);
-                void setRectHeigth(int rectHeigth);
-                void setColorAlpha(int colorAlpha);
-                void drawSprite(sf::RenderWindow *win);
+        float getPosX();
+        float getPosY();
+        float getRotation();
+        float getScale();
+        int getRectX();
+        int getRectY();
+        int getRectWidth();
+        int getRectHeigth();
+        int getColorAlpha();
+        void setPosX(float posX);
+        void setPosY(float posY);
+        void setRotation(float rotation);
+        void setScaleX(float scaleX);
+        void setScaleY(float scaleY);
+        void setRectX(int rectX);
+        void setRectY(int rectY);
+        void setRectWidth(int rectWith);
+        void setRectHeigth(int rectHeigth);
+        void setColorAlpha(int colorAlpha);
+        void drawSprite(sf::RenderWindow *win);
 
-            protected:
-                friend class GraphicalLib;
+    protected:
+        friend class GraphicalLib;
 
-                explicit Sprite() = default;
-                explicit Sprite(float posX, float posY, float rotation, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path);
-                
-                sf::Sprite &getSprite();
+        explicit Sprite() = default;
+        explicit Sprite(float posX, float posY, float rotation, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path);
 
+        sf::Sprite &getSprite();
 
-            private:
-                float _posX;
-                float _posY;
-                float _rotation;
-                float _scaleX;
-                float _scaleY;
+    private:
+        float _posX;
+        float _posY;
+        float _rotation;
+        float _scaleX;
+        float _scaleY;
 
-                int _rectX;
-                int _rectY;
-                int _rectWidth;
-                int _rectHeigth;
+        int _rectX;
+        int _rectY;
+        int _rectWidth;
+        int _rectHeigth;
 
-                int _colorAlpha;
-                
-                std::string _path;
+        int _colorAlpha;
 
-                sf::Texture _texture;
-                sf::Sprite _sprite;
-        };
+        std::string _path;
 
-        class Text {
-            public:
-                virtual ~Text() = default;
+        sf::Texture _texture;
+        sf::Sprite _sprite;
+    };
 
-                float getPosX();
-                float getPosY();
-                int getFontSize();
-                int getColorRed();
-                int getColorGreen();
-                int getColorBlue();
-                int getColorAlpha();
-                std::string getContent();
-                void setPosX(float posX);
-                void setPosY(float posY);
-                void setFontSize(int fontSize);
-                void setColorRed(int colorRed);
-                void setColorGreen(int colorGreen);
-                void setColorBlue(int colorBlue);
-                void setColorAlpha(int colorAlpha);
-                void setContent(std::string &content);
+    class Text
+    {
+    public:
+        virtual ~Text() = default;
 
-            protected:
-                friend class GraphicalLib;
+        float getPosX();
+        float getPosY();
+        int getFontSize();
+        int getColorRed();
+        int getColorGreen();
+        int getColorBlue();
+        int getColorAlpha();
+        std::string getContent();
+        void setPosX(float posX);
+        void setPosY(float posY);
+        void setFontSize(int fontSize);
+        void setColorRed(int colorRed);
+        void setColorGreen(int colorGreen);
+        void setColorBlue(int colorBlue);
+        void setColorAlpha(int colorAlpha);
+        void setContent(std::string &content);
 
-                explicit Text() = default;
-                explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
-               
-                sf::Text &getText();
+    protected:
+        friend class GraphicalLib;
 
-            private:
-                float _posX;
-                float _posY;
-                int _fontSize;
+        explicit Text() = default;
+        explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
 
-                int _colorRed;
-                int _colorGreen;
-                int _colorBlue;
-                int _colorAlpha;
+        sf::Text &getText();
 
-                std::string _content;
-                std::string _fontPath;
+    private:
+        float _posX;
+        float _posY;
+        int _fontSize;
 
-                sf::Font _font;
-                sf::Text _text;
-        };
+        int _colorRed;
+        int _colorGreen;
+        int _colorBlue;
+        int _colorAlpha;
 
-        class Sound {
-            public:
-                explicit Sound() = default;
-                virtual ~Sound() = default;
+        std::string _content;
+        std::string _fontPath;
 
-            protected:
-                friend class GraphicalLib;
+        sf::Font _font;
+        sf::Text _text;
+    };
 
-                explicit Sound(std::string path);
-                
-                sf::Sound &getSound();
+    class Sound
+    {
+    public:
+        explicit Sound() = default;
+        virtual ~Sound() = default;
 
-            private:
-                std::string _path;
+    protected:
+        friend class GraphicalLib;
 
-                sf::Sound _sound;
-                sf::SoundBuffer _buffer;
-        };
+        explicit Sound(std::string path);
 
-        class Music {
-            public:
-                explicit Music() = default;
-                virtual ~Music() = default;
+        sf::Sound &getSound();
 
-            protected:
-                friend class GraphicalLib;
+    private:
+        std::string _path;
 
-                explicit Music(std::string path);
+        sf::Sound _sound;
+        sf::SoundBuffer _buffer;
+    };
 
-                sf::Music &getMusic();
-            
-            private:
-                std::string _path;
+    class Music
+    {
+    public:
+        explicit Music() = default;
+        virtual ~Music() = default;
 
-                sf::Music _music;
-        };
-    }
+    protected:
+        friend class GraphicalLib;
+
+        explicit Music(std::string path);
+
+        sf::Music &getMusic();
+
+    private:
+        std::string _path;
+
+        sf::Music _music;
+    };
+}
 
 #endif /* !ELEMENT_HPP_ */

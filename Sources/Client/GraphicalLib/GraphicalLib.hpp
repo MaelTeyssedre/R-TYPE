@@ -10,8 +10,6 @@
     #include "IGraphicalLib.hpp"
     #include <SFML/Window.hpp>
     #include <SFML/Graphics.hpp>
-    #include <vector>
-    #include <memory>
 
     namespace rtype {
 
@@ -41,7 +39,6 @@
                 void deleteSprite(size_t id) override;
                 bool getKeyState(rtype::constants::EVENT event) override;
                 mouse_t getMouseState() override;
-                void setViewXPos(float viewXPos) override;
 
             public:
                 float getSpritePosX(size_t id) override;
@@ -88,9 +85,6 @@
             private:
                 sf::RenderWindow *_renderWindow;
                 sf::Mouse _mouse;
-                sf::View _view;
-
-                float _viewX;
 
                 std::map<size_t, std::shared_ptr<Sprite>> _spriteMap;
                 std::map<size_t, std::shared_ptr<Text>> _textMap;

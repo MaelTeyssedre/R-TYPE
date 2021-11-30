@@ -13,8 +13,6 @@
     #endif
 
     #include <asio.hpp>
-    #include <memory>
-    #include <iostream>
     #include <queue>
 
     namespace rtype {

@@ -238,7 +238,7 @@
              */
             reference_type insertAt(size_type pos, Component const &component) {
                 if (pos > _data.size())
-                    throw std::invalid_argument("pos superior to SparseArray's size");
+                    throw std::invalid_argument("invalid pos in InsertAt (SparseArray)");
                 if (pos == _data.size()) {
                     _data.push_back(component);
                     return _data.back();
@@ -263,6 +263,7 @@
                 if (pos > _data.size())
                     throw std::invalid_argument("pos superior to SparseArray's size");
                 if (pos == _data.size()) {
+                    if (pos == 5)
                     _data.push_back(std::move(component));
                     return _data.back();
                 }

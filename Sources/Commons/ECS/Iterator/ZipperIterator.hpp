@@ -26,7 +26,7 @@
             friend Zipper<Containers...>;
             ZipperIterator(iterator_tuple const &it_tuple, size_t max) 
                 : _current(it_tuple), _max(max), _idx(0) {
-                if (!allSet(_seq))
+                if (_idx < _max && !allSet(_seq))
                     incrAll(_seq);
             }
 
@@ -64,8 +64,10 @@
         private:
             template <size_t ...Is>
             void incrAll(std::index_sequence<Is...>) {
-                for (; _idx < _max && allSet(_seq); _idx++)
+                do {
                     ((++(std::get<Is>(_current))), ...);
+                    _idx++;
+                } while (_idx < _max && !allSet(_seq));
             }
 
             template <size_t ...Is>

@@ -3,6 +3,10 @@
 #include <sstream>
 #include "RoomManager.hpp"
 #include "Room.hpp"
+#include <memory>
+#include <array>
+#include <optional>
+#include <string>
 
 rtype::RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
 {
