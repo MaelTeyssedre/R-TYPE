@@ -57,7 +57,7 @@ Entity rtype::UpdateGraph::_createPlayButtonMainMenu(Registry &r)
                                                 {
                                                     r.getComponents<components::sprite_s>()[id].value().rectX = 0;
                                                 }};
-    struct components::position_s pos = {100, 100};
+    struct components::position_s pos = {(WINDOW_SIZE_X / 2 ) - ((584 * 0.75) / 2), (WINDOW_SIZE_Y / 2 ) - ((183 * 0.75) / 3)};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
     struct components::drawable_s drawable = {true};
@@ -96,7 +96,7 @@ Entity rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r)
                                                     r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                                                     r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene =  constants::SCENE::LOADING_MENU;
                                                 }};
-    struct components::position_s pos = {300, 300};
+    struct components::position_s pos = {(WINDOW_SIZE_X / 2 ) - ((584 * 0.75) / 2), (WINDOW_SIZE_Y / 2 ) - ((183 * 0.75) / 1.5)};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
     struct components::drawable_s drawable = {true};
@@ -125,7 +125,7 @@ Entity rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r)
 void rtype::UpdateGraph::_setupMainMenuScene()
 {
     _setupScene[rtype::constants::MAIN_MENU] = std::function(
-        [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes)
+        [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
             Entity backgroundId = _createBackgroundMainMenu(r);
             Entity transitionId = _createTransitionMainMenu(r);
@@ -145,7 +145,7 @@ void rtype::UpdateGraph::_setupMainMenuScene()
 void rtype::UpdateGraph::_setupExecMainMenuScene()
 {
     _execScene[rtype::constants::MAIN_MENU] = std::function(
-        [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes)
+        [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
             static std::chrono::duration dtime = std::chrono::nanoseconds(0);
             static std::chrono::duration dtimeAnim = std::chrono::nanoseconds(0);
@@ -193,13 +193,10 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
                     }*/
                 }
             }
-
             std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
             std::reverse(myZAxises.begin(), myZAxises.end());
             for (auto i : myZAxises)
-            {
                 _graphicalLib->draw(zAxisMap[i]);
-            }
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
         });

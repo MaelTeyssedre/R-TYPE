@@ -170,7 +170,7 @@ void rtype::Packet::setId(size_t id)
     _id = id;
 }
 
-size_t rtype::Packet::getId() const
+size_t rtype::Packet::getId()
 {
     return (_id);
 }

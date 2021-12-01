@@ -52,6 +52,8 @@ void rtype::RtypeClient::_registerComponents()
     _r.registerComponent<components::drawable_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::music_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::zaxis_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::text_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::color_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
 }
 
 void rtype::RtypeClient::_setupComponents()

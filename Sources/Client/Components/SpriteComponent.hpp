@@ -19,5 +19,4 @@
         }   
     }
     
-
 #endif /* !SPRITECOMPONENT_HPP_ */

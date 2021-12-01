@@ -25,5 +25,7 @@
     #include "MusicComponent.hpp"
     #include "ClickableComponent.hpp"
     #include "ZAxisComponent.hpp"
+    #include "TextComponent.hpp"
+    #include "ColorComponent.hpp"
 
 #endif /* !COMPONENTS_HPP_ */

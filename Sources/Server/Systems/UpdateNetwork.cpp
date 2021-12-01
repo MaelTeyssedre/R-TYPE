@@ -10,20 +10,21 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
     (void)r;
     (void)networks;
     // ! Commented while debuging
-  /*  (void)r;
+    (void)r;
     std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
     std::uint8_t opCode = 0;
     std::vector<uint8_t> reply;
     if (!network)
         return;
     _tcpServer->receive();
-    std::shared_ptr<Buffer> buffer{_tcpServer->getBuffer().front()};
-    _tcpServer->getBuffer().pop_front();
-    buffer->readFromBuffer(1, &opCode);
+    std::queue<IPacket *> packets = _tcpServer->getBuffer();
+    _tcpServer->getBuffer().pop();
+    opCode = packets.back()->unpack().at(0);
+   // buffer->readFromBuffer(1, &opCode);
     switch (opCode)
     {
     case 5:
-        buffer->readFromBuffer(5, reply);
+       // buffer->readFromBuffer(5, reply);
         if (network.value().request5.empty())
             network.value().request5.push_back(std::vector<uint8_t>());
         network.value().request5.back().push_back(opCode);
@@ -40,7 +41,7 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         network.value().request16.back().push_back(opCode);
         break;
     case 17:
-        buffer->readFromBuffer(8, reply);
+      //  buffer->readFromBuffer(8, reply);
         if (network.value().request17.empty())
             network.value().request17.push_back(std::vector<uint8_t>());
         network.value().request17.back().push_back(opCode);
@@ -58,5 +59,5 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         break;
     default:
         break;
-    }*/
+    }
 }

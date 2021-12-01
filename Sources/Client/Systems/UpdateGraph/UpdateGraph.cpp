@@ -42,8 +42,6 @@ void rtype::UpdateGraph::_updateGraph(Registry &r, SparseArray<components::mouse
 
 void rtype::UpdateGraph::_updateEvent(SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates)
 {
-    (void)mouseStates;
-    (void)keyStates;
     rtype::mouse_t mouse = _graphicalLib->getMouseState();
     for (auto &&[mouseState] : Zipper(mouseStates))
     {

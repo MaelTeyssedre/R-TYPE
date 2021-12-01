@@ -57,8 +57,9 @@
                 void _setupWaitingRoomScene();
                 void _setupExecWaitingRoomScene();
                 void _setupDeleteWaitingRoomScene();
-                Entity _createTransitionWaitingRoom();
-                Entity _createBackgroundWaitingRoom();
+                Entity _createTransitionWaitingRoom(Registry &r);
+                Entity _createTextWaitingRoom(Registry &r);
+                Entity _createBackgroundWaitingRoom(Registry &r);
             
             private:
                 rtype::IGraphicalLib *_graphicalLib;

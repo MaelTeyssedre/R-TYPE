@@ -55,7 +55,7 @@
 
                 void setId(size_t id) override;
 
-                size_t getId() const;
+                size_t getId() override;
 
                 std::vector<uint8_t> getData();   
 

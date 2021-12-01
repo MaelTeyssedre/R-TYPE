@@ -115,11 +115,21 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
                 network.request15.push_back(std::vector<uint8_t>());
             network.request15.back().push_back(opCode);
             break;
+        case 22:
+            std::cout << "requete 22 recue" << std::endl;
+            buffer->readFromBuffer(1, reply);
+            if (network.request22.empty())
+                network.request22.push_back(std::vector<uint8_t>());
+            network.request22.back().push_back(opCode);
+            network.request22.back().insert(network.request22.back().end(), reply.begin(), reply.end());
+            break;
         default:
+            std::cout << "unknow request" << std::endl;
             break;
         }
         if (!network.sendRequest.empty()) {
-            IPacket *packet = new rtype::Packet;
+            std::cout << "send request" << std::endl;
+            IPacket *packet = new Packet();
             (*packet).pack(network.sendRequest.front());
             _tcpClient->send(*packet);
         }

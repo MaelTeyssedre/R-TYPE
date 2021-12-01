@@ -9,6 +9,7 @@
     #include "TCPClient.hpp"
     #include "UDPSocket.hpp"
     #include "Buffer.hpp"
+    #include "Packet.hpp"
 
     namespace rtype {
         class UpdateNetwork {

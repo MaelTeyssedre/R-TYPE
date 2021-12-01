@@ -30,7 +30,7 @@
                  * \brief ctor TCPClient
                  * 
                  */
-                explicit TCPClient() = default;
+                TCPClient() = delete;
 
                 /**
                  * \brief Construct a new TCPClient object
@@ -109,7 +109,7 @@
                 asio::ip::tcp::resolver _resolver; /*! asio resolver */
                 std::shared_ptr<asio::ip::tcp::socket> _socket; /*! socket connected */
                 Logger _logger; /*! logger to log data */
-                Packet _packet; /*! packet  */
+                IPacket *_packet; /*! packet  */
                 std::shared_ptr<Buffer> _buffer; /*! buffer to store input */
                 char _reply[9]; /*! store reply */
                 bool _isConnected;

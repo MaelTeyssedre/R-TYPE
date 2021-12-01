@@ -55,6 +55,8 @@
 
                 void setId(size_t id) override;
 
+                size_t getId(void) override;
+
             private:
 
                 std::vector<uint8_t> _rawData; /*! data */
