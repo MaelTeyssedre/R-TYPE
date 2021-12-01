@@ -199,7 +199,18 @@ Epitech project         R-TYPE project RFC protocol           November 2021
       15: Game canceled -> 1 bytes
 
          - 15: request id -> 1 byte
+      
+      16<player>: Players in room -> 2 bytes
+
+         - 16: request id -> 1 byte
+         - player: Number of player in room (1-4) -> 1 byte
         
+      17<size><room id>...: Room list -> 2 + size bytes
+
+         - 17: request id -> 1 byte
+         - size: number of existing room -> 1 byte
+         - room id: Id of a room -> 1 byte
+
 
 Epitech R-TYPE project     Realized in November 2021              [Page 6]
 
@@ -207,25 +218,35 @@ Epitech project         R-TYPE project RFC protocol           November 2021
 
    2.2.  Requests from client to server
 
-      16: Create room -> 1 byte
-
-         - 16: request id -> 1 byte
-      
-
-      17<room_code>: Join room -> 9 bytes
-
-         - 17: request id -> 1 byte
-         - room_code: name of the room -> 8 bytes
-      
-      
-      18: Leave room -> 1 byte
+      18: Create room -> 1 byte
 
          - 18: request id -> 1 byte
       
 
-      19: Loaded -> 1 byte
+      19<room_code>: Join room -> 9 bytes
 
          - 19: request id -> 1 byte
+         - room_code: name of the room -> 8 bytes
+      
+      
+      20: Leave room -> 1 byte
+
+         - 20: request id -> 1 byte
+      
+
+      21: Loaded -> 1 byte
+
+         - 21: request id -> 1 byte
+
+      22<room id>: Get player in room -> 2 bytes
+
+         - 22: request id -> 1 byte
+         - room id: Id of a room -> 1 byte
+         
+      23: Get room -> 2 bytes
+
+         - 23: request id -> 1 byte
+         - room id: Id of a room -> 1 byte
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
@@ -239,7 +260,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
          * Room creation - example:
 
             +-------------+            +--------+
-            |             |   (1) 16   |        |
+            |             |   (1) 18   |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
             |             | (2) 12<RC> |        |
@@ -250,7 +271,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
          * Room joining - example:
 
             +-------------+            +--------+
-            |             | (1) 17<RC> |        |
+            |             | (1) 19<RC> |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
             |             |   (2) 10   |        |
@@ -261,7 +282,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
          * Room leaving - example:
 
             +-------------+            +--------+
-            |             |   (1) 18   |        |
+            |             |   (1) 20   |        |
             |             |----------->|        |
             |   Client    |<-----------| SERVER |
             |             |   (2) 11   |        |
@@ -275,7 +296,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
             |             |(1)9<Size><JSON>|        |
             |             |<---------------|        |
             |   Client    |--------------->| SERVER |
-            |             |     (2) 19     |        |
+            |             |     (2) 21     |        |
             |             |                |        |
             +-------------+                +--------+
 
@@ -300,6 +321,27 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
             |             |                                    |        |
             |             |                                    |        |
             +-------------+                                    +--------+
+
+
+         * Get room list - example:
+
+            +-------------+                           +--------+
+            |             |          (1) 23           |        |
+            |             |-------------------------->|        |
+            |   Client    |<--------------------------| SERVER |
+            |             |   (2) 17<size><room id>   |        |
+            |             |                           |        |
+            +-------------+                           +--------+
+            
+         * Get players in a room - example:
+
+            +-------------+                           +--------+
+            |             |      (1) 22<room id>      |        |
+            |             |-------------------------->|        |
+            |   Client    |<--------------------------| SERVER |
+            |             |      (2) 16<player>       |        |
+            |             |                           |        |
+            +-------------+                           +--------+
 
 
 Epitech R-TYPE project     Realized in November 2021              [Page 8]

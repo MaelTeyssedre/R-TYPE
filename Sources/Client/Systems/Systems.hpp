@@ -7,5 +7,6 @@
     #include "UpdatePosition.hpp"
     #include "UpdateDirection.hpp"
     #include "UpdateNetwork.hpp"
+    #include "UpdateClickable.hpp"
 
 #endif /* !SYSTEMS_HPP_ */

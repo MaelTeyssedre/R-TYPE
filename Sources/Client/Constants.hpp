@@ -68,10 +68,8 @@
              */
             enum SCENE {
                 MAIN_MENU,
-                PARAMS,
-                GAME,
                 LOADING_MENU,
-                LOADING_GAME
+                WAITING_ROOM
             };
 
             /**

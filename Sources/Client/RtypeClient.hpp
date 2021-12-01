@@ -43,6 +43,7 @@
                 void _setupUpdatePositionSystem();
                 void _setupUpdateDirectionSystem();
                 void _setupUpdateScene();
+                void _setupUpdateClickable();
 
             private:
                 std::string _port;

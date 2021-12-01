@@ -36,6 +36,7 @@
                 virtual void stop(size_t id) = 0; //for music
                 virtual void pause(size_t id) = 0; //for music
                 virtual void refresh() = 0;
+                virtual void clearScreen() = 0;
                 virtual void createSound(size_t id, const std::string &path) = 0;
                 virtual void createMusic(size_t id, const std::string &path) = 0;
                 virtual void createText(size_t id, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath) = 0;
@@ -47,6 +48,7 @@
                 virtual void deleteSprite(size_t id) = 0;
                 virtual bool getKeyState(rtype::constants::EVENT event) = 0;
                 virtual mouse_t getMouseState() = 0;
+                virtual void HandleClose() = 0;
 
             public:
                 virtual float getSpritePosX(size_t id) = 0;
@@ -88,6 +90,7 @@
                 virtual void setTextColorBlue(size_t id, int colorBlue) = 0;
                 virtual void setTextColorAlpha(size_t id, int colorAlpha) = 0;
                 virtual void setTextContent(size_t id, std::string &content) = 0;
+            
         };
     }
 

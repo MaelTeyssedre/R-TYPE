@@ -125,7 +125,7 @@ rtype::mouse_t rtype::GraphicalLib::getMouseState()
     mouseState.posX = _mouse.getPosition(*_renderWindow).x;
     mouseState.posY = _mouse.getPosition(*_renderWindow).y;
     mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-    mouseState.leftPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
+    mouseState.rightPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
     return (mouseState);
 }
 

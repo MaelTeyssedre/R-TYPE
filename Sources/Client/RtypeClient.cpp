@@ -51,6 +51,7 @@ void rtype::RtypeClient::_registerComponents()
     _r.registerComponent<components::scene_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::drawable_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::music_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::zaxis_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
 }
 
 void rtype::RtypeClient::_setupComponents()
@@ -68,6 +69,7 @@ void rtype::RtypeClient::_setupSystems() {
     _setupUpdateGraphSystem();
     _setupUpdateDirectionSystem();
     _setupUpdatePositionSystem();
+    _setupUpdateClickable();
 }
 
 /*
@@ -139,16 +141,23 @@ void rtype::RtypeClient::_setupUpdateDirectionSystem()
 
 void rtype::RtypeClient::_setupUpdateGraphSystem()
 {
+    //UpdateGraph graphSystem {};
     _r.addSystem(_graphSystem, _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>(), _r.getComponents<components::currentScene_s>());
 }
 
-
 void rtype::RtypeClient::_setupUpdateScene()
 {
+    //UpdateGraph graphSystem {};
     _r.addSystem(_graphSystem, _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>(), _r.getComponents<components::currentScene_s>());
 }
 
 bool rtype::RtypeClient::checkStatus()
 {
     return (_status);
+}
+
+void rtype::RtypeClient::_setupUpdateClickable()
+{
+    UpdateClickable clickable {};
+    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(),  _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>());
 }

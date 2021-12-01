@@ -24,5 +24,6 @@
     #include "DrawableComponent.hpp"
     #include "MusicComponent.hpp"
     #include "ClickableComponent.hpp"
+    #include "ZAxisComponent.hpp"
 
 #endif /* !COMPONENTS_HPP_ */

@@ -26,12 +26,12 @@
                 void stop(size_t id) override;
                 void pause(size_t id) override;
                 void refresh() override;
+                void clearScreen() override;
                 void createSound(size_t id, const std::string &path) override;
                 void createMusic(size_t id, const std::string &path) override;
                 void createText(size_t id, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath) override;
                 void createSprite(size_t id, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path) override;
                 
-                void clearScreen();
 
                 void deleteSound(size_t id) override;
                 void deleteMusic(size_t id) override;
@@ -39,6 +39,7 @@
                 void deleteSprite(size_t id) override;
                 bool getKeyState(rtype::constants::EVENT event) override;
                 mouse_t getMouseState() override;
+                void HandleClose() override;
 
             public:
                 float getSpritePosX(size_t id) override;
@@ -79,7 +80,6 @@
                 void setTextColorBlue(size_t id, int colorBlue) override;
                 void setTextColorAlpha(size_t id, int colorAlpha) override;
                 void setTextContent(size_t id, std::string &content) override;
-                void HandleClose();
 
 
             private:
