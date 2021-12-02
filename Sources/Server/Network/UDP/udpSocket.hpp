@@ -16,6 +16,12 @@
         #define MAX_LENGTH 1024
     #endif
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class udpSocket udpSocket.hpp 

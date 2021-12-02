@@ -62,6 +62,13 @@
              */
             virtual std::shared_ptr<Buffer> getBuffer() = 0;
 
+            /**
+             * \fn virtual bool isConnected() = 0
+             * 
+             * \brief check if the client is connected
+             * 
+             * \return true if the client is connected, false otherwise
+             */
             virtual bool isConnected() = 0;
     };
 

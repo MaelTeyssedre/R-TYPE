@@ -10,6 +10,12 @@
 
     #include "IPacket.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class Packet Packet.hpp 

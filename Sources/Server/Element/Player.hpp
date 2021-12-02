@@ -9,6 +9,12 @@
 
     #include "IElement.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class Player

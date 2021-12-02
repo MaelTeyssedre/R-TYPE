@@ -11,6 +11,12 @@
     #include <iostream>
     #include "Registry.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class IElement IElement.hpp

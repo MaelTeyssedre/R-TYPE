@@ -12,6 +12,12 @@
     #include "Buffer.hpp"
     #include "PlayerData.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class PacketManager PacketManager.hpp

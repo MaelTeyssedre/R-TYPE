@@ -1,7 +1,7 @@
 /**
  * \file NetworkComponent.hpp
  * 
- * \brief file for the network component 
+ * \brief file for the client network component 
  */
 #ifndef NETWORKCOMPONENT_HPP_
     #define NETWORKCOMPONENT_HPP_

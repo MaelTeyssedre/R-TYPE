@@ -17,6 +17,12 @@
     #include <iostream>
     #include <queue>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class tcpUser.hpp

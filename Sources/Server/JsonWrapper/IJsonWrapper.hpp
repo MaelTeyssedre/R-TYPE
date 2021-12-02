@@ -20,6 +20,12 @@
     #include <nlohmann/json.hpp>
     #include <vector>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class IJsonWrapper

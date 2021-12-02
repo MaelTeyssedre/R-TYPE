@@ -27,6 +27,12 @@
         #define LIBS_PATH "./build/bin/"
     #endif
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class LibLoader LibLoader.hpp

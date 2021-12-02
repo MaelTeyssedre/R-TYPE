@@ -22,14 +22,14 @@
         public:
 
         /**
-         * \fn virtual ~IPacket() = default;
+         * \fn virtual ~IPacket() = default
          *
          * \brief Destroy the IPacket object
          */
         virtual ~IPacket() = default;
 
         /**
-         * \fn virtual size_t pack(std::vector<uint8_t> &data) = 0;
+         * \fn virtual size_t pack(std::vector<uint8_t> &data) = 0
          * 
          * \brief Serialize data
          * 
@@ -40,8 +40,22 @@
          */
         virtual size_t pack(std::vector<uint8_t> &data) = 0;
 
+        /**
+         * \fn virtual std::vector<uint8_t> unpack() = 0
+         * 
+         * \brief Unserialize data
+         * 
+         * \return the unserialized data
+         */
         virtual std::vector<uint8_t> unpack() = 0;
 
+        /**
+         * \fn virtual void setId(size_t id) = 0
+         * 
+         * \brief set a packet id
+         * 
+         * \param the id we want to set
+         */
         virtual void setId(size_t id) = 0;
   };
 

@@ -66,6 +66,13 @@
              */
             virtual void eject(size_t client) = 0;
 
+            /**
+             * \fn  virtual std::queue<IPacket *> getBuffer() = 0
+             * 
+             * \brief get the buffer object
+             * 
+             * \return A queue of packet get in the buffer
+             */
             virtual std::queue<IPacket *> getBuffer() = 0;
 
     };
