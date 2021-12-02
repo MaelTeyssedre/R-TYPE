@@ -10,7 +10,7 @@ var class_zipper_iterator =
     [ "ZipperIterator", "class_zipper_iterator.html#aeaeb88f16b3f30a79b771342d50fb6eb", null ],
     [ "operator*", "class_zipper_iterator.html#afd6f5b26dbf41bd6f665e5bccddbf3d5", null ],
     [ "operator++", "class_zipper_iterator.html#a08b0996922ce78aa2cfaeadbff2f4b74", null ],
-    [ "operator++", "class_zipper_iterator.html#a631c12cc59fe1d000536b9cf9aa38ab5", null ],
+    [ "operator++", "class_zipper_iterator.html#a0225e054fb1d773be217fefc34a61271", null ],
     [ "operator->", "class_zipper_iterator.html#a63a1a0b1886b6c5c0a5b37e334889356", null ],
     [ "operator!=", "class_zipper_iterator.html#a7ea9667bdbd6e42d487280a3c6456a05", null ],
     [ "operator==", "class_zipper_iterator.html#a5b2bddd2eb51644f6f5f6270335848cc", null ],

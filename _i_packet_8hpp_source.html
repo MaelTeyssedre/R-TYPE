@@ -78,17 +78,17 @@ $(document).ready(function(){initNavTree('_i_packet_8hpp_source.html',''); initR
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_i_packet.html#a8715b6c244b53282cdb6c913e933baf1">   41</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="class_i_packet.html#a8715b6c244b53282cdb6c913e933baf1">pack</a>(std::vector&lt;uint8_t&gt; &amp;data) = 0;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_i_packet.html#a66574049592c39d8e4100f9174e13813">   43</a></span>&#160;        <span class="keyword">virtual</span> std::vector&lt;uint8_t&gt; <a class="code" href="class_i_packet.html#a66574049592c39d8e4100f9174e13813">unpack</a>() = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_i_packet.html#a3c030b9e0b5d5c687a1a893bb9b14eaa">   45</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_packet.html#a3c030b9e0b5d5c687a1a893bb9b14eaa">setId</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>) = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  };</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !IPACKET_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_i_packet.html#a03107d1d0df5c42077d01fe791e07b48">   50</a></span>&#160;        <span class="keyword">virtual</span> std::vector&lt;uint8_t&gt; <a class="code" href="class_i_packet.html#a03107d1d0df5c42077d01fe791e07b48">unpack</a>() = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_i_packet.html#acfea910d3c809936b590d3756a72f7b1">   59</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_packet.html#acfea910d3c809936b590d3756a72f7b1">setId</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>) = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  };</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !IPACKET_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclass_i_packet_html"><div class="ttname"><a href="class_i_packet.html">IPacket</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_packet_8hpp_source.html#l00021">IPacket.hpp:21</a></div></div>
-<div class="ttc" id="aclass_i_packet_html_a3c030b9e0b5d5c687a1a893bb9b14eaa"><div class="ttname"><a href="class_i_packet.html#a3c030b9e0b5d5c687a1a893bb9b14eaa">IPacket::setId</a></div><div class="ttdeci">virtual void setId(size_t id)=0</div></div>
-<div class="ttc" id="aclass_i_packet_html_a66574049592c39d8e4100f9174e13813"><div class="ttname"><a href="class_i_packet.html#a66574049592c39d8e4100f9174e13813">IPacket::unpack</a></div><div class="ttdeci">virtual std::vector&lt; uint8_t &gt; unpack()=0</div></div>
+<div class="ttc" id="aclass_i_packet_html_a03107d1d0df5c42077d01fe791e07b48"><div class="ttname"><a href="class_i_packet.html#a03107d1d0df5c42077d01fe791e07b48">IPacket::unpack</a></div><div class="ttdeci">virtual std::vector&lt; uint8_t &gt; unpack()=0</div><div class="ttdoc">Unserialize data.</div></div>
 <div class="ttc" id="aclass_i_packet_html_a8715b6c244b53282cdb6c913e933baf1"><div class="ttname"><a href="class_i_packet.html#a8715b6c244b53282cdb6c913e933baf1">IPacket::pack</a></div><div class="ttdeci">virtual size_t pack(std::vector&lt; uint8_t &gt; &amp;data)=0</div><div class="ttdoc">Serialize data.</div></div>
 <div class="ttc" id="aclass_i_packet_html_abb8c78b3954f9aee9435067f4f536c26"><div class="ttname"><a href="class_i_packet.html#abb8c78b3954f9aee9435067f4f536c26">IPacket::~IPacket</a></div><div class="ttdeci">virtual ~IPacket()=default</div><div class="ttdoc">Destroy the IPacket object.</div></div>
+<div class="ttc" id="aclass_i_packet_html_acfea910d3c809936b590d3756a72f7b1"><div class="ttname"><a href="class_i_packet.html#acfea910d3c809936b590d3756a72f7b1">IPacket::setId</a></div><div class="ttdeci">virtual void setId(size_t id)=0</div><div class="ttdoc">set a packet id</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

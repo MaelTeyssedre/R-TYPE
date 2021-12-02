@@ -7,7 +7,7 @@
 <area shape="rect" id="node6" href="$_registry_8hpp.html" title="file where the Registry class is defined" alt="" coords="237,95,330,121"/>
 <area shape="rect" id="node16" title=" " alt="" coords="347,169,425,196"/>
 <area shape="rect" id="node17" title=" " alt="" coords="3789,319,3895,345"/>
-<area shape="rect" id="node18" href="$_zipper_8hpp.html" title=" " alt="" coords="709,95,791,121"/>
+<area shape="rect" id="node18" href="$_zipper_8hpp.html" title="file where the Zipper class is defined" alt="" coords="709,95,791,121"/>
 <area shape="rect" id="node23" href="$_components_8hpp.html" title=" " alt="" coords="2307,169,2425,196"/>
 <area shape="rect" id="node42" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="4088,95,4207,121"/>
 <area shape="rect" id="node7" href="$_sparse_array_8hpp.html" title="file where the templated SparseArray class is defined" alt="" coords="647,169,765,196"/>
@@ -19,7 +19,7 @@
 <area shape="rect" id="node10" title=" " alt="" coords="565,244,631,271"/>
 <area shape="rect" id="node11" title=" " alt="" coords="655,244,738,271"/>
 <area shape="rect" id="node14" title=" " alt="" coords="249,244,317,271"/>
-<area shape="rect" id="node19" href="$_zipper_iterator_8hpp.html" title=" " alt="" coords="501,169,623,196"/>
+<area shape="rect" id="node19" href="$_zipper_iterator_8hpp.html" title="file where the Zipper Iterator class is defined" alt="" coords="501,169,623,196"/>
 <area shape="rect" id="node22" title=" " alt="" coords="789,169,863,196"/>
 <area shape="rect" id="node20" title=" " alt="" coords="477,244,540,271"/>
 <area shape="rect" id="node21" title=" " alt="" coords="401,244,453,271"/>
@@ -29,7 +29,7 @@
 <area shape="rect" id="node27" href="$_health_component_8hpp.html" title="file for the health component" alt="" coords="2749,244,2900,271"/>
 <area shape="rect" id="node28" href="$_key_state_component_8hpp.html" title="file for the Key state component" alt="" coords="2925,244,3090,271"/>
 <area shape="rect" id="node29" href="$_mouse_state_component_8hpp.html" title="file for the mouse state component" alt="" coords="3115,244,3297,271"/>
-<area shape="rect" id="node30" href="$_client_2_components_2_network_component_8hpp.html" title="file for the network component" alt="" coords="2193,244,2355,271"/>
+<area shape="rect" id="node30" href="$_client_2_components_2_network_component_8hpp.html" title="file for the client network component" alt="" coords="2193,244,2355,271"/>
 <area shape="rect" id="node31" href="$_position_component_8hpp.html" title="file for the position component" alt="" coords="1283,244,1441,271"/>
 <area shape="rect" id="node32" href="$_reserved_component_8hpp.html" title="file for the reserved component" alt="" coords="1465,244,1632,271"/>
 <area shape="rect" id="node33" href="$_scene_component_8hpp.html" title="file for the scene component" alt="" coords="3878,244,4027,271"/>

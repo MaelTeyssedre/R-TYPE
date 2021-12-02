@@ -1,5 +1,5 @@
 <map id="Sources/Commons/ECS/Iterator/Zipper.hpp" name="Sources/Commons/ECS/Iterator/Zipper.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="564,5,727,47"/>
+<area shape="rect" id="node1" title="file where the Zipper class is defined" alt="" coords="564,5,727,47"/>
 <area shape="rect" id="node2" href="$_update_graph_8hpp.html" title="file where the update graphical system is defined" alt="" coords="295,95,503,136"/>
 <area shape="rect" id="node8" href="$_client_2_systems_2_update_network_2_update_network_8hpp.html" title="file where the update network system is defined" alt="" coords="527,95,763,136"/>
 <area shape="rect" id="node10" href="$_client_2_systems_2_update_time_2_update_time_8hpp.html" title="file where the update time system is defined" alt="" coords="787,95,983,136"/>

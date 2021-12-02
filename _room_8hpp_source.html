@@ -72,39 +72,39 @@ $(document).ready(function(){initNavTree('_room_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_buffer_8hpp.html">Buffer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_game_8hpp.html">Game.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespacertype.html">rtype</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classrtype_1_1_room.html">   24</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classrtype_1_1_room.html">Room</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">   33</a></span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">Room</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">Room</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">Room</a>(<a class="code" href="classrtype_1_1_room.html">Room</a> &amp;room);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classrtype_1_1_room.html#a8e912f858d5051c1bddd0bf31ab34ffd">   60</a></span>&#160;                <span class="keyword">virtual</span> <a class="code" href="classrtype_1_1_room.html#a8e912f858d5051c1bddd0bf31ab34ffd">~Room</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="classrtype_1_1_room.html#a15a0632970a6236d6a21bbe52ac13c5b">getId</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                std::shared_ptr&lt;std::vector&lt;std::pair&lt;Buffer, Buffer&gt;&gt;&gt; <a class="code" href="classrtype_1_1_room.html#a6fbcd5edaf8acc71a96dbf275d8e13f9">getRoomBuffer</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <a class="code" href="classrtype_1_1_room.html">Room</a>&amp; <a class="code" href="classrtype_1_1_room.html#a5ca0532c459e816f948fcf123d5d4c78">operator=</a>(<a class="code" href="classrtype_1_1_room.html">Room</a> &amp;room);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room.html#ab07c42834ad677a891a4519691cc54b4">setRoomBuffer</a>(std::shared_ptr&lt;std::vector&lt;std::pair&lt;Buffer, Buffer&gt;&gt;&gt; &amp;roomBuffer);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room.html#a4a0de0ad94254e399e463a4d1e770a13">run</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                std::shared_ptr&lt;std::vector&lt;std::pair&lt;Buffer, Buffer&gt;&gt;&gt; _roomBuffers; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordtype">size_t</span> _id; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        };</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespacertype.html">rtype</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classrtype_1_1_room.html">   30</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classrtype_1_1_room.html">Room</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">   39</a></span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">Room</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">Room</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room.html#a7e99139ddec9e73e806b796f390046b8">Room</a>(<a class="code" href="classrtype_1_1_room.html">Room</a> &amp;room);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classrtype_1_1_room.html#a8e912f858d5051c1bddd0bf31ab34ffd">   66</a></span>&#160;                <span class="keyword">virtual</span> <a class="code" href="classrtype_1_1_room.html#a8e912f858d5051c1bddd0bf31ab34ffd">~Room</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="classrtype_1_1_room.html#a15a0632970a6236d6a21bbe52ac13c5b">getId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::shared_ptr&lt;std::vector&lt;std::pair&lt;Buffer, Buffer&gt;&gt;&gt; <a class="code" href="classrtype_1_1_room.html#a6fbcd5edaf8acc71a96dbf275d8e13f9">getRoomBuffer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <a class="code" href="classrtype_1_1_room.html">Room</a>&amp; <a class="code" href="classrtype_1_1_room.html#a5ca0532c459e816f948fcf123d5d4c78">operator=</a>(<a class="code" href="classrtype_1_1_room.html">Room</a> &amp;room);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room.html#ab07c42834ad677a891a4519691cc54b4">setRoomBuffer</a>(std::shared_ptr&lt;std::vector&lt;std::pair&lt;Buffer, Buffer&gt;&gt;&gt; &amp;roomBuffer);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room.html#a4a0de0ad94254e399e463a4d1e770a13">run</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !ROOM_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                std::shared_ptr&lt;std::vector&lt;std::pair&lt;Buffer, Buffer&gt;&gt;&gt; _roomBuffers; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordtype">size_t</span> _id; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !ROOM_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_buffer_8hpp_html"><div class="ttname"><a href="_buffer_8hpp.html">Buffer.hpp</a></div><div class="ttdoc">header for the circular buffer lib</div></div>
-<div class="ttc" id="a_game_8hpp_html"><div class="ttname"><a href="_game_8hpp.html">Game.hpp</a></div></div>
-<div class="ttc" id="aclassrtype_1_1_room_html"><div class="ttname"><a href="classrtype_1_1_room.html">rtype::Room</a></div><div class="ttdoc">class for Room, a room represent a game</div><div class="ttdef"><b>Definition:</b> <a href="_room_8hpp_source.html#l00024">Room.hpp:24</a></div></div>
+<div class="ttc" id="a_game_8hpp_html"><div class="ttname"><a href="_game_8hpp.html">Game.hpp</a></div><div class="ttdoc">file for Game class</div></div>
+<div class="ttc" id="aclassrtype_1_1_room_html"><div class="ttname"><a href="classrtype_1_1_room.html">rtype::Room</a></div><div class="ttdoc">class for Room, a room represent a game</div><div class="ttdef"><b>Definition:</b> <a href="_room_8hpp_source.html#l00030">Room.hpp:30</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_room_html_a15a0632970a6236d6a21bbe52ac13c5b"><div class="ttname"><a href="classrtype_1_1_room.html#a15a0632970a6236d6a21bbe52ac13c5b">rtype::Room::getId</a></div><div class="ttdeci">size_t getId() const</div><div class="ttdoc">Get the Id object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_8cpp_source.html#l00014">Room.cpp:14</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_room_html_a4a0de0ad94254e399e463a4d1e770a13"><div class="ttname"><a href="classrtype_1_1_room.html#a4a0de0ad94254e399e463a4d1e770a13">rtype::Room::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="_room_8cpp_source.html#l00036">Room.cpp:36</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_room_html_a5ca0532c459e816f948fcf123d5d4c78"><div class="ttname"><a href="classrtype_1_1_room.html#a5ca0532c459e816f948fcf123d5d4c78">rtype::Room::operator=</a></div><div class="ttdeci">Room &amp; operator=(Room &amp;room)</div><div class="ttdoc">assignation operator overload</div><div class="ttdef"><b>Definition:</b> <a href="_room_8cpp_source.html#l00029">Room.cpp:29</a></div></div>

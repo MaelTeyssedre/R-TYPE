@@ -101,6 +101,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab8ebd790eb88f10950422d70c54b5e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">pack data  <a href="classrtype_1_1_packet.html#ab8ebd790eb88f10950422d70c54b5e17">More...</a><br /></td></tr>
 <tr class="separator:ab8ebd790eb88f10950422d70c54b5e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdc17c979df470d25f5a6b0e04fcfd41"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_packet.html#abdc17c979df470d25f5a6b0e04fcfd41">unpack</a> () override</td></tr>
+<tr class="memdesc:abdc17c979df470d25f5a6b0e04fcfd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unserialize data.  <a href="classrtype_1_1_packet.html#abdc17c979df470d25f5a6b0e04fcfd41">More...</a><br /></td></tr>
 <tr class="separator:abdc17c979df470d25f5a6b0e04fcfd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2458a11a5b8c192412f5c96dec4c300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_packet.html#aa2458a11a5b8c192412f5c96dec4c300">setId</a> (size_t id) override</td></tr>
 <tr class="memdesc:aa2458a11a5b8c192412f5c96dec4c300"><td class="mdescLeft">&#160;</td><td class="mdescRight">set id to a packet  <a href="classrtype_1_1_packet.html#aa2458a11a5b8c192412f5c96dec4c300">More...</a><br /></td></tr>
@@ -113,8 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab8ebd790eb88f10950422d70c54b5e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize data.  <a href="classrtype_1_1_packet.html#ab8ebd790eb88f10950422d70c54b5e17">More...</a><br /></td></tr>
 <tr class="separator:ab8ebd790eb88f10950422d70c54b5e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee27f658f81d5ed284e6d54f42358e44"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_packet.html#aee27f658f81d5ed284e6d54f42358e44">unpack</a> () override</td></tr>
+<tr class="memdesc:aee27f658f81d5ed284e6d54f42358e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unserialize data.  <a href="classrtype_1_1_packet.html#aee27f658f81d5ed284e6d54f42358e44">More...</a><br /></td></tr>
 <tr class="separator:aee27f658f81d5ed284e6d54f42358e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2458a11a5b8c192412f5c96dec4c300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_packet.html#aa2458a11a5b8c192412f5c96dec4c300">setId</a> (size_t id) override</td></tr>
+<tr class="memdesc:aa2458a11a5b8c192412f5c96dec4c300"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a packet id  <a href="classrtype_1_1_packet.html#aa2458a11a5b8c192412f5c96dec4c300">More...</a><br /></td></tr>
 <tr class="separator:aa2458a11a5b8c192412f5c96dec4c300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acedefeda044e9ab7749b5c6d9c2d01a5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtype_1_1_packet.html#acedefeda044e9ab7749b5c6d9c2d01a5">getId</a> () const</td></tr>
 <tr class="separator:acedefeda044e9ab7749b5c6d9c2d01a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -383,7 +386,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_i_packet.html#a3c030b9e0b5d5c687a1a893bb9b14eaa">IPacket</a>.</p>
+<p>Implements <a class="el" href="class_i_packet.html#acfea910d3c809936b590d3756a72f7b1">IPacket</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_client_2_network_2_packet_2_packet_8cpp_source.html#l00168">168</a> of file <a class="el" href="_client_2_network_2_packet_2_packet_8cpp_source.html">Packet.cpp</a>.</p>
 
@@ -413,7 +416,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_i_packet.html#a3c030b9e0b5d5c687a1a893bb9b14eaa">IPacket</a>.</p>
+<p>set a packet id </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">the</td><td>id we want to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_i_packet.html#acfea910d3c809936b590d3756a72f7b1">IPacket</a>.</p>
 
 </div>
 </div>
@@ -440,7 +451,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_i_packet.html#a66574049592c39d8e4100f9174e13813">IPacket</a>.</p>
+<p>Unserialize data. </p>
+<dl class="section return"><dt>Returns</dt><dd>the unserialized data </dd></dl>
+
+<p>Implements <a class="el" href="class_i_packet.html#a03107d1d0df5c42077d01fe791e07b48">IPacket</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_client_2_network_2_packet_2_packet_8cpp_source.html#l00163">163</a> of file <a class="el" href="_client_2_network_2_packet_2_packet_8cpp_source.html">Packet.cpp</a>.</p>
 
@@ -469,7 +483,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_i_packet.html#a66574049592c39d8e4100f9174e13813">IPacket</a>.</p>
+<p>Unserialize data. </p>
+<dl class="section return"><dt>Returns</dt><dd>the unserialized data </dd></dl>
+
+<p>Implements <a class="el" href="class_i_packet.html#a03107d1d0df5c42077d01fe791e07b48">IPacket</a>.</p>
 
 </div>
 </div>

@@ -76,38 +76,38 @@ $(document).ready(function(){initNavTree('_room_manager_8hpp_source.html',''); i
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_buffer_8hpp.html">Buffer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_player_data_8hpp.html">PlayerData.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespacertype.html">rtype</a> {</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html">   28</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classrtype_1_1_room_manager.html">RoomManager</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room_manager.html#a34c6cbcd2f28cc9739513530a11bbaee">RoomManager</a>(std::shared_ptr&lt;std::vector&lt;std::vector&lt;PlayerData&gt;&gt;&gt; roomList, std::shared_ptr&lt;Buffer&gt; bufferIn, std::shared_ptr&lt;Buffer&gt;bufferOut);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keyword">virtual</span> <a class="code" href="classrtype_1_1_room_manager.html#ae9dfcfc833b9ba52fb81be2875d8adfa">~RoomManager</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                std::string <a class="code" href="classrtype_1_1_room_manager.html#a35603d07738dda626469115771c09ed7">joinRoom</a>(std::string &amp;packet);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#ac534e8bb59741f148ab8566390f090ea">manageRoom</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#a94ecc089a1c449b1566ef0161a13f642">redirectRequest</a>(std::vector&lt;std::string&gt; &amp;packetList);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#ab66c4ca8328ffd448ac50f9544d5e34d">createRoom</a>(std::string &amp;packet);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">runRoom</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                std::vector&lt;std::thread&gt; _threadList; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                std::shared_ptr&lt;std::vector&lt;std::vector&lt;PlayerData&gt;&gt;&gt; _roomList; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                std::shared_ptr&lt;Buffer&gt; _bufferIn; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                std::shared_ptr&lt;Buffer&gt; _bufferOut; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        };</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !ROOMMANAGER_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespacertype.html">rtype</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classrtype_1_1_room_manager.html">   34</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classrtype_1_1_room_manager.html">RoomManager</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">explicit</span> <a class="code" href="classrtype_1_1_room_manager.html#a34c6cbcd2f28cc9739513530a11bbaee">RoomManager</a>(std::shared_ptr&lt;std::vector&lt;std::vector&lt;PlayerData&gt;&gt;&gt; roomList, std::shared_ptr&lt;Buffer&gt; bufferIn, std::shared_ptr&lt;Buffer&gt;bufferOut);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keyword">virtual</span> <a class="code" href="classrtype_1_1_room_manager.html#ae9dfcfc833b9ba52fb81be2875d8adfa">~RoomManager</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                std::string <a class="code" href="classrtype_1_1_room_manager.html#a35603d07738dda626469115771c09ed7">joinRoom</a>(std::string &amp;packet);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#ac534e8bb59741f148ab8566390f090ea">manageRoom</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#a94ecc089a1c449b1566ef0161a13f642">redirectRequest</a>(std::vector&lt;std::string&gt; &amp;packetList);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#ab66c4ca8328ffd448ac50f9544d5e34d">createRoom</a>(std::string &amp;packet);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">runRoom</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                std::vector&lt;std::thread&gt; _threadList; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                std::shared_ptr&lt;std::vector&lt;std::vector&lt;PlayerData&gt;&gt;&gt; _roomList; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                std::shared_ptr&lt;Buffer&gt; _bufferIn; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                std::shared_ptr&lt;Buffer&gt; _bufferOut; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        };</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !ROOMMANAGER_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_buffer_8hpp_html"><div class="ttname"><a href="_buffer_8hpp.html">Buffer.hpp</a></div><div class="ttdoc">header for the circular buffer lib</div></div>
 <div class="ttc" id="a_player_data_8hpp_html"><div class="ttname"><a href="_player_data_8hpp.html">PlayerData.hpp</a></div><div class="ttdoc">file where the PlayerData class is defined</div></div>
-<div class="ttc" id="aclassrtype_1_1_room_manager_html"><div class="ttname"><a href="classrtype_1_1_room_manager.html">rtype::RoomManager</a></div><div class="ttdoc">Manager of the Rooms.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8hpp_source.html#l00028">RoomManager.hpp:28</a></div></div>
+<div class="ttc" id="aclassrtype_1_1_room_manager_html"><div class="ttname"><a href="classrtype_1_1_room_manager.html">rtype::RoomManager</a></div><div class="ttdoc">Manager of the Rooms.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8hpp_source.html#l00034">RoomManager.hpp:34</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_room_manager_html_a1cca8e455058ce7a75ddff7cb1c71f20"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a1cca8e455058ce7a75ddff7cb1c71f20">rtype::RoomManager::runRoom</a></div><div class="ttdeci">void runRoom(size_t id)</div><div class="ttdoc">execute the Room</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00020">RoomManager.cpp:20</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_room_manager_html_a34c6cbcd2f28cc9739513530a11bbaee"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a34c6cbcd2f28cc9739513530a11bbaee">rtype::RoomManager::RoomManager</a></div><div class="ttdeci">RoomManager(std::shared_ptr&lt; std::vector&lt; std::vector&lt; PlayerData &gt;&gt;&gt; roomList, std::shared_ptr&lt; Buffer &gt; bufferIn, std::shared_ptr&lt; Buffer &gt;bufferOut)</div><div class="ttdoc">Construct a new Room Manager object.</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00007">RoomManager.cpp:7</a></div></div>
 <div class="ttc" id="aclassrtype_1_1_room_manager_html_a35603d07738dda626469115771c09ed7"><div class="ttname"><a href="classrtype_1_1_room_manager.html#a35603d07738dda626469115771c09ed7">rtype::RoomManager::joinRoom</a></div><div class="ttdeci">std::string joinRoom(std::string &amp;packet)</div><div class="ttdoc">put a player inside a room</div><div class="ttdef"><b>Definition:</b> <a href="_room_manager_8cpp_source.html#l00050">RoomManager.cpp:50</a></div></div>

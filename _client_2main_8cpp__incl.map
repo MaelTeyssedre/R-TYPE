@@ -25,7 +25,7 @@
 <area shape="rect" id="node22" href="$_health_component_8hpp.html" title="file for the health component" alt="" coords="2028,379,2179,405"/>
 <area shape="rect" id="node23" href="$_key_state_component_8hpp.html" title="file for the Key state component" alt="" coords="2203,379,2369,405"/>
 <area shape="rect" id="node24" href="$_mouse_state_component_8hpp.html" title="file for the mouse state component" alt="" coords="2393,379,2576,405"/>
-<area shape="rect" id="node25" href="$_client_2_components_2_network_component_8hpp.html" title="file for the network component" alt="" coords="763,379,924,405"/>
+<area shape="rect" id="node25" href="$_client_2_components_2_network_component_8hpp.html" title="file for the client network component" alt="" coords="763,379,924,405"/>
 <area shape="rect" id="node26" href="$_position_component_8hpp.html" title="file for the position component" alt="" coords="2600,379,2759,405"/>
 <area shape="rect" id="node27" href="$_reserved_component_8hpp.html" title="file for the reserved component" alt="" coords="2783,379,2949,405"/>
 <area shape="rect" id="node28" href="$_scene_component_8hpp.html" title="file for the scene component" alt="" coords="393,379,542,405"/>
@@ -45,8 +45,8 @@
 <area shape="rect" id="node47" href="$_update_direction_8hpp.html" title="file where the update direction system is defined" alt="" coords="2849,229,2987,256"/>
 <area shape="rect" id="node48" title=" " alt="" coords="3153,229,3291,256"/>
 <area shape="rect" id="node41" title=" " alt="" coords="3555,304,3614,331"/>
-<area shape="rect" id="node42" href="$_zipper_8hpp.html" title=" " alt="" coords="4015,304,4098,331"/>
+<area shape="rect" id="node42" href="$_zipper_8hpp.html" title="file where the Zipper class is defined" alt="" coords="4015,304,4098,331"/>
 <area shape="rect" id="node45" href="$_graphical_lib_8hpp.html" title="file where the graphical lib abstraction is defined" alt="" coords="3877,379,3996,405"/>
-<area shape="rect" id="node43" href="$_zipper_iterator_8hpp.html" title=" " alt="" coords="4118,379,4241,405"/>
+<area shape="rect" id="node43" href="$_zipper_iterator_8hpp.html" title="file where the Zipper Iterator class is defined" alt="" coords="4118,379,4241,405"/>
 <area shape="rect" id="node44" title=" " alt="" coords="4019,379,4094,405"/>
 </map>

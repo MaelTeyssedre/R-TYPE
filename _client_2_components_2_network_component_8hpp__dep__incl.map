@@ -1,5 +1,5 @@
 <map id="Sources/Client/Components/NetworkComponent.hpp" name="Sources/Client/Components/NetworkComponent.hpp">
-<area shape="rect" id="node1" title="file for the network component" alt="" coords="405,5,589,47"/>
+<area shape="rect" id="node1" title="file for the client network component" alt="" coords="405,5,589,47"/>
 <area shape="rect" id="node2" href="$_components_8hpp.html" title=" " alt="" coords="405,95,589,136"/>
 <area shape="rect" id="node3" href="$_rtype_client_8hpp.html" title="file where the r&#45;type&#45;client is defined" alt="" coords="89,363,290,389"/>
 <area shape="rect" id="node6" href="$_update_direction_8hpp.html" title="file where the update direction system is defined" alt="" coords="129,184,369,225"/>
