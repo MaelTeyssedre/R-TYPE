@@ -9,7 +9,7 @@ int main(int ac, char **av)
     }
     (void)ac;
     std::string host;
-    if (strcmp(av[1], "localhost"))
+    if (strcmp(av[1], "localhost") == 0)
         host = "127.0.0.1";
     else
         host = av[1];
