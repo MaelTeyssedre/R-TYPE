@@ -84,6 +84,11 @@
         "set": "cpp",
         "shared_mutex": "cpp",
         "source_location": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "*.ipp": "cpp",
+        "*.tcc": "cpp",
+        "string_view": "cpp",
+        "random": "cpp",
+        "ranges": "cpp"
     }
 }

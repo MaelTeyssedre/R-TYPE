@@ -30,7 +30,7 @@ void rtype::RtypeClient::signalHandler(int signum)
 
 void rtype::RtypeClient::_registerComponents()
 {
-    _r.registerComponent<components::myTime_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
+    _r.registerComponent<components::myTime_s>([](Registry &r, Entity const &e) -> void {(void)r;(void)e;}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::network_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::mouseState_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});
     _r.registerComponent<components::keyState_s>([](Registry &r, Entity const &e) -> void {}, [](Registry &r, Entity const &e) -> void {});

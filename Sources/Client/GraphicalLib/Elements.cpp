@@ -6,7 +6,7 @@
 #include <exception>
 
 rtype::Sprite::Sprite(float posX, float posY, float rotation, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
-    : _posX(posX), _posY(posY), _rotation(rotation), _scaleX(scaleX), _scaleY(scaleY), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path), _texture(), _sprite(), _colorAlpha(255)
+    : _posX(posX), _posY(posY), _rotation(rotation), _scaleX(scaleX), _scaleY(scaleY), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _colorAlpha(255), _path(path), _texture(), _sprite()
 {
     _sprite.setPosition(sf::Vector2f(_posX, _posY));
     _sprite.setRotation(_rotation);

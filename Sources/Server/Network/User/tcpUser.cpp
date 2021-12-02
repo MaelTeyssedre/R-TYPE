@@ -24,6 +24,7 @@ void rtype::tcpUser::read()
 
 void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
+    (void)bytes;
     if (!ec)
     {
         std::cout << _data[0] << std::endl;

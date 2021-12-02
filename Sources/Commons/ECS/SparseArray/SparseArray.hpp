@@ -122,7 +122,7 @@
              */
             SparseArray& operator=(SparseArray const &&sparseArray) noexcept
             {
-                _data = std::move(sparceArray._data);
+                _data = std::move(sparseArray._data);
                 return *this;
             }
 
