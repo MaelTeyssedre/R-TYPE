@@ -73,7 +73,7 @@
                  *  
                  * \return ITCPClient* the client
                  */
-                ITCPClient *createTCPClient(int port) override;
+                ITCPClient *createTCPClient(std::string host, int port) override;
 
                 /**
                  * \fn void deleteTCPClient(ITCPClient *tcp)
@@ -93,7 +93,7 @@
                  * 
                  * \return IUDPSocket* created socket
                  */
-                IUDPSocket *createSocketUDP(int port) override;
+                IUDPSocket *createSocketUDP(std::string host, int port) override;
 
                 /**
                  * \fn void deleteSocketUDP(IUDPSocket *udp) override

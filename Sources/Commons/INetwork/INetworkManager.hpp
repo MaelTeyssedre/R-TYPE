@@ -60,7 +60,7 @@
              * 
              * \return ITCPClient* 
              */
-            virtual ITCPClient *createTCPClient(int port) = 0;
+            virtual ITCPClient *createTCPClient(std::string host, int port) = 0;
 
             /**
              * \fn virtual IUDPSocket *createSocketUDP(int port) = 0
@@ -69,7 +69,7 @@
              * 
              * \return UDPSocket* 
              */ 
-            virtual IUDPSocket *createSocketUDP(int port) = 0;
+            virtual IUDPSocket *createSocketUDP(std::string host, int port) = 0;
 
             /**
              * \fn virtual void deleteSocketUDP(IUDPSocket *socket) = 0

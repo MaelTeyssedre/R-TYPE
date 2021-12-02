@@ -72,7 +72,7 @@
                  * 
                  * \return new created udp server
                  */
-                IUDPSocket *createSocketUDP(int port) override;
+                IUDPSocket *createSocketUDP(std::string host, int port) override;
 
                 /**
                  * \fn void deleteTCPServer(ITCPServer *tcp)

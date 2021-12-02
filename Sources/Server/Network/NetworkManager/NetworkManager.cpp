@@ -26,8 +26,9 @@ ITCPServer *rtype::NetworkManager::createTCPServer(int port)
     return (server);
 }
 
-IUDPSocket *rtype::NetworkManager::createSocketUDP(int port)
+IUDPSocket *rtype::NetworkManager::createSocketUDP(std::string host, int port)
 {
+    (void)host;
     UDPSocket *socket = new UDPSocket(_context, port);
     _udpSockets.push_back(socket);
     return (socket);
