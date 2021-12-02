@@ -17,7 +17,7 @@
         class UpdateGraph {
             public:
                 UpdateGraph();
-                UpdateGraph(UpdateGraph &&other);
+                UpdateGraph(UpdateGraph &&other) noexcept;
                 ~UpdateGraph() = default;
                 void operator()(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes);
                 

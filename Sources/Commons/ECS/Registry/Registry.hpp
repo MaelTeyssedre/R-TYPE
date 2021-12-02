@@ -81,7 +81,20 @@
              *
              * \param e entity we want to kill
              */
-            void killEntity(Entity const &e);
+            void killEntity(Entity const& e) {
+                if (isKilled(e))
+                    throw std::invalid_argument("entity already killed");
+                if (e < _entities && !isKilled(e))
+                {
+
+                    _killedEntities.push_back(e);
+                    for (auto i : _componentsArrays) {
+                        _destructorArray[i.first](*this, Entity(e));
+                    }
+                }
+                if (e >= _entities)
+                    throw std::invalid_argument("entity doesn't exist");
+            }
 
             /**
              * \fn void run_system()

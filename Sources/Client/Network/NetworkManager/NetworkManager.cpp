@@ -13,7 +13,9 @@ void rtype::NetworkManager::deleteTCPServer(ITCPServer *tcp)
 
 void rtype::NetworkManager::start()
 {
-    _thread = std::thread(&rtype::NetworkManager::startNetworkThread, this);
+    // _worker = new asio::io_context::work(_context);
+    _context.run();
+   // _thread = std::thread(&rtype::NetworkManager::startNetworkThread, this);
 }
 
 void rtype::NetworkManager::stop()

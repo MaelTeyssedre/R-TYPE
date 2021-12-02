@@ -88,15 +88,15 @@ Entity rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r)
     struct components::sprite_s sprite = {(float)0.75, (float)0.75, 0, 0, 584, 183, "ressources/newGame.png"};
     struct components::clickable_s clickable = {
         false, 
-        false, [this](Registry &r, size_t id) -> void
-                                                { r.getComponents<components::sprite_s>()[id].value().rectX = 584; },
+        false, [this](Registry &r, size_t id) -> void { r.getComponents<components::sprite_s>()[id].value().rectX = 584; },
                                                 [this](Registry &r, size_t id) -> void
                                                 {
                                                     r.getComponents<components::sprite_s>()[id].value().rectX = 0;
                                                     r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
-                                                    r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene =  constants::SCENE::LOADING_MENU;
+                                                    r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene =  constants::SCENE::WAITING_ROOM;
+                                                    r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{16});
                                                 }};
-    struct components::position_s pos = {(WINDOW_SIZE_X / 2 ) - ((584 * 0.75) / 2), (WINDOW_SIZE_Y / 2 ) - ((183 * 0.75) / 1.5)};
+    struct components::position_s pos = {(WINDOW_SIZE_X / 2 ) - ((584 * 0.75) / 2), 300};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
     struct components::drawable_s drawable = {true};
@@ -105,8 +105,6 @@ Entity rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r)
     struct components::scene_s my_scene = {constants::SCENE::MAIN_MENU};
     struct components::zaxis_s zaxis = {9};
     struct components::mySize_s size = {600, 200};
-
-    std::cout << "create: " << idx.idx << std::endl;
     r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
     r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
     r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
@@ -157,13 +155,7 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
             dtimeAnim += time.value().deltaTime;
             dtime += time.value().deltaTime;
             _graphicalLib->clearScreen();
-            auto &positions = r.getComponents<components::position_s>();
-            auto &sprites = r.getComponents<components::sprite_s>();
-            auto &scenes = r.getComponents<components::scene_s>();
-            auto &drawables = r.getComponents<components::drawable_s>();
-            auto &indexs = r.getComponents<components::index_s>();
-            auto &zaxises = r.getComponents<components::zaxis_s>();
-            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(positions, sprites, scenes, drawables, indexs, zaxises))
+            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
                 if (!(drawable.drawable))
                 {
@@ -208,12 +200,8 @@ void rtype::UpdateGraph::_setupDeleteMainMenuScene()
         [this](Registry &r)
         {
             _graphicalLib->clearScreen();
-            auto &scenes = r.getComponents<components::scene_s>();
-            auto &indexes = r.getComponents<components::index_s>();
-            auto &musics = r.getComponents<components::music_s>();
-            auto &sprites = r.getComponents<components::sprite_s>();
 
-            for (auto &&[scene, index, music] : Zipper(scenes, indexes, musics))
+            for (auto &&[scene, index, music] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::music_s>()))
             {
                 if (scene.scene == constants::SCENE::MAIN_MENU)
                 {
@@ -221,18 +209,30 @@ void rtype::UpdateGraph::_setupDeleteMainMenuScene()
                     _graphicalLib->deleteMusic(index.idx);
                 }
             }
-            for (auto &&[scene, index, sprite] : Zipper(scenes, indexes, sprites))
+            for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::sprite_s>()))
             {
                 if (scene.scene == constants::SCENE::MAIN_MENU)
                 {
                     _graphicalLib->deleteSprite(index.idx);
-                    std::cout << "destroy: " << index.idx << std::endl;
+                    std::cout << "destroy sprite: " << index.idx << std::endl;
                 }
             }
-            for (auto &&[scene, index] : Zipper(scenes, indexes))
+            for (auto &&[scene, index, text] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::text_s>()))
             {
                 if (scene.scene == constants::SCENE::MAIN_MENU)
+                {
+                    _graphicalLib->deleteText(index.idx);
+                    std::cout << "destroy text: " << index.idx << std::endl;
+                }
+            }
+            for (auto &&[scene, index] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>()))
+            {
+                if (scene.scene == constants::SCENE::MAIN_MENU) {
+                    r.getComponents<components::scene_s>().erase(index.idx);
+                    r.getComponents<components::index_s>().erase(index.idx);
                     r.killEntity(r.entityFromIndex(index.idx));
+                    std::cout << "Kill entity: " << index.idx << std::endl;
+                }
             }
             _graphicalLib->clearScreen();
         });

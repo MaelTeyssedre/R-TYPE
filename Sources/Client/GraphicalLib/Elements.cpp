@@ -6,7 +6,7 @@
 #include <exception>
 
 rtype::Sprite::Sprite(float posX, float posY, float rotation, float scaleX, float scaleY, int rectX, int rectY, int rectWidth, int rectHeigth, std::string path)
-    : _posX(posX), _posY(posY), _rotation(rotation), _scaleX(scaleX), _scaleY(scaleY), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path), _texture(), _sprite()
+    : _posX(posX), _posY(posY), _rotation(rotation), _scaleX(scaleX), _scaleY(scaleY), _rectX(rectX), _rectY(rectY), _rectWidth(rectWidth), _rectHeigth(rectHeigth), _path(path), _texture(), _sprite(), _colorAlpha(255)
 {
     _sprite.setPosition(sf::Vector2f(_posX, _posY));
     _sprite.setRotation(_rotation);
@@ -136,13 +136,13 @@ void rtype::Sprite::drawSprite(sf::RenderWindow *win)
 rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
     : _posX(posX), _posY(posY), _fontSize(fontSize), _colorRed(colorRed), _colorGreen(colorGreen), _colorBlue(colorBlue), _colorAlpha(colorAlpha), _content(content), _fontPath(fontPath)
 {
-    _text.setPosition(sf::Vector2f(_posX, _posY));
-    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
-    _text.setCharacterSize(_fontSize);
-    _text.setString(_content);
     if (!_font.loadFromFile(_fontPath))
         throw std::runtime_error("Fail to load font");
     _text.setFont(_font);
+    _text.setString(_content);
+    _text.setPosition(sf::Vector2f(_posX, _posY));
+    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
+    _text.setCharacterSize(_fontSize);
 }
 
 float rtype::Text::getPosX()
@@ -233,9 +233,9 @@ void rtype::Text::setContent(std::string &content)
     _text.setString(_content);
 }
 
-sf::Text &rtype::Text::getText()
+sf::Text *rtype::Text::getText()
 {
-    return _text;
+    return &_text;
 }
 
 rtype::Sound::Sound(std::string path)

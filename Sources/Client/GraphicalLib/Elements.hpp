@@ -103,7 +103,7 @@ namespace rtype
         explicit Text() = default;
         explicit Text(float posX, float posY, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath);
 
-        sf::Text &getText();
+        sf::Text *getText();
 
     private:
         float _posX;

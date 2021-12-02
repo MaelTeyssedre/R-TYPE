@@ -91,7 +91,7 @@
              * \param size number of entity to add
              */
             void extend(size_t size) {
-                for (auto i = 0; i < size; i++)
+                for (size_t i = 0; i < size; i++)
                     _data.push_back(std::nullopt);
             }
 
@@ -263,7 +263,6 @@
                 if (pos > _data.size())
                     throw std::invalid_argument("pos superior to SparseArray's size");
                 if (pos == _data.size()) {
-                    if (pos == 5)
                     _data.push_back(std::move(component));
                     return _data.back();
                 }
@@ -305,8 +304,9 @@
             void erase(size_type pos) {
                 if (pos >= _data.size())
                     throw std::invalid_argument("pos superior to SparseArray's size");
-                auto alloc = _data.get_allocator();
-                std::allocator_traits<decltype(alloc)>::destroy(alloc, std::addressof(_data[pos]));
+                //auto alloc = _data.get_allocator();
+                //std::allocator_traits<decltype(alloc)>::destroy(alloc, std::addressof(_data[pos]));
+                _data[pos].reset();
             }
 
             /**

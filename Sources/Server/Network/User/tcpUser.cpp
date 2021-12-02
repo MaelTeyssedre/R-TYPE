@@ -16,19 +16,23 @@ void rtype::tcpUser::addToQueue(std::vector<uint8_t> message)
 
 void rtype::tcpUser::read()
 {
-    asio::async_read(*_socket, asio::buffer(_input, 1), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    _socket->async_read_some(asio::buffer(_data, 1), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    //for (auto i : _data)
+    //    std::cout << (uint8_t)i << std::endl;
+  //  asio::async_read(*_socket, asio::buffer(_input), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
-    (void)bytes;
     if (!ec)
     {
+        std::cout << _data[0] << std::endl;
         read();
         _sizeInput++;
     }
     else
         std::cerr << ec.message() << std::endl;
+  //  std::memset(_data, 0, sizeof(_data));
 }
 
 void rtype::tcpUser::write()

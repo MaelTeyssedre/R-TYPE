@@ -30,21 +30,6 @@ Entity Registry::entityFromIndex(size_t idx)
     return Entity(idx);
 }
 
-void Registry::killEntity(Entity const &e)
-{
-    if (isKilled(e))
-        throw std::invalid_argument("entity already killed");
-    if (e < _entities && !isKilled(e))
-    {
-        _killedEntities.push_back(e);
-        for (auto i : _componentsArrays) {
-            _destructorArray[i.first](*this, Entity(e));
-        }
-    }
-    if (e >= _entities)
-        throw std::invalid_argument("entity doesn't exist");
-}
-
 bool Registry::isKilled(Entity const &e)
 {
     for (size_t i = 0; i < _killedEntities.size(); i++)

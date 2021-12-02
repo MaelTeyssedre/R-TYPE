@@ -7,9 +7,9 @@ rtype::UpdateNetwork::UpdateNetwork(ITCPServer *server, IUDPSocket *socket)
 
 void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
 {
+    std::cout << "help" << std::endl;
     (void)r;
     (void)networks;
-    // ! Commented while debuging
     (void)r;
     std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
     std::uint8_t opCode = 0;
@@ -20,15 +20,14 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
     std::queue<IPacket *> packets = _tcpServer->getBuffer();
     _tcpServer->getBuffer().pop();
     opCode = packets.back()->unpack().at(0);
-   // buffer->readFromBuffer(1, &opCode);
+    std::cout << "receive opCode" << opCode << std::endl;
     switch (opCode)
     {
     case 5:
-       // buffer->readFromBuffer(5, reply);
         if (network.value().request5.empty())
             network.value().request5.push_back(std::vector<uint8_t>());
         network.value().request5.back().push_back(opCode);
-        network.value().request5.back().insert(network.value().request5.back().end(), reply.begin(), reply.end());
+        network.value().request5.back().insert(network.value().request5.back().end(), packets.back()->unpack().at(0), packets.back()->unpack().at(5));
         break;
     case 6:
         if (network.value().request6.empty())
@@ -41,11 +40,10 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         network.value().request16.back().push_back(opCode);
         break;
     case 17:
-      //  buffer->readFromBuffer(8, reply);
         if (network.value().request17.empty())
             network.value().request17.push_back(std::vector<uint8_t>());
         network.value().request17.back().push_back(opCode);
-        network.value().request17.back().insert(network.value().request17.back().end(), reply.begin(), reply.end());
+        network.value().request17.back().insert(network.value().request17.back().end(), packets.back()->unpack().at(0), packets.back()->unpack().at(8));
         break;
     case 18:
         if (network.value().request18.empty())

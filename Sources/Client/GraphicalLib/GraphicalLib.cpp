@@ -25,7 +25,8 @@ void rtype::GraphicalLib::draw(size_t id)
 
 void rtype::GraphicalLib::print(size_t id)
 {
-    _renderWindow->draw(_textMap[id]->getText());
+    std::cout << "test printed " << id << std::endl;
+    _renderWindow->draw(*(_textMap[id]->getText()));
 }
 
 void rtype::GraphicalLib::start(size_t id)
@@ -70,6 +71,7 @@ void rtype::GraphicalLib::createMusic(size_t id, const std::string &path)
 
 void rtype::GraphicalLib::createText(size_t id, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
 {
+    std::cout << "Text id: " << id << std::endl;
     _textMap[id].reset(new Text(0.f, 0.f, fontSize, colorRed, colorGreen, colorBlue, colorAlpha, content, fontPath));
 }
 
@@ -80,22 +82,22 @@ void rtype::GraphicalLib::createSprite(size_t id, float scaleX, float scaleY, in
 
 void rtype::GraphicalLib::deleteSound(size_t id)
 {
-    (void)id;
+    _soundMap.erase(id);
 }
 
 void rtype::GraphicalLib::deleteMusic(size_t id)
 {
-    (void)id;
+    _musicMap.erase(id);
 }
 
 void rtype::GraphicalLib::deleteText(size_t id)
 {
-    (void)id;
+    _textMap.erase(id);
 }
 
 void rtype::GraphicalLib::deleteSprite(size_t id)
 {
-    (void)id;
+    _spriteMap.erase(id);
 }
 
 bool rtype::GraphicalLib::getKeyState(rtype::constants::EVENT event)

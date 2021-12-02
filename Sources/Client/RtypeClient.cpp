@@ -9,6 +9,7 @@ rtype::RtypeClient::RtypeClient(std::string host, std::string port)
     if (_client->isConnected() == false)
         return;
     _status = true;
+  //  _netManager.start();
     _registerComponents();
     _setupComponents();
     _setupSystems();
@@ -91,7 +92,23 @@ void rtype::RtypeClient::_setupTimeComponent()
 
 void rtype::RtypeClient::_setupNetworkComponent()
 {
-    components::network_s network{};
+    components::network_s network{
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{} // ! send
+    };
     _r.addComponent<components::network_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), std::move(network));
 }
 
@@ -161,5 +178,5 @@ bool rtype::RtypeClient::checkStatus()
 void rtype::RtypeClient::_setupUpdateClickable()
 {
     UpdateClickable clickable {};
-    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(),  _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>());
+    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(),  _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>(), _r.getComponents<components::currentScene_s>());
 }

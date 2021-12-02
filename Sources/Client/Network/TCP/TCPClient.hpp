@@ -113,7 +113,7 @@
                 std::shared_ptr<Buffer> _buffer; /*! buffer to store input */
                 char _reply[9]; /*! store reply */
                 bool _isConnected;
-
+                asio::io_context::work _worker; /*! asio worker */
         };
     }
 

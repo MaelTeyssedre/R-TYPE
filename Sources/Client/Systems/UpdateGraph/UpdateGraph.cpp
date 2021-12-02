@@ -14,7 +14,7 @@ rtype::UpdateGraph::UpdateGraph()
     _setupDeleteScene();
 }
 
-rtype::UpdateGraph::UpdateGraph(rtype::UpdateGraph &&other)
+rtype::UpdateGraph::UpdateGraph(UpdateGraph &&other) noexcept
     : _graphicalLib{other._graphicalLib}, _setupScene{other._setupScene}, _execScene{other._execScene}, _deleteScene{other._deleteScene} {}
 
 void rtype::UpdateGraph::operator()(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes)
@@ -25,18 +25,15 @@ void rtype::UpdateGraph::operator()(Registry &r, SparseArray<components::mouseSt
 
 void rtype::UpdateGraph::_updateGraph(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes)
 {
-    (void)mouseStates;
-    (void)keyStates;
-    static constants::SCENE previous_scene = constants::LOADING_MENU;
-    for (auto &&[scene] : Zipper(currentScenes))
+    static constants::SCENE previous_scene = constants::SCENE::LOADING_MENU;
+    for (auto&& [scene] : Zipper(currentScenes)) {
         if (!(scene.isLoaded))
         {
             _deleteScene[previous_scene](r);
-            auto &tmp = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
-            if (tmp)
-                previous_scene = tmp.value().scene;
+            previous_scene = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene;
             _setupScene[currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().scene](r, currentScenes);
         }
+    }
     _execScene[currentScenes[rtype::constants::RESERVED_ID::GRAPH_UPDATE].value().scene](r, currentScenes);
 }
 
@@ -65,19 +62,19 @@ void rtype::UpdateGraph::_setupScenes()
 {
     _setupLoadingMenuScene();
     _setupMainMenuScene();
+    _setupWaitingRoomScene();
 }
 
 void rtype::UpdateGraph::_setupExecScene()
 {
     _setupExecLoadingMenuScene();
     _setupExecMainMenuScene();
+    _setupExecWaitingRoomScene();
 }
 
 void rtype::UpdateGraph::_setupDeleteScene()
 {
     _setupDeleteLoadingMenuScene();
     _setupDeleteMainMenuScene();
+    _setupDeleteWaitingRoomScene();
 }
-
-
-

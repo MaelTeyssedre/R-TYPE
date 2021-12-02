@@ -1,7 +1,7 @@
 #include "TCPClient.hpp"
 
 rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
-    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false)
+    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false), _worker(context)
 {
     std::string str = "Client connected to host: ";
     asio::error_code ec;
@@ -16,6 +16,7 @@ rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip:
     str.append(", and port: ");
     str.append(port);
     _logger.logln(str);
+    
 }
 
 void rtype::TCPClient::receive()
@@ -41,11 +42,9 @@ void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
 
 void rtype::TCPClient::send(IPacket &packet)
 {
-    std::vector<uint8_t> vec;
-    std::string str = "handshake";
-    vec.assign(str.begin(), str.end());
-    packet.pack(vec);
-    _socket->async_write_some(asio::buffer(packet.unpack()), std::bind(&rtype::TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+    std::cout << "in send" << std::endl;
+    asio::async_write(*_socket, asio::buffer(packet.unpack()), std::bind(&rtype::TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+
 }
 
 void rtype::TCPClient::doWrite(const std::error_code &ec, size_t bytes)

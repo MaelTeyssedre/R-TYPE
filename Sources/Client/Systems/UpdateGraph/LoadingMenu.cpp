@@ -96,13 +96,7 @@ void rtype::UpdateGraph::_setupExecLoadingMenuScene()
             dtime += time.value().deltaTime;
             dtimeAnim += time.value().deltaTime;
             _graphicalLib->clearScreen();
-            auto &positions = r.getComponents<components::position_s>();
-            auto &sprites = r.getComponents<components::sprite_s>();
-            auto &scenes = r.getComponents<components::scene_s>();
-            auto &drawables = r.getComponents<components::drawable_s>();
-            auto &indexes = r.getComponents<components::index_s>();
-            auto &zaxises = r.getComponents<components::zaxis_s>();
-            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(positions, sprites, scenes, drawables, indexes, zaxises))
+            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
                 if (!(drawable.drawable))
                     continue;
@@ -129,6 +123,14 @@ void rtype::UpdateGraph::_setupExecLoadingMenuScene()
                         _graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) + 1);
                     }
                 }
+            }
+            if (r.getComponents<components::keyState_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().keySpace) {
+                currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
+                currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::MAIN_MENU;
+                _graphicalLib->clearScreen();
+                dtime = std::chrono::nanoseconds(0);
+                dtimeAnim = std::chrono::nanoseconds(0);
+                return;
             }
             std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
             std::reverse(myZAxises.begin(), myZAxises.end());
@@ -157,12 +159,8 @@ void rtype::UpdateGraph::_setupDeleteLoadingMenuScene()
         [this](Registry &r)
         {
             _graphicalLib->clearScreen();
-            auto &scenes = r.getComponents<components::scene_s>();
-            auto &indexes = r.getComponents<components::index_s>();
-            auto &musics = r.getComponents<components::music_s>();
-            auto &sprites = r.getComponents<components::sprite_s>();
 
-            for (auto &&[scene, index, music] : Zipper(scenes, indexes, musics))
+            for (auto &&[scene, index, music] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::music_s>()))
             {
                 if (scene.scene == constants::SCENE::LOADING_MENU)
                 {
@@ -170,13 +168,19 @@ void rtype::UpdateGraph::_setupDeleteLoadingMenuScene()
                     _graphicalLib->deleteMusic(index.idx);
                 }
             }
-            for (auto &&[scene, index, sprite] : Zipper(scenes, indexes, sprites))
+            for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::sprite_s>()))
             {
-                if (scene.scene == constants::SCENE::LOADING_MENU)
+                if (scene.scene == constants::SCENE::LOADING_MENU) {
+                    std::cout << "Destroy: " << index.idx << std::endl;
                     _graphicalLib->deleteSprite(index.idx);
+                }
             }
             for (auto &&[scene, index] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>()))
-                if (scene.scene == constants::SCENE::LOADING_MENU)
+                if (scene.scene == constants::SCENE::LOADING_MENU) {
+                    std::cout << "kill Entity: " << index.idx << std::endl;
+                    r.getComponents<components::scene_s>().erase(index.idx);
+                    r.getComponents<components::index_s>().erase(index.idx);
                     r.killEntity(r.entityFromIndex(index.idx));
+                }
         });
 }

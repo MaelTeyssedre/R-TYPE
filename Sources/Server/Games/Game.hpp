@@ -17,15 +17,6 @@
                 void run();
             private:
                 void waitForStartingGame();
-                void setupGame();
-                void registerMapObjectsComponents();
-                void registerTimeComponent();
-                void registerNetworkComponent();
-                void addTimeSystem();
-                void initMap(JsonWrapper &wrapper);
-                void startGame();
-                void sendMapRequest(JsonWrapper &wrapper);
-                void setupUpdateTimeSystem();
                 Registry _r;
                 std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> _roomBuffer;
         };
