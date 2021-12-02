@@ -3,7 +3,7 @@
 Registry::Registry(size_t nbEntity)
     : _entities(nbEntity) {}
 
-Entity Registry::spawnEntity()
+auto Registry::spawnEntity() -> Entity
 {
     if (_killedEntities.empty())
     {
@@ -21,7 +21,7 @@ Entity Registry::spawnEntity()
     }
 }
 
-Entity Registry::entityFromIndex(size_t idx)
+auto Registry::entityFromIndex(size_t idx) -> Entity
 {
     if (idx >= _entities)
         throw std::invalid_argument("entity doesn't exit at this index");
@@ -30,7 +30,7 @@ Entity Registry::entityFromIndex(size_t idx)
     return Entity(idx);
 }
 
-bool Registry::isKilled(Entity const &e)
+auto Registry::isKilled(Entity const &e) -> bool
 {
     for (size_t i = 0; i < _killedEntities.size(); i++)
         if ((size_t)e == (size_t)_killedEntities[i])
@@ -38,7 +38,7 @@ bool Registry::isKilled(Entity const &e)
     return false;
 }
 
-void Registry::run_system()
+auto Registry::run_system() -> void
 {
     for (size_t i = 0; i < _systems.size(); i++)
         _systems[i](*this);

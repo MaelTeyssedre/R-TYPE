@@ -11,48 +11,46 @@ size_t rtype::Packet::pack(std::vector<uint8_t> &data)
             if (data.size() != 16)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 1");
             for (int i = 0; i != 16; i++)
-                _rawData.push_back(data.at(i));
-            data.erase(data.begin(), data.begin() + 16);
+                _rawData.push_back(data[i]);
+            data.erase(data.begin(), data.begin() + 15);
             bytes = 16;
             break;
         case 2:
             if (data.size() != 14)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 2");
             for (int i = 0; i != 14; i++)
-                _rawData.push_back(i);
-            data.erase(data.begin(), data.begin() + 14);
+                _rawData.push_back(data[i]);
+            data.erase(data.begin(), data.begin() + 13);
             bytes = 14;
             break;
         case 3:
             if (data.size() != 13)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 3");
             for (int i = 0; i != 13; i++)
-                _rawData.push_back(i);
-            data.erase(data.begin(), data.begin() + 13);
+                _rawData.push_back(data[i]);
+            data.erase(data.begin(), data.begin() + 12);
             bytes = 13;
             break;
         case 4:
             if (data.size() != 1)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 4");
-            for (int i = 0; i != 1; i++)
-                _rawData.push_back(i);
-            data.erase(data.begin(), data.begin() + 1);
+            _rawData.push_back(data[0]);
+            data.erase(data.begin());
             bytes = 1;
             break;
         case 5:
             if (data.size() != 6)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 5");
             for (int i = 0; i != 6; i++)
-                _rawData.push_back(i);
-            data.erase(data.begin(), data.begin() + 6);
+                _rawData.push_back(data[i]);
+            data.erase(data.begin(), data.begin() + 5);
             bytes = 6;
             break;
         case 6:
             if (data.size() != 1)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 6");
-            for (int i = 0; i != 1; i++)
-                _rawData.push_back(i);
-            data.erase(data.begin(), data.begin() + 1);
+            _rawData.push_back(data[0]);
+            data.erase(data.begin());
             bytes = 1;
             break;
         case 7:
@@ -138,11 +136,11 @@ size_t rtype::Packet::pack(std::vector<uint8_t> &data)
             bytes = 9;
             break;
         case 17:
-            if (data.size() != 1)
+            if (data.size() != 3)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 17");
-            for (int i = 0; i != 1; i++)
+            for (int i = 0; i != 3; i++)
                 _rawData.push_back(i);
-            data.erase(data.begin(), data.begin() + 1);
+            data.erase(data.begin(), data.begin() + 2);
             bytes = 1;
             break;
         case 18:
@@ -151,6 +149,21 @@ size_t rtype::Packet::pack(std::vector<uint8_t> &data)
             for (int i = 0; i != 1; i++)
                 _rawData.push_back(i);
             data.erase(data.begin(), data.begin() + 1);
+            bytes = 1;
+            break;
+         case 19:
+            _rawData.push_back(data[0]);
+            data.erase(data.begin());
+            bytes = 1;
+            break;
+         case 20:
+            _rawData.push_back(data[0]);
+            data.erase(data.begin());
+            bytes = 1;
+            break;
+         case 21:
+            _rawData.push_back(data[0]);
+            data.erase(data.begin());
             bytes = 1;
             break;
         default:

@@ -32,7 +32,7 @@ int main(int ac, char **av)
         for (auto i : packetManager.getRequests())
             packetManager.managePacket(i);
         roomManager.manageRoom();
-        std::this_thread::sleep_for(std::chrono::nanoseconds(10));
+        std::this_thread::sleep_for(std::chrono::nanoseconds(1000000));
     }
 }
 

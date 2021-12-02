@@ -1,0 +1,140 @@
+{
+ "graph_lock": {
+  "nodes": {
+   "0": {
+    "options": "brotli:shared=False\nbzip2:build_executable=True\nbzip2:shared=False\nflac:shared=False\nfreetype:shared=False\nfreetype:with_brotli=True\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:api_prefix=\nlibpng:shared=False\nlibpng:sse=True\nogg:shared=False\nopenal:shared=False\nsfml:audio=True\nsfml:graphics=True\nsfml:network=True\nsfml:shared=True\nsfml:window=True\nstb:with_deprecated=True\nvorbis:shared=False\nzlib:minizip=deprecated\nzlib:shared=False",
+    "requires": [
+     "1",
+     "2",
+     "14"
+    ],
+    "path": "..\\conanfile.txt",
+    "context": "host"
+   },
+   "1": {
+    "ref": "asio/1.19.2#6a0b7d0d934af4e55f74164aae213b70",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "6b59eb57e4d776ba0147216c0e73be7e",
+    "context": "host"
+   },
+   "2": {
+    "ref": "sfml/2.5.1#07c41f8799438fac25fd6a29612484e5",
+    "options": "audio=True\ngraphics=True\nnetwork=True\nshared=True\nwindow=True\nbrotli:shared=False\nbzip2:build_executable=True\nbzip2:shared=False\nflac:shared=False\nfreetype:shared=False\nfreetype:with_brotli=True\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:api_prefix=\nlibpng:shared=False\nlibpng:sse=True\nogg:shared=False\nopenal:shared=False\nstb:with_deprecated=True\nvorbis:shared=False\nzlib:minizip=deprecated\nzlib:shared=False",
+    "package_id": "4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb",
+    "prev": "8ab62409c3eb5daf9e834f0756c127b9",
+    "requires": [
+     "3",
+     "4",
+     "9",
+     "10",
+     "12",
+     "13"
+    ],
+    "context": "host"
+   },
+   "3": {
+    "ref": "opengl/system#3582b5d3184289461f73339622c71d31",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "e0c823b9bed28348dd7f3bcedf045c58",
+    "context": "host"
+   },
+   "4": {
+    "ref": "freetype/2.11.0#ed505650cb0c3b72f93fca211e89aae1",
+    "options": "shared=False\nwith_brotli=True\nwith_bzip2=True\nwith_png=True\nwith_zlib=True\nbrotli:shared=False\nbzip2:build_executable=True\nbzip2:shared=False\nlibpng:api_prefix=\nlibpng:shared=False\nlibpng:sse=True\nzlib:minizip=deprecated\nzlib:shared=False",
+    "package_id": "c69bad48274e7fc45c887cddc32aa0459f0a81e0",
+    "prev": "c39da4992bb9917aeb8852eb58103587",
+    "requires": [
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "context": "host"
+   },
+   "5": {
+    "ref": "libpng/1.6.37#08b5607052686860a2e40d5db6166d9f",
+    "options": "api_prefix=\nshared=False\nsse=True\nzlib:minizip=deprecated\nzlib:shared=False",
+    "package_id": "8b1ef0ec9599374db4689199730c00a0d5f4de36",
+    "prev": "866ed4139755bcf6fd9767d12ffc4bf1",
+    "requires": [
+     "6"
+    ],
+    "context": "host"
+   },
+   "6": {
+    "ref": "zlib/1.2.11#b3eaf63da20a8606f3d84602c2cfa854",
+    "options": "minizip=deprecated\nshared=False",
+    "package_id": "d057732059ea44a47760900cb5e4855d2bea8714",
+    "prev": "f5bddb08041eff58a9146980bc3facd3",
+    "context": "host"
+   },
+   "7": {
+    "ref": "bzip2/1.0.8#9c8b632000a52af5af3f045d3a6db12f",
+    "options": "build_executable=True\nshared=False",
+    "package_id": "589a23dff5fdb23a7fb851223eb766480ead0a9a",
+    "prev": "0fb1a4e10ef374eafe629835e2d2a04b",
+    "context": "host"
+   },
+   "8": {
+    "ref": "brotli/1.0.9#802b2457f7a7a509ed80e7e45adf960e",
+    "options": "shared=False",
+    "package_id": "d057732059ea44a47760900cb5e4855d2bea8714",
+    "prev": "2b31f6970fbf2f96270e7bb7a7dc76c4",
+    "context": "host"
+   },
+   "9": {
+    "ref": "stb/cci.20210713#b3854a7d188228a45413baa61c54d4a8",
+    "options": "with_deprecated=True",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "1c3855b2bee5b1bc4cf3bfeba47856ab",
+    "context": "host"
+   },
+   "10": {
+    "ref": "flac/1.3.3#b6cc4e49797347efd569a9eca3c58d4e",
+    "options": "shared=False\nogg:shared=False",
+    "package_id": "b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47",
+    "prev": "66d707fc96ccb40ff9a8ee37e0c2e297",
+    "requires": [
+     "11"
+    ],
+    "context": "host"
+   },
+   "11": {
+    "ref": "ogg/1.3.4#b69afb47bef45e7b2b6360aa669dff18",
+    "options": "shared=False",
+    "package_id": "d057732059ea44a47760900cb5e4855d2bea8714",
+    "prev": "f6c7073c74b32607c896438ccaec3587",
+    "context": "host"
+   },
+   "12": {
+    "ref": "openal/1.21.1#072b4665896bd2fc641a91d500b18f1d",
+    "options": "shared=False",
+    "package_id": "d057732059ea44a47760900cb5e4855d2bea8714",
+    "prev": "d57d00f8d2cd920f7d7debe155813499",
+    "context": "host"
+   },
+   "13": {
+    "ref": "vorbis/1.3.7#04b23c3827f7a2779c417cb33f013264",
+    "options": "shared=False\nogg:shared=False",
+    "package_id": "b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47",
+    "prev": "7e227d15f2d385cf7d3cd235f65bd0e1",
+    "requires": [
+     "11"
+    ],
+    "context": "host"
+   },
+   "14": {
+    "ref": "nlohmann_json/3.10.4#15c958694f8ab49724389f600c56569f",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "181b607011f5ddc138611fb3d1499779",
+    "context": "host"
+   }
+  },
+  "revisions_enabled": true
+ },
+ "version": "0.4",
+ "profile_host": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Debug\ncompiler=Visual Studio\ncompiler.runtime=MDd\ncompiler.version=16\ncppstd=20\nos=Windows\nos_build=Windows\n[options]\n[build_requires]\n[env]\n"
+}

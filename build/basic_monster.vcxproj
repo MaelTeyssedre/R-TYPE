@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3E71DCEF-C42E-3B82-84D8-0BED71566DEC}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>basic_monster</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maelt\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">basic_monster.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">basic_monster</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maelt\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">basic_monster.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">basic_monster</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maelt\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">basic_monster.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">basic_monster</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maelt\R-TYPE\build\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">basic_monster.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">basic_monster</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR="Debug";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR=\"Debug\";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib;C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib/$(Configuration);C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib;C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib/$(Configuration);C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib;C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib/$(Configuration);C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib;C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib/$(Configuration);C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maelt/R-TYPE/build/lib/basic_monster.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maelt/R-TYPE/build/bin/basic_monster.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR="Release";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR=\"Release\";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib;C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib/$(Configuration);C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib;C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib/$(Configuration);C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib;C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib/$(Configuration);C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib;C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib/$(Configuration);C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maelt/R-TYPE/build/lib/basic_monster.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maelt/R-TYPE/build/bin/basic_monster.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR="MinSizeRel";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR=\"MinSizeRel\";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib;C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib/$(Configuration);C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib;C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib/$(Configuration);C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib;C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib/$(Configuration);C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib;C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib/$(Configuration);C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maelt/R-TYPE/build/lib/basic_monster.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maelt/R-TYPE/build/bin/basic_monster.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR="RelWithDebInfo";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_LIBTYPE_STATIC;FLAC__NO_DLL;STB_TEXTEDIT_KEYTYPE=unsigned;ASIO_STANDALONE;CMAKE_INTDIR=\"RelWithDebInfo\";basic_monster_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maelt\.conan\data\asio\1.19.2\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\sfml\2.5.1\_\_\package\4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb\include;C:\Users\maelt\.conan\data\nlohmann_json\3.10.4\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include;C:\Users\maelt\.conan\data\freetype\2.11.0\_\_\package\c69bad48274e7fc45c887cddc32aa0459f0a81e0\include\freetype2;C:\Users\maelt\.conan\data\stb\cci.20210713\_\_\package\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\include;C:\Users\maelt\.conan\data\flac\1.3.3\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\openal\1.21.1\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\AL;C:\Users\maelt\.conan\data\vorbis\1.3.7\_\_\package\b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47\include;C:\Users\maelt\.conan\data\libpng\1.6.37\_\_\package\8b1ef0ec9599374db4689199730c00a0d5f4de36\include;C:\Users\maelt\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\brotli\1.0.9\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include\brotli;C:\Users\maelt\.conan\data\ogg\1.3.4\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\.conan\data\zlib\1.2.11\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include;C:\Users\maelt\R-TYPE\Sources\Server\JsonWrapper;C:\Users\maelt\R-TYPE\Sources\Client;C:\Users\maelt\R-TYPE\Sources\Server\Element;C:\Users\maelt\R-TYPE\Sources\DynamicLibrairies;C:\Users\maelt\R-TYPE\Sources\Server\Libs;C:\Users\maelt\R-TYPE\Sources\Server\Component;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\systems;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry;C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib;C:/Users/maelt/.conan/data/sfml/2.5.1/_/_/package/4d748b75f7fd7a8b6f2bbab910e23ca7c62c82bb/lib/$(Configuration);C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib;C:/Users/maelt/.conan/data/freetype/2.11.0/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib/$(Configuration);C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/flac/1.3.3/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/openal/1.21.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib;C:/Users/maelt/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/$(Configuration);C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib;C:/Users/maelt/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib/$(Configuration);C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib;C:/Users/maelt/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib/$(Configuration);C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/brotli/1.0.9/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/ogg/1.3.4/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib;C:/Users/maelt/.conan/data/zlib/1.2.11/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maelt/R-TYPE/build/lib/basic_monster.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maelt/R-TYPE/build/bin/basic_monster.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maelt\R-TYPE\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/maelt/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maelt/R-TYPE -BC:/Users/maelt/R-TYPE/build --check-stamp-file C:/Users/maelt/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\maelt\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maelt\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/maelt/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maelt/R-TYPE -BC:/Users/maelt/R-TYPE/build --check-stamp-file C:/Users/maelt/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\maelt\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maelt\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/maelt/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maelt/R-TYPE -BC:/Users/maelt/R-TYPE/build --check-stamp-file C:/Users/maelt/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\maelt\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maelt\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/maelt/R-TYPE/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maelt/R-TYPE -BC:/Users/maelt/R-TYPE/build --check-stamp-file C:/Users/maelt/R-TYPE/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeCXXCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeRCCompiler.cmake;C:\Users\maelt\R-TYPE\build\CMakeFiles\3.21.3\CMakeSystem.cmake;C:\Users\maelt\R-TYPE\build\conanbuildinfo.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maelt\R-TYPE\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity\Entity.cpp" />
+    <ClInclude Include="C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Entity\Entity.hpp" />
+    <ClCompile Include="C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry\Registry.cpp" />
+    <ClInclude Include="C:\Users\maelt\R-TYPE\Sources\Commons\ECS\Registry\Registry.hpp" />
+    <ClInclude Include="C:\Users\maelt\R-TYPE\Sources\Commons\ECS\SparseArray\SparseArray.hpp" />
+    <ClCompile Include="C:\Users\maelt\R-TYPE\Sources\DynamicLibraries\BasicMonster.cpp" />
+    <ClInclude Include="C:\Users\maelt\R-TYPE\Sources\DynamicLibraries\BasicMonster.hpp" />
+    <ClCompile Include="C:\Users\maelt\R-TYPE\Sources\Server\Libs\AMonster.cpp" />
+    <ClInclude Include="C:\Users\maelt\R-TYPE\Sources\Server\Libs\AMonster.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\maelt\R-TYPE\build\ZERO_CHECK.vcxproj">
+      <Project>{159B9669-00DF-37CB-81FD-3113B06D76E2}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

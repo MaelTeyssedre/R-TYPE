@@ -8,7 +8,12 @@ int main(int ac, char **av)
         return 0;
     }
     (void)ac;
-    rtype::RtypeClient the_rtype(av[1], av[2]);
+    std::string host;
+    if (strcmp(av[1], "localhost"))
+        host = "127.0.0.1";
+    else
+        host = av[1];
+    rtype::RtypeClient the_rtype(host, av[2]);
     if (the_rtype.checkStatus() == true)
         the_rtype.run();
     return 0;
