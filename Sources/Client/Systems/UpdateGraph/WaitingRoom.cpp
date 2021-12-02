@@ -104,10 +104,8 @@ void rtype::UpdateGraph::_setupExecWaitingRoomScene()
             std::map<int, std::pair<size_t, constants::TYPE>> zAxisMap;
             auto &texts = r.getComponents<components::text_s>();
             auto &colors = r.getComponents<components::color_s>();
-            //std::cout << "In exec Waiting Room" << std::endl;
             for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
-                //std::cout << "In for loop" << std::endl;
                 if (!(drawable.drawable))
                     continue;
                 myZAxises.push_back((int)zaxis.zAxis);

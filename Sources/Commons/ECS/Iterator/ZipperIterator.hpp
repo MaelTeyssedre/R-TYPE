@@ -34,22 +34,22 @@
             ZipperIterator(ZipperIterator const &z)
                 : _current(z._current), _max(z._max), _idx(z._idx) {}
 
-            ZipperIterator operator++() {
+            auto operator++() -> ZipperIterator {
                 incrAll(_seq);
                 return *this;
             }
 
-            ZipperIterator &operator++(int) {
+            auto operator++(int) -> ZipperIterator& {
                 auto cpy = *this;
                 incrAll(_seq);
                 return cpy;
             }
 
-            value_type operator*() {
+            auto operator*() -> value_type {
                 return toValue(_seq);
             }
 
-            value_type operator->() {
+            auto operator->() -> value_type {
                 return toValue(_seq);
             }
 
