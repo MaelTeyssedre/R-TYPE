@@ -17,23 +17,23 @@
                 _computeBegin(cs...);
             };
 
-            iterator begin() {
+            auto begin() -> iterator {
                 return iterator(_begin, _size);
             }
-            iterator end() {
+            auto end() -> iterator {
                 return iterator(_end, 0);
             }
 
         private:
-            void _computeSize(Containers &... containers) {
+            auto _computeSize(Containers &... containers) -> void {
                 _size = std::min({(containers.size())...});
             }
 
-            void _computeBegin(Containers &... containers) {
+            auto _computeBegin(Containers &... containers) -> void {
                 _begin = std::tie((containers.begin())...);
             }
 
-            void _computeEnd(Containers &... containers) {
+            auto _computeEnd(Containers &... containers) -> void {
                 _end = std::tie((containers.begin() + _size)...);
             }
         

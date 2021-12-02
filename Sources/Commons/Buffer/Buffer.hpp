@@ -41,7 +41,7 @@ class Buffer {
          * 
          * \return true if the buffer is full, false otherwise
          */
-        bool isFull();
+        auto isFull() -> bool;
 
         /**
          * \fn void putInBuffer(size_t size, void *data)
@@ -51,7 +51,7 @@ class Buffer {
          * \param size : nb of byte to put in the buffer
          * \param data : data to put in the buffer
          */
-        void putInBuffer(size_t size, void *data);
+        auto putInBuffer(size_t size, void *data) -> void;
 
         /**
          * \fn void putInBuffer(size_t size, std::vector<uint8_t> &data)
@@ -61,7 +61,7 @@ class Buffer {
          * \param size : nb of byte to put in the buffer
          * \param data : data to put in the buffer
          */
-        void putInBuffer(size_t size, std::vector<uint8_t> &data);
+        auto putInBuffer(size_t size, std::vector<uint8_t> &data) -> void;
 
         /**
          * \fn void readFromBuffer(size_t size, void *data)
@@ -71,7 +71,7 @@ class Buffer {
          * \param size : nb of byte to read
          * \param data : pointer to where store readed data
          */
-        void readFromBuffer(size_t size, void *data);
+        auto readFromBuffer(size_t size, void *data) -> void;
 
         /**
          * \fn void readFromBuffer(size_t size, std::vector<uint8_t> &data)
@@ -81,7 +81,7 @@ class Buffer {
          * \param size : nb of byte to read
          * \param data : pointer to where store readed data
          */
-        void readFromBuffer(size_t size, std::vector<uint8_t> &data);
+        auto readFromBuffer(size_t size, std::vector<uint8_t> &data) -> void;
 
         /**
          * \fn size_t getSize() const
@@ -90,7 +90,7 @@ class Buffer {
          * 
          * \return size_t : size of the buffer
          */
-        size_t getSize() const;
+        auto getSize() -> size_t const;
 
         /**
          * \fn size_t getUsedSize() const
@@ -99,7 +99,7 @@ class Buffer {
          * 
          * \return size_t : used size of the buffer
          */
-        size_t getUsedSize() const;
+        auto getUsedSize() -> size_t const;
 
         /**
          * \fn size_t getWriteCursor() const
@@ -108,7 +108,7 @@ class Buffer {
          * 
          * \return size_t : the write cursor
          */
-        size_t getWriteCursor() const;
+        auto getWriteCursor() -> size_t const;
 
         /**
          * \fn size_t getReadCursor() const
@@ -117,14 +117,14 @@ class Buffer {
          * 
          * \return size_t : the read cursor
          */
-        size_t getReadCursor() const;
+        auto getReadCursor() -> size_t const;
 
         /**
          * \fn void cleanBuffer()
          * 
          * \brief delete all data in the buffer
          */
-        void cleanBuffer();
+        auto cleanBuffer() -> void;
 
     private:
         const size_t _size; /** size of the buffer */
