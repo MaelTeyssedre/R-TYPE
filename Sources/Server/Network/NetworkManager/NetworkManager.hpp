@@ -111,7 +111,7 @@
                  * 
                  * \return ITCPClient* pointer to the client
                  */
-                ITCPClient *createTCPClient(int port);
+                ITCPClient *createTCPClient(std::string host, int port);
 
                 /**
                  * \fn void deleteTCPClient(ITCPClient *tcp)

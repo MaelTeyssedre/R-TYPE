@@ -46,7 +46,7 @@ void rtype::NetworkManager::deleteTCPServer(ITCPServer *tcp)
     _tcpServers.erase(it);
 }
 
-ITCPClient *rtype::NetworkManager::createTCPClient(int port)
+ITCPClient *rtype::NetworkManager::createTCPClient(std::string host, int port)
 {
     (void)port;
     return nullptr;
