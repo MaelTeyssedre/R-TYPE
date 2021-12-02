@@ -4,12 +4,11 @@
 bool rtype::RtypeClient::_status = true;
 
 rtype::RtypeClient::RtypeClient(std::string host, std::string port)
-    : _port(port), _host(host), _r(3), _netManager(NetworkManager()), _client(_netManager.createTCPClient(std::stoi(_port))), _socket(_netManager.createSocketUDP(std::stoi(_port))), _networkSystem(_client, _socket)
+    : _port(port), _host(host), _r(3), _netManager(NetworkManager()), _client(_netManager.createTCPClient(host, std::stoi(_port))), _socket(_netManager.createSocketUDP(host, std::stoi(_port))), _networkSystem(_client, _socket)
 {
     if (_client->isConnected() == false)
         return;
     _status = true;
-  //  _netManager.start();
     _registerComponents();
     _setupComponents();
     _setupSystems();
