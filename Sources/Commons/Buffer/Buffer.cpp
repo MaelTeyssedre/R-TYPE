@@ -93,22 +93,22 @@ auto Buffer::readFromBuffer(size_t size, std::vector<uint8_t> &data) -> void
     }
 }
 
-auto Buffer::getSize() -> size_t const
+auto Buffer::getSize() const -> size_t
 {
     return _size;
 }
 
-auto Buffer::getUsedSize() -> size_t const
+auto Buffer::getUsedSize() const -> size_t
 {
     return _usedSize;
 }
 
-auto Buffer::getWriteCursor() -> size_t const
+auto Buffer::getWriteCursor() const -> size_t
 {
     return _writeCursor;
 }
 
-auto Buffer::getReadCursor() -> size_t const
+auto Buffer::getReadCursor() const -> size_t
 {
     return _readCursor;
 }

@@ -90,7 +90,7 @@ class Buffer {
          * 
          * \return size_t : size of the buffer
          */
-        auto getSize() -> size_t const;
+        auto getSize() const -> size_t;
 
         /**
          * \fn size_t getUsedSize() const
@@ -99,7 +99,7 @@ class Buffer {
          * 
          * \return size_t : used size of the buffer
          */
-        auto getUsedSize() -> size_t const;
+        auto getUsedSize() const -> size_t;
 
         /**
          * \fn size_t getWriteCursor() const
@@ -108,7 +108,7 @@ class Buffer {
          * 
          * \return size_t : the write cursor
          */
-        auto getWriteCursor() -> size_t const;
+        auto getWriteCursor() const -> size_t;
 
         /**
          * \fn size_t getReadCursor() const
@@ -117,7 +117,7 @@ class Buffer {
          * 
          * \return size_t : the read cursor
          */
-        auto getReadCursor() -> size_t const;
+        auto getReadCursor() const -> size_t;
 
         /**
          * \fn void cleanBuffer()
