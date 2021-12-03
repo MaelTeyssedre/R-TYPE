@@ -181,7 +181,7 @@ Epitech project         R-TYPE project RFC protocol           November 2021
       12<room_code>: Room created -> 9 bytes
 
          - 12: request id -> 1 byte
-         - room_code: name of the room -> 8 bytes
+         - room_code: id of the room -> 1 bytes
       
 
       13<id_player>: Player leave / crash -> 2 bytes
