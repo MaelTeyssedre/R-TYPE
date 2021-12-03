@@ -22,6 +22,7 @@ rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip:
 void rtype::TCPClient::receive()
 {
     _socket->async_read_some(asio::buffer(_reply), std::bind(&rtype::TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    std::cout << _reply[0] << std::endl;
 }
 
 void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
@@ -42,7 +43,6 @@ void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
 
 void rtype::TCPClient::send(IPacket &packet)
 {
-    std::cout << "in send" << std::endl;
     asio::async_write(*_socket, asio::buffer(packet.unpack()), std::bind(&rtype::TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 
 }

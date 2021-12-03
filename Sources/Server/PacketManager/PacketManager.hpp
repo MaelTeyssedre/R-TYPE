@@ -11,6 +11,7 @@
     #include "Packet.hpp"
     #include "Buffer.hpp"
     #include "PlayerData.hpp"
+    #include <queue>
 
     namespace rtype {
         /**
@@ -47,24 +48,27 @@
                  */
                 virtual ~PacketManager() = default;
 
-                void managePacket(Packet packet);
+                void managePacket(IPacket *packet);
 
+                void createRoom(IPacket *packet);
 
-                void createRoom(Packet packet);
-
-
-                void joinRoom(Packet packet);
+                void joinRoom(IPacket *packet);
 
                 void sendToClient(PlayerData &player, std::vector<uint8_t> request);
 
-                void setBuffer(std::shared_ptr<Buffer> buffer);
 
-                // * 1 - vide _netBuf et split en Packet | 2 : return les packets
-                std::vector<Packet> getRequests();
+                auto setBufferI(std::queue<IPacket *> * buffer) -> void;
+
+                // * 1 - vide _packet | 2 : return les packets
+                auto getRequests() -> std::queue<IPacket *> *;
+
+                auto getRequestsToSend() -> std::vector<IPacket *>;
+
+
 
             private:
-                std::shared_ptr<Buffer> _netBuf;
-                std::vector<Packet> _packets;
+                std::queue<IPacket*> *_packets;
+                std::vector<IPacket*> *_packetsOut;
                 std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! vector of player data */
                 std::shared_ptr<Buffer> _bufferIn; /*! buffer in */
                 std::shared_ptr<Buffer> _bufferOut; /*! buffer out */

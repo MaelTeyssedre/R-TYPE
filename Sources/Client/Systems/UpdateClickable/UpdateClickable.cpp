@@ -7,7 +7,6 @@ void rtype::UpdateClickable::operator()(Registry &r, SparseArray<components::cli
 {
    for (auto &&[clickable, mouseState, position, size, index, scene] : Zipper(clickables, mouseStates, positions, sizes, indexes, scenes)) {
       clickable.prevState = clickable.isPressed;
-         //std::cout << "is pressed: " << mouseState.mouseLeftClick << std::endl;
 
       if (current_scenes[constants::GRAPH_UPDATE].value().scene == scene.scene) {
          if (mouseState.mouseLeftClick && mouseState.mousePosX < position.x + size.width && mouseState.mousePosX > position.x && mouseState.mousePosY > position.y && mouseState.mousePosY < position.y + size.heigth) {

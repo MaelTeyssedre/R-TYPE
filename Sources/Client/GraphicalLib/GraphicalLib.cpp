@@ -25,7 +25,6 @@ void rtype::GraphicalLib::draw(size_t id)
 
 void rtype::GraphicalLib::print(size_t id)
 {
-    std::cout << "test printed " << id << std::endl;
     _renderWindow->draw(*(_textMap[id]->getText()));
 }
 
@@ -71,7 +70,6 @@ void rtype::GraphicalLib::createMusic(size_t id, const std::string &path)
 
 void rtype::GraphicalLib::createText(size_t id, int fontSize, int colorRed, int colorGreen, int colorBlue, int colorAlpha, std::string content, std::string fontPath)
 {
-    std::cout << "Text id: " << id << std::endl;
     _textMap[id].reset(new Text(0.f, 0.f, fontSize, colorRed, colorGreen, colorBlue, colorAlpha, content, fontPath));
 }
 

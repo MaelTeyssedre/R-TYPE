@@ -59,7 +59,7 @@
                  * 
                  * \param data data to send
                  */
-                void send(size_t target, IPacket &data) override;
+                void send(IPacket *data) override;
                 
                 /**
                  * \fn void send(std::vector<size_t> targets, IPacket &data)
@@ -70,7 +70,7 @@
                  * 
                  * \param data data to send
                  */
-                void send(std::vector<size_t> targets, IPacket &data) override;
+                void send(std::vector<size_t> targets, IPacket *data) override;
                 
                 /**
                  * \fn std::vector<uint8_t> receive()
@@ -106,7 +106,7 @@
             
 //                std::queue<std::shared_ptr<rtype::Packet>> getRequest();
 
-                std::queue<IPacket *> getBuffer() override;
+                std::queue<IPacket *> *getBuffer() override;
 
             private:
             
@@ -119,4 +119,3 @@
     }
 
 #endif /* !TCPSERVER_HPP_ */
-

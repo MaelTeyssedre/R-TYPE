@@ -53,17 +53,20 @@
                 return toValue(_seq);
             }
 
-            friend auto operator==(ZipperIterator const &lhs, ZipperIterator const &rhs) -> bool {
+            friend auto operator==(ZipperIterator const &lhs, ZipperIterator const &rhs) -> bool
+            {
                 return lhs._current == rhs._current;
             }
 
-            friend auto operator!=(ZipperIterator const &lhs, ZipperIterator const &rhs) -> bool {
+            friend auto operator!=(ZipperIterator const &lhs, ZipperIterator const &rhs) -> bool
+            {
                 return lhs._current != rhs._current;
             }
 
         private:
             template <size_t ...Is>
-            auto incrAll(std::index_sequence<Is...>) -> void{
+            auto incrAll(std::index_sequence<Is...>) -> void
+            {
                 do {
                     ((++(std::get<Is>(_current))), ...);
                     _idx++;
@@ -71,7 +74,8 @@
             }
 
             template <size_t ...Is>
-            auto allSet(std::index_sequence<Is...>) -> bool {
+            auto allSet(std::index_sequence<Is...>) -> bool
+            {
                 return (true && ... && *std::get<Is>(_current));
             }
 

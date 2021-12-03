@@ -16,6 +16,7 @@
     #include "StrengthComponent.hpp"
     #include "TimeComponent.hpp"
     #include "IndexComponent.hpp"
+    #include "PlayerWaitingComponent.hpp"
     #include "VelocityComponent.hpp"
     #include "SpriteComponent.hpp"
     #include "EntityTypeComponent.hpp"

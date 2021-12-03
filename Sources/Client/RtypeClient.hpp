@@ -20,30 +20,30 @@
             public:
                 explicit RtypeClient(std::string port, std::string host);
                 virtual ~RtypeClient() = default;
-                void run();
-                static void signalHandler(int signums);
-                bool checkStatus();
+                auto run() -> void;
+                static auto signalHandler(int signums) -> void;
+                auto checkStatus() -> bool;
 
             private:
-                void _registerComponents();
-                void _setupComponents();
-                void _setupSystems();
+                auto _registerComponents() -> void;
+                auto _setupComponents() -> void;
+                auto _setupSystems() -> void;
 
             private:
-                void _setupTimeComponent();
-                void _setupNetworkComponent();
-                void _setupMouseStateComponent();
-                void _setupKeyStateComponent();
-                void _setupCurrentSceneComponent();
+                auto _setupTimeComponent() -> void;
+                auto _setupNetworkComponent() -> void;
+                auto _setupMouseStateComponent() -> void;
+                auto _setupKeyStateComponent() -> void;
+                auto _setupCurrentSceneComponent() -> void;
 
             private:
-                void _setupUpdateTimeSystem();
-                void _setupUpdateNetworkSystem();
-                void _setupUpdateGraphSystem();
-                void _setupUpdatePositionSystem();
-                void _setupUpdateDirectionSystem();
-                void _setupUpdateScene();
-                void _setupUpdateClickable();
+                auto _setupUpdateTimeSystem() -> void;
+                auto _setupUpdateNetworkSystem() -> void;
+                auto _setupUpdateGraphSystem() -> void;
+                auto _setupUpdatePositionSystem() -> void;
+                auto _setupUpdateDirectionSystem() -> void;
+                auto _setupUpdateScene() -> void;
+                auto _setupUpdateClickable() -> void;
 
             private:
                 std::string _port;

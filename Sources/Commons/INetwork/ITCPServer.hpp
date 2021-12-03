@@ -36,7 +36,7 @@
              * \param targets 
              * \param data 
              */
-            virtual void send(std::vector<size_t> targets, IPacket &data) = 0;
+            virtual void send(std::vector<size_t> targets, IPacket *data) = 0;
 
             /**
              * \fn  virtual void send(size_t target, IPacket &data) = 0
@@ -46,7 +46,7 @@
              * \param target
              * \param data 
              */
-            virtual void send(size_t target, IPacket &data) = 0;
+            virtual void send(IPacket *data) = 0;
 
             /**
              * \fn virtual std::vector<uint8_t> receive() = 0
@@ -66,7 +66,7 @@
              */
             virtual void eject(size_t client) = 0;
 
-            virtual std::queue<IPacket *> getBuffer() = 0;
+            virtual std::queue<IPacket *> *getBuffer() = 0;
 
     };
 

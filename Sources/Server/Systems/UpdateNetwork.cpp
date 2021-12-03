@@ -7,7 +7,6 @@ rtype::UpdateNetwork::UpdateNetwork(ITCPServer *server, IUDPSocket *socket)
 
 void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
 {
-    std::cout << "help" << std::endl;
     (void)r;
     (void)networks;
     (void)r;
@@ -17,17 +16,16 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
     if (!network)
         return;
     _tcpServer->receive();
-    std::queue<IPacket *> packets = _tcpServer->getBuffer();
-    _tcpServer->getBuffer().pop();
-    opCode = packets.back()->unpack().at(0);
-    std::cout << "receive opCode" << opCode << std::endl;
+    std::queue<IPacket *> *packets = _tcpServer->getBuffer();
+    (*_tcpServer->getBuffer()).pop();
+    opCode = packets->back()->unpack().at(0);
     switch (opCode)
     {
     case 5:
         if (network.value().request5.empty())
             network.value().request5.push_back(std::vector<uint8_t>());
         network.value().request5.back().push_back(opCode);
-        network.value().request5.back().insert(network.value().request5.back().end(), packets.back()->unpack().at(0), packets.back()->unpack().at(5));
+        network.value().request5.back().insert(network.value().request5.back().end(), packets->back()->unpack().at(0), packets->back()->unpack().at(5));
         break;
     case 6:
         if (network.value().request6.empty())
@@ -43,7 +41,7 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         if (network.value().request17.empty())
             network.value().request17.push_back(std::vector<uint8_t>());
         network.value().request17.back().push_back(opCode);
-        network.value().request17.back().insert(network.value().request17.back().end(), packets.back()->unpack().at(0), packets.back()->unpack().at(8));
+        network.value().request17.back().insert(network.value().request17.back().end(), packets->back()->unpack().at(0), packets->back()->unpack().at(8));
         break;
     case 18:
         if (network.value().request18.empty())

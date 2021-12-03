@@ -48,18 +48,22 @@
                 void _setupExecMainMenuScene();
                 void _setupDeleteMainMenuScene();
                 Entity _createBackgroundMainMenu(Registry &r);
+                Entity _createLogoMainMenu(Registry &r);
                 Entity _createTransitionMainMenu(Registry &r);
                 Entity _createPlayButtonMainMenu(Registry &r);
                 Entity _createNewGameButtonMainMenu(Registry &r);
 
-            // * Create Room functions
+            // * Waiting Room functions
             private:
-                void _setupWaitingRoomScene();
-                void _setupExecWaitingRoomScene();
-                void _setupDeleteWaitingRoomScene();
-                Entity _createTransitionWaitingRoom(Registry &r);
-                Entity _createTextWaitingRoom(Registry &r);
-                Entity _createBackgroundWaitingRoom(Registry &r);
+                auto _setupWaitingRoomScene() -> void;
+                auto _setupExecWaitingRoomScene() -> void;
+                auto _setupDeleteWaitingRoomScene() -> void;
+                auto _createBackgroundWaitingRoom(Registry &r) -> Entity;
+                auto _createYouWaitingRoom(Registry &r) -> Entity;
+                auto _createPlayer1WaitingRoom(Registry &r) -> Entity;
+                auto _createPlayer2WaitingRoom(Registry &r) -> Entity;
+                auto _createPlayer3WaitingRoom(Registry &r) -> Entity;
+                auto _createPlayer4WaitingRoom(Registry &r) -> Entity;
             
             private:
                 rtype::IGraphicalLib *_graphicalLib;

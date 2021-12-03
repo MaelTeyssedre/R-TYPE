@@ -3,7 +3,7 @@
 size_t rtype::Packet::pack(std::vector<uint8_t> &data)
 {
     _packetSize = data.size();
-    uint8_t opcode = data.at(0);
+    uint8_t opcode = (!data.empty()) ? data.at(0) : -1;
     int bytes = 0;
     switch (opcode)
     {

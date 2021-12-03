@@ -171,13 +171,11 @@ void rtype::UpdateGraph::_setupDeleteLoadingMenuScene()
             for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::sprite_s>()))
             {
                 if (scene.scene == constants::SCENE::LOADING_MENU) {
-                    std::cout << "Destroy: " << index.idx << std::endl;
                     _graphicalLib->deleteSprite(index.idx);
                 }
             }
             for (auto &&[scene, index] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>()))
                 if (scene.scene == constants::SCENE::LOADING_MENU) {
-                    std::cout << "kill Entity: " << index.idx << std::endl;
                     r.getComponents<components::scene_s>().erase(index.idx);
                     r.getComponents<components::index_s>().erase(index.idx);
                     r.killEntity(r.entityFromIndex(index.idx));
