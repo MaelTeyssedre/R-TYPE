@@ -9,7 +9,6 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
 {
     (void)r;
     (void)networks;
-    (void)r;
     std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
     std::uint8_t opCode = 0;
     std::vector<uint8_t> reply;

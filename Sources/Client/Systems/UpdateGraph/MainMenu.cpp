@@ -152,6 +152,7 @@ auto rtype::UpdateGraph::_setupMainMenuScene() -> void
             Entity transitionId = _createTransitionMainMenu(r);
             Entity playButtonId = _createPlayButtonMainMenu(r);
             Entity NewGameButtonId = _createNewGameButtonMainMenu(r);
+
             _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_s>()[backgroundId].value().scaleX, r.getComponents<components::sprite_s>()[backgroundId].value().scaleY, r.getComponents<components::sprite_s>()[backgroundId].value().rectX, r.getComponents<components::sprite_s>()[backgroundId].value().rectY, r.getComponents<components::sprite_s>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_s>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_s>()[backgroundId].value().path);
             _graphicalLib->createSprite(logoId, r.getComponents<components::sprite_s>()[logoId].value().scaleX, r.getComponents<components::sprite_s>()[logoId].value().scaleY, r.getComponents<components::sprite_s>()[logoId].value().rectX, r.getComponents<components::sprite_s>()[logoId].value().rectY, r.getComponents<components::sprite_s>()[logoId].value().rectWidth, r.getComponents<components::sprite_s>()[logoId].value().rectHeight, r.getComponents<components::sprite_s>()[logoId].value().path);
             _graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_s>()[transitionId].value().scaleX, r.getComponents<components::sprite_s>()[transitionId].value().scaleY, r.getComponents<components::sprite_s>()[transitionId].value().rectX, r.getComponents<components::sprite_s>()[transitionId].value().rectY, r.getComponents<components::sprite_s>()[transitionId].value().rectWidth, r.getComponents<components::sprite_s>()[transitionId].value().rectHeight, r.getComponents<components::sprite_s>()[transitionId].value().path);
@@ -206,7 +207,7 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
                 _graphicalLib->draw(zAxisMap[i]);
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
-            if (net.value().request12.size()) {
+            if (!(net.value().request12.empty()) && !(net.value().request12.front().empty())) {
                 net.value().request12.erase(net.value().request12.begin());
                 struct components::playerList_s playerList = {1, 1};
                 r.addComponent<components::playerList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(playerList));
@@ -215,6 +216,7 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
             }
             if (!(net.value().request17.empty()) && !(net.value().request17.front().empty()))
             {
+                std::cout << " room" << std::endl;
                 std::vector<size_t> tmp;
                 struct components::roomList_s roomList = {false, false, false, false, false};
                 if (net.value().request17.front().at(1) == 1)

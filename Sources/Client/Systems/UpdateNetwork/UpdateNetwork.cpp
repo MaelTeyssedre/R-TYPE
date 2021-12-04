@@ -19,7 +19,6 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
             t++;
         }
         buffer->readFromBuffer(1, &opCode);
-        std::cout << opCode << std::endl;
         switch (opCode)
         {
         case 1: {
