@@ -205,12 +205,10 @@ Epitech project         R-TYPE project RFC protocol           November 2021
          - 16: request id -> 1 byte
          - player: Number of player in room (1-4) -> 1 byte
         
-      17<size><room id>...: Room list -> 2 + size bytes
+      17<size>...: Room list -> 2
 
          - 17: request id -> 1 byte
          - size: number of existing room -> 1 byte
-         - room id: Id of a room -> 1 byte
-
 
 Epitech R-TYPE project     Realized in November 2021              [Page 6]
 
