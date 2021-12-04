@@ -59,7 +59,8 @@
                  * \brief ctor tcpUser
                  * 
                  */
-                explicit tcpUser(std::shared_ptr<asio::ip::tcp::socket> client)  : _socket(client) {};
+                explicit tcpUser(std::shared_ptr<asio::ip::tcp::socket> client)
+                    : _socket(client), _input(new std::vector<uint8_t>) {};
 
                 /**
                  * \fn   virtual ~tcpUser() = default;
@@ -118,7 +119,7 @@
                 void doWrite(const std::error_code &ec, std::size_t bytes_transfered);
 
 
-                std::vector<uint8_t> &getInput();
+                std::vector<uint8_t> *getInput();
 
 
                 size_t &getSizeInput();
@@ -127,7 +128,7 @@
 
                 std::shared_ptr<asio::ip::tcp::socket> _socket; /*! socket */
                 char _data[MAX_LENGTH]; /*! placeholders for packet */
-                std::vector<uint8_t> _input;  /*!  raw data read from the client */
+                std::vector<uint8_t> *_input;  /*!  raw data read from the client */
                 std::queue<std::vector<uint8_t>> _queue; /*! datas to send */
                 size_t _sizeInput;
         };

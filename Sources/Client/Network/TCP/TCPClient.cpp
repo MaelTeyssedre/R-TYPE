@@ -3,6 +3,7 @@
 rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
     : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false), _worker(context)
 {
+    _reply[0] = 0;
     std::string str = "Client connected to host: ";
     asio::error_code ec;
     asio::connect(*_socket, _resolver.resolve(host, port), ec);
@@ -21,8 +22,15 @@ rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip:
 
 void rtype::TCPClient::receive()
 {
-    _socket->async_read_some(asio::buffer(_reply), std::bind(&rtype::TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
-    std::cout << _reply[0] << std::endl;
+    //_reply[0] = 0;
+    _socket->async_read_some(asio::buffer(_reply, 1), std::bind(&rtype::TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    if (_reply[0] != 42) {
+        std::cout << (int)((uint8_t)_reply[0]) << std::endl;
+        _buffer->putInBuffer(1, _reply);
+        _reply[0] = 42;
+    }
+    
+        
 }
 
 void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
@@ -30,12 +38,16 @@ void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
     std::string str;
     if (!ec)
     {
-        str = "receive: ";
-        str.append(std::to_string(bytes));
-        str.append("bytes");
-        _logger.logln(str);
-        _buffer->putInBuffer(bytes, _reply);
-        receive();
+        //str = "receive: ";
+        //str.append(std::to_string(bytes));
+        //str.append("bytes");
+        //_logger.logln(str);
+        //if (_reply[0]) {
+        //    std::cout << (int)((uint8_t)_reply[0]) << std::endl;
+        //}
+        //_buffer->putInBuffer(bytes, _reply);
+        //
+        //receive();
     }
     else
         std::cerr << ec.message() << std::endl;

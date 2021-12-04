@@ -293,6 +293,50 @@ auto rtype::RtypeClient::_registerComponents() -> void
             (void)r;
             (void)e;
         });
+    _r.registerComponent<components::playerList_s>(
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
+     _r.registerComponent<components::roomList_s>(
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
+    _r.registerComponent<components::playerData_s>(
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
+        _r.registerComponent<components::roomData_s>(
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry &r, Entity const &e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
 }
 
 auto rtype::RtypeClient::_setupComponents() -> void
@@ -346,8 +390,27 @@ auto rtype::RtypeClient::_setupNetworkComponent() -> void
         std::vector<std::vector<uint8_t>>{},
         std::vector<std::vector<uint8_t>>{},
         std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
+        std::vector<std::vector<uint8_t>>{},
         std::vector<std::vector<uint8_t>>{} // ! send
     };
+    network.request1.push_back(std::vector<uint8_t>{});
+    network.request2.push_back(std::vector<uint8_t>{});
+    network.request3.push_back(std::vector<uint8_t>{});
+    network.request4.push_back(std::vector<uint8_t>{});
+    network.request7.push_back(std::vector<uint8_t>{});
+    network.request8.push_back(std::vector<uint8_t>{});
+    network.request9.push_back(std::vector<uint8_t>{});
+    network.request10.push_back(std::vector<uint8_t>{});
+    network.request11.push_back(std::vector<uint8_t>{});
+    network.request12.push_back(std::vector<uint8_t>{});
+    network.request13.push_back(std::vector<uint8_t>{});
+    network.request14.push_back(std::vector<uint8_t>{});
+    network.request15.push_back(std::vector<uint8_t>{});
+    network.request16.push_back(std::vector<uint8_t>{});
+    network.request17.push_back(std::vector<uint8_t>{});
+    network.request22.push_back(std::vector<uint8_t>{});
+    network.sendRequest.push_back(std::vector<uint8_t>{});
     _r.addComponent<components::network_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), std::move(network));
 }
 
@@ -417,5 +480,5 @@ auto rtype::RtypeClient::checkStatus() -> bool
 auto rtype::RtypeClient::_setupUpdateClickable() -> void
 {
     UpdateClickable clickable{};
-    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(), _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>(), _r.getComponents<components::currentScene_s>());
+    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(), _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>(), _r.getComponents<components::currentScene_s>(), _r.getComponents<components::sprite_s>());
 }

@@ -25,6 +25,7 @@ auto rtype::UpdateGraph::_createBackgroundWaitingRoom(Registry &r) -> Entity
 auto rtype::UpdateGraph::_createYouWaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
+    auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
     struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/you.png"};
     struct components::position_s pos = {0, 0};
     struct components::direction_s dir = {0, 0};
@@ -33,6 +34,8 @@ auto rtype::UpdateGraph::_createYouWaitingRoom(Registry &r) -> Entity
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {9};
+    struct components::playerData_s playerData = {playerList.value().self, true};
+    r.addComponent<components::playerData_s>(r.entityFromIndex(id), std::move(playerData));
     r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
     r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
     r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
@@ -47,6 +50,7 @@ auto rtype::UpdateGraph::_createYouWaitingRoom(Registry &r) -> Entity
 auto rtype::UpdateGraph::_createPlayer1WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
+    auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
     struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-1-connected.png"};
     struct components::position_s pos = {0, 0};
     struct components::direction_s dir = {0, 0};
@@ -55,6 +59,8 @@ auto rtype::UpdateGraph::_createPlayer1WaitingRoom(Registry &r) -> Entity
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {8};
+    struct components::playerData_s playerData = {1, (playerList.value().self == 1) ? true : false};
+    r.addComponent<components::playerData_s>(r.entityFromIndex(id), std::move(playerData));
     r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
     r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
     r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
@@ -69,6 +75,7 @@ auto rtype::UpdateGraph::_createPlayer1WaitingRoom(Registry &r) -> Entity
 auto rtype::UpdateGraph::_createPlayer2WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
+    auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
     struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-2-connected.png"};
     struct components::position_s pos = {0, 0};
     struct components::direction_s dir = {0, 0};
@@ -77,6 +84,8 @@ auto rtype::UpdateGraph::_createPlayer2WaitingRoom(Registry &r) -> Entity
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {7};
+    struct components::playerData_s playerData = {2, (playerList.value().self == 2) ? true : false};
+    r.addComponent<components::playerData_s>(r.entityFromIndex(id), std::move(playerData));
     r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
     r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
     r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
@@ -91,6 +100,7 @@ auto rtype::UpdateGraph::_createPlayer2WaitingRoom(Registry &r) -> Entity
 auto rtype::UpdateGraph::_createPlayer3WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
+    auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
     struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-3-connected.png"};
     struct components::position_s pos = {0, 0};
     struct components::direction_s dir = {0, 0};
@@ -99,6 +109,8 @@ auto rtype::UpdateGraph::_createPlayer3WaitingRoom(Registry &r) -> Entity
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {6};
+    struct components::playerData_s playerData = {3, (playerList.value().self == 3) ? true : false};
+    r.addComponent<components::playerData_s>(r.entityFromIndex(id), std::move(playerData));
     r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
     r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
     r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
@@ -113,6 +125,7 @@ auto rtype::UpdateGraph::_createPlayer3WaitingRoom(Registry &r) -> Entity
 auto rtype::UpdateGraph::_createPlayer4WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
+    auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
     struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-4-connected.png"};
     struct components::position_s pos = {0, 0};
     struct components::direction_s dir = {0, 0};
@@ -121,6 +134,8 @@ auto rtype::UpdateGraph::_createPlayer4WaitingRoom(Registry &r) -> Entity
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {5};
+    struct components::playerData_s playerData = {4, (playerList.value().self == 4) ? true : false};
+    r.addComponent<components::playerData_s>(r.entityFromIndex(id), std::move(playerData));
     r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
     r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
     r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
@@ -160,12 +175,32 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
     _execScene[rtype::constants::SCENE::WAITING_ROOM] = std::function(
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
+            std::vector<size_t> savedIdx {};
+            auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
             std::vector<int> myZAxises;
             std::map<int, std::pair<size_t, constants::TYPE>> zAxisMap;
+            for (auto &&[pos, sprite, scene, drawable, index, zaxis, playerData] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>(), r.getComponents<components::playerData_s>()))
+            {
+                if (!(drawable.drawable) || scene.scene != constants::SCENE::WAITING_ROOM)
+                    continue;
+                savedIdx.push_back(index.idx);
+                myZAxises.push_back((int)zaxis.zAxis);
+                zAxisMap[(int)zaxis.zAxis] = std::pair(index.idx, constants::TYPE::SPRITE);
+                _graphicalLib->setSpritePosX(index.idx, pos.x);
+                _graphicalLib->setSpritePosY(index.idx, pos.y);
+                _graphicalLib->setSpriteScale(index.idx, sprite.scaleX, sprite.scaleY);
+                _graphicalLib->setSpriteRectX(index.idx, sprite.rectX);
+                _graphicalLib->setSpriteRectY(index.idx, sprite.rectY);
+                _graphicalLib->setSpriteRectWidth(index.idx, sprite.rectWidth);
+                _graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
+            }
             for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
                 if (!(drawable.drawable) || scene.scene != constants::SCENE::WAITING_ROOM)
                     continue;
+                bool isInSavedIdx = false;
+                for (auto i : savedIdx)
+                    isInSavedIdx = (index.idx == i) ? true : isInSavedIdx;
                 myZAxises.push_back((int)zaxis.zAxis);
                 zAxisMap[(int)zaxis.zAxis] = std::pair(index.idx, constants::TYPE::SPRITE);
                 _graphicalLib->setSpritePosX(index.idx, pos.x);
@@ -178,6 +213,7 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
             }
             std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
             std::reverse(myZAxises.begin(), myZAxises.end());
+
             for (auto i : myZAxises)
                 if (zAxisMap[i].second == constants::TYPE::SPRITE)
                     _graphicalLib->draw(zAxisMap[i].first);

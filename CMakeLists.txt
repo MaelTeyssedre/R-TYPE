@@ -154,12 +154,6 @@ target_include_directories(
 target_include_directories(
     rtype_server
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Games/
-)
-
-target_include_directories(
-    rtype_server
-    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Room/
 )
 

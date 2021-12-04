@@ -10,7 +10,9 @@ rtype::TCPServer::TCPServer(asio::io_context &context, std::uint16_t port)
 
 void rtype::TCPServer::send(IPacket *data)
 {
+    std::cout << "in tcpServer::send" << std::endl;
     _mapUser[data->getId()]->addToQueue(data->unpack());
+    _mapUser[data->getId()]->write();
 }
 
 void rtype::TCPServer::send(std::vector<size_t> targets, IPacket *data)
@@ -22,8 +24,9 @@ void rtype::TCPServer::send(std::vector<size_t> targets, IPacket *data)
 
 void rtype::TCPServer::receive()
 {
-    for (size_t i = 0; i < _mapUser.size(); i++)
+    for (size_t i = 0; i < _mapUser.size(); i++) {
         _mapUser[i]->read();
+    }
 }
 
 void rtype::TCPServer::eject(size_t client)
@@ -55,16 +58,18 @@ std::vector<std::shared_ptr<rtype::tcpUser>> rtype::TCPServer::getUsers()
 
 std::queue<IPacket *> *rtype::TCPServer::getBuffer()
 {
+    
     for (size_t i = 0; i < _mapUser.size(); i++)
     {
+        if (_mapUser[i]->getInput()->size())
+            std::cout << "sizeof input inside : " << _mapUser[i]->getInput()->at(0) << std::endl;
         IPacket *packetPtr = new rtype::Packet;
-        packetPtr->pack(_mapUser[i]->getInput());
-        auto &tmp =_mapUser[i]->getInput();
-        std::cout << "avant taille : " << tmp.size() << std::endl;
-        tmp.clear();
-        std::cout << "apres taille : " << tmp.size() << std::endl;
+        auto tmp = _mapUser[i]->getInput();
+        packetPtr->pack(*tmp);
+        tmp->clear();
         packetPtr->setId(i);
-        _buffers.emplace(packetPtr);
+        if (packetPtr->unpack().size())
+            _buffers.emplace(packetPtr);
     }
     return (&_buffers);
 }

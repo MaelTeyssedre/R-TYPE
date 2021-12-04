@@ -8,109 +8,47 @@
 #include <optional>
 #include <string>
 
-rtype::RoomManager::RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
-{
-    _roomList = roomList;
-    _bufferIn = bufferIn;
-    _bufferOut = bufferOut;
-}
+rtype::RoomManager::RoomManager(std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList, std::shared_ptr<std::vector<size_t>> idCreator, std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner)
+    : _roomList(roomList), _idCreator(idCreator), _idJoiner(idJoiner) {}
 
-rtype::RoomManager::~RoomManager()
+auto rtype::RoomManager::getIdToCreate() -> size_t
 {
-    for (size_t i = 0; i != _threadList.size(); i++)
-        _threadList.at(i).join();
-}
-
-void rtype::RoomManager::runRoom(size_t id)
-{
-    Room room(id);
-    room.run();
-}
-
-void rtype::RoomManager::createRoom(std::string &packet)
-{
-    size_t pos = 0;
-    size_t playerId = 0;
-    std::vector<std::string> parsed;
-    std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
-    std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
-    std::thread room(&rtype::RoomManager::runRoom, this, _roomList->size());
-    std::vector<PlayerData> playerData;
-    std::string request = "Join ";
-    while ((pos = packet.find(" ")) != std::string::npos)
+    if (!(_roomList->size()))
+        return 0;
+    for (auto i = 0; i < _roomList->size(); i++)
     {
-        parsed.push_back(packet.substr(0, pos + 1));
-        packet.erase(0, pos + 1);
+        auto idAlreadyExit = false;
+        for (auto j : *_roomList)
+            idAlreadyExit = (j.second == i) ? true: idAlreadyExit;
+        if (!idAlreadyExit)
+            return i;
     }
-    parsed.push_back(packet.substr(0, packet.size()));
-    packet.erase(0, packet.size());
-    playerId = std::stoi(parsed[1]);
-    request += std::to_string(_roomList->size()) + " " + std::to_string(playerId);
-    _threadList.push_back(move(room));
-    _roomList->push_back(playerData);
-    joinRoom(request);
+    throw std::runtime_error("no free id");
 }
 
-std::string rtype::RoomManager::joinRoom(std::string &packet)
+auto rtype::RoomManager::createRoom() -> void
 {
-    size_t pos = 0;
-    size_t roomId = 0;
-    size_t playerId = 0;
-    std::vector<std::string> parsed;
-    std::shared_ptr<Buffer> buffIn(std::make_shared<Buffer>(Buffer(8192)));
-    std::shared_ptr<Buffer> buffOut(std::make_shared<Buffer>(Buffer(8192)));
-    std::shared_ptr<std::mutex> mutexIn(std::make_shared<std::mutex>());
-    std::shared_ptr<std::mutex> mutexOut(std::make_shared<std::mutex>());
-    std::string result = "";
-    while ((pos = packet.find(" ")) != std::string::npos)
-    {
-        parsed.push_back(packet.substr(0, pos + 1));
-        packet.erase(0, pos + 1);
-    }
-    parsed.push_back(packet.substr(0, packet.size()));
-    packet.erase(0, packet.size());
-    playerId = std::stoi(parsed[2]);
-    roomId = std::stoi(parsed[1]);
-    if (_roomList->at(roomId).size() > 3)
-        return ("KO");
-    _roomList->at(roomId).push_back(PlayerData(playerId, buffIn, buffOut, mutexIn, mutexOut));
-    result = std::to_string(playerId) + " OK " + std::to_string(roomId);
-    return (result);
+    auto id = getIdToCreate();
+    _roomList->push_back(std::pair(std::vector<PlayerData>{}, id));
+    _roomList->back().first.push_back(PlayerData(_idCreator->front()));
+    _idCreator->clear();
+    std::cout << "ICI" << std::endl;
+    Room* room = new Room(&(_roomList->back().first));
 }
 
-void rtype::RoomManager::redirectRequest(std::vector<std::string> &packetList)
+auto rtype::RoomManager::joinRoom() -> void
 {
-    std::vector<uint8_t> vec;
-    std::string result = "";
-    for (auto &packet : packetList)
-        if (packet.find("Join") != std::string::npos)
-        {
-            result = joinRoom(packet);
-            vec.assign(result.begin(), result.end());
-            _bufferOut->putInBuffer(static_cast<uint16_t>(vec.size()), vec);
-        }
-        else if (packet.find("Create") != std::string::npos)
-            createRoom(packet);
-        else
-        {
-            result = "KO";
-            vec.assign(result.begin(), result.end());
-            _bufferOut->putInBuffer(static_cast<uint16_t>(vec.size()), vec);
-        }
+    for (auto j : *_idJoiner)
+        for (auto i : *_roomList)
+            if (i.second == j.second)
+                i.first.push_back(PlayerData(j.first));
+    _idJoiner->clear();
 }
 
 void rtype::RoomManager::manageRoom()
 {
-    size_t pos = 0;
-    uint16_t readSize = 64;
-    std::vector<uint8_t> buff(8192);
-    std::vector<std::string> packetList;
-    _bufferIn->readFromBuffer(readSize, buff);
-    std::string str(buff.begin(), buff.end());
-    while ((pos = str.find(";")) != std::string::npos)
-    {
-        packetList.push_back(str.substr(0, pos + 1));
-        str.erase(0, pos + 1);
-    }
-    redirectRequest(packetList);
+    if (_idCreator->size())
+        createRoom();
+    if (_idJoiner->size())
+        joinRoom();
 }

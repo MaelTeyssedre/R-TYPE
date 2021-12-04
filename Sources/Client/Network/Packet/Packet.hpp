@@ -42,7 +42,7 @@
                 * 
                 * \return size readed
                 */
-                size_t pack(std::vector<uint8_t> &data) override;
+                size_t pack(std::vector<uint8_t> data) override;
 
                 /**
                 * \fn std::shared_ptr<std::vector<uint8_t>> unpack()

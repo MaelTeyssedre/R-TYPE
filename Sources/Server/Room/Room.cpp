@@ -1,41 +1,10 @@
 #include "Room.hpp"
-#include <string>
 
-rtype::Room::Room(size_t id)
-{
-    _id = id;
-}
+rtype::Room::Room(std::vector<PlayerData>* players)
+	: _threadPtr(new std::thread(_runThread, players)) {}
 
-rtype::Room::Room(Room &room)
+auto rtype::Room::_runThread(std::vector<PlayerData>* players) -> void
 {
-    _id = room._id;
-    _roomBuffers = room._roomBuffers;
-}
-
-size_t rtype::Room::getId() const
-{
-    return _id;
-}
-
-std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> rtype::Room::getRoomBuffer() const
-{
-    return _roomBuffers;
-}
-
-void rtype::Room::setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer)
-{
-    _roomBuffers = roomBuffer;
-}
-
-rtype::Room &rtype::Room::operator=(rtype::Room &room)
-{
-    _id = room._id;
-    _roomBuffers = room._roomBuffers;
-    return *this;
-}
-
-void rtype::Room::run()
-{
-    Game game{_roomBuffers};
-    game.run();
+	for (;;)
+		std::cout << "size insode of the room : " << players->size() << std::endl;
 }

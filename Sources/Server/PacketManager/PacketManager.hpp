@@ -38,7 +38,7 @@
                  * 
                  * \param buffOut buffer output
                  */
-                explicit PacketManager(std::shared_ptr<Buffer> bufferIn,  std::shared_ptr<Buffer> bufferOut);
+                explicit PacketManager(std::shared_ptr<std::vector<size_t>> idCreator,  std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner, std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList);
 
                 /**
                  * \fn virtual  ~PacketManager() = default
@@ -48,31 +48,42 @@
                  */
                 virtual ~PacketManager() = default;
 
-                void managePacket(IPacket *packet);
+                auto managePacket() -> void;
 
-                void createRoom(IPacket *packet);
+                void manageResponse();
 
-                void joinRoom(IPacket *packet);
-
-                void sendToClient(PlayerData &player, std::vector<uint8_t> request);
-
+                void sendToClient(PlayerData &player, std::vector<uint8_t> request);                
 
                 auto setBufferI(std::queue<IPacket *> * buffer) -> void;
 
-                // * 1 - vide _packet | 2 : return les packets
-                auto getRequests() -> std::queue<IPacket *> *;
-
-                auto getRequestsToSend() -> std::vector<IPacket *>;
-
-
+                auto getRequestsToSend() -> std::vector<IPacket *> &;
 
             private:
-                std::queue<IPacket*> *_packets;
-                std::vector<IPacket*> *_packetsOut;
-                std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! vector of player data */
-                std::shared_ptr<Buffer> _bufferIn; /*! buffer in */
-                std::shared_ptr<Buffer> _bufferOut; /*! buffer out */
-        };
+
+                auto _createRoom(IPacket *packet) -> void;
+
+                auto _joinRoom(IPacket *packet) -> void;
+
+                auto _getRooms(IPacket *packet) -> void;
+
+                auto _setDataRoom() -> std::vector<size_t>;
+
+                auto _getRoomByPlayer(size_t id)->size_t;
+
+                auto _getNbPlayersInRoom(size_t idRoom) -> size_t;
+
+                auto _findPlayer(size_t id) -> bool;
+
+            private:
+                std::queue<IPacket*> _packetsIn;
+                std::vector<IPacket*> _packetsOut;
+                std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> _roomList; /*! vector of player data */
+                std::shared_ptr<std::vector<size_t>> _idCreator;
+                std::shared_ptr<std::vector<std::pair<size_t, size_t>>> _idJoiner;
+                std::vector<std::pair<bool, size_t>> _isCreateSended;
+                std::vector<std::pair<bool, size_t>> _isJoinSended;
+                std::vector<std::pair<bool, size_t>> _isGetSended;
+            };
     }
 
 #endif /* !PACKETMANAGER_HPP_ */

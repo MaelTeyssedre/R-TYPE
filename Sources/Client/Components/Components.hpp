@@ -27,6 +27,10 @@
     #include "ClickableComponent.hpp"
     #include "ZAxisComponent.hpp"
     #include "TextComponent.hpp"
+    #include "PlayerDataComponent.hpp"
     #include "ColorComponent.hpp"
+    #include "PlayerListComponent.hpp"
+    #include "RoomListComponent.hpp"
+    #include "RoomDataComponent.hpp"
 
 #endif /* !COMPONENTS_HPP_ */

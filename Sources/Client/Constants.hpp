@@ -69,7 +69,8 @@
             enum SCENE {
                 MAIN_MENU,
                 LOADING_MENU,
-                WAITING_ROOM
+                WAITING_ROOM,
+                SELECT_ROOM
             };
 
             /**

@@ -1,6 +1,6 @@
 #include "UpdateGraph.hpp"
 
-Entity rtype::UpdateGraph::_createLogoMainMenu(Registry &r)
+auto rtype::UpdateGraph::_createLogoMainMenu(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     struct components::sprite_s sprite = {(float)0.9, (float)0.9, 0, 0, 663, 369, "ressources/logo.png"};
@@ -23,7 +23,7 @@ Entity rtype::UpdateGraph::_createLogoMainMenu(Registry &r)
     return id;
 }
 
-Entity rtype::UpdateGraph::_createBackgroundMainMenu(Registry &r)
+auto rtype::UpdateGraph::_createBackgroundMainMenu(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     struct components::sprite_s sprite = {(float)0.9, (float)0.9, 0, 0, 1920, 1080, "ressources/MainMenu.jpg"};
@@ -46,7 +46,7 @@ Entity rtype::UpdateGraph::_createBackgroundMainMenu(Registry &r)
     return id;
 }
 
-Entity rtype::UpdateGraph::_createTransitionMainMenu(Registry &r)
+auto rtype::UpdateGraph::_createTransitionMainMenu(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     struct components::sprite_s sprite = {(float)WINDOW_SIZE_X / 250, (float)WINDOW_SIZE_Y / 250, 0, 0, 1920, 1080, "ressources/noir.jpg"};
@@ -70,7 +70,7 @@ Entity rtype::UpdateGraph::_createTransitionMainMenu(Registry &r)
     return id;
 }
 
-Entity rtype::UpdateGraph::_createPlayButtonMainMenu(Registry &r)
+auto rtype::UpdateGraph::_createPlayButtonMainMenu(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     struct components::sprite_s sprite = {(float)0.7, (float)0.7, 0, 0, 584, 183, "ressources/playButton.png"};
@@ -79,8 +79,9 @@ Entity rtype::UpdateGraph::_createPlayButtonMainMenu(Registry &r)
                                                 [this](Registry &r, size_t id) -> void
                                                 {
                                                     r.getComponents<components::sprite_s>()[id].value().rectX = 0;
+                                                    r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{23}); //request get rooms
                                                 }};
-    struct components::position_s pos = { 100, (WINDOW_SIZE_Y / 2) + 200};
+    struct components::position_s pos = {100 , (WINDOW_SIZE_Y / 2) + 200};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
     struct components::drawable_s drawable = {true};
@@ -105,7 +106,7 @@ Entity rtype::UpdateGraph::_createPlayButtonMainMenu(Registry &r)
     return id;
 }
 
-Entity rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r)
+auto rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     struct components::sprite_s sprite = {(float)0.7, (float)0.7, 0, 0, 584, 183, "ressources/newGame.png"};
@@ -138,16 +139,10 @@ Entity rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r)
     r.addComponent<components::mouseState_s>(r.entityFromIndex(id), std::move(mouse));
     r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
     r.addComponent<components::mySize_s>(r.entityFromIndex(id), std::move(size));
-
-    if (!(r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().request12.empty()) && !(r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().request12.front().empty()))
-    {
-        r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
-        r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;
-    }
     return id;
 }
 
-void rtype::UpdateGraph::_setupMainMenuScene()
+auto rtype::UpdateGraph::_setupMainMenuScene() -> void
 {
     _setupScene[rtype::constants::MAIN_MENU] = std::function(
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
@@ -169,7 +164,7 @@ void rtype::UpdateGraph::_setupMainMenuScene()
         });
 }
 
-void rtype::UpdateGraph::_setupExecMainMenuScene()
+auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
 {
     _execScene[rtype::constants::MAIN_MENU] = std::function(
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
@@ -179,6 +174,7 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
             std::vector<int> myZAxises;
             std::map<int, size_t> zAxisMap;
             auto &buttons = r.getComponents<components::clickable_s>();
+            auto &net = r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE];
             auto &times = r.getComponents<components::myTime_s>();
             auto &time = times[constants::RESERVED_ID::TIME_UPDATE];
             dtimeAnim += time.value().deltaTime;
@@ -187,9 +183,7 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
             for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
                 if (!(drawable.drawable))
-                {
                     continue;
-                }
                 myZAxises.push_back((int)zaxis.zAxis);
                 zAxisMap[(int)zaxis.zAxis] = index.idx;
                 _graphicalLib->setSpritePosX(index.idx, pos.x);
@@ -199,20 +193,12 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
                 _graphicalLib->setSpriteRectY(index.idx, sprite.rectY);
                 _graphicalLib->setSpriteRectWidth(index.idx, sprite.rectWidth);
                 _graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
-
                 if (!(zaxis.zAxis))
-                {
                     if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
                     {
                         dtimeAnim = std::chrono::nanoseconds(0);
                         _graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) - 1);
                     }
-                    /*if (dtime.count() > 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx) < 255)
-                    {
-                        dtimeAnim = std::chrono::nanoseconds(0);
-                        _graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) + 1);
-                    }*/
-                }
             }
             std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
             std::reverse(myZAxises.begin(), myZAxises.end());
@@ -220,10 +206,36 @@ void rtype::UpdateGraph::_setupExecMainMenuScene()
                 _graphicalLib->draw(zAxisMap[i]);
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
+            if (net.value().request12.size()) {
+                net.value().request12.erase(net.value().request12.begin());
+                struct components::playerList_s playerList = {1, 1};
+                r.addComponent<components::playerList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(playerList));
+                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
+                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;
+            }
+            if (!(net.value().request17.empty()) && !(net.value().request17.front().empty()))
+            {
+                std::vector<size_t> tmp;
+                struct components::roomList_s roomList = {false, false, false, false, false};
+                if (net.value().request17.front().at(1) == 1)
+                    roomList.room1 = true;
+                if (net.value().request17.front().at(1) <= 2)
+                    roomList.room2 = true;
+                if (net.value().request17.front().at(1) <= 3)
+                    roomList.room3 = true;
+                if (net.value().request17.front().at(1) <= 4)
+                    roomList.room4 = true;
+                if (net.value().request17.front().at(1) <= 5)
+                    roomList.room5 = true;
+                r.addComponent<components::roomList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(roomList));
+                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
+                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::SELECT_ROOM;
+                net.value().request17.erase(net.value().request17.begin());
+            }
         });
 }
 
-void rtype::UpdateGraph::_setupDeleteMainMenuScene()
+auto rtype::UpdateGraph::_setupDeleteMainMenuScene() -> void
 {
     _deleteScene[rtype::constants::MAIN_MENU] = std::function(
         [this](Registry &r)

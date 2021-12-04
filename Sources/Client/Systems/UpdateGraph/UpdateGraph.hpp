@@ -44,14 +44,14 @@
 
             // * Main Menu functions
             private:
-                void _setupMainMenuScene();
-                void _setupExecMainMenuScene();
-                void _setupDeleteMainMenuScene();
-                Entity _createBackgroundMainMenu(Registry &r);
-                Entity _createLogoMainMenu(Registry &r);
-                Entity _createTransitionMainMenu(Registry &r);
-                Entity _createPlayButtonMainMenu(Registry &r);
-                Entity _createNewGameButtonMainMenu(Registry &r);
+                auto _setupMainMenuScene() -> void;
+                auto _setupExecMainMenuScene() -> void;
+                auto _setupDeleteMainMenuScene() -> void;
+                auto _createBackgroundMainMenu(Registry &r) -> Entity;
+                auto _createLogoMainMenu(Registry &r) -> Entity;
+                auto _createTransitionMainMenu(Registry &r) -> Entity;
+                auto _createPlayButtonMainMenu(Registry &r) -> Entity;
+                auto _createNewGameButtonMainMenu(Registry &r) -> Entity;
 
             // * Waiting Room functions
             private:
@@ -64,7 +64,21 @@
                 auto _createPlayer2WaitingRoom(Registry &r) -> Entity;
                 auto _createPlayer3WaitingRoom(Registry &r) -> Entity;
                 auto _createPlayer4WaitingRoom(Registry &r) -> Entity;
-            
+
+            // * Select Room functions
+            private:
+                auto _setupSelectRoomScene() -> void;
+                auto _setupExecSelectRoomScene() -> void;
+                auto _setupDeleteSelectRoomScene() -> void;
+                auto _createBackgroundSelectRoom(Registry &r) -> Entity;
+                auto _createTransitionSelectRoom(Registry &r) -> Entity;
+                auto _createLogoSelectRoom(Registry &r) -> Entity;
+                auto _createSelectRoom1ButtonSelectRoom(Registry &r) -> Entity;
+                auto _createSelectRoom2ButtonSelectRoom(Registry &r) -> Entity;
+                auto _createSelectRoom3ButtonSelectRoom(Registry &r) -> Entity;
+                auto _createSelectRoom4ButtonSelectRoom(Registry &r) -> Entity;
+                auto _createSelectRoom5ButtonSelectRoom(Registry &r) -> Entity;
+                
             private:
                 rtype::IGraphicalLib *_graphicalLib;
 

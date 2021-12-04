@@ -19,71 +19,126 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
             t++;
         }
         buffer->readFromBuffer(1, &opCode);
+        std::cout << opCode << std::endl;
         switch (opCode)
         {
-        case 1:
+        case 1: {
             buffer->readFromBuffer(15, reply);
-            network.request1.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request1.push_back(std::move(tmpBuf));
             network.request1.back().insert(network.request1.back().end(), reply.begin(), reply.end());
             break;
-        case 2:
+        }
+        case 2: {
             buffer->readFromBuffer(13, reply);
-            network.request2.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request2.push_back(std::move(tmpBuf));
             network.request2.back().insert(network.request2.back().end(), reply.begin(), reply.end());
             break;
-        case 3:
+        }
+        case 3: {
             network.request3.clear();
             buffer->readFromBuffer(12, reply);
-            network.request3.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request3.push_back(std::move(tmpBuf));
             network.request3.back().insert(network.request3.back().end(), reply.begin(), reply.end());
             break;
-        case 4:
-            network.request4.back().push_back(opCode);
+        }
+        case 4: {
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request4.push_back(std::move(tmpBuf));
             break;
-        case 7:
+        }
+        case 7: {
             buffer->readFromBuffer(8, reply);
-            network.request7.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request7.push_back(std::move(tmpBuf));
             network.request7.back().insert(network.request7.back().end(), reply.begin(), reply.end());
             break;
-        case 8:
+        }
+        case 8: {
             buffer->readFromBuffer(17, reply);
-            network.request8.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request8.push_back(std::move(tmpBuf));
             network.request8.back().insert(network.request8.back().end(), reply.begin(), reply.end());
             break;
-        case 9:
+        }
+        case 9: {
             buffer->readFromBuffer(4, reply);
-            network.request9.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request9.push_back(std::move(tmpBuf));
             network.request9.back().insert(network.request9.back().end(), reply.begin(), reply.end());
             break;
-        case 10:
-            network.request10.back().push_back(opCode);
+        }
+        case 10: {
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request10.push_back(std::move(tmpBuf));
             break;
-        case 11:
-            network.request11.back().push_back(opCode);
+        }
+        case 11: {
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request11.push_back(std::move(tmpBuf));
             break;
-        case 12:
+        }
+        case 12: {
             buffer->readFromBuffer(8, reply);
-            network.request12.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request12.push_back(std::move(tmpBuf));
             network.request12.back().insert(network.request12.back().end(), reply.begin(), reply.end());
             break;
-        case 13:
+        }
+        case 13: {
             buffer->readFromBuffer(1, reply);
-            network.request13.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request13.push_back(std::move(tmpBuf));
             network.request13.back().insert(network.request13.back().end(), reply.begin(), reply.end());
             break;
-        case 14:
+        }
+        case 14: {
             buffer->readFromBuffer(1, reply);
-            network.request14.back().push_back(opCode);
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request14.push_back(std::move(tmpBuf));
             network.request14.back().insert(network.request14.back().end(), reply.begin(), reply.end());
             break;
-        case 15:
-            network.request15.back().push_back(opCode);
+        }
+        case 15: {
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request15.push_back(std::move(tmpBuf));
             break;
-        case 22:
+        }
+        case 16: {
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request16.push_back(std::move(tmpBuf));
+            break;
+        }
+         case 17: {
+            std::vector<uint8_t> tmpBuf{};
+            tmpBuf.push_back(opCode);
+            network.request17.push_back(std::move(tmpBuf));
+            break;
+        }
+        case 22: {
+            std::vector<uint8_t> tmpBuf{};
             buffer->readFromBuffer(1, reply);
-            network.request22.back().push_back(opCode);
+            tmpBuf.push_back(opCode);
+            network.request22.push_back(std::move(tmpBuf));
             network.request22.back().insert(network.request22.back().end(), reply.begin(), reply.end());
             break;
+        }
         default:
             break;
         }

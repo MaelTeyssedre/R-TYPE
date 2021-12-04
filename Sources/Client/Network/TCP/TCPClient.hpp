@@ -111,7 +111,7 @@
                 Logger _logger; /*! logger to log data */
                 IPacket *_packet; /*! packet  */
                 std::shared_ptr<Buffer> _buffer; /*! buffer to store input */
-                char _reply[9]; /*! store reply */
+                char _reply[1]; /*! store reply */
                 bool _isConnected;
                 asio::io_context::work _worker; /*! asio worker */
         };
