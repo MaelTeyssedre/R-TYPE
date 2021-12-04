@@ -24,7 +24,7 @@ void rtype::tcpUser::read()
 void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
     if (!ec)
-    {
+    { 
         uint8_t tmp = (uint8_t)_data[0];
         _input->push_back(std::move(tmp));
         std::cout << "input size : " << _input->size() << std::endl;
