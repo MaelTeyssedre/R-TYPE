@@ -9,6 +9,12 @@
 
     #include "Constants.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \namespace components
@@ -17,8 +23,14 @@
          * 
          */
         namespace components {
+            /**
+             * \struct weaponType_s
+             * 
+             * \brief the weaponType component component
+             *
+             */
             struct weaponType_s {
-                rtype::constants::WEAPON_TYPE weaponType;
+                rtype::constants::WEAPON_TYPE weaponType; /*!< weapon type */
             };
         }
     }

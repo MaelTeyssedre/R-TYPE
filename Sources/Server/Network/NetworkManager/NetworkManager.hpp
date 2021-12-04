@@ -43,14 +43,14 @@
                  * 
                  * \brief start connection
                  */
-                void start() override;
+                auto start() override -> void;
 
                 /**
                  * \fn void stop()
                  * 
                  * \brief stop connection
                  */
-                void stop() override;
+                auto stop() override -> void;
 
                 /**
                  * \fn ITCPServer *createTCPServer(int port)
@@ -61,7 +61,7 @@
                  * 
                  * \return new created tcp server
                  */
-                ITCPServer *createTCPServer(int port) override;
+                auto createTCPServer(int port) override -> ITCPServer *;
 
                 /**
                  * \fn IUDPSocket *createSocketUDP(int port)
@@ -72,7 +72,7 @@
                  * 
                  * \return new created udp server
                  */
-                IUDPSocket *createSocketUDP(std::string host, int port) override;
+                auto createSocketUDP(std::string host, int port) override -> IUDPSocket *;
 
                 /**
                  * \fn void deleteTCPServer(ITCPServer *tcp)
@@ -81,7 +81,7 @@
                  * 
                  * \param tcp server to delete 
                  */
-                void deleteTCPServer(ITCPServer *tcp) override;
+                auto deleteTCPServer(ITCPServer *tcp) override -> void;
 
                 /**
                  * \fn  void deleteSocketUDP(IUDPSocket *socket)
@@ -91,7 +91,7 @@
                  * \param socket to delete
                  * 
                  */
-                void deleteSocketUDP(IUDPSocket *socket) override;
+                auto deleteSocketUDP(IUDPSocket *socket) override -> void;
 
                 /**
                  * \fn static void startNetworkThread(NetworkManager *netManager)
@@ -100,7 +100,7 @@
                  * 
                  * \param network manager
                  */
-                static void startNetworkThread(NetworkManager *netManager);
+                static auto startNetworkThread(NetworkManager *netManager) -> void;
 
                 /**
                  * \fn ITCPClient *createTCPClient(int port)
@@ -111,7 +111,7 @@
                  * 
                  * \return ITCPClient* pointer to the client
                  */
-                ITCPClient *createTCPClient(std::string host, int port);
+                auto createTCPClient(std::string host, int port) -> ITCPClient *;
 
                 /**
                  * \fn void deleteTCPClient(ITCPClient *tcp)
@@ -120,7 +120,7 @@
                  * 
                  * \param tcp client to delete
                  */
-                void deleteTCPClient(ITCPClient *tcp);
+                auto deleteTCPClient(ITCPClient *tcp) -> void;
 
             private:
 

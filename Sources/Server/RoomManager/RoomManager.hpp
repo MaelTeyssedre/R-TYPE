@@ -14,6 +14,12 @@
     #include "Buffer.hpp"
     #include "PlayerData.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class RoomManager
@@ -24,6 +30,17 @@
         class RoomManager {
             public:
 
+                /**
+                 * \fn explicit RoomManager(std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList, std::shared_ptr<std::vector<size_t>> idCreator, std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner)
+                 * 
+                 * \brief Room manager ctor
+                 *
+                 * \param roomlist A list of room with information on the players who joins each room
+                 *
+                 * \param idCreator A pointer on a vector of id of players who have created room
+                 *
+                 * \param idJoiner A pointer on a vector of id of players who have joined room
+                 */
                 explicit RoomManager(std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList, std::shared_ptr<std::vector<size_t>> idCreator, std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner);
 
                 /**
@@ -34,18 +51,15 @@
                 virtual ~RoomManager() = default;
                 
                 /**
-                 * \fn std::string joinRoom(std::string &packet)
+                 * \fn auto joinRoom() -> void
                  * 
                  * \brief put a player inside a room
                  * 
-                 * \param packet packet from the packetManager
-                 * 
-                 * \return return the response for the packetManager
                  */
                 auto joinRoom() -> void;
                 
                 /**
-                 * \fn void manageRoom()
+                 * \fn auto manageRoom() -> void
                  * 
                  * \brief fill the packet list
                  * 
@@ -53,21 +67,27 @@
                 auto manageRoom() -> void;
                 
                 /**
-                 * \fn void createRoom(std::string &packet)
+                 * \fn auto createRoom() -> void
                  * 
                  * \brief Create a Room object
-                 * 
-                 * \param packet packet received from the PacketManager
+                 *
                  */
                 auto createRoom() -> void;
 
+                /**
+                 * \fn auto getIdToCreate() -> size_t
+                 * 
+                 * \brief Get an id to create a room
+                 *
+                 * \return the getted id
+                 */
                 auto getIdToCreate() -> size_t;
 
             private:
 
                 std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> _roomList; /*! list of room who contain list of playerData */
-                std::shared_ptr<std::vector<size_t>> _idCreator;
-                std::shared_ptr<std::vector<std::pair<size_t, size_t>>> _idJoiner;
+                std::shared_ptr<std::vector<size_t>> _idCreator; /*! A vector of player that have created room */
+                std::shared_ptr<std::vector<std::pair<size_t, size_t>>> _idJoiner; /*! A vector of player that have joined room */
         };
     }
 

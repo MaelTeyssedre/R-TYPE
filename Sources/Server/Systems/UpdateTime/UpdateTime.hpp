@@ -12,6 +12,12 @@
     #include "Constants.hpp"
     #include "TimeComponent.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class UpdateTime UpdateTime.hpp 
@@ -33,7 +39,7 @@
                  * \brief dtor UpdateTime
                  */
                 virtual ~UpdateTime() = default;
-                void operator()(Registry &r, SparseArray<components::myTime_s> &times);
+                auto operator()(Registry &r, SparseArray<components::myTime_s> &times) -> void;
             private:
                 std::chrono::nanoseconds _currentDeltaTime; /*! The current delta time*/
         };

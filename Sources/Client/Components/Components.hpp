@@ -1,3 +1,8 @@
+/**
+ * \file Component.hpp
+ * 
+ * \brief file for the component  includes
+ */
 
 #ifndef COMPONENTS_HPP_
     #define COMPONENTS_HPP_

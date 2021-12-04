@@ -9,6 +9,12 @@
 
     #include <iostream>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \namespace components
@@ -17,9 +23,15 @@
          * 
          */
         namespace components {
+            /**
+             * \struct mySize_s
+             * 
+             * \brief the size component
+             *
+             */
             struct mySize_s {
-                size_t width;
-                size_t heigth;
+                size_t width; /*!< Width */
+                size_t heigth; /*!< Height */
             };
         }
     }
