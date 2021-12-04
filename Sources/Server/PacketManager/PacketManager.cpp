@@ -134,42 +134,39 @@ auto rtype::PacketManager::manageResponse() -> void
 
    for (auto &i : _isCreateSended)
        if (!i.first) {
-           if (dataRooms.size() != _roomList->size()) {
-               dataRooms = _setDataRoom();
-               IPacket* packet = new Packet();
-               packet->setId(i.second);
-               std::vector<uint8_t> vec{};
-               vec.push_back((uint8_t)12);
-               vec.push_back((uint8_t)_getRoomByPlayer(i.second));
-               packet->pack(vec);
-               _packetsOut.push_back(packet);
-           }
-           i.first = true;
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            std::vector<uint8_t> vec{};
+            vec.push_back((uint8_t)12);
+            vec.push_back((uint8_t)_getRoomByPlayer(i.second));
+            packet->pack(vec);
+            _packetsOut.push_back(packet);
+            i.first = true;
       }
    for (auto &i : _isJoinSended)
        if (!i.first) {
-           if (dataRooms.size() != _roomList->size()) {
-               dataRooms = _setDataRoom();
-               IPacket* packet = new Packet();
-               packet->setId(i.second);
-               packet->pack(std::vector<uint8_t> {10});
-               _packetsOut.push_back(packet);
-           }
-           i.first = true;
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            packet->pack(std::vector<uint8_t> {10});
+            _packetsOut.push_back(packet);
+            i.first = true;
        }
     for (auto &i : _isGetSended)
        if (!i.first) {
-           if (dataRooms.size() != _roomList->size()) {
-               dataRooms = _setDataRoom();
-               IPacket* packet = new Packet();
-               packet->setId(i.second);
-               std::vector<uint8_t> vec{};
-               vec.push_back((uint8_t)17);
-               for (auto it : *_roomList)
-                    vec.push_back((uint8_t)it.second);
-               packet->pack(vec);
-               _packetsOut.push_back(packet);
-           }
-           i.first = true;
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            std::vector<uint8_t> vec{};
+            vec.push_back((uint8_t)17);
+            for (auto i = 0; i < 5; i++) {
+                bool indexExist = false;
+                for (auto it : *_roomList) {
+                    indexExist = (it.second == i) ? vec.push_back((uint8_t)i), true : indexExist;
+                }
+                if (!indexExist)
+                    vec.push_back((uint8_t)6);
+            }
+            packet->pack(vec);
+            _packetsOut.push_back(packet);
+            i.first = true;
        }
 }

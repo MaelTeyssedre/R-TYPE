@@ -4,10 +4,7 @@
 
 
 void rtype::tcpUser::start()
-{
-    write();
-    read();
-}
+{}
 
 void rtype::tcpUser::addToQueue(std::vector<uint8_t> message)
 {
@@ -39,13 +36,9 @@ void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 
 void rtype::tcpUser::write()
 {
-    std::cout << "in write" << std::endl;
     if (_queue.empty())
         return;
-    asio::async_write(*_socket, asio::buffer(_queue.front()), std::bind(&rtype::tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
-    std::cout << "queue size" << _queue.size() << std::endl;
-    //if (_queue.size())
-    //    _queue.pop();
+    asio::async_write(*_socket, asio::buffer(_queue.front(), _queue.front().size()), std::bind(&rtype::tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)

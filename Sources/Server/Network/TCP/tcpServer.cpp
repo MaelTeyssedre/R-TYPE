@@ -12,6 +12,7 @@ void rtype::TCPServer::send(IPacket *data)
 {
     std::cout << "in tcpServer::send" << std::endl;
     _mapUser[data->getId()]->addToQueue(data->unpack());
+    //std::cout << "queue size before" << _queue.size() << std::endl;
     _mapUser[data->getId()]->write();
 }
 

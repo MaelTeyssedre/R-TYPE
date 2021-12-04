@@ -117,11 +117,11 @@ size_t rtype::Packet::pack(std::vector<uint8_t> data)
             bytes = 9;
             break;
         case 17:
-            if (data.size() != 2)
+            if (data.size() != 6)
                 throw std::invalid_argument("Pack.cpp -> pack(): case 17");
-            for (int i = 0; i != 2; i++)
+            for (int i = 0; i != 6; i++)
                 _rawData.push_back(data[i]);
-            bytes = 2;
+            bytes = 6;
             break;
         case 18:
             if (data.size() != 1)
