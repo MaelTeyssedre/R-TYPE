@@ -243,11 +243,9 @@ Epitech project         R-TYPE project RFC protocol           November 2021
          - 22: request id -> 1 byte
          - room id: Id of a room -> 1 byte
          
-      23: Get room -> 2 bytes
+      23: Get rooms -> 1 bytes
 
          - 23: request id -> 1 byte
-         - room id: Id of a room -> 1 byte
-
 
 Epitech R-TYPE project     Realized in November 2021              [Page 7]
 
@@ -329,7 +327,7 @@ Epitech project         R-TYPE projet RFC protocol           November 2021
             |             |          (1) 23           |        |
             |             |-------------------------->|        |
             |   Client    |<--------------------------| SERVER |
-            |             |   (2) 17<size><room id>   |        |
+            |             |   (2) 17<1 / 0><2 / 0><3 / 0><4 / 0><5 / 0>   |        |
             |             |                           |        |
             +-------------+                           +--------+
             
