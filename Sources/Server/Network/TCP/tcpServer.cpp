@@ -62,12 +62,12 @@ std::queue<IPacket *> *rtype::TCPServer::getBuffer()
     
     for (size_t i = 0; i < _mapUser.size(); i++)
     {
-        if (_mapUser[i]->getInput()->size())
-            std::cout << "sizeof input inside : " << _mapUser[i]->getInput()->at(0) << std::endl;
+        if (_mapUser[i]->getInput().size())
+            std::cout << "sizeof input inside : " << _mapUser[i]->getInput().at(0) << std::endl;
         IPacket *packetPtr = new rtype::Packet;
         auto tmp = _mapUser[i]->getInput();
-        packetPtr->pack(*tmp);
-        tmp->clear();
+        packetPtr->pack(tmp);
+        tmp.clear();
         packetPtr->setId(i);
         if (packetPtr->unpack().size())
             _buffers.emplace(packetPtr);

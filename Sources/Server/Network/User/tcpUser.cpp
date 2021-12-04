@@ -52,12 +52,12 @@ void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transf
     }
 }
 
-std::vector<uint8_t> *rtype::tcpUser::getInput()
+auto rtype::tcpUser::getInput()->std::vector<uint8_t>
 {
     if (_input)
-        return (_input);
+        return (*_input);
     else
-        return new std::vector<uint8_t>{};
+        return std::vector<uint8_t>{};
 }
 
 

@@ -128,9 +128,7 @@
                  * \param bytes_transfered The number of bytes transfered
                  *
                  */
-                auto doWrite(const std::error_code &ec, std::size_t bytes_transfered) -> void
-                 */
-                void doWrite(const std::error_code &ec, std::size_t bytes_transfered);
+                auto doWrite(const std::error_code &ec, std::size_t bytes_transfered) -> void;
 
                 /**
                  * \fn  auto getInput() -> std::vector<uint8_t> *
@@ -139,16 +137,16 @@
                  * 
                  * \return a pointer on a vector which is the data
                  */
+                auto getInput() -> std::vector<uint8_t>;
+                
                  /**
                  * \fn  auto getSizeInput() -> size_t &
                  * 
                  * \brief get the size of the raw data readed
                  * 
                  * \return a reference on the sizes of the raw data
-                 */                auto getInput() -> std::vector<uint8_t> *;
-
- -> size_t &auto 
-                size_t &getSizeInput();
+                 */
+                auto getSizeInput() -> size_t &;
 
             private:
 

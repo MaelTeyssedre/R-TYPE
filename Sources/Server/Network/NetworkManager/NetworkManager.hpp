@@ -43,14 +43,14 @@
                  * 
                  * \brief start connection
                  */
-                auto start() override -> void;
+                auto start() -> void override;
 
                 /**
                  * \fn void stop()
                  * 
                  * \brief stop connection
                  */
-                auto stop() override -> void;
+                auto stop() -> void override;
 
                 /**
                  * \fn ITCPServer *createTCPServer(int port)
@@ -61,7 +61,7 @@
                  * 
                  * \return new created tcp server
                  */
-                auto createTCPServer(int port) override -> ITCPServer *;
+                auto createTCPServer(int port) -> ITCPServer * override;
 
                 /**
                  * \fn IUDPSocket *createSocketUDP(int port)
@@ -72,7 +72,7 @@
                  * 
                  * \return new created udp server
                  */
-                auto createSocketUDP(std::string host, int port) override -> IUDPSocket *;
+                auto createSocketUDP(std::string host, int port) -> IUDPSocket * override;
 
                 /**
                  * \fn void deleteTCPServer(ITCPServer *tcp)
@@ -81,7 +81,7 @@
                  * 
                  * \param tcp server to delete 
                  */
-                auto deleteTCPServer(ITCPServer *tcp) override -> void;
+                auto deleteTCPServer(ITCPServer *tcp) -> void override;
 
                 /**
                  * \fn  void deleteSocketUDP(IUDPSocket *socket)
@@ -91,7 +91,7 @@
                  * \param socket to delete
                  * 
                  */
-                auto deleteSocketUDP(IUDPSocket *socket) override -> void;
+                auto deleteSocketUDP(IUDPSocket *socket) -> void override;
 
                 /**
                  * \fn static void startNetworkThread(NetworkManager *netManager)
