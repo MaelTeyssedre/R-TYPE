@@ -63,6 +63,7 @@ void rtype::UpdateGraph::_setupScenes()
     _setupLoadingMenuScene();
     _setupMainMenuScene();
     _setupWaitingRoomScene();
+    _setupSelectRoomScene();
 }
 
 void rtype::UpdateGraph::_setupExecScene()
@@ -70,6 +71,7 @@ void rtype::UpdateGraph::_setupExecScene()
     _setupExecLoadingMenuScene();
     _setupExecMainMenuScene();
     _setupExecWaitingRoomScene();
+    _setupExecSelectRoomScene();
 }
 
 void rtype::UpdateGraph::_setupDeleteScene()
@@ -77,4 +79,5 @@ void rtype::UpdateGraph::_setupDeleteScene()
     _setupDeleteLoadingMenuScene();
     _setupDeleteMainMenuScene();
     _setupDeleteWaitingRoomScene();
+    _setupDeleteSelectRoomScene();
 }

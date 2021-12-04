@@ -24,7 +24,9 @@ void rtype::TCPClient::receive()
 {
     asio::async_read(*_socket, asio::buffer(_reply, 8192), std::bind(&rtype::TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
     auto i = 0;
-    for (; _reply[i] != 42; i++) {}
+    for (; _reply[i] != 42; i++) {
+        std::cout << "tre" << std::endl;
+    }
     _buffer->putInBuffer(i, _reply);
     std::memset(_reply, 42, 8192);
 }
@@ -34,7 +36,6 @@ void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
     std::string str;
     if (!ec)
     {
-        std::cout << " §§§§     DANS LE DO READ     §§§§§§§§§§"
         //str = "receive: ";
         //str.append(std::to_string(bytes));
         //str.append("bytes");
@@ -53,7 +54,6 @@ void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
 void rtype::TCPClient::send(IPacket &packet)
 {
     asio::async_write(*_socket, asio::buffer(packet.unpack()), std::bind(&rtype::TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
-
 }
 
 void rtype::TCPClient::doWrite(const std::error_code &ec, size_t bytes)

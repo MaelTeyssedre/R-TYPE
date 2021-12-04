@@ -288,7 +288,7 @@ auto rtype::UpdateGraph::_setupSelectRoomScene() -> void
         {
             Entity backgroundId = _createBackgroundMainMenu(r);
             Entity logoId = _createLogoMainMenu(r);
-            Entity transitionId = _createTransitionMainMenu(r);
+            //Entity transitionId = _createTransitionMainMenu(r);
             Entity room1Id = _createSelectRoom1ButtonSelectRoom(r);
             Entity room2Id = _createSelectRoom2ButtonSelectRoom(r);
             Entity room3Id = _createSelectRoom3ButtonSelectRoom(r);
@@ -296,13 +296,13 @@ auto rtype::UpdateGraph::_setupSelectRoomScene() -> void
             Entity room5Id = _createSelectRoom5ButtonSelectRoom(r);
             _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_s>()[backgroundId].value().scaleX, r.getComponents<components::sprite_s>()[backgroundId].value().scaleY, r.getComponents<components::sprite_s>()[backgroundId].value().rectX, r.getComponents<components::sprite_s>()[backgroundId].value().rectY, r.getComponents<components::sprite_s>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_s>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_s>()[backgroundId].value().path);
             _graphicalLib->createSprite(logoId, r.getComponents<components::sprite_s>()[logoId].value().scaleX, r.getComponents<components::sprite_s>()[logoId].value().scaleY, r.getComponents<components::sprite_s>()[logoId].value().rectX, r.getComponents<components::sprite_s>()[logoId].value().rectY, r.getComponents<components::sprite_s>()[logoId].value().rectWidth, r.getComponents<components::sprite_s>()[logoId].value().rectHeight, r.getComponents<components::sprite_s>()[logoId].value().path);
-            _graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_s>()[transitionId].value().scaleX, r.getComponents<components::sprite_s>()[transitionId].value().scaleY, r.getComponents<components::sprite_s>()[transitionId].value().rectX, r.getComponents<components::sprite_s>()[transitionId].value().rectY, r.getComponents<components::sprite_s>()[transitionId].value().rectWidth, r.getComponents<components::sprite_s>()[transitionId].value().rectHeight, r.getComponents<components::sprite_s>()[transitionId].value().path);
+            //_graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_s>()[transitionId].value().scaleX, r.getComponents<components::sprite_s>()[transitionId].value().scaleY, r.getComponents<components::sprite_s>()[transitionId].value().rectX, r.getComponents<components::sprite_s>()[transitionId].value().rectY, r.getComponents<components::sprite_s>()[transitionId].value().rectWidth, r.getComponents<components::sprite_s>()[transitionId].value().rectHeight, r.getComponents<components::sprite_s>()[transitionId].value().path);
             _graphicalLib->createSprite(room1Id, r.getComponents<components::sprite_s>()[room1Id].value().scaleX, r.getComponents<components::sprite_s>()[room1Id].value().scaleY, r.getComponents<components::sprite_s>()[room1Id].value().rectX, r.getComponents<components::sprite_s>()[room1Id].value().rectY, r.getComponents<components::sprite_s>()[room1Id].value().rectWidth, r.getComponents<components::sprite_s>()[room1Id].value().rectHeight, r.getComponents<components::sprite_s>()[room1Id].value().path);
             _graphicalLib->createSprite(room2Id, r.getComponents<components::sprite_s>()[room2Id].value().scaleX, r.getComponents<components::sprite_s>()[room2Id].value().scaleY, r.getComponents<components::sprite_s>()[room2Id].value().rectX, r.getComponents<components::sprite_s>()[room2Id].value().rectY, r.getComponents<components::sprite_s>()[room2Id].value().rectWidth, r.getComponents<components::sprite_s>()[room2Id].value().rectHeight, r.getComponents<components::sprite_s>()[room2Id].value().path);
             _graphicalLib->createSprite(room3Id, r.getComponents<components::sprite_s>()[room3Id].value().scaleX, r.getComponents<components::sprite_s>()[room3Id].value().scaleY, r.getComponents<components::sprite_s>()[room3Id].value().rectX, r.getComponents<components::sprite_s>()[room3Id].value().rectY, r.getComponents<components::sprite_s>()[room3Id].value().rectWidth, r.getComponents<components::sprite_s>()[room3Id].value().rectHeight, r.getComponents<components::sprite_s>()[room3Id].value().path);
             _graphicalLib->createSprite(room4Id, r.getComponents<components::sprite_s>()[room4Id].value().scaleX, r.getComponents<components::sprite_s>()[room4Id].value().scaleY, r.getComponents<components::sprite_s>()[room4Id].value().rectX, r.getComponents<components::sprite_s>()[room4Id].value().rectY, r.getComponents<components::sprite_s>()[room4Id].value().rectWidth, r.getComponents<components::sprite_s>()[room4Id].value().rectHeight, r.getComponents<components::sprite_s>()[room4Id].value().path);
             _graphicalLib->createSprite(room5Id, r.getComponents<components::sprite_s>()[room5Id].value().scaleX, r.getComponents<components::sprite_s>()[room5Id].value().scaleY, r.getComponents<components::sprite_s>()[room5Id].value().rectX, r.getComponents<components::sprite_s>()[room5Id].value().rectY, r.getComponents<components::sprite_s>()[room5Id].value().rectWidth, r.getComponents<components::sprite_s>()[room5Id].value().rectHeight, r.getComponents<components::sprite_s>()[room5Id].value().path);
-            _graphicalLib->setSpriteColorAlpha(transitionId, 255);
+            //_graphicalLib->setSpriteColorAlpha(transitionId, 255);
             auto &scene = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
             if (scene)
                 scene.value().isLoaded = true;
@@ -311,7 +311,7 @@ auto rtype::UpdateGraph::_setupSelectRoomScene() -> void
 
 auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
 {
-    _execScene[rtype::constants::MAIN_MENU] = std::function(
+    _execScene[rtype::constants::SELECT_ROOM] = std::function(
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
             static std::chrono::duration dtime = std::chrono::nanoseconds(0);
@@ -338,12 +338,6 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
                 _graphicalLib->setSpriteRectY(index.idx, sprite.rectY);
                 _graphicalLib->setSpriteRectWidth(index.idx, sprite.rectWidth);
                 _graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
-                if (!(zaxis.zAxis))
-                    if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
-                    {
-                        dtimeAnim = std::chrono::nanoseconds(0);
-                        _graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) - 1);
-                    }
             }
             for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
@@ -358,12 +352,6 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
                 _graphicalLib->setSpriteRectY(index.idx, sprite.rectY);
                 _graphicalLib->setSpriteRectWidth(index.idx, sprite.rectWidth);
                 _graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
-                if (!(zaxis.zAxis))
-                    if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
-                    {
-                        dtimeAnim = std::chrono::nanoseconds(0);
-                        _graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) - 1);
-                    }
             }
             std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
             std::reverse(myZAxises.begin(), myZAxises.end());

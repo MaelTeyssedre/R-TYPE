@@ -27,7 +27,7 @@ auto Buffer::putInBuffer(size_t size, void *data) -> void
     uint8_t *castedData;
     if (!data || size < 1)
     {
-        std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
+      //  std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
         return;
     }
     _usedSize = ((_usedSize + size) > _size) ? size : _usedSize + size;
@@ -61,7 +61,7 @@ auto Buffer::putInBuffer(size_t size, std::vector<uint8_t> &data) -> void
 {
     if (data.size() < size || size < 1)
     {
-        std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
+        //std::cerr << "ERROR: fillInBuffer() invalid arguments!" << std::endl;
         return;
     }
     _usedSize = ((_usedSize + size) > _size) ? size : _usedSize + size;
@@ -78,14 +78,14 @@ auto Buffer::readFromBuffer(size_t size, std::vector<uint8_t> &data) -> void
     {
         return;
     }
-    if (data.size() < size || size < 1)
-    {
-        std::cerr << "ERROR: readFromBuffer() invalid arguments!" << std::endl;
-        return;
-    }
+    //if (data.size() < size || size < 1)
+    //{
+        //std::cerr << "ERROR: readFromBuffer() invalid arguments!" << std::endl;
+        //return;
+    //}
     for (size_t i = 0; i < size; i++)
     {
-        data[i] = _byteList[_readCursor];
+        data.push_back(_byteList[_readCursor]);
         _readCursor = ((_readCursor + 1) == _size) ? 0 : _readCursor + 1;
         _usedSize--;
         if (!_usedSize)

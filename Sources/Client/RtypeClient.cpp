@@ -394,23 +394,7 @@ auto rtype::RtypeClient::_setupNetworkComponent() -> void
         std::vector<std::vector<uint8_t>>{},
         std::vector<std::vector<uint8_t>>{} // ! send
     };
-    network.request1.push_back(std::vector<uint8_t>{});
-    network.request2.push_back(std::vector<uint8_t>{});
-    network.request3.push_back(std::vector<uint8_t>{});
-    network.request4.push_back(std::vector<uint8_t>{});
-    network.request7.push_back(std::vector<uint8_t>{});
-    network.request8.push_back(std::vector<uint8_t>{});
-    network.request9.push_back(std::vector<uint8_t>{});
-    network.request10.push_back(std::vector<uint8_t>{});
-    network.request11.push_back(std::vector<uint8_t>{});
-    network.request12.push_back(std::vector<uint8_t>{});
-    network.request13.push_back(std::vector<uint8_t>{});
-    network.request14.push_back(std::vector<uint8_t>{});
-    network.request15.push_back(std::vector<uint8_t>{});
-    network.request16.push_back(std::vector<uint8_t>{});
-    network.request17.push_back(std::vector<uint8_t>{});
-    network.request22.push_back(std::vector<uint8_t>{});
-    network.sendRequest.push_back(std::vector<uint8_t>{});
+
     _r.addComponent<components::network_s>(_r.entityFromIndex(rtype::constants::RESERVED_ID::NETWORK_UPDATE), std::move(network));
 }
 
