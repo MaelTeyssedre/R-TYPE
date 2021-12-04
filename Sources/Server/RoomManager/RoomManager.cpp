@@ -28,11 +28,11 @@ auto rtype::RoomManager::getIdToCreate() -> size_t
 
 auto rtype::RoomManager::createRoom() -> void
 {
+    std::cout << "in create Room" << std::endl;
     auto id = getIdToCreate();
     _roomList->push_back(std::pair(std::vector<PlayerData>{}, id));
     _roomList->back().first.push_back(PlayerData(_idCreator->front()));
     _idCreator->clear();
-    std::cout << "ICI" << std::endl;
     Room* room = new Room(&(_roomList->back().first));
 }
 
