@@ -151,6 +151,10 @@
                  */
                 auto getSizeInput() -> size_t &;
 
+
+                auto delInput(size_t length) -> void;
+
+
             private:
 
                 std::shared_ptr<asio::ip::tcp::socket> _socket; /*! socket */

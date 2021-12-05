@@ -57,10 +57,10 @@ auto rtype::PacketManager::managePacket() -> void
             {
                 size_t playersnb = 0;
                 for (auto i : *_roomList)
-                    if (i.second == tmp.at(1))
+                    if (i.second == tmp.at(1) - 1)
                         playersnb = i.first.size();
                 IPacket *p = new Packet();
-                p->pack(std::vector<uint8_t>{10, (uint8_t)playersnb});
+                p->pack(std::vector<uint8_t>{16, (uint8_t)playersnb});
                 p->setId(_packetsIn.front()->getId());
                  _isGetPlayerSended.push_back(std::pair(false, p->getId()));
                  _packetsOut.push_back(p);
@@ -68,7 +68,7 @@ auto rtype::PacketManager::managePacket() -> void
             else
             {
                 sendToPlayer(*_findPlayer(_packetsIn.front()->getId()), tmp);
-                //std::cerr << "Packet received from " << _packetsIn.front()->getId() << " is undefined size : " << tmp.size() << " | opcode : " << (int)(tmp.at(0)) << std::endl;
+                std::cerr << "Packet received from " << _packetsIn.front()->getId() << " is undefined size : " << tmp.size() << " | opcode : " << (int)(tmp.at(0)) << std::endl;
             }
         }
         _packetsIn.pop();

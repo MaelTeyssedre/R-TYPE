@@ -64,3 +64,9 @@ size_t &rtype::tcpUser::getSizeInput()
 {
     return (_sizeInput);
 }
+
+
+void rtype::tcpUser::delInput(size_t length)
+{
+    _input->erase(_input->begin(), _input->begin() + length);
+}
