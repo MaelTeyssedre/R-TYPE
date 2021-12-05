@@ -14,6 +14,7 @@
     #include "GraphicalLib.hpp"
 
     namespace rtype {
+
         class UpdateGraph {
             public:
                 UpdateGraph();
@@ -71,13 +72,14 @@
                 auto _setupExecSelectRoomScene() -> void;
                 auto _setupDeleteSelectRoomScene() -> void;
                 auto _createBackgroundSelectRoom(Registry &r) -> Entity;
-                auto _createTransitionSelectRoom(Registry &r) -> Entity;
                 auto _createLogoSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom1ButtonSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom2ButtonSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom3ButtonSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom4ButtonSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom5ButtonSelectRoom(Registry &r) -> Entity;
+                auto _createSelectRoom5NoRoom(Registry& r)->Entity;
+                auto _createSelectBackButtonSelectRoom(Registry& r)->Entity;
                 
             private:
                 rtype::IGraphicalLib *_graphicalLib;

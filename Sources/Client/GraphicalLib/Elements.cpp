@@ -119,7 +119,7 @@ void rtype::Sprite::setRectHeigth(int rectHeigth)
 void rtype::Sprite::setColorAlpha(int colorAlpha)
 {
     _colorAlpha = colorAlpha;
-    _sprite.setColor(sf::Color(255, 255, 255, colorAlpha));
+    _sprite.setColor(sf::Color(255, 255, 255, (uint8_t)colorAlpha));
 }
 
 sf::Sprite &rtype::Sprite::getSprite()
@@ -141,7 +141,7 @@ rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorG
     _text.setFont(_font);
     _text.setString(_content);
     _text.setPosition(sf::Vector2f(_posX, _posY));
-    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
+    _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
     _text.setCharacterSize(_fontSize);
 }
 
@@ -206,25 +206,25 @@ void rtype::Text::setFontSize(int fontSize)
 void rtype::Text::setColorRed(int colorRed)
 {
     _colorRed = colorRed;
-    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
+    _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
 void rtype::Text::setColorGreen(int colorGreen)
 {
     _colorGreen = colorGreen;
-    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
+    _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
 void rtype::Text::setColorBlue(int colorBlue)
 {
     _colorBlue = colorBlue;
-    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
+    _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
 void rtype::Text::setColorAlpha(int colorAlpha)
 {
     _colorAlpha = colorAlpha;
-    _text.setFillColor(sf::Color(_colorRed, _colorGreen, _colorBlue, _colorAlpha));
+    _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
 void rtype::Text::setContent(std::string &content)

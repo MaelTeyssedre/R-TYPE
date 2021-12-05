@@ -125,7 +125,6 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
             break;
         }
          case 17: {
-            std::cout << "in 17 " << std::endl;
             std::vector<uint8_t> tmpBuf{};
             tmpBuf.push_back(opCode);
             buffer->readFromBuffer(5, tmpBuf);

@@ -26,11 +26,11 @@ auto rtype::UpdateGraph::_createYouWaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
-    struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/you.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 835, 227, "ressources/you.png"};
     struct components::position_s pos = {200, 250};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {false};
+    struct components::drawable_s drawable = {true};
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {9};
@@ -51,11 +51,11 @@ auto rtype::UpdateGraph::_createPlayer1WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
-    struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-1-connected.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 835, 227, "ressources/player-1-connected.png"};
     struct components::position_s pos = {200, 250};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
+    struct components::drawable_s drawable = {false};
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {8};
@@ -76,11 +76,11 @@ auto rtype::UpdateGraph::_createPlayer2WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
-    struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-2-connected.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 835, 227, "ressources/player-2-connected.png"};
     struct components::position_s pos = {1520, 250};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
+    struct components::drawable_s drawable = {false};
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {7};
@@ -101,11 +101,11 @@ auto rtype::UpdateGraph::_createPlayer3WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
-    struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-3-connected.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 835, 227, "ressources/player-3-connected.png"};
     struct components::position_s pos = {200, 600};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
+    struct components::drawable_s drawable = {false};
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {6};
@@ -126,11 +126,11 @@ auto rtype::UpdateGraph::_createPlayer4WaitingRoom(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
     auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
-    struct components::sprite_s sprite = {(float)1, (float)1, 0, 0, 835, 227, "ressources/player-4-connected.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 835, 227, "ressources/player-4-connected.png"};
     struct components::position_s pos = {1520, 600};
     struct components::direction_s dir = {0, 0};
     struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
+    struct components::drawable_s drawable = {false};
     struct components::index_s idx = {id};
     struct components::scene_s my_scene = {constants::SCENE::WAITING_ROOM};
     struct components::zaxis_s zaxis = {5};
@@ -152,18 +152,49 @@ auto rtype::UpdateGraph::_setupWaitingRoomScene() -> void
     _setupScene[rtype::constants::SCENE::WAITING_ROOM] = std::function(
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
+            auto playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value();
+            if (playerList.self == 1)
+            {
+                Entity player1 = _createYouWaitingRoom(r);
+                _graphicalLib->createSprite(player1, r.getComponents<components::sprite_s>()[player1].value().scaleX, r.getComponents<components::sprite_s>()[player1].value().scaleY, r.getComponents<components::sprite_s>()[player1].value().rectX, r.getComponents<components::sprite_s>()[player1].value().rectY, r.getComponents<components::sprite_s>()[player1].value().rectWidth, r.getComponents<components::sprite_s>()[player1].value().rectHeight, r.getComponents<components::sprite_s>()[player1].value().path);
+            }
+            else
+            {
+                Entity player1 = _createPlayer1WaitingRoom(r);
+                _graphicalLib->createSprite(player1, r.getComponents<components::sprite_s>()[player1].value().scaleX, r.getComponents<components::sprite_s>()[player1].value().scaleY, r.getComponents<components::sprite_s>()[player1].value().rectX, r.getComponents<components::sprite_s>()[player1].value().rectY, r.getComponents<components::sprite_s>()[player1].value().rectWidth, r.getComponents<components::sprite_s>()[player1].value().rectHeight, r.getComponents<components::sprite_s>()[player1].value().path);
+            }
+            if (playerList.self == 2)
+            {
+                Entity player2 = _createYouWaitingRoom(r);
+                _graphicalLib->createSprite(player2, r.getComponents<components::sprite_s>()[player2].value().scaleX, r.getComponents<components::sprite_s>()[player2].value().scaleY, r.getComponents<components::sprite_s>()[player2].value().rectX, r.getComponents<components::sprite_s>()[player2].value().rectY, r.getComponents<components::sprite_s>()[player2].value().rectWidth, r.getComponents<components::sprite_s>()[player2].value().rectHeight, r.getComponents<components::sprite_s>()[player2].value().path);
+            }
+            else
+            {
+                Entity player2 = _createPlayer2WaitingRoom(r);
+                _graphicalLib->createSprite(player2, r.getComponents<components::sprite_s>()[player2].value().scaleX, r.getComponents<components::sprite_s>()[player2].value().scaleY, r.getComponents<components::sprite_s>()[player2].value().rectX, r.getComponents<components::sprite_s>()[player2].value().rectY, r.getComponents<components::sprite_s>()[player2].value().rectWidth, r.getComponents<components::sprite_s>()[player2].value().rectHeight, r.getComponents<components::sprite_s>()[player2].value().path);
+            }
+            if (playerList.self == 3)
+            {
+                Entity player3 = _createYouWaitingRoom(r);
+                _graphicalLib->createSprite(player3, r.getComponents<components::sprite_s>()[player3].value().scaleX, r.getComponents<components::sprite_s>()[player3].value().scaleY, r.getComponents<components::sprite_s>()[player3].value().rectX, r.getComponents<components::sprite_s>()[player3].value().rectY, r.getComponents<components::sprite_s>()[player3].value().rectWidth, r.getComponents<components::sprite_s>()[player3].value().rectHeight, r.getComponents<components::sprite_s>()[player3].value().path);
+            }
+            else
+            {
+                Entity player3 = _createPlayer3WaitingRoom(r);
+                _graphicalLib->createSprite(player3, r.getComponents<components::sprite_s>()[player3].value().scaleX, r.getComponents<components::sprite_s>()[player3].value().scaleY, r.getComponents<components::sprite_s>()[player3].value().rectX, r.getComponents<components::sprite_s>()[player3].value().rectY, r.getComponents<components::sprite_s>()[player3].value().rectWidth, r.getComponents<components::sprite_s>()[player3].value().rectHeight, r.getComponents<components::sprite_s>()[player3].value().path);
+            }
+            if (playerList.self == 4)
+            {
+                Entity player4 = _createYouWaitingRoom(r);
+                _graphicalLib->createSprite(player4, r.getComponents<components::sprite_s>()[player4].value().scaleX, r.getComponents<components::sprite_s>()[player4].value().scaleY, r.getComponents<components::sprite_s>()[player4].value().rectX, r.getComponents<components::sprite_s>()[player4].value().rectY, r.getComponents<components::sprite_s>()[player4].value().rectWidth, r.getComponents<components::sprite_s>()[player4].value().rectHeight, r.getComponents<components::sprite_s>()[player4].value().path);
+            }
+            else
+            {
+                Entity player4 = _createPlayer4WaitingRoom(r);
+                _graphicalLib->createSprite(player4, r.getComponents<components::sprite_s>()[player4].value().scaleX, r.getComponents<components::sprite_s>()[player4].value().scaleY, r.getComponents<components::sprite_s>()[player4].value().rectX, r.getComponents<components::sprite_s>()[player4].value().rectY, r.getComponents<components::sprite_s>()[player4].value().rectWidth, r.getComponents<components::sprite_s>()[player4].value().rectHeight, r.getComponents<components::sprite_s>()[player4].value().path);
+            }
             Entity backgroundId = _createBackgroundWaitingRoom(r);
-            Entity youId = _createYouWaitingRoom(r);
-            Entity player1 = _createPlayer1WaitingRoom(r);
-            Entity player2 = _createPlayer2WaitingRoom(r);
-            Entity player3 = _createPlayer3WaitingRoom(r);
-            Entity player4 = _createPlayer4WaitingRoom(r);
             _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_s>()[backgroundId].value().scaleX, r.getComponents<components::sprite_s>()[backgroundId].value().scaleY, r.getComponents<components::sprite_s>()[backgroundId].value().rectX, r.getComponents<components::sprite_s>()[backgroundId].value().rectY, r.getComponents<components::sprite_s>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_s>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_s>()[backgroundId].value().path);
-            _graphicalLib->createSprite(youId, r.getComponents<components::sprite_s>()[youId].value().scaleX, r.getComponents<components::sprite_s>()[youId].value().scaleY, r.getComponents<components::sprite_s>()[youId].value().rectX, r.getComponents<components::sprite_s>()[youId].value().rectY, r.getComponents<components::sprite_s>()[youId].value().rectWidth, r.getComponents<components::sprite_s>()[youId].value().rectHeight, r.getComponents<components::sprite_s>()[youId].value().path);
-            _graphicalLib->createSprite(player1, r.getComponents<components::sprite_s>()[player1].value().scaleX, r.getComponents<components::sprite_s>()[player1].value().scaleY, r.getComponents<components::sprite_s>()[player1].value().rectX, r.getComponents<components::sprite_s>()[player1].value().rectY, r.getComponents<components::sprite_s>()[player1].value().rectWidth, r.getComponents<components::sprite_s>()[player1].value().rectHeight, r.getComponents<components::sprite_s>()[player1].value().path);
-            _graphicalLib->createSprite(player2, r.getComponents<components::sprite_s>()[player2].value().scaleX, r.getComponents<components::sprite_s>()[player2].value().scaleY, r.getComponents<components::sprite_s>()[player2].value().rectX, r.getComponents<components::sprite_s>()[player2].value().rectY, r.getComponents<components::sprite_s>()[player2].value().rectWidth, r.getComponents<components::sprite_s>()[player2].value().rectHeight, r.getComponents<components::sprite_s>()[player2].value().path);
-            _graphicalLib->createSprite(player3, r.getComponents<components::sprite_s>()[player3].value().scaleX, r.getComponents<components::sprite_s>()[player3].value().scaleY, r.getComponents<components::sprite_s>()[player3].value().rectX, r.getComponents<components::sprite_s>()[player3].value().rectY, r.getComponents<components::sprite_s>()[player3].value().rectWidth, r.getComponents<components::sprite_s>()[player3].value().rectHeight, r.getComponents<components::sprite_s>()[player3].value().path);
-            _graphicalLib->createSprite(player4, r.getComponents<components::sprite_s>()[player4].value().scaleX, r.getComponents<components::sprite_s>()[player4].value().scaleY, r.getComponents<components::sprite_s>()[player4].value().rectX, r.getComponents<components::sprite_s>()[player4].value().rectY, r.getComponents<components::sprite_s>()[player4].value().rectWidth, r.getComponents<components::sprite_s>()[player4].value().rectHeight, r.getComponents<components::sprite_s>()[player4].value().path);
             auto &scene = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
             if (scene)
                 scene.value().isLoaded = true;
@@ -175,24 +206,15 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
     _execScene[rtype::constants::SCENE::WAITING_ROOM] = std::function(
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
+            (void)currentScenes;
             std::vector<size_t> savedIdx {};
-            auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
             std::vector<int> myZAxises;
             std::map<int, std::pair<size_t, constants::TYPE>> zAxisMap;
             for (auto &&[pos, sprite, scene, drawable, index, zaxis, playerData] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>(), r.getComponents<components::playerData_s>()))
             {
-                if (!(drawable.drawable) || scene.scene != constants::SCENE::WAITING_ROOM)
+                if ( scene.scene != constants::SCENE::WAITING_ROOM)
                     continue;
-                savedIdx.push_back(index.idx);
-                myZAxises.push_back((int)zaxis.zAxis);
-                zAxisMap[(int)zaxis.zAxis] = std::pair(index.idx, constants::TYPE::SPRITE);
-                _graphicalLib->setSpritePosX(index.idx, pos.x);
-                _graphicalLib->setSpritePosY(index.idx, pos.y);
-                _graphicalLib->setSpriteScale(index.idx, sprite.scaleX, sprite.scaleY);
-                _graphicalLib->setSpriteRectX(index.idx, sprite.rectX);
-                _graphicalLib->setSpriteRectY(index.idx, sprite.rectY);
-                _graphicalLib->setSpriteRectWidth(index.idx, sprite.rectWidth);
-                _graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
+                
             }
             for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {

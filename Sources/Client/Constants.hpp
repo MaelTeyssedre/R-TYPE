@@ -61,35 +61,22 @@
          * 
          */
         namespace constants {
-            /**
-             * \enum SCENE
-             * 
-             * \brief enum for all scenes of the game
-             */
+
             enum SCENE {
-                MAIN_MENU,
-                LOADING_MENU,
-                WAITING_ROOM,
-                SELECT_ROOM
+                MAIN_MENU = 0,
+                LOADING_MENU = 1,
+                WAITING_ROOM = 2,
+                SELECT_ROOM = 3
             };
 
-            /**
-             * \enum TYPE
-             * 
-             * \brief enum for all type of the game
-             */
+
             enum TYPE {
-                SPRITE,
-                TEXT,
-                SOUND,
-                MUSIC
+                SPRITE = 0,
+                TEXT = 1,
+                SOUND = 2,
+                MUSIC = 3
             };
 
-            /**
-             * \enum EVENT
-             * 
-             * \brief enum for all event of the game
-             */
             enum EVENT {
                 KEY_UP,
                 KEY_DOWN,
@@ -103,22 +90,15 @@
                 MOUSE_LEFT_CLICK
             };
 
-            /**
-             * \enum WEAPON_TYPE
-             * 
-             * \brief enum for all weapon type of the game
-             */
+
+
             enum WEAPON_TYPE {
                 WEAPON_1,
                 WEAPON_2,
                 WEAPON_3
             };
 
-            /**
-             * \enum ENTITY_TYPE
-             * 
-             * \brief enum for all entity type of the game
-             */
+
             enum ENTITY_TYPE {
                 PLAYER,
                 MONSTER,
@@ -127,11 +107,7 @@
                 PROJECTILE
             };
             
-            /**
-             * \enum RESERVED_ID
-             * 
-             * \brief enum for all reserved id of the game
-             */
+
             enum RESERVED_ID {
                 TIME_UPDATE = 0,
                 NETWORK_UPDATE = 1,
