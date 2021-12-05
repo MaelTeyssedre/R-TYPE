@@ -48,7 +48,7 @@ std::shared_ptr<rtype::Player> rtype::JsonWrapper::createPlayer(int id, std::pai
 std::shared_ptr<rtype::Wall> rtype::JsonWrapper::createWall(std::pair<int, int> pos, std::string type)
 {
     (void)pos;
-    std::shared_ptr<Wall> element{new Wall()};
+    std::shared_ptr<Wall> element {new Wall()};
     element->setName(type);
     return (element);
 }

@@ -45,7 +45,7 @@
                  * \brief init the wall
                  * 
                  */
-                auto init(Registry &) -> void override;
+                auto init(Registry &r) -> void override;
                 
                 /**
                  * \fn auto update(void) -> void override
@@ -77,7 +77,6 @@
 
                 Registry _registry; /*! registry */
                 std::string _name; /*! name of the wall */
-                size_t _idx; /*! Entity id of the Wall */
         };
     }
 #endif /* !WALL_HPP_ */

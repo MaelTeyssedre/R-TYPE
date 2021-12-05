@@ -127,6 +127,17 @@ auto rtype::Game::_registerComponents() -> void
             (void)r;
             (void)e;
         });
+    _r.registerComponent<components::types_s>(
+        [](Registry& r, Entity const& e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry& r, Entity const& e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
 }
 
 

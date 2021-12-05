@@ -78,7 +78,6 @@
 
                 Registry _registry; /*! registry*/
                 std::string _name; /*! name of the player */
-                size_t _idx; /*! Entity id of the player */
         };
     }
 

@@ -181,7 +181,6 @@
                 components::healPoint_s _healPoint; /*! healpoint of the monster */
                 components::fireFrequence_s _fireFrequence; /*! firefrequence of the monster */
                 components::weapon_s _weapon; /*! WeaponType of the monster */
-                size_t _idx; /*! Entity id of the monster */
                 components::position_s _position;  /*! Position of the monster */
                 components::velocity_s _velocity;  /*! velocity of the monster */
                 components::loot_s _loot; /*! Is the monster looting something */

@@ -15,6 +15,7 @@
 #include "Velocity.hpp"
 #include "Weapon.hpp"
 #include "IndexComponent.hpp"
+#include "TypesComponent.hpp"
 
 
 #endif /* !COMPONENTS_HPP_ */
