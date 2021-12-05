@@ -38,54 +38,54 @@
                 virtual ~NetworkManager() = default;
 
                 /**
-                 * \fn void start()
+                 * \fn auto start() -> void override
                  * 
                  * \brief start connection
                  * 
                  */
-                void start() override;
+                auto start() -> void override;
 
                 /**
-                 * \fn void stop()
+                 * \fn auto stop() -> void override
                  * 
                  * \brief stop connection
                  * 
                  */
-                void stop() override;
+                auto stop() -> void override;
 
 
                 /**
-                 * \fn static void startNetworkThread(NetworkManager *netManager)
+                 * \fn static auto startNetworkThread(NetworkManager *netManager) -> void;
                  * 
                  * \brief start network thread
                  * 
-                 * \param network manager
+                 * \param netManager A pointe on a network manager object
                  * 
                  */
-                static void startNetworkThread(NetworkManager *netManager);
+                static auto startNetworkThread(NetworkManager *netManager) -> void;
 
                 /**
-                 * \fn ITCPClient *createTCPClient(int port)
+                 * \fn auto createTCPClient(std::string host, int port) ->ITCPClient * override
                  * 
                  * \brief create a TCP client 
                  * 
                  * \param port port that will be used for the communication
                  *  
-                 * \return ITCPClient* the client
+                 * \return ITCPClient* A pointer on the client
                  */
-                ITCPClient *createTCPClient(std::string host, int port) override;
+                auto createTCPClient(std::string host, int port) ->ITCPClient * override;
 
                 /**
-                 * \fn void deleteTCPClient(ITCPClient *tcp)
+                 * \fn auto deleteTCPClient(ITCPClient *tcp) -> void override
                  * 
                  * \brief delete a TCP client 
                  * 
                  * \param tcp client to delete
                  */
-                void deleteTCPClient(ITCPClient *tcp) override;
+                auto deleteTCPClient(ITCPClient *tcp) -> void override;
 
                 /**
-                 * \fn IUDPSocket *createSocketUDP(int port) override
+                 * \fn auto createSocketUDP(std::string host, int port) -> IUDPSocket * override
                  * 
                  * \brief create a socket UDP
                  * 
@@ -93,19 +93,19 @@
                  * 
                  * \return IUDPSocket* created socket
                  */
-                IUDPSocket *createSocketUDP(std::string host, int port) override;
+                auto createSocketUDP(std::string host, int port) -> IUDPSocket * override;
 
                 /**
-                 * \fn void deleteSocketUDP(IUDPSocket *udp) override
+                 * \fn auto deleteSocketUDP(IUDPSocket *udp) -> void override
                  * 
                  * \brief delete a socket UDP
                  * 
                  * \param udp the socket tu delete 
                  */
-                void deleteSocketUDP(IUDPSocket *udp) override;
+                auto deleteSocketUDP(IUDPSocket *udp) -> void override;
 
                 /**
-                 * \fn ITCPServer *createTCPServer(int port) override
+                 * \fn auto createTCPServer(int port) -> ITCPServer * override
                  * 
                  * \brief create a TCP server 
                  * 
@@ -113,16 +113,16 @@
                  * 
                  * \return ITCPServer* the created server 
                  */
-                ITCPServer *createTCPServer(int port) override;
+                auto createTCPServer(int port) -> ITCPServer * override;
 
                 /**
-                 * \fn void deleteTCPServer(ITCPServer *tcp) override
+                 * \fn auto deleteTCPServer(ITCPServer *tcp) -> void override
                  * 
                  * \brief delete a tcp server
                  * 
-                 * @param tcp the server to delete
+                 * \param tcp the server to delete
                  */
-                void deleteTCPServer(ITCPServer *tcp) override;
+                auto deleteTCPServer(ITCPServer *tcp) -> void override;
 
             private:
                 asio::io_context _context; /*! asio context */

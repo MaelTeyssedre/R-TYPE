@@ -7,7 +7,7 @@
     #define UPDATENETWORK_HPP_
 
     #include "Registry.hpp"
-    #include "NetworkComponent.hpp"
+    #include "RequestComponent.hpp"
     #include "Constants.hpp"
     #include "tcpServer.hpp"
     #include "udpSocket.hpp"
@@ -61,7 +61,7 @@
                  * 
                  * \param networks reference to a sparseArray of network components
                  */
-                auto operator()(Registry &r, SparseArray<components::network_s> &networks) -> void;
+                auto operator()(Registry &r, SparseArray<components::request_s> &networks) -> void;
 
             private:
                 ITCPServer *_tcpServer; /*! A tcp server*/

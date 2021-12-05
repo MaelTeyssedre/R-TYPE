@@ -141,6 +141,9 @@
                  * 
                  */
                 auto _getRoomByPlayer(size_t id) -> size_t;
+
+                auto _getPlayersInRooms() -> void;
+
                 
                 /**
                  * \fn auto _getNbPlayersInRoom(size_t idRoom) -> size_t
@@ -156,6 +159,7 @@
 
                 auto _findPlayer(size_t id) -> PlayerData*;
 
+
             private:
                 std::queue<IPacket*> _packetsIn; /*! A queue of pointer of packet getted */
                 std::vector<IPacket*> _packetsOut; /*! A vector of packet sended */
@@ -165,6 +169,7 @@
                 std::vector<std::pair<bool, size_t>> _isCreateSended; /*! A vector which contain a list of room creation request received */
                 std::vector<std::pair<bool, size_t>> _isJoinSended; /*! A vector which contain a list of room join request received */
                 std::vector<std::pair<bool, size_t>> _isGetSended; /*! A vector which contain a list of asked room request received */
+                std::vector<std::pair<bool, size_t>> _isGetPlayerSended; /*! A vector which contain a list of asked room request received */
             };
     }
 

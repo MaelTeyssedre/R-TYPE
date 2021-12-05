@@ -34,7 +34,7 @@
                 virtual ~Packet() = default;
 
                 /**
-                * \fn size_t pack(std::vector<uint8_t> &data)
+                * \fn auto pack(std::vector<uint8_t> data) -> size_t override
                 *
                 * \brief pack data
                 * 
@@ -42,20 +42,34 @@
                 * 
                 * \return size readed
                 */
-                size_t pack(std::vector<uint8_t> data) override;
+                auto pack(std::vector<uint8_t> data) -> size_t  override;
 
                 /**
-                * \fn std::shared_ptr<std::vector<uint8_t>> unpack()
+                * \fn auto unpack() -> std::vector<uint8_t> override
                 *
                 * \brief unpack the data
                 * 
                 * \return vector of data
                 */
-                std::vector<uint8_t> unpack() override;
+                auto unpack() -> std::vector<uint8_t> override;
 
-                void setId(size_t id) override;
+                /**
+                 * \fn auto setId(size_t id) -> void override
+                 * 
+                 * \brief set a packet id
+                 * 
+                 * \param the id we want to set
+                 */
+                auto setId(size_t id) -> void override;
 
-                size_t getId(void) override;
+                /**
+                 * \fn auto getId(void) -> size_t override
+                 * 
+                 * \brief get a packet id
+                 * 
+                 * \return the id we want to get
+                 */
+                auto getId(void) -> size_t override;
 
             private:
 

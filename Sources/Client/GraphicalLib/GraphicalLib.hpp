@@ -498,7 +498,7 @@
                 auto getTextColorRed(size_t id) -> int override;
 
                 /**
-                 * \fn int getTextColorGreen(size_t id) override
+                 * \fn auto getTextColorGreen(size_t id) -> int override
                  * 
                  * \brief get the green proportion of a text
                  *
@@ -506,10 +506,10 @@
                  * 
                  * \return the green proportion of the text asked
                  */
-                int getTextColorGreen(size_t id) override;
+                auto getTextColorGreen(size_t id) -> int override;
 
                 /**
-                 * \fn int getTextColorBlue(size_t id) override
+                 * \fn auto getTextColorBlue(size_t id) -> int override
                  * 
                  * \brief get the blue proportion of a text
                  *
@@ -517,10 +517,10 @@
                  * 
                  * \return the blue proportion of the text asked
                  */
-                int getTextColorBlue(size_t id) override;
+                auto getTextColorBlue(size_t id) -> int override;
 
                 /**
-                 * \fn int getTextColorAlpha(size_t id) override
+                 * \fn auto getTextColorAlpha(size_t id) -> int override
                  * 
                  * \brief get the transparency of a text
                  *
@@ -528,10 +528,10 @@
                  * 
                  * \return the transparency of the text asked
                  */
-                int getTextColorAlpha(size_t id) override;
+                auto getTextColorAlpha(size_t id) -> int override;
 
                 /**
-                 * \fn std::string getTextContent(size_t id) override
+                 * \fn auto getTextContent(size_t id) -> std::string override
                  * 
                  * \brief get the content of a text
                  *
@@ -539,27 +539,107 @@
                  * 
                  * \return the content of the text asked
                  */
-                std::string getTextContent(size_t id) override;
+                auto getTextContent(size_t id) -> std::string override;
 
 
-                void setTextPosX(size_t id, float posX) override;
-                void setTextPosY(size_t id, float posY) override;
-                void setTextFontSize(size_t id, int fontSize) override;
-                void setTextColorRed(size_t id, int colorRed) override;
-                void setTextColorGreen(size_t id, int colorGreen) override;
-                void setTextColorBlue(size_t id, int colorBlue) override;
-                void setTextColorAlpha(size_t id, int colorAlpha) override;
-                void setTextContent(size_t id, std::string &content) override;
+                /**
+                 * \fn auto setTextPosX(size_t id, float posX) -> void override
+                 * 
+                 * \brief set the x position of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param posX x position to set
+                 */
+                auto setTextPosX(size_t id, float posX) -> void override;
+
+                /**
+                 * \fn auto setTextPosY(size_t id, float posY) -> void override
+                 * 
+                 * \brief set the y position of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param posY y position to set
+                 */
+                auto setTextPosY(size_t id, float posY) -> void override;
+
+                /**
+                 * \fn auto setTextFontSize(size_t id, int fontSize) -> void override
+                 * 
+                 * \brief set the font size of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param fontSize font size to set
+                 */
+                auto setTextFontSize(size_t id, int fontSize) -> void override;
+
+                /**
+                 * \fn auto setTextColorRed(size_t id, int colorRed) -> void override
+                 * 
+                 * \brief set red proportion of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorRed red proportion to set
+                 */
+                auto setTextColorRed(size_t id, int colorRed) -> void override;
+
+                /**
+                 * \fn auto setTextColorGreen(size_t id, int colorGreen) -> void override
+                 * 
+                 * \brief set Green proportion of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorGreen Green proportion to set
+                 */
+                auto setTextColorGreen(size_t id, int colorGreen) -> void override;
+
+                /**
+                 * \fn auto setTextColorBlue(size_t id, int colorBlue) -> void override
+                 * 
+                 * \brief set Blue proportion of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorBlue Blue proportion to set
+                 */
+                auto setTextColorBlue(size_t id, int colorBlue) -> void override;
+
+                /**
+                 * \fn auto setTextColorAlpha(size_t id, int colorAlpha) -> void override
+                 * 
+                 * \brief set the transparency of the Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorAlpha the transparency to set
+                 */
+                auto setTextColorAlpha(size_t id, int colorAlpha) -> void override;
+
+                /**
+                 * \fn auto setTextContent(size_t id, std::string &content) -> void override
+                 * 
+                 * \brief set the content of the text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param content reference to the content of the text
+                 */
+                auto setTextContent(size_t id, std::string &content) -> void override;
+
 
 
             private:
-                sf::RenderWindow *_renderWindow;
-                sf::Mouse _mouse;
+                sf::RenderWindow *_renderWindow; /*! A pointe to the windows renderer */
+                sf::Mouse _mouse; /*! A mouse sfml object */
 
-                std::map<size_t, std::shared_ptr<Sprite>> _spriteMap;
-                std::map<size_t, std::shared_ptr<Text>> _textMap;
-                std::map<size_t, std::shared_ptr<Sound>> _soundMap;
-                std::map<size_t, std::shared_ptr<Music>> _musicMap;
+                std::map<size_t, std::shared_ptr<Sprite>> _spriteMap; /*! A list of indexed sprite objects */
+                std::map<size_t, std::shared_ptr<Text>> _textMap; /*! A list of indexed text objects */
+                std::map<size_t, std::shared_ptr<Sound>> _soundMap; /*! A list of indexed sound objects */
+                std::map<size_t, std::shared_ptr<Music>> _musicMap; /*! A list of indexed music objects */
                 
         };
     }

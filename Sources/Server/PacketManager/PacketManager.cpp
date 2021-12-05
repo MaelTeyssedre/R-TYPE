@@ -22,6 +22,11 @@ auto rtype::PacketManager::_getRooms(IPacket *packet) ->void
     _isGetSended.push_back(std::pair(false, packet->getId()));
 }
 
+auto rtype::PacketManager::_getNbPlayersInRoom(IPacket *packet) ->void
+{
+    _isGetPlayerSended.push_back(std::pair(false, packet->getId()));
+}
+
 auto rtype::PacketManager::sendToPlayer(rtype::PlayerData &player, std::vector<uint8_t> request) -> void
 {
     player.getBufIn()->push_back(request);
@@ -47,6 +52,10 @@ auto rtype::PacketManager::managePacket() -> void
             else if (tmp.at(0) == 23)
             {
                 _getRooms(_packetsIn.front());
+            }
+            else if (tmp.at(0) == 22)
+            {
+                _getPlayersInRoom();
             }
             else
             {
@@ -159,5 +168,18 @@ auto rtype::PacketManager::manageResponse() -> void
             _packetsOut.push_back(packet);
             i.first = true;
             _isGetSended.erase(_isGetSended.begin());
+       }
+
+    for (auto &i : _isGetPlayerSended)
+       if (!i.first) {
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            std::vector<uint8_t> vec{};
+            vec.push_back((uint8_t)16);
+            vec.push_back((uint8_t)_getNbPlayersInRoom(_getRoomByPlayer(i.second)));
+            packet->pack(vec);
+            _packetsOut.push_back(packet);
+            i.first = true;
+            _isGetPlayerSended.erase(_isGetPlayerSended.begin());
        }
 }

@@ -207,9 +207,11 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
             if (!(net.value().request12.empty()) && !(net.value().request12.front().empty())) {
-                net.value().request12.erase(net.value().request12.begin());
+                struct components::currentRoom_s currRoom { net.value().request12[0][1] };
                 struct components::playerList_s playerList = {1, 1};
+                net.value().request12.erase(net.value().request12.begin());
                 r.addComponent<components::playerList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(playerList));
+                r.addComponent<components::currentRoom_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(currRoom));
                 // get id de la room après 12
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;

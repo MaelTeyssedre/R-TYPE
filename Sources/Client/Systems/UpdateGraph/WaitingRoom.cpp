@@ -207,22 +207,26 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
         {
             (void)currentScenes;
+            static std::chrono::duration dtime = std::chrono::nanoseconds(0);
+            auto& times = r.getComponents<components::myTime_s>();
+            auto& time = times[constants::RESERVED_ID::TIME_UPDATE];
+            dtime += time.value().deltaTime;
             std::vector<size_t> savedIdx {};
+            auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
             std::vector<int> myZAxises;
             std::map<int, std::pair<size_t, constants::TYPE>> zAxisMap;
-            for (auto &&[pos, sprite, scene, drawable, index, zaxis, playerData] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>(), r.getComponents<components::playerData_s>()))
-            {
-                if ( scene.scene != constants::SCENE::WAITING_ROOM)
+            auto& net = r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE];
+            for (auto&& [pos, sprite, scene, drawable, index, zaxis, playerData] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>(), r.getComponents<components::playerData_s>())) {
+                if (scene.scene != constants::SCENE::WAITING_ROOM)
                     continue;
-                
+                if (playerList.value().players > playerData.id)
+                    drawable.drawable = true;
             }
             for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
                 if (!(drawable.drawable) || scene.scene != constants::SCENE::WAITING_ROOM)
                     continue;
-                bool isInSavedIdx = false;
-                for (auto i : savedIdx)
-                    isInSavedIdx = (index.idx == i) ? true : isInSavedIdx;
+                
                 myZAxises.push_back((int)zaxis.zAxis);
                 zAxisMap[(int)zaxis.zAxis] = std::pair(index.idx, constants::TYPE::SPRITE);
                 _graphicalLib->setSpritePosX(index.idx, pos.x);
@@ -235,12 +239,24 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
             }
             std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
             std::reverse(myZAxises.begin(), myZAxises.end());
-
             for (auto i : myZAxises)
                 if (zAxisMap[i].second == constants::TYPE::SPRITE)
                     _graphicalLib->draw(zAxisMap[i].first);
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
+            if (!(net.value().request16.empty()) && !(net.value().request16.front().empty()))
+            {
+                playerList.value().players = net.value().request16.front()[1];
+            }
+            if (dtime.count() > 1500000000) {
+                net.value().sendRequest.push_back(std::vector<uint8_t>{22, (uint8_t)(r.getComponents<components::currentRoom_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().id)});
+                dtime = std::chrono::nanoseconds(0);
+            }
+            if (playerList.value().players == 4)
+            {
+                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
+                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::LOADING_MENU;
+            }
         });
 }
 

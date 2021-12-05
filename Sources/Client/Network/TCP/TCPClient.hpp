@@ -48,61 +48,68 @@
                 virtual ~TCPClient() = default;
 
                 /**
-                 * \fn void send(IPacket &data) override
+                 * \fn auto send(IPacket &data) -> void override
                  * 
                  * \brief send data on the network
                  * 
                  * \param data data to send
                  */
-                void send(IPacket &data) override;
+                auto send(IPacket &data) -> void override;
 
                 /**
-                 * \fn void receive() override
+                 * \fn auto receive() -> void override
                  * 
                  * \brief receive data from network
                  * 
                  */
-                void receive() override;
+                auto receive() -> void override;
 
                 /**
-                 * \fn void disconnect() override
+                 * \fn auto disconnect() -> void override
                  * 
                  * \brief disconnect from socket
                  * 
                  */
-                void disconnect() override;
+                auto disconnect() -> void override;
 
                 /**
-                 * \fn void doRead(const std::error_code &ec, size_t bytes)
+                 * \fn auto doRead(const std::error_code &ec, size_t bytes) -> void
                  * 
                  * \brief handle read
                  * 
                  * \param ec error code returned
+                 *
                  * \param bytes numbers of bytes read
                  */
-                void doRead(const std::error_code &ec, size_t bytes);
+                auto doRead(const std::error_code &ec, size_t bytes) -> void;
 
                 /**
-                 * \fn void doWrite(const std::error_code &ec, size_t bytes)
+                 * \fn auto doWrite(const std::error_code &ec, size_t bytes) -> void
                  * 
                  * \brief handle write
                  * 
                  * \param ec error code returned
                  * \param bytes numbers of bytes write
                  */
-                void doWrite(const std::error_code &ec, size_t bytes);
+                auto doWrite(const std::error_code &ec, size_t bytes) -> void;
 
                 /**
-                 * \fn std::shared_ptr<Buffer> getData()
+                 * \fn auto getBuffer() -> std::shared_ptr<Buffer> override
                  * 
                  * \brief Get the Data object
                  * 
                  * \return std::shared_ptr<Buffer> 
                  */
-                std::shared_ptr<Buffer> getBuffer() override;
+                auto getBuffer() -> std::shared_ptr<Buffer> override;
 
-
-                bool isConnected() override;
+                /**
+                 * \fn auto isConnected() -> bool override
+                 * 
+                 * \brief Check if the player is connected
+                 * 
+                 * \return true if the player is connectd
+                 */
+                auto isConnected() -> bool override;
 
             private:
                 asio::io_context &_context; /*! asio context */

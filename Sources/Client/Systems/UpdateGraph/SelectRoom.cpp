@@ -57,6 +57,7 @@ auto rtype::UpdateGraph::_createSelectRoom1ButtonSelectRoom(Registry &r) -> Enti
         {
             r.getComponents<components::sprite_s>()[id].value().rectY = 0;
             r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19, 1});
+            r.getComponents<components::currentRoom_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().id = 1;
         }};
     struct components::position_s pos = {WINDOW_SIZE_X * 0.1, WINDOW_SIZE_Y * 0.5 };
     struct components::direction_s dir = {0, 0};
@@ -98,6 +99,7 @@ auto rtype::UpdateGraph::_createSelectRoom2ButtonSelectRoom(Registry &r) -> Enti
         {
             r.getComponents<components::sprite_s>()[id].value().rectY = 0;
             r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19, 2});
+            r.getComponents<components::currentRoom_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().id = 2;
         }};
     struct components::position_s pos = { WINDOW_SIZE_X * 0.1, WINDOW_SIZE_Y * 0.8 };
     struct components::direction_s dir = {0, 0};
@@ -138,6 +140,7 @@ auto rtype::UpdateGraph::_createSelectRoom3ButtonSelectRoom(Registry &r) -> Enti
         {
             r.getComponents<components::sprite_s>()[id].value().rectY = 0;
             r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19, 3});
+            r.getComponents<components::currentRoom_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().id = 3;
         }};
     struct components::position_s pos = { (float)((WINDOW_SIZE_X * 0.4) - (sprite.rectX * sprite.scaleX)) , WINDOW_SIZE_Y * 0.65 };
     struct components::direction_s dir = { 0, 0 };
@@ -221,6 +224,7 @@ auto rtype::UpdateGraph::_createSelectRoom4ButtonSelectRoom(Registry &r) -> Enti
         {
             r.getComponents<components::sprite_s>()[id].value().rectY = 0;
             r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19, 4});
+            r.getComponents<components::currentRoom_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().id = 4;
         }};
     struct components::position_s pos = { WINDOW_SIZE_X * 0.7, WINDOW_SIZE_Y * 0.5 };
     struct components::direction_s dir = {0, 0};
@@ -262,8 +266,8 @@ auto rtype::UpdateGraph::_createSelectRoom5ButtonSelectRoom(Registry &r) -> Enti
         [this](Registry &r, size_t id) -> void
         {
             r.getComponents<components::sprite_s>()[id].value().rectY = 0;
-            r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19});
-            r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{5});
+            r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19, 5});
+            r.getComponents<components::currentRoom_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().id = 5;
         }};
     struct components::position_s pos = { WINDOW_SIZE_X * 0.7, WINDOW_SIZE_Y * 0.8 };
     struct components::direction_s dir = {0, 0};
@@ -413,10 +417,10 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
                 _graphicalLib->draw(zAxisMap[i]);
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
-            if (net.value().request12.size())
+            if (net.value().request10.size())
             {
-                net.value().request12.erase(net.value().request12.begin());
-                struct components::playerList_s playerList = { 1, 1 };
+                net.value().request10.erase(net.value().request10.begin());
+                struct components::playerList_s playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value();
                 r.addComponent<components::playerList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(playerList));
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;

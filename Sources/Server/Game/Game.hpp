@@ -12,7 +12,7 @@
 #include "Buffer.hpp"
 #include "Registry.hpp"
 #include "JsonWrapper.hpp"
-#include "NetworkComponent.hpp"
+#include "RequestComponent.hpp"
 #include "PlayerData.hpp"
 #include <thread>
 #include <vector>

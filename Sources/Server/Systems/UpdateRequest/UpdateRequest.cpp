@@ -1,15 +1,15 @@
 
-#include "UpdateNetwork.hpp"
+#include "UpdatRequest.hpp"
 #include "Constants.hpp"
 
 rtype::UpdateNetwork::UpdateNetwork(ITCPServer *server, IUDPSocket *socket)
     : _tcpServer(server), _socket(socket) {}
 
-void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
+void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::request_s> &networks)
 {
     (void)r;
     (void)networks;
-    std::optional<components::network_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
+    std::optional<components::request_s> &network = networks[rtype::constants::RESERVED_ID::NETWORK_UPDATE];
     std::uint8_t opCode = 0;
     std::vector<uint8_t> reply;
     if (!network)

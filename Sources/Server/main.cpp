@@ -12,8 +12,17 @@ void signalHandler(int signum)
     status = false;
 }
 
+bool is_number(const std::string& s)
+{
+    return !s.empty() && std::find_if(s.begin(), s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
+}
+
 int main(int ac, char **av)
 {
+    if (ac != 2 || !is_number(av[1])) {
+        std::cout << HELPER << std::endl;
+        return 0;
+    }
     (void)ac;
     std::shared_ptr<std::vector<std::pair<std::vector<rtype::PlayerData>, size_t>>> roomList {new std::vector<std::pair<std::vector<rtype::PlayerData>, size_t>>()};
     std::shared_ptr<std::vector<size_t>> idCreator{ new std::vector<size_t> {} };

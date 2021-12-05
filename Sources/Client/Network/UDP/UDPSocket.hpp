@@ -48,32 +48,30 @@
               virtual ~UDPSocket() = default;
 
               /**
-               * \fn void send(IPacket &data)
+               * \fn auto send(IPacket &data) -> void
                * 
                * \brief send data
                * 
-               * \param data data to send
+               * \param data  A reference to the data to send
                * 
                */ 
-              void send(IPacket &data) override;
+              auto send(IPacket &data) -> void override;
 
               /**
-               * \fn std::vector<uint8_t> &receive()
+               * \fn auto receive() -> void override
                * 
                * \brief receive data from network
                * 
-               * \return data received
-               * 
                */ 
-              void receive() override;
+              auto receive() -> void override;
 
               /**
-               * \fn  void handleSend()
+               * \fn auto handleSend() -> void
                * 
                * \brief handle after receive
                *
                */ 
-              void handleSend();
+              auto handleSend() -> void;
 
           private:
               asio::io_context &_context; /*! asio context */
