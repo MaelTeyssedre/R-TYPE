@@ -178,7 +178,8 @@ auto rtype::UpdateGraph::_createSelectBackButtonSelectRoom(Registry& r) -> Entit
         [this](Registry& r, size_t id) -> void
         {
             r.getComponents<components::sprite_s>()[id].value().rectX = 0;
-            r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{19, 3});
+            r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::MAIN_MENU;
+            r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
         } };
     struct components::position_s pos = { 0.f, 0.f};
     struct components::direction_s dir = { 0, 0 };

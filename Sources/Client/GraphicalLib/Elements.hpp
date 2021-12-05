@@ -400,7 +400,7 @@
                  *
                  * \param fontSize the font size we want to set
                  */
-                auto setFontSize(int fontSize) -> voi ;
+                auto setFontSize(int fontSize) -> void ;
 
                 /**
                  * \fn auto setColorRed(int colorRed) -> void

@@ -17,117 +17,117 @@ rtype::Sprite::Sprite(float posX, float posY, float rotation, float scaleX, floa
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
-float rtype::Sprite::getPosX()
+auto rtype::Sprite::getPosX() -> float
 {
     return _posX;
 }
 
-float rtype::Sprite::getPosY()
+auto rtype::Sprite::getPosY() -> float
 {
     return _posY;
 }
 
-float rtype::Sprite::getRotation()
+auto rtype::Sprite::getRotation() -> float
 {
     return _rotation;
 }
 
-float rtype::Sprite::getScale()
+auto rtype::Sprite::getScale() -> float
 {
     return _scaleX;
 }
 
-int rtype::Sprite::getRectX()
+auto rtype::Sprite::getRectX() -> int
 {
     return _rectX;
 }
 
-int rtype::Sprite::getRectY()
+auto rtype::Sprite::getRectY() -> int
 {
     return _rectY;
 }
 
-int rtype::Sprite::getRectWidth()
+auto rtype::Sprite::getRectWidth() -> int
 {
     return _rectWidth;
 }
 
-int rtype::Sprite::getRectHeigth()
+auto rtype::Sprite::getRectHeigth() -> int
 {
     return _rectHeigth;
 }
 
-int rtype::Sprite::getColorAlpha()
+auto rtype::Sprite::getColorAlpha() -> int
 {
     return _colorAlpha;
 }
 
-void rtype::Sprite::setPosX(float posX)
+auto rtype::Sprite::setPosX(float posX) -> void
 {
     _posX = posX;
     _sprite.setPosition(sf::Vector2f(_posX, _posY));
 }
 
-void rtype::Sprite::setPosY(float posY)
+auto rtype::Sprite::setPosY(float posY) -> void
 {
     _posY = posY;
     _sprite.setPosition(sf::Vector2f(_posX, _posY));
 }
 
-void rtype::Sprite::setRotation(float rotation)
+auto rtype::Sprite::setRotation(float rotation) -> void
 {
     _rotation = rotation;
     _sprite.setRotation(_rotation);
 }
 
-void rtype::Sprite::setScaleX(float scaleX)
+auto rtype::Sprite::setScaleX(float scaleX) -> void
 {
     _scaleX = scaleX;
     _sprite.setScale(sf::Vector2f(_scaleX, _scaleY));
 }
 
-void rtype::Sprite::setScaleY(float scaleY)
+auto rtype::Sprite::setScaleY(float scaleY) -> void
 {
     _scaleY = scaleY;
     _sprite.setScale(sf::Vector2f(_scaleX, _scaleY));
 }
 
-void rtype::Sprite::setRectX(int rectX)
+auto rtype::Sprite::setRectX(int rectX) -> void
 {
     _rectX = rectX;
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
-void rtype::Sprite::setRectY(int rectY)
+auto rtype::Sprite::setRectY(int rectY) -> void
 {
     _rectY = rectY;
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
-void rtype::Sprite::setRectWidth(int rectWith)
+auto rtype::Sprite::setRectWidth(int rectWith) -> void
 {
     _rectWidth = rectWith;
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
-void rtype::Sprite::setRectHeigth(int rectHeigth)
+auto rtype::Sprite::setRectHeigth(int rectHeigth) -> void
 {
     _rectHeigth = rectHeigth;
     _sprite.setTextureRect(sf::IntRect(_rectX, _rectY, _rectWidth, _rectHeigth));
 }
 
-void rtype::Sprite::setColorAlpha(int colorAlpha)
+auto rtype::Sprite::setColorAlpha(int colorAlpha) -> void
 {
     _colorAlpha = colorAlpha;
     _sprite.setColor(sf::Color(255, 255, 255, (uint8_t)colorAlpha));
 }
 
-sf::Sprite &rtype::Sprite::getSprite()
+auto rtype::Sprite::getSprite() -> sf::Sprite &
 {
     return _sprite;
 }
 
-void rtype::Sprite::drawSprite(sf::RenderWindow *win)
+auto rtype::Sprite::drawSprite(sf::RenderWindow *win) -> void
 {
     win->draw(_sprite);
 }
@@ -145,95 +145,95 @@ rtype::Text::Text(float posX, float posY, int fontSize, int colorRed, int colorG
     _text.setCharacterSize(_fontSize);
 }
 
-float rtype::Text::getPosX()
+auto rtype::Text::getPosX() -> float
 {
     return _posX;
 }
 
-float rtype::Text::getPosY()
+auto rtype::Text::getPosY() -> float
 {
     return _posY;
 }
 
-int rtype::Text::getFontSize()
+auto rtype::Text::getFontSize() -> int
 {
     return _fontSize;
 }
 
-int rtype::Text::getColorRed()
+auto rtype::Text::getColorRed() -> int
 {
     return _colorRed;
 }
 
-int rtype::Text::getColorGreen()
+auto rtype::Text::getColorGreen() -> int
 {
     return _colorGreen;
 }
 
-int rtype::Text::getColorBlue()
+auto rtype::Text::getColorBlue() -> int
 {
     return _colorBlue;
 }
 
-int rtype::Text::getColorAlpha()
+auto rtype::Text::getColorAlpha() -> int
 {
     return _colorAlpha;
 }
 
-std::string rtype::Text::getContent()
+auto rtype::Text::getContent() -> std::string
 {
     return _content;
 }
 
-void rtype::Text::setPosX(float posX)
+auto rtype::Text::setPosX(float posX) -> void
 {
     _posX = posX;
     _text.setPosition(sf::Vector2f(_posX, _posY));
 }
 
-void rtype::Text::setPosY(float posY)
+auto rtype::Text::setPosY(float posY) -> void
 {
     _posY = posY;
     _text.setPosition(sf::Vector2f(_posX, _posY));
 }
 
-void rtype::Text::setFontSize(int fontSize)
+auto rtype::Text::setFontSize(int fontSize) -> void
 {
     _fontSize = fontSize;
     _text.setCharacterSize(_fontSize);
 }
 
-void rtype::Text::setColorRed(int colorRed)
+auto rtype::Text::setColorRed(int colorRed) -> void
 {
     _colorRed = colorRed;
     _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
-void rtype::Text::setColorGreen(int colorGreen)
+auto rtype::Text::setColorGreen(int colorGreen) -> void
 {
     _colorGreen = colorGreen;
     _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
-void rtype::Text::setColorBlue(int colorBlue)
+auto rtype::Text::setColorBlue(int colorBlue) -> void
 {
     _colorBlue = colorBlue;
     _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
-void rtype::Text::setColorAlpha(int colorAlpha)
+auto rtype::Text::setColorAlpha(int colorAlpha) -> void
 {
     _colorAlpha = colorAlpha;
     _text.setFillColor(sf::Color((uint8_t)_colorRed, (uint8_t)_colorGreen, (uint8_t)_colorBlue, (uint8_t)_colorAlpha));
 }
 
-void rtype::Text::setContent(std::string &content)
+auto rtype::Text::setContent(std::string &content) -> void
 {
     _content = content;
     _text.setString(_content);
 }
 
-sf::Text *rtype::Text::getText()
+auto rtype::Text::getText() -> sf::Text *
 {
     return &_text;
 }
@@ -246,7 +246,7 @@ rtype::Sound::Sound(std::string path)
     _sound.setBuffer(_buffer);
 }
 
-sf::Sound &rtype::Sound::getSound()
+auto rtype::Sound::getSound() -> sf::Sound &
 {
     return _sound;
 }
@@ -258,7 +258,7 @@ rtype::Music::Music(std::string path)
         throw std::runtime_error("Fail to load music");
 }
 
-sf::Music &rtype::Music::getMusic()
+auto rtype::Music::getMusic() -> sf::Music &
 {
     return _music;
 }

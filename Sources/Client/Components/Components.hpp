@@ -18,6 +18,7 @@
     #include "ReservedComponent.hpp"
     #include "SceneComponent.hpp"
     #include "SizeComponent.hpp"
+    #include "CurrentRoom.hpp"
     #include "StrengthComponent.hpp"
     #include "TimeComponent.hpp"
     #include "IndexComponent.hpp"
