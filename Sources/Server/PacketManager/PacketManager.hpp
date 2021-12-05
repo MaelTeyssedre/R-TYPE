@@ -142,7 +142,7 @@
                  */
                 auto _getRoomByPlayer(size_t id) -> size_t;
 
-                auto _getPlayersInRooms() -> void;
+                auto _getPlayersInRoom(IPacket *packet) -> void;
 
                 
                 /**

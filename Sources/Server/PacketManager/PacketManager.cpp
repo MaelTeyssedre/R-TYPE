@@ -22,7 +22,7 @@ auto rtype::PacketManager::_getRooms(IPacket *packet) ->void
     _isGetSended.push_back(std::pair(false, packet->getId()));
 }
 
-auto rtype::PacketManager::_getNbPlayersInRoom(IPacket *packet) ->void
+auto rtype::PacketManager::_getPlayersInRoom(IPacket *packet) -> void
 {
     _isGetPlayerSended.push_back(std::pair(false, packet->getId()));
 }
@@ -55,7 +55,15 @@ auto rtype::PacketManager::managePacket() -> void
             }
             else if (tmp.at(0) == 22)
             {
-                _getPlayersInRoom();
+                size_t playersnb = 0;
+                for (auto i : *_roomList)
+                    if (i.second == tmp.at(1))
+                        playersnb = i.first.size();
+                IPacket *p = new Packet();
+                p->pack(std::vector<uint8_t>{10, (uint8_t)playersnb});
+                p->setId(_packetsIn.front()->getId());
+                 _isGetPlayerSended.push_back(std::pair(false, p->getId()));
+                 _packetsOut.push_back(p);
             }
             else
             {
@@ -117,9 +125,9 @@ auto rtype::PacketManager::_getRoomByPlayer(size_t id) -> size_t
 auto rtype::PacketManager::_findPlayer(size_t id) -> PlayerData*
 {
    for (auto room : *_roomList) {
-        for (auto player: room.first) {
-            if (id == player.getId())
-                return (&player);
+        for (int i = 0; i < room.first.size(); i++) {
+            if (id == room.first[i].getId())
+                return (&room.first[i]);
         }
     }
    return (nullptr);

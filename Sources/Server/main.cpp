@@ -20,7 +20,7 @@ bool is_number(const std::string& s)
 int main(int ac, char **av)
 {
     if (ac != 2 || !is_number(av[1])) {
-        std::cout << HELPER << std::endl;
+        std::cout << "bad arguments" << std::endl;
         return 0;
     }
     (void)ac;
