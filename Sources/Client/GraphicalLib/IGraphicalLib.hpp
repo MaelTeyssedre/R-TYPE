@@ -367,7 +367,7 @@
 
 
                 /**
-                 * \fn virtual void setSpritePosX(size_t id, float posX) = 0
+                 * \fn virtual auto setSpritePosX(size_t id, float posX) -> void = 0
                  * 
                  * \brief set the x position of a sprite
                  *
@@ -375,10 +375,10 @@
                  * 
                  * \param posX x position to set
                  */
-                virtual void setSpritePosX(size_t id, float posX) = 0;
+                virtual auto setSpritePosX(size_t id, float posX) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpritePosY(size_t id, float posY) = 0
+                 * \fn virtual auto setSpritePosY(size_t id, float posY) -> void = 0
                  * 
                  * \brief set the y position of a sprite
                  *
@@ -386,10 +386,10 @@
                  * 
                  * \param posY y position to set
                  */
-                virtual void setSpritePosY(size_t id, float posY) = 0;
+                virtual auto setSpritePosY(size_t id, float posY) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpriteRotation(size_t id, float rotation) = 0
+                 * \fn virtual auto setSpriteRotation(size_t id, float rotation) -> void = 0
                  * 
                  * \brief set the rotation of a sprite
                  *
@@ -397,10 +397,10 @@
                  * 
                  * \param rotation rotation to set
                  */
-                virtual void setSpriteRotation(size_t id, float rotation) = 0;
+                virtual auto setSpriteRotation(size_t id, float rotation) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpriteScale(size_t id, float scaleX, float scaleY) = 0
+                 * \fn virtual auto setSpriteScale(size_t id, float scaleX, float scaleY) -> void = 0
                  * 
                  * \brief set the scale of a sprite
                  *
@@ -408,10 +408,10 @@
                  * 
                  * \param scale scale to set
                  */
-                virtual void setSpriteScale(size_t id, float scaleX, float scaleY) = 0;
+                virtual auto setSpriteScale(size_t id, float scaleX, float scaleY) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpriteRectX(size_t id, int rectX) = 0
+                 * \fn virtual auto setSpriteRectX(size_t id, int rectX) -> void = 0
                  * 
                  * \brief set the x position of a sprite rectangle
                  *
@@ -419,10 +419,10 @@
                  * 
                  * \param rectX x position of the sprite rectangle to set
                  */
-                virtual void setSpriteRectX(size_t id, int rectX) = 0;
+                virtual auto setSpriteRectX(size_t id, int rectX) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpriteRectY(size_t id, int rectY) = 0
+                 * \fn virtual auto setSpriteRectY(size_t id, int rectY) -> void = 0
                  * 
                  * \brief set the y position of a sprite rectangle
                  *
@@ -430,10 +430,10 @@
                  * 
                  * \param rectY y position of the sprite rectangle to set
                  */
-                virtual void setSpriteRectY(size_t id, int rectY) = 0;
+                virtual auto setSpriteRectY(size_t id, int rectY) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpriteRectWidth(size_t id, int rectWith) = 0
+                 * \fn virtual auto setSpriteRectWidth(size_t id, int rectWith) -> void  = 0
                  * 
                  * \brief set the width of a sprite rectangle
                  *
@@ -441,10 +441,10 @@
                  * 
                  * \param rectWidth width of the sprite rectangle to set
                  */
-                virtual void setSpriteRectWidth(size_t id, int rectWith) = 0;
+                virtual auto setSpriteRectWidth(size_t id, int rectWith) -> void  = 0;
 
                 /**
-                 * \fn virtual void setSpriteRectHeigth(size_t id, int rectHeigth) = 0
+                 * \fn virtual auto setSpriteRectHeigth(size_t id, int rectHeigth) -> void = 0
                  * 
                  * \brief set the Heigth of a sprite rectangle
                  *
@@ -452,10 +452,10 @@
                  * 
                  * \param rectHeigth Heigth of the sprite rectangle to set
                  */
-                virtual void setSpriteRectHeigth(size_t id, int rectHeigth) = 0;
+                virtual auto setSpriteRectHeigth(size_t id, int rectHeigth) -> void = 0;
 
                 /**
-                 * \fn virtual void setSpriteColorAlpha(size_t id, int colorAlpha) = 0
+                 * \fn virtual auto setSpriteColorAlpha(size_t id, int colorAlpha) -> void = 0
                  * 
                  * \brief set the transparency of a sprite 
                  *
@@ -463,17 +463,96 @@
                  * 
                  * \param colorAlpha transparency of the to set
                  */
-                virtual void setSpriteColorAlpha(size_t id, int colorAlpha) = 0;
+                virtual auto setSpriteColorAlpha(size_t id, int colorAlpha) -> void = 0;
 
 
             public:
-                virtual float getTextPosX(size_t id) = 0;
-                virtual float getTextPosY(size_t id) = 0;
-                virtual int getTextFontSize(size_t id) = 0;
-                virtual int getTextColorRed(size_t id) = 0;
-                virtual int getTextColorGreen(size_t id) = 0;
-                virtual int getTextColorBlue(size_t id) = 0;
+                /**
+                 * \fn virtual auto getTextPosX(size_t id) -> float = 0
+                 * 
+                 * \brief get the position x of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the x position of the text asked
+                 */
+                virtual auto getTextPosX(size_t id) -> float = 0;
+
+                /**
+                 * \fn virtual auto getTextPosY(size_t id) -> float = 0
+                 * 
+                 * \brief get the position y of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the y position of the text asked
+                 */
+                virtual auto getTextPosY(size_t id) -> float = 0;
+
+                /**
+                 * \fn virtual auto getTextFontSize(size_t id) -> int = 0
+                 * 
+                 * \brief get the font size of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the font size of the text asked
+                 */
+                virtual auto getTextFontSize(size_t id) -> int = 0;
+
+                /**
+                 * \fn virtual auto getTextColorRed(size_t id) -> int = 0
+                 * 
+                 * \brief get the red proportion of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the red proportion of the text asked
+                 */
+                virtual auto getTextColorRed(size_t id) -> int = 0;
+
+                /**
+                 * \fn virtual auto getTextColorGreen(size_t id) -> int = 0
+                 * 
+                 * \brief get the green proportion of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the green proportion of the text asked
+                 */
+                virtual auto getTextColorGreen(size_t id) -> int = 0;
+
+                /**
+                 * \fn virtual auto getTextColorBlue(size_t id) -> int = 0
+                 * 
+                 * \brief get the blue proportion of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the blue proportion of the text asked
+                 */
+                virtual auto getTextColorBlue(size_t id) -> int = 0;
+
+                /**
+                 * \fn virtual int getTextColorAlpha(size_t id) = 0
+                 * 
+                 * \brief get the transparency of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the transparency of the text asked
+                 */
                 virtual int getTextColorAlpha(size_t id) = 0;
+
+                /**
+                 * \fn virtual std::string getTextContent(size_t id) = 0
+                 * 
+                 * \brief get the content of a text
+                 *
+                 * \param id id of the text
+                 * 
+                 * \return the content of the text asked
+                 */
                 virtual std::string getTextContent(size_t id) = 0;
 
                 virtual void setTextPosX(size_t id, float posX) = 0;

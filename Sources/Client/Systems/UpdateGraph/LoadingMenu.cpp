@@ -53,7 +53,7 @@ Entity rtype::UpdateGraph::_createMusicLoadingMenu(Registry &r)
 {
     Entity id = r.spawnEntity();
     struct components::music_s path = {"ressources/MenuMusic.ogg"};
-    struct components::scene_s scene = {constants::SCENE::MAIN_MENU};
+    struct components::scene_s scene = {constants::SCENE::WAITING_ROOM};
     struct components::index_s index = {id};
 
     r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(scene));
