@@ -29,7 +29,7 @@
         virtual ~IPacket() = default;
 
         /**
-         * \fn virtual size_t pack(std::vector<uint8_t> &data) = 0;
+         * \fn virtual auto pack(std::vector<uint8_t> data) -> size_t = 0
          * 
          * \brief Serialize data
          * 
@@ -38,13 +38,34 @@
          * 
          * \return size of data serialized
          */
-        virtual size_t pack(std::vector<uint8_t> data) = 0;
+        virtual auto pack(std::vector<uint8_t> data) -> size_t = 0;
 
-        virtual std::vector<uint8_t> unpack() = 0;
+        /**
+         * \fn virtual auto unpack() -> std::vector<uint8_t> = 0
+         * 
+         * \brief Unserialize data
+         * 
+         * \return the unserialized data
+         */
+        virtual auto unpack() -> std::vector<uint8_t> = 0;
 
-        virtual void setId(size_t id) = 0;
+        /**
+         * \fn virtual auto setId(size_t id) -> void = 0
+         * 
+         * \brief set a packet id
+         * 
+         * \param the id we want to set
+         */
+        virtual auto setId(size_t id) -> void = 0;
 
-        virtual size_t getId(void) = 0;
+        /**
+         * \fn virtual auto getId(void) -> size_t = 0
+         * 
+         * \brief get a packet id
+         * 
+         * \return the id we want to get
+         */
+        virtual auto getId(void) -> size_t = 0;
 
   };
 

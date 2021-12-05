@@ -9,6 +9,12 @@
 
     #include <chrono>
 
+     /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \namespace components
@@ -17,6 +23,12 @@
          * 
          */
         namespace components {
+            /**
+             * \struct myTime_s
+             * 
+             * \brief the time component
+             * 
+             */
             struct myTime_s {
                 std::chrono::nanoseconds deltaTime;
             };

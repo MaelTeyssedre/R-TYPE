@@ -21,12 +21,18 @@
     #endif
 
     #ifdef __linux__
-        #define LIBS_PATH "./build/bin/dynlibsLinux/"
+        #define LIBS_PATH "./build/bin/"
     #endif
     #ifdef _WIN32
         #define LIBS_PATH "./build/bin/"
     #endif
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class LibLoader LibLoader.hpp
@@ -60,42 +66,42 @@
                 virtual ~LibLoader();
 
                 /**
-                 * \fn LibLoader& operator=(const LibLoader &other) = default
+                 * \fn auto operator=(const LibLoader &other) -> LibLoader&  = default
                  * 
                  * \brief default operator= overload
                  * 
                  * \return LibLoader& the assigned libLoader
                  */
-                LibLoader& operator=(const LibLoader &other) = default;
+                auto operator=(const LibLoader &other) -> LibLoader&  = default;
 
                 /**
-                 * \fn void loadMoreLib(std::vector<std::string>)
+                 * \fn auto loadLibs(const std::vector<std::string>&) -> void
                  * 
                  * \param Vector of libs to load
                  * 
                  * \brief load the .so/.dll and construct class inside
                  */
-                void loadLibs(const std::vector<std::string>&);
+                auto loadLibs(const std::vector<std::string>&) -> void;
 
                 /**
-                 * \fn std::vector<AMonster *> getLibs() const
+                 * \fn auto getLibs() -> std::vector<std::shared_ptr<AMonster>> *
                  * 
                  * \brief getter for loaded and constructed Element
                  * 
                  * \return vector of const loaded and constructed Element
                  */
-                std::vector<std::shared_ptr<AMonster>> *getLibs();
+                auto getLibs() -> std::vector<std::shared_ptr<AMonster>> *;
             
             private:
                 /**
-                 * \fn void loadLibs()
+                 * \fn auto loadLib() -> void
                  * 
                  * \brief load the .so/.dll contain in _libsfiles, construct the class inside and store them in _libs
                  */
-                void loadLib();
+                auto loadLib() -> void;
 
                 /**
-                 * \fn void loadLibs()
+                 * \fn auto listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad) -> void
                  * 
                  * \param path of libs to load
                  * 
@@ -103,7 +109,7 @@
                  * 
                  * \brief put the path of libs to load in _libsfiles
                  */
-                void listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad);
+                auto listLibDirectory(const std::string &path, const std::vector<std::string> &toLoad) -> void;
 
                 std::vector<std::shared_ptr<AMonster>> _libs; /*! List of shared pointer to AMonsters */
                 std::vector<std::string> _libsfiles; /*! Vector of name shared lib */

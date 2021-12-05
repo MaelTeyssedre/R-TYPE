@@ -31,14 +31,6 @@ auto rtype::PacketManager::sendToClient(rtype::PlayerData &player, std::vector<u
 
 auto rtype::PacketManager::managePacket() -> void
 {
-    /*for (; _packetsIn.size();) {
-        for (size_t i = 0; i < (*_roomList).size(); i++)
-            for (size_t j = 0; j < (*_roomList)[i].size(); j++)
-                if ((*_roomList)[i][j].getId() == _packetsIn.front()->getId())
-                {
-                    sendToClient((*_roomList)[i][j], _packetsIn.front()->unpack());
-                    return;
-                }*/
     if (_packetsIn.size() && _packetsIn.front()->unpack().size())
     {
         auto tmp = _packetsIn.front()->unpack();
@@ -46,19 +38,16 @@ auto rtype::PacketManager::managePacket() -> void
         {
             if (tmp.at(0) == 18)
             {
-                std::cout << "getted request 18" << std::endl;
                 if (_roomList->size() <= 5 && !_findPlayer(_packetsIn.front()->getId())) //check value return
                     _createRoom(_packetsIn.front());
             }
             else if (tmp.at(0) == 19)
             {
-                std::cout << "getted request 19" << std::endl;
                 if (!_findPlayer(_packetsIn.front()->getId()) && _roomList->size() >= tmp[1] && _getNbPlayersInRoom(_packetsIn.front()->unpack().at(1)) < 4)
                     _joinRoom(_packetsIn.front());
             }
             else if (tmp.at(0) == 23)
             {
-                std::cout << "getted request 23" << std::endl;
                 _getRooms(_packetsIn.front());
             }
             else
@@ -142,6 +131,7 @@ auto rtype::PacketManager::manageResponse() -> void
             packet->pack(vec);
             _packetsOut.push_back(packet);
             i.first = true;
+            _isCreateSended.erase(_isCreateSended.begin());
       }
    for (auto &i : _isJoinSended)
        if (!i.first) {
@@ -150,6 +140,7 @@ auto rtype::PacketManager::manageResponse() -> void
             packet->pack(std::vector<uint8_t> {10});
             _packetsOut.push_back(packet);
             i.first = true;
+            _isJoinSended.erase(_isGetSended.begin());
        }
     for (auto &i : _isGetSended)
        if (!i.first) {
@@ -168,5 +159,6 @@ auto rtype::PacketManager::manageResponse() -> void
             packet->pack(vec);
             _packetsOut.push_back(packet);
             i.first = true;
+            _isGetSended.erase(_isGetSended.begin());
        }
 }

@@ -8,6 +8,12 @@
 
     #include "IElement.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class Wall
@@ -34,38 +40,38 @@
                 virtual ~Wall() = default;
                 
                 /**
-                 * \fn void init(Registry &) override
+                 * \fn auto init(Registry &) -> void override
                  * 
                  * \brief init the wall
                  * 
                  */
-                void init(Registry &) override;
+                auto init(Registry &) -> void override;
                 
                 /**
-                 * \fn void update(void) override
+                 * \fn auto update(void) -> void override
                  * 
                  * \brief update the Wall during the game
                  * 
                  */
-                void update(void) override;
+                auto update(void) -> void override;
                 
                 /**
-                 * \fn void setName(std::string &name)
+                 * \fn a setName(std::string &name) -> void
                  * 
                  * \brief Set the Name object
                  * 
                  * \param name name to set
                  */
-                void setName(std::string &name);
+                auto setName(std::string &name) -> void;
                 
                 /**
-                 * \fn std::string &getName()
+                 * \fn auto getName() -> std::string &
                  * 
                  * \brief Get the Name object
                  * 
                  * \return std::string& name
                  */
-                std::string &getName();
+                auto getName() -> std::string &;
 
             private:
 

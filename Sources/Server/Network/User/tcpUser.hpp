@@ -138,6 +138,9 @@
                  * \return a pointer on a vector which is the data
                  */
                 auto getInput() -> std::vector<uint8_t>;
+
+
+                auto clearInput() -> void;
                 
                  /**
                  * \fn  auto getSizeInput() -> size_t &

@@ -84,7 +84,7 @@
             virtual ~SparseArray() = default;
 
             /**
-             * \fn void extend(size_t size)
+             * \fn auto extend(size_t size) -> void
              * 
              * \brief Extend the number of entity
              *
@@ -97,7 +97,7 @@
             }
 
             /**
-             * \fn SparseArray &operator=(SparseArray const &sparseArray)
+             * \fn auto operator=(SparseArray const &sparseArray) -> SparseArray&
              * 
              * \brief copy assignation operator
              *
@@ -127,7 +127,7 @@
             }
 
             /**
-             * \fn reference_type operator[](size_t idx)
+             * \fn auto operator[](size_t idx) -> reference_type
              * 
              * \brief overload of operator[] ti get the component at the index passed inside of bracket
              * 
@@ -141,7 +141,7 @@
             }
 
             /**
-             * \fn const_reference_type operator[](size_t idx) const
+             * \fn auto operator[](size_t idx) const -> const_reference_type 
              * 
              * \brief bracket operator
              *
@@ -155,7 +155,7 @@
             }
 
             /**
-             * \fn iterator begin()
+             * \fn auto begin() -> iterator
              * 
              * \brief getter for the first element
              *
@@ -167,7 +167,7 @@
             }
 
             /**
-             * \fn const_iterator begin() const
+             * \fn auto begin() const -> const_iterator
              * 
              * \brief getter for the first element
              *
@@ -179,7 +179,7 @@
             }
 
             /**
-             * \fn const_iterator cbegin() const
+             * \fn auto cbegin() const -> const_iterator
              * 
              * \brief getter for the first element
              *
@@ -191,7 +191,7 @@
             }
 
             /**
-             * \fn iterator end()
+             * \fn auto end() -> iterator
              * 
              * \brief getter for the last element
              *
@@ -203,7 +203,7 @@
             }
 
             /**
-             * \fn const_iterator end() const
+             * \fn auto end() const -> const_iterator
              * 
              * \brief getter for the last element
              *
@@ -215,7 +215,7 @@
             }
 
             /**
-             * \fn const_iterator cend() const
+             * \fn auto cend() const -> const_iterator
              * 
              * \brief getter for the last element
              *
@@ -227,7 +227,7 @@
             }
 
             /**
-             * \fn ize_type size() const
+             * \fn auto size() const -> size_type
              * 
              * \brief getter for the size of the array
              *
@@ -239,7 +239,7 @@
             }
 
             /**
-             * \fn reference_type insertAt(size_type pos, Component const &component)
+             * \fn auto insertAt(size_type pos, Component const &component) -> reference_type
              * 
              * \brief add an element to an index (entity), erase the current if it exist
              *
@@ -263,7 +263,7 @@
             }
 
             /**
-             * \fn reference_type insertAt(size_type pos, Component &&component)
+             * \fn auto insertAt(size_type pos, Component &&component) -> reference_type
              * 
              * \brief move an element to an index (entity), erase the current if it exist
              *
@@ -287,7 +287,7 @@
             }
 
             /**
-             * \fn template <class... Params> reference_type emplaceAt(size_type pos, Params &&...params)
+             * \fn template <class... Params> auto emplaceAt(size_type pos, Params &&...params) -> reference_type
              * 
              * \brief create an element to an index (entity), erase the current if it exist
              *
@@ -310,7 +310,7 @@
             }
 
             /**
-             * \fn void erase(size_type pos)
+             * \fn auto erase(size_type pos) -> void
              * 
              * \brief erase a component a the specified index
              *
@@ -326,7 +326,7 @@
             }
 
             /**
-             * \fn size_type getIndex(value_type const &value) const
+             * \fn auto getIndex(value_type const &value) const -> size_type
              * 
              * \brief getter for the index of an entity
              * 

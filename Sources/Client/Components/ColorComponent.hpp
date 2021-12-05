@@ -29,10 +29,10 @@
              *
              */
             struct color_s {
-                int colorRed; /*!< Red color */
-                int colorGreen; /*!< Green color */
-                int colorBlue; /*!< Blue color */
-                int colorAlpha; /*!< Alpha color */
+                int colorRed; /*! Red color */
+                int colorGreen; /*! Green color */
+                int colorBlue; /*! Blue color */
+                int colorAlpha; /*! Alpha color */
             };
         }   
     }

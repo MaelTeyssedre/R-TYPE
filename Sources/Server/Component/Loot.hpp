@@ -7,11 +7,17 @@
 #ifndef LOOT_HPP_
     #define LOOT_HPP_
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for rtype project
+     * 
+     */
     namespace rtype {
         /**
-         * \namespace rtype
+         * \namespace components
          * 
-         * \brief global namespace for rtype project
+         * \brief namespace for ECS component
          * 
          */
         namespace components {

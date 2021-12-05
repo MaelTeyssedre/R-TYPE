@@ -9,6 +9,12 @@
 
     #include "IElement.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class Player
@@ -35,38 +41,38 @@
                 virtual ~Player() = default;
 
                 /**
-                 * \fn void init(Registry &) override
+                 * \fn auto init(Registry &) -> void override
                  * 
                  * \brief init the Player
                  * 
                  */
-                void init(Registry &) override;
+                auto init(Registry &) -> void override;
 
                 /**
-                 * \fn void update(void) override
+                 * \fn auto update(void) -> void override
                  * 
                  * \brief update the player during the game
                  * 
                  */
-                void update(void) override;
+                auto update(void) -> void override;
 
                 /**
-                 * \fn void setName(std::string &name)
+                 * \fn auto setName(std::string &name) -> void
                  * 
                  * \brief Set the Name object
                  * 
                  * \param name the name to set
                  */
-                void setName(std::string &name);
+                auto setName(std::string &name) -> void;
 
                 /**
-                 * \fn std::string &getName()
+                 * \fn auto getName() -> std::string &
                  * 
                  * \brief Get the Name object
                  * 
                  * \return std::string& the name of the player
                  */
-                std::string &getName();
+                auto getName() -> std::string &;
 
             private:
 

@@ -14,6 +14,12 @@
     #include "Buffer.hpp"
     #include <queue>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class Packet Packet.hpp 
@@ -51,18 +57,16 @@
                 virtual ~TCPServer() = default;
 
                 /**
-                 * \fn  void send(size_t target, IPacket &data)
+                 * \fn  auto send(IPacket *data) -> void override
                  * 
                  * \brief send data to a user
                  * 
-                 * \param target to send data
-                 * 
                  * \param data data to send
                  */
-                void send(IPacket *data) override;
+                auto send(IPacket *data) -> void override;
                 
                 /**
-                 * \fn void send(std::vector<size_t> targets, IPacket &data)
+                 * \fn auto send(std::vector<size_t> targets, IPacket *data) -> void override
                  * 
                  * \brief send data to a user list
                  * 
@@ -70,43 +74,54 @@
                  * 
                  * \param data data to send
                  */
-                void send(std::vector<size_t> targets, IPacket *data) override;
+                auto send(std::vector<size_t> targets, IPacket *data) -> void override;
                 
                 /**
-                 * \fn std::vector<uint8_t> receive()
+                 * \fn auto receive() -> void override
                  * 
                  * \brief receive data
                  * 
-                 * \return data received
-                 * 
                  */
-                void receive() override;
+                auto receive() -> void override;
                 
                 /**
-                 * \fn  void eject(size_t client)
+                 * \fn auto eject(size_t client) -> void override
                  * 
                  * \brief eject client
                  * 
                  * \param client client to eject
                  * 
                  */
-                void eject(size_t client) override;
+                auto eject(size_t client) -> void override;
 
                 /**
-                 * \fn void startAccept();
+                 * \fn auto startAccept() -> void
                  * 
                  * \brief start accepting client
                  * 
                  */ 
-                void startAccept();
+                auto startAccept() -> void;
 
-            
-                std::vector<std::shared_ptr<tcpUser>> getUsers();
+                /**
+                 * \fn auto getUsers() -> std::vector<std::shared_ptr<tcpUser>>
+                 * 
+                 * \brief get the user list
+                 * 
+                 * \return A vector of pointer on user
+                 */
+                auto getUsers() -> std::vector<std::shared_ptr<tcpUser>>;
 
             
 //                std::queue<std::shared_ptr<rtype::Packet>> getRequest();
 
-                std::queue<IPacket *> *getBuffer() override;
+                /**
+                 * \fn auto getBuffer() -> std::queue<IPacket *> * override
+                 * 
+                 * \brief get the buffer
+                 * 
+                 * \return A queue of pointer on data
+                 */
+                auto getBuffer() -> std::queue<IPacket *> * override;
 
             private:
             

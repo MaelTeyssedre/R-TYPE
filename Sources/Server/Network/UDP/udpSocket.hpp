@@ -16,6 +16,12 @@
         #define MAX_LENGTH 1024
     #endif
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
          * \class udpSocket udpSocket.hpp 
@@ -52,32 +58,30 @@
                 virtual ~UDPSocket() = default;
 
                 /**
-                 * \fn void send(IPacket &data)
+                 * \fn auto send(IPacket &data) -> void override
                  * 
                  * \brief send data
                  * 
                  * \param data data to send
                  * 
                  */ 
-                void send(IPacket &data) override;
+                auto send(IPacket &data) -> void override;
 
                 /**
-                 * \fn std::vector<uint8_t> &receive()
+                 * \fn auto receive() -> void override
                  * 
                  * \brief receive data from network
                  * 
-                 * \return data received
-                 * 
                  */ 
-                void receive() override;
+                auto receive() -> void override;
 
                 /**
-                 * \fn  void handleSend()
+                 * \fn auto handleSend() -> void
                  * 
                  * \brief handle after receive
                  *
                  */ 
-                void handleSend();
+                auto handleSend() -> void;
 
             private:
 

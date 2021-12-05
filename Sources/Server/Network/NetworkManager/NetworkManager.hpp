@@ -14,6 +14,12 @@
     #include <asio.hpp>
     #include <thread>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class NetworkManager NetworkManager.hpp

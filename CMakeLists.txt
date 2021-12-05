@@ -148,6 +148,12 @@ target_include_directories(
 target_include_directories(
     rtype_server
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Game/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Component/
 )
 

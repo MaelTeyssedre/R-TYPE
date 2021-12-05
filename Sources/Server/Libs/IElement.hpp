@@ -11,6 +11,12 @@
     #include <iostream>
     #include "Registry.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class IElement IElement.hpp
@@ -27,20 +33,20 @@
                 virtual ~IElement() = default;
 
                 /**
-                 * \fn virtual void init(Registery &) = 0
+                 * \fn virtual auto init(Registry &) -> void = 0
                  *
                  * \param Registery of the ECS
                  * 
                  * \brief Pure virtual init 
                  */
-                virtual void init(Registry &) = 0;
+                virtual auto init(Registry &) -> void = 0;
 
                 /**
-                 * \fn virtual void update(void) = 0
+                 * \fn virtual auto update(void) -> void = 0
                  * 
                  * \brief Pure virtual update 
                  */
-                virtual void update(void) = 0;
+                virtual auto update(void) -> void = 0;
         };
     }
 

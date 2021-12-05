@@ -8,7 +8,6 @@ void rtype::tcpUser::start()
 
 void rtype::tcpUser::addToQueue(std::vector<uint8_t> message)
 {
-    std::cout << "in addToQueue, value is: " << ((int)message[0]) << std::endl; 
     _queue.push(message);
 }
 
@@ -16,9 +15,7 @@ void rtype::tcpUser::read()
 {
     std::memset(_data, 0, sizeof(_data));
     _socket->async_read_some(asio::buffer(_data, 1), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
-    
-    //for (auto i : _data)
-  //  asio::async_read(*_socket, asio::buffer(_input), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    std::memset(_data, 0, MAX_LENGTH);
 }
 
 void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
@@ -27,7 +24,6 @@ void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
     { 
         uint8_t tmp = (uint8_t)_data[0];
         _input->push_back(std::move(tmp));
-        std::cout << "input size : " << _input->size() << std::endl;
         _sizeInput += bytes;
         read();
         std::cout << (int)_input->back() << std::endl;
@@ -60,6 +56,10 @@ auto rtype::tcpUser::getInput()->std::vector<uint8_t>
         return std::vector<uint8_t>{};
 }
 
+auto rtype::tcpUser::clearInput() -> void
+{
+    _input->clear();
+}
 
 size_t &rtype::tcpUser::getSizeInput()
 {

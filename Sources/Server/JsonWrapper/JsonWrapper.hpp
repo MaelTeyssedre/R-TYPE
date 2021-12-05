@@ -11,6 +11,12 @@
 
     #include "IJsonWrapper.hpp"
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class JsonWrapper
@@ -47,23 +53,23 @@
 
 
                 /**
-                 * \fn std::string &jsonToString() override
+                 * \fn auto jsonToString() -> std::string override
                  * 
                  * \brief Convert and return content of a json file as a string
                  * 
                  * \return std::string & Le contenu du file .json
                  */
-                std::string jsonToString() override;
+                auto jsonToString() -> std::string override;
 
                 /**
-                 * \fn void fillComposantList() override
+                 * \fn auto fillComposantList() -> void override
                  * 
                  * \brief Fill a object list with the content of a JSON file
                  */
-                void fillComposantList() override;
+               auto fillComposantList() -> void override;
 
                 /**
-                 * \fn std::shared_ptr<Player> createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type)
+                 * \fn auto createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type) -> std::shared_ptr<Player>
                  * 
                  * \brief Create a Player object
                  * 
@@ -75,10 +81,10 @@
                  * 
                  * \return std::shared_ptr<Player> shared pointer of created player
                  */
-                std::shared_ptr<Player> createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type);
+                auto createPlayer(int id, std::pair<int, int> pos, int strength, int hp, std::string type) -> std::shared_ptr<Player>;
 
                 /**
-                 * \fn std::shared_ptr<Wall> createWall(std::pair<int, int> pos, std::string type)
+                 * \fn auto createWall(std::pair<int, int> pos, std::string type) -> std::shared_ptr<Wall>
                  * 
                  * \brief Create a Wall object
                  * 
@@ -86,58 +92,58 @@
                  * \param type type of type
                  * \return std::shared_ptr<Wall> shared pointer of the created wall 
                  */
-                std::shared_ptr<Wall> createWall(std::pair<int, int> pos, std::string type);
+                auto createWall(std::pair<int, int> pos, std::string type) -> std::shared_ptr<Wall>;
 
                 /**
-                 * \fn void addPlayer() override
+                 * \fn auto addPlayer() -> void override
                  * 
                  * \brief Fill a object list with a player object
                  */
-                void addPlayer() override;
+                auto addPlayer() -> void override;
 
                 /**
-                 * \fn void addMonster() override
+                 * \fn auto addMonster() -> void override
                  * 
                  * \brief Fill a object list with a monster object
                  */
-                void addMonster() override;
+                auto addMonster() -> void override;
 
                 /**
-                 * \fn void addWall() override
+                 * \fn auto addWall() -> void override
                  * 
                  * \brief Fill a object list with a wall object
                  */
-                void addWall() override;
+                auto addWall() -> void override;
 
                 /**
-                 * \fn std::vector<AMonster *> &getMonsterList()
+                 * \fn auto getMonsterList() -> std::vector<AMonster *> &
                  * 
                  * \brief Get the Monster List object
                  * 
                  * \return std::vector<AMonster *>& list of pointer of monster
                  */
-                std::vector<AMonster *> &getMonsterList();
+                auto getMonsterList() -> std::vector<AMonster *> &;
 
                 /**
-                 * \fn std::vector<std::shared_ptr<Player>> &getPlayerList()
+                 * \fn auto getPlayerList() -> std::vector<std::shared_ptr<Player>> &
                  * 
                  * \brief Get the Player List object
                  * 
                  * \return std::vector<std::shared_ptr<Player>>& list of pointer of player
                  */
-                std::vector<std::shared_ptr<Player>> &getPlayerList();
+                auto getPlayerList() -> std::vector<std::shared_ptr<Player>> &;
 
                 /**
-                 * \fn std::vector<std::shared_ptr<Wall>> &getWallList()
+                 * \fn auto getWallList() -> std::vector<std::shared_ptr<Wall>> &
                  * 
                  * \brief Get the Wall List object
                  * 
                  * \return std::vector<std::shared_ptr<Wall>>& list of pointer of wall
                  */
-                std::vector<std::shared_ptr<Wall>> &getWallList();
+                auto getWallList() -> std::vector<std::shared_ptr<Wall>> &;
 
                 /**
-                 * \fn nlohmann::json strToJson(std::string &toConvert)
+                 * \fn auto strToJson(std::string &toConvert) -> nlohmann::json
                  * 
                  * \brief convert a string to json
                  * 
@@ -145,7 +151,7 @@
                  * 
                  * \return nlohmann::json converted json
                  */
-                nlohmann::json strToJson(std::string &toConvert);
+                auto strToJson(std::string &toConvert) -> nlohmann::json;
 
             private:
                 LibLoader _loader; /*! libLoader */

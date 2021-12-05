@@ -36,31 +36,31 @@
             virtual ~Logger();
             
             /**
-             * \fn void log(std::string message) override
+             * \fn auto log(std::string message) -> void override
              * 
              * \brief log message into a file
              * 
              * \param message to log
              */
-            void log(std::string message) override;
+            auto log(std::string message) -> void override;
             
             /**
-             * \fn void logln(std::string message) override
+             * \fn auto logln(std::string message) -> void override
              * 
              * \brief log message into a file and and an endline
              * 
              * \param message to log
              */
-            void logln(std::string message) override;
+            auto logln(std::string message) -> void override;
 
             /**
-             * \fn void operator<<(std::string buffer) override
+             * \fn auto operator<<(std::string buffer) -> void override
              * 
              * \brief Add a message to the log file // Same as log()
              * 
              * \param Content to add
              */
-            void operator<<(std::string buffer) override;
+            auto operator<<(std::string buffer) -> void override;
 
         private:
             std::ofstream _file; /*! File containing the logs*/
