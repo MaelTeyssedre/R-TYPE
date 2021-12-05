@@ -3,7 +3,6 @@
 
 rtype::Room::Room(std::vector<PlayerData>* players)
 	: _threadPtr(new std::thread(_runThread, players)) {
-	std::cout << "in room" << std::endl;
 }
 
 auto rtype::Room::_runThread(std::vector<PlayerData>* players) -> void

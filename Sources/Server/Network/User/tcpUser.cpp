@@ -26,7 +26,6 @@ void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
         _input->push_back(std::move(tmp));
         _sizeInput += bytes;
         read();
-        std::cout << (int)_input->back() << std::endl;
     }
 }
 

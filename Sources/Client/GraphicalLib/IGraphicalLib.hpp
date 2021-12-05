@@ -119,7 +119,7 @@
                 /**
                  * \fn virtual auto clearScreen() -> void = 0
                  * 
-                 * \brief clear the screen fromm all the previously drawed element 
+                 * \brief clear the screen from all the previously drawed element 
                  */
                 virtual auto clearScreen() -> void = 0;
 
@@ -534,7 +534,7 @@
                 virtual auto getTextColorBlue(size_t id) -> int = 0;
 
                 /**
-                 * \fn virtual int getTextColorAlpha(size_t id) = 0
+                 * \fn virtual auto getTextColorAlpha(size_t id) -> int = 0
                  * 
                  * \brief get the transparency of a text
                  *
@@ -542,10 +542,10 @@
                  * 
                  * \return the transparency of the text asked
                  */
-                virtual int getTextColorAlpha(size_t id) = 0;
+                virtual auto getTextColorAlpha(size_t id) -> int = 0;
 
                 /**
-                 * \fn virtual std::string getTextContent(size_t id) = 0
+                 * \fn virtual auto getTextContent(size_t id) -> std::string = 0
                  * 
                  * \brief get the content of a text
                  *
@@ -553,16 +553,95 @@
                  * 
                  * \return the content of the text asked
                  */
-                virtual std::string getTextContent(size_t id) = 0;
+                virtual auto getTextContent(size_t id) -> std::string = 0;
 
-                virtual void setTextPosX(size_t id, float posX) = 0;
-                virtual void setTextPosY(size_t id, float posY) = 0;
-                virtual void setTextFontSize(size_t id, int fontSize) = 0;
-                virtual void setTextColorRed(size_t id, int colorRed) = 0;
-                virtual void setTextColorGreen(size_t id, int colorGreen) = 0;
-                virtual void setTextColorBlue(size_t id, int colorBlue) = 0;
-                virtual void setTextColorAlpha(size_t id, int colorAlpha) = 0;
-                virtual void setTextContent(size_t id, std::string &content) = 0;
+                /**
+                 * \fn irtual auto setTextPosX(size_t id, float posX) -> void = 0
+                 * 
+                 * \brief set the x position of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param posX x position to set
+                 */
+                virtual auto setTextPosX(size_t id, float posX) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextPosY(size_t id, float posY) -> void = 0
+                 * 
+                 * \brief set the y position of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param posY y position to set
+                 */
+                virtual auto setTextPosY(size_t id, float posY) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextFontSize(size_t id, int fontSize) -> void = 0
+                 * 
+                 * \brief set the font size of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param fontSize font size to set
+                 */
+                virtual auto setTextFontSize(size_t id, int fontSize) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextColorRed(size_t id, int colorRed) -> void = 0
+                 * 
+                 * \brief set red proportion of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorRed red proportion to set
+                 */
+                virtual auto setTextColorRed(size_t id, int colorRed) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextColorGreen(size_t id, int colorGreen) -> void = 0
+                 * 
+                 * \brief set Green proportion of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorGreen Green proportion to set
+                 */
+                virtual auto setTextColorGreen(size_t id, int colorGreen) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextColorBlue(size_t id, int colorBlue) -> void = 0
+                 * 
+                 * \brief set Blue proportion of a Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorBlue Blue proportion to set
+                 */
+                virtual auto setTextColorBlue(size_t id, int colorBlue) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextColorAlpha(size_t id, int colorAlpha) -> void = 0
+                 * 
+                 * \brief set the transparency of the Text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param colorAlpha the transparency to set
+                 */
+                virtual auto setTextColorAlpha(size_t id, int colorAlpha) -> void = 0;
+
+                /**
+                 * \fn virtual auto setTextContent(size_t id, std::string &content) -> void = 0;
+                 * 
+                 * \brief set the content of the text
+                 *
+                 * \param id id of the asked Text
+                 * 
+                 * \param content reference to the content of the text
+                 */
+                virtual auto setTextContent(size_t id, std::string &content) -> void = 0;
             
         };
     }

@@ -266,6 +266,22 @@ auto rtype::UpdateGraph::_setupDeleteMainMenuScene() -> void
                     _graphicalLib->deleteText(index.idx);
                 }
             }
+            for (auto&& [scene, index, clickable] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::clickable_s>()))
+            {
+                if (scene.scene == constants::SCENE::MAIN_MENU)
+                {
+                    clickable = { false, false, [this](Registry& r, size_t id) -> void
+                    { 
+                        (void)r;
+                        (void)id;
+                    },
+                    [this](Registry& r, size_t id) -> void
+                    {
+                        (void)r;
+                        (void)id;
+                    } };
+                }
+            }
             for (auto &&[scene, index] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>()))
             {
                 if (scene.scene == constants::SCENE::MAIN_MENU)
