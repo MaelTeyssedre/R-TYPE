@@ -10,20 +10,28 @@
     /**
      * \namespace rtype
      * 
-     * \brief global namespace for rtype project
+     * \brief namespace for the R-Type
      * 
      */
     namespace rtype {
         /**
-         * \struct position_s
+         * \namespace components
          * 
-         * \brief position component
+         * \brief namespace for ECS components
          * 
          */
-        struct position_s {
-            int x;
-            int y;
-        };
+        namespace components {
+            /**
+             * \struct position_s
+             * 
+             * \brief position component
+             * 
+             */
+            struct position_s {
+                int x;
+                int y;
+            };
+        }
     }
 
 #endif /* !POSITION_HPP_ */

@@ -8,7 +8,9 @@
     #define ITCPSERVER_HPP_
 
     #include "IPacket.hpp"
+    #include "Buffer.hpp"
     #include <vector>
+    #include <queue>
 
     /**
      * \class ITCPServer.hpp
@@ -27,42 +29,52 @@
             virtual ~ITCPServer() = default;
 
             /**
-             * \fn  virtual void send(std::vector<size_t> targets, IPacket &data) = 0
+             * \fn  virtual auto send(std::vector<size_t> targets, IPacket *data) -> void = 0
              * 
              * \brief send data to a list of clients
              * 
              * \param targets 
              * \param data 
              */
-            virtual void send(std::vector<size_t> targets, IPacket &data) = 0;
+            virtual auto send(std::vector<size_t> targets, IPacket *data) -> void = 0;
 
             /**
-             * \fn  virtual void send(size_t target, IPacket &data) = 0
+             * \fn virtual auto send(IPacket *data) -> void = 0
              * 
              * \brief send data to a client
              * 
              * \param target
              * \param data 
              */
-            virtual void send(size_t target, IPacket &data) = 0;
+            virtual auto send(IPacket *data) -> void = 0;
 
             /**
-             * \fn virtual std::vector<uint8_t> receive() = 0
+             * \fn virtual auto receive() -> void = 0
              * 
              * \brief receive data
              * 
              * \return return data in packet
              */
-            virtual void receive() = 0;
+            virtual auto receive() -> void = 0;
 
             /**
-             * \fn  virtual void eject(size_t client) = 0
+             * \fn virtual auto eject(size_t client) -> void = 0
              * 
              * \brief eject client
              * 
              * \param client to eject
              */
-            virtual void eject(size_t client) = 0;
+            virtual auto eject(size_t client) -> void = 0;
+
+            /**
+             * \fn virtual autogetBuffer() -> std::queue<IPacket *> * = 0
+             * 
+             * \brief get the buffer object
+             * 
+             * \return A queue of packet get in the buffer
+             */
+            virtual auto getBuffer() -> std::queue<IPacket *> * = 0;
+
     };
 
 #endif /* !ITCPSERVER_HPP_ */

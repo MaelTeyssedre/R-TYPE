@@ -30,75 +30,75 @@
             virtual ~INetworkManager() = default;
 
             /**
-             * \fn virtual void start() = 0
+             * \fn virtual auto start() -> void = 0
              * 
              * \brief start connection
              */
-            virtual void start() = 0;
+            virtual auto start() -> void = 0;
 
             /**
-             * \fn virual void stop() = 0
+             * \fn virtual auto stop() -> void = 0
              *
              * \brief stop connection
              */
-            virtual void stop() = 0;
+            virtual auto stop() -> void = 0;
 
             /**
              *
-             * \fn virtual ITCPServer *createTCPServer(int port) =  0
+             * \fn virtual auto createTCPServer(int port) -> ITCPServer * = 0
              *
              * \brief create a TCP server
              * 
              * \return ITCPServer* 
              */
-            virtual ITCPServer *createTCPServer(int port) =  0;
+            virtual auto createTCPServer(int port) -> ITCPServer * = 0;
 
             /**
-             * \fn virtual ITCPClient *createTCPClient(int port) = 0
+             * \fn virtual auto createTCPClient(std::string host, int port) -> ITCPClient * = 0
              * 
              * \brief create a TCP client
              * 
              * \return ITCPClient* 
              */
-            virtual ITCPClient *createTCPClient(int port) = 0;
+            virtual auto createTCPClient(std::string host, int port) -> ITCPClient * = 0;
 
             /**
-             * \fn virtual IUDPSocket *createSocketUDP(int port) = 0
+             * \fn virtual auto createSocketUDP(std::string host, int port) -> IUDPSocket * = 0
              * 
              * \brief Create a UDP connection
              * 
              * \return UDPSocket* 
              */ 
-            virtual IUDPSocket *createSocketUDP(int port) = 0;
+            virtual auto createSocketUDP(std::string host, int port) -> IUDPSocket * = 0;
 
             /**
-             * \fn virtual void deleteSocketUDP(IUDPSocket *socket) = 0
+             * \fn virtual auto deleteSocketUDP(IUDPSocket *socket) -> void = 0
              * 
              * \brief delete a specified UDP connection
              * 
              * \param udp server to delete
              * 
              */
-            virtual void deleteSocketUDP(IUDPSocket *socket) = 0;
+            virtual auto deleteSocketUDP(IUDPSocket *socket) -> void = 0;
 
             /**
-             * \fn virtual void deleteTCPServer(ITCPServer *tcp) = 0
+             * \fn virtual auto deleteTCPServer(ITCPServer *tcp) -> void = 0
              * 
              * \brief delete a specified TCP clie
              * 
              * \param tcp server to delete
              */
-            virtual void deleteTCPServer(ITCPServer *tcp) = 0;
+            virtual auto deleteTCPServer(ITCPServer *tcp) -> void = 0;
 
             /**
-             * \fn virtual void deleteTCPClient(ITCPClient *tcp) = 0;
+             * \fn virtual auto deleteTCPClient(ITCPClient *tcp) -> void = 0;
              * 
              *
              * \brief delete tpc client
              * 
              * \param the tcp client to delete
              */
-            virtual void deleteTCPClient(ITCPClient *tcp) = 0;
+            virtual auto deleteTCPClient(ITCPClient *tcp) -> void = 0;
     };
 
 #endif /* !INETWORKMANAGER_HPP_ */

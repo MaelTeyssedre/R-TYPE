@@ -15,14 +15,22 @@
      */
     namespace rtype {
         /**
-         * \struct loot_s
+         * \namespace components
          * 
-         * \brief loot component
+         * \brief namespace for ECS component
          * 
          */
-        struct loot_s {
-            bool loot;
-        };
+        namespace components {
+            /**
+             * \struct loot_s
+             * 
+             * \brief loot component
+             * 
+             */
+            struct loot_s {
+                bool loot;
+            };
+        }
     }
 
 #endif /* !LOOT_HPP_ */

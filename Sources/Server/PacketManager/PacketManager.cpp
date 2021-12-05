@@ -1,45 +1,193 @@
 #include "PacketManager.hpp"
 
-PacketManager::PacketManager(std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer> bufferOut)
+rtype::PacketManager::PacketManager(std::shared_ptr<std::vector<size_t>> idCreator,  std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner, std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList)
+    : _idCreator(idCreator), _idJoiner(idJoiner), _roomList(roomList)
 {
-    _bufferIn = bufferIn;
-    _bufferOut = bufferOut;
 }
 
-void PacketManager::createRoom(std::pair<size_t, std::vector<uint8_t>> packet)
+auto rtype::PacketManager::_createRoom(IPacket *packet) -> void
 {
-    std::vector<uint8_t> vec;
-    std::string str = "Create ";
-    str.append(std::to_string(packet.first));
-    str.append(";");
-    vec.assign(str.begin(), str.end());
-    _bufferOut->putInBuffer(vec.size(), vec);
+    _idCreator->push_back(packet->getId());
+    _isCreateSended.push_back(std::pair(false, packet->getId()));
 }
 
-void PacketManager::joinRoom(std::pair<size_t, std::vector<uint8_t>> packet)
+auto rtype::PacketManager::_joinRoom(IPacket *packet) -> void
 {
-    std::vector<uint8_t> vec;
-    std::string str = "Join ";
-    str.append(std::to_string(packet.first));
-    str.append(";");
-    vec.assign(str.begin(), str.end());
-    _bufferOut->putInBuffer(vec.size(), vec);
+    _idJoiner->push_back(std::pair(packet->getId(), packet->unpack().at(1)));
+    _isJoinSended.push_back(std::pair(false, packet->getId()));
 }
 
-void PacketManager::managePacket(std::pair<size_t, std::vector<uint8_t>> packet)
+auto rtype::PacketManager::_getRooms(IPacket *packet) ->void
 {
-    std::string str(packet.second.begin(), packet.second.end());
-    for (auto it = _roomList->begin(); it != _roomList->end(); it++)
+    _isGetSended.push_back(std::pair(false, packet->getId()));
+}
+
+auto rtype::PacketManager::_getPlayersInRoom(IPacket *packet) -> void
+{
+    _isGetPlayerSended.push_back(std::pair(false, packet->getId()));
+}
+
+auto rtype::PacketManager::sendToPlayer(rtype::PlayerData &player, std::vector<uint8_t> request) -> void
+{
+    player.getBufIn()->push_back(request);
+}
+
+auto rtype::PacketManager::managePacket() -> void
+{
+    if (_packetsIn.size() && _packetsIn.front()->unpack().size())
     {
-        for (auto it2 = it->begin(); it2 != it->end(); it2++)
+        auto tmp = _packetsIn.front()->unpack();
+        if (!tmp.empty())
         {
-            if (it2->getId() == packet.first)
+            if (tmp.at(0) == 18)
             {
-                if (packet.second.at(0) == 15)
-                    createRoom(packet);
-                else if (packet.second.at(0) == 16)
-                    joinRoom(packet);
+                if (_roomList->size() <= 5 && !_findPlayer(_packetsIn.front()->getId()))
+                    _createRoom(_packetsIn.front());
+            }
+            else if (tmp.at(0) == 19)
+            {
+                if (!_findPlayer(_packetsIn.front()->getId()) && _roomList->size() >= tmp[1] && _getNbPlayersInRoom(_packetsIn.front()->unpack().at(1)) < 4)
+                    _joinRoom(_packetsIn.front());
+            }
+            else if (tmp.at(0) == 23)
+            {
+                _getRooms(_packetsIn.front());
+            }
+            else if (tmp.at(0) == 22)
+            {
+                size_t playersnb = 0;
+                for (auto i : *_roomList)
+                    if (i.second == tmp.at(1) - 1)
+                        playersnb = i.first.size();
+                IPacket *p = new Packet();
+                p->pack(std::vector<uint8_t>{16, (uint8_t)playersnb});
+                p->setId(_packetsIn.front()->getId());
+                 _isGetPlayerSended.push_back(std::pair(false, p->getId()));
+                 _packetsOut.push_back(p);
+            }
+            else
+            {
+                sendToPlayer(*_findPlayer(_packetsIn.front()->getId()), tmp);
+                std::cerr << "Packet received from " << _packetsIn.front()->getId() << " is undefined size : " << tmp.size() << " | opcode : " << (int)(tmp.at(0)) << std::endl;
             }
         }
+        _packetsIn.pop();
     }
+    
+}
+
+auto rtype::PacketManager::setBufferI(std::queue<IPacket *> *buffer) -> void
+{
+    for (; buffer && !buffer->empty();)
+    {
+        _packetsIn.push(buffer->front());
+        buffer->pop();
+    }
+}
+
+auto rtype::PacketManager::getRequestsToSend() -> std::vector<IPacket *> &
+{
+    return _packetsOut;
+}
+
+auto rtype::PacketManager::_setDataRoom() -> std::vector<size_t>
+{
+    std::vector<size_t> vec{};
+    for (auto i : *_roomList) {
+        vec.push_back(i.first.size());
+    }
+    return vec;
+}
+
+auto rtype::PacketManager::_getNbPlayersInRoom(size_t idRoom) -> size_t
+{
+    for (auto it : *_roomList)
+        if (idRoom == it.second)
+            return(it.first.size());
+    throw std::invalid_argument("invalid id user");
+
+}
+
+auto rtype::PacketManager::_getRoomByPlayer(size_t id) -> size_t
+{
+    size_t idRoom = 0;
+
+    for (auto room : *_roomList) {
+        for (auto player: room.first) {
+            if (id == player.getId())
+                return (idRoom);
+        }
+        idRoom++;
+    }
+    throw std::invalid_argument("invalid id user");
+}
+
+auto rtype::PacketManager::_findPlayer(size_t id) -> PlayerData*
+{
+   for (auto room : *_roomList) {
+        for (int i = 0; i < room.first.size(); i++) {
+            if (id == room.first[i].getId())
+                return (&room.first[i]);
+        }
+    }
+   return (nullptr);
+}
+
+auto rtype::PacketManager::manageResponse() -> void
+{
+   static std::vector<size_t> dataRooms {};
+
+   for (auto &i : _isCreateSended)
+       if (!i.first) {
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            std::vector<uint8_t> vec{};
+            vec.push_back((uint8_t)12);
+            vec.push_back((uint8_t)_getRoomByPlayer(i.second));
+            packet->pack(vec);
+            _packetsOut.push_back(packet);
+            i.first = true;
+            _isCreateSended.erase(_isCreateSended.begin());
+      }
+   for (auto &i : _isJoinSended)
+       if (!i.first) {
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            packet->pack(std::vector<uint8_t> {10});
+            _packetsOut.push_back(packet);
+            i.first = true;
+            _isJoinSended.erase(_isGetSended.begin());
+       }
+    for (auto &i : _isGetSended)
+       if (!i.first) {
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            std::vector<uint8_t> vec{};
+            vec.push_back((uint8_t)17);
+            for (auto i = 0; i < 5; i++) {
+                bool indexExist = false;
+                for (auto it : *_roomList) {
+                    indexExist = (it.second == i) ? vec.push_back((uint8_t)i), true : indexExist;
+                }
+                if (!indexExist)
+                    vec.push_back((uint8_t)6);
+            }
+            packet->pack(vec);
+            _packetsOut.push_back(packet);
+            i.first = true;
+            _isGetSended.erase(_isGetSended.begin());
+       }
+
+    for (auto &i : _isGetPlayerSended)
+       if (!i.first) {
+            IPacket* packet = new Packet();
+            packet->setId(i.second);
+            std::vector<uint8_t> vec{};
+            vec.push_back((uint8_t)16);
+            vec.push_back((uint8_t)_getNbPlayersInRoom(_getRoomByPlayer(i.second)));
+            packet->pack(vec);
+            _packetsOut.push_back(packet);
+            i.first = true;
+            _isGetPlayerSended.erase(_isGetPlayerSended.begin());
+       }
 }

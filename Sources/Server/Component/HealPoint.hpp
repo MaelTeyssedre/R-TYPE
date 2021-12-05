@@ -10,19 +10,27 @@
     /**
      * \namespace rtype
      * 
-     * \brief global namespace for rtype project
+     * \brief namespace for the R-Type
      * 
      */
     namespace rtype {
         /**
-         * \struct healPoint_s
+         * \namespace components
          * 
-         * \brief healPoint component
+         * \brief namespace for ECS components
          * 
          */
-        struct healPoint_s {
-            size_t healPoint;
-        };
+        namespace components {
+            /**
+             * \struct healPoint_s
+             * 
+             * \brief healPoint component
+             * 
+             */
+            struct healPoint_s {
+                size_t healPoint;
+            };
+        }
     }
 
 #endif /* !HEALPOINT_HPP_ */

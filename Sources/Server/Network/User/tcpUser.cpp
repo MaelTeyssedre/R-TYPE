@@ -1,59 +1,72 @@
 #include "tcpUser.hpp"
 #include <iostream>
+#include <memory>
 
-void tcpUser::start()
-{
-    std::cout << "in new user" << std::endl;
-    write();
-    read();
-    std::cout << "out new user" << std::endl;
-}
 
-void tcpUser::addToQueue(std::vector<uint8_t> message)
+void rtype::tcpUser::start()
+{}
+
+void rtype::tcpUser::addToQueue(std::vector<uint8_t> message)
 {
     _queue.push(message);
 }
 
-void tcpUser::read()
+void rtype::tcpUser::read()
 {
-    asio::async_read(*_socket, asio::buffer(_input, 1), std::bind(&tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    std::memset(_data, 0, sizeof(_data));
+    _socket->async_read_some(asio::buffer(_data, 1), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    std::memset(_data, 0, MAX_LENGTH);
 }
 
-void tcpUser::doRead(const std::error_code &ec, size_t bytes)
+void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
     if (!ec)
-    {
-        std::cout << bytes << std::endl;
+    { 
+        uint8_t tmp = (uint8_t)_data[0];
+        _input->push_back(std::move(tmp));
+        _sizeInput += bytes;
         read();
     }
-    else
-        std::cerr << ec.message() << std::endl;
 }
 
-void tcpUser::write()
+void rtype::tcpUser::write()
 {
     if (_queue.empty())
-    {
-        std::cout << "IN WRITE EMPTY" << std::endl;
         return;
-    }
-    asio::async_write(*_socket, asio::buffer(_queue.front()), std::bind(&tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+    asio::async_write(*_socket, asio::buffer(_queue.front(), _queue.front().size()), std::bind(&rtype::tcpUser::doWrite, this, std::placeholders::_1, std::placeholders::_2));
 }
 
-void tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
+void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
+    (void)bytes_transfered;
     if (!ec)
     {
-        std::cout << bytes_transfered << std::endl;
         _queue.pop();
         if (!_queue.empty())
             write();
     }
-    else
-        std::cerr << ec.message() << std::endl;
 }
 
-uint8_t *tcpUser::getInput()
+auto rtype::tcpUser::getInput()->std::vector<uint8_t>
 {
-    return (_input);
+    if (_input)
+        return (*_input);
+    else
+        return std::vector<uint8_t>{};
+}
+
+auto rtype::tcpUser::clearInput() -> void
+{
+    _input->clear();
+}
+
+size_t &rtype::tcpUser::getSizeInput()
+{
+    return (_sizeInput);
+}
+
+
+void rtype::tcpUser::delInput(size_t length)
+{
+    _input->erase(_input->begin(), _input->begin() + length);
 }

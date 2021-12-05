@@ -2,8 +2,12 @@ project(RTYPE)
 cmake_minimum_required(VERSION 3.10)
 
 if (UNIX)
-    add_definitions("-W -Wall -Wextra -fPIC -Werror -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code")
+    add_definitions("-W -Wall -Wextra -fPIC  -Wnon-virtual-dtor -Wuninitialized -Wunreachable-code -std=c++17")
 endif (UNIX)
+
+if (MSVC)
+    add_definitions("/MP")
+endif (MSVC)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -23,24 +27,6 @@ file(
     ${PROJECT_SOURCE_DIR}/Sources/Server/*.cpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/NetworkManager/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/Packet/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/PacketManager/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/PacketManager/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/TCP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/UDP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Network/User/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Element/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/*.cpp
 )
 
 file(
@@ -48,24 +34,8 @@ file(
     SOURCES_CLIENT
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.hpp
     ${PROJECT_SOURCE_DIR}/Sources/Client/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Registry/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/INetwork/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/UDP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/Packet/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Logger/*.hpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.cpp
-    ${PROJECT_SOURCE_DIR}/Sources/Commons/Buffer/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.hpp
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/*.cpp
 )
 
 file(
@@ -107,6 +77,12 @@ target_include_directories(
     basic_monster
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/JsonWrapper/
+)
+
+target_include_directories(
+    basic_monster
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/
 )
 
 target_include_directories(
@@ -172,13 +148,37 @@ target_include_directories(
 target_include_directories(
     rtype_server
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Server/Component
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Game/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Component/
 )
 
 target_include_directories(
     rtype_server
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Server/Room/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Iterator/
+)
+
+target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/Systems/UpdateTime/
 )
 
 target_include_directories(
@@ -293,6 +293,12 @@ target_include_directories(
 )
 
 target_include_directories(
+    rtype_server
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Server/PacketManager/
+)
+
+target_include_directories(
     rtype_client
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/Entity/
@@ -307,19 +313,67 @@ target_include_directories(
 target_include_directories(
     rtype_client
     PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/GraphicalLib/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Components/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateGraph/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateTime/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateNetwork/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateClickable/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Commons/ECS/SparseArray/
 )
 
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Components/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdatePosition/
 )
 
 target_include_directories(
     rtype_client
     PUBLIC
-    ${PROJECT_SOURCE_DIR}/Sources/Client/ECS/Systems/
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/UpdateDirection/
+)
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Systems/
 )
 
 target_include_directories(
@@ -357,6 +411,13 @@ target_include_directories(
     PUBLIC
     ${PROJECT_SOURCE_DIR}/Sources/Client/Network/TCP/
 )
+
+target_include_directories(
+    rtype_client
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/Sources/Client/Network/NetworkManager/
+)
+
 
 target_include_directories(
     rtype_client

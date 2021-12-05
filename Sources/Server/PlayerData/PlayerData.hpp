@@ -9,62 +9,81 @@
     #define PLAYERDATA_HPP_
 
     #include <mutex>
-    #include <vector>
     #include <memory>
     #include "Buffer.hpp"
 
-    class PlayerData {
-        public:
-            /**
-             * \fn explicit PlayerData() = default
-             * 
-             * \brief Construct a new Player Data object
-             * 
-             */
-            explicit PlayerData() = default;
-      
-            /**
-             * \fn explicit PlayerData(size_t id, std::shared_ptr<Buffer> buffIn, std::shared_ptr<Buffer> buffOut, std::shared_ptr<std::mutex> mutexIn,std::shared_ptr<std::mutex> mutexOut
-             * 
-             * \brief Construct a new Player Data object
-             * 
-             * \param id id of the player
-             * \param buffIn Input buffer of the client 
-             * \param buffOutOutput buffer of the client
-             * \param mutexIn mutex that protect the input buffer
-             * \param mutexOut mutex that protect the output buffer
-             */
-            explicit PlayerData(size_t id, std::shared_ptr<Buffer> buffIn, std::shared_ptr<Buffer> buffOut, std::shared_ptr<std::mutex> mutexIn,std::shared_ptr<std::mutex> mutexOut) 
-                : _mutexIn(mutexIn), _mutexOut(mutexOut), _bufferIn(buffIn), _bufferOut(buffOut), _id(id) {}
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for rtype project
+     * 
+     */
+    namespace rtype {
+        
+        /**
+         * \class PlayerData PlayerData.hpp
+         * 
+         * \brief class that containt PlayerData
+         */
+        class PlayerData {
+            public:
+                /**
+                 * \fn explicit PlayerData() = default
+                 * 
+                 * \brief Construct a new Player Data object
+                 * 
+                 */
+                explicit PlayerData() = default;
 
-            /**
-             * \fn virtual ~PlayerData() = default
-             * 
-             * \brief Destroy the Player Data object
-             * 
-             */
-            virtual ~PlayerData() = default;
 
-            /**
-             * \fn size_t getId(void) const
-             * 
-             * \brief Get the Id object
-             * 
-             * \return id of the player
-             */
-            size_t getId(void) const;
+                explicit PlayerData(size_t id) 
+                    : _mutexIn(new std::mutex()), _mutexOut(new std::mutex()), _bufferIn(new std::vector<std::vector<uint8_t>>{}), _bufferOut(new std::vector<std::vector<uint8_t>>), _id(id) {}
 
-            std::shared_ptr<std::mutex> _mutexIn; /*! mutex that protect the Input buffer of the player */
+                /**
+                 * \fn virtual ~PlayerData() = default
+                 * 
+                 * \brief Destroy the Player Data object
+                 * 
+                 */
+                virtual ~PlayerData() = default;
 
-            std::shared_ptr<std::mutex> _mutexOut; /*! mutex that protect the Input buffer of the player */
+            public:
+                /**
+                 * \fn auto getId(void) const -> size_t
+                 * 
+                 * \brief Get the Id of the player data
+                 * 
+                 * \return id of the player
+                 */
+                auto getId(void) const -> size_t;
 
-            std::shared_ptr<Buffer> _bufferIn; /*! Input buffer of the player */
+                /**
+                 * \fn auto getBufIn() -> std::shared_ptr<std::vector<std::vector<uint8_t>>>
+                 * 
+                 * \brief Get the input buffer of the player data
+                 * 
+                 * \return the input buffer of of the player
+                 */
+                auto getBufIn() -> std::shared_ptr<std::vector<std::vector<uint8_t>>>;
 
-            std::shared_ptr<Buffer> _bufferOut; /*! output buffer of the player */
+                /**
+                 * \fn auto getBufOut() -> std::shared_ptr<std::vector<std::vector<uint8_t>>>
+                 * 
+                 * \brief Get the Output buffer of the player data
+                 * 
+                 * \return the Output buffer of of the player
+                 */
+                auto getBufOut() -> std::shared_ptr<std::vector<std::vector<uint8_t>>>;
 
-        private:
+            public:
+                std::shared_ptr<std::mutex> _mutexIn; /*! mutex that protect the Input mutex of the player */
+                std::shared_ptr<std::mutex> _mutexOut; /*! mutex that protect the Output mutex of the player */
 
-            size_t _id; /*! id of the client */
-    };
+            private:
+                std::shared_ptr<std::vector<std::vector<uint8_t>>> _bufferIn; /*! Input buffer of the player */
+                std::shared_ptr<std::vector<std::vector<uint8_t>>> _bufferOut; /*! output buffer of the player */
+                size_t _id; /*! id of the client */
+        };
+    }
 
 #endif /* !PLAYERDATA_HPP_ */

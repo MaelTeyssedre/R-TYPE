@@ -3,6 +3,9 @@ asio/1.19.2
 sfml/2.5.1
 nlohmann_json/3.10.4
 
+[options]
+sfml:shared=True
+
 [generators]
 cmake
 

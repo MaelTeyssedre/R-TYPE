@@ -1,34 +1,17 @@
 #include "Room.hpp"
+#include "Game.hpp"
 
-Room::Room(size_t id)
-{
-    _id = id;
+rtype::Room::Room(std::vector<PlayerData>* players)
+	: _threadPtr(new std::thread(_runThread, players)) {
 }
 
-Room::Room(Room &room)
+auto rtype::Room::_runThread(std::vector<PlayerData>* players) -> void
 {
-    _id = room._id;
-    _roomBuffers = room._roomBuffers;
-}
-
-size_t Room::getId() const
-{
-    return _id;
-}
-
-std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> Room::getRoomBuffer() const
-{
-    return _roomBuffers;
-}
-
-void Room::setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer)
-{
-    _roomBuffers = roomBuffer;
-}
-
-Room &Room::operator=(Room &room)
-{
-    _id = room._id;
-    _roomBuffers = room._roomBuffers;
-    return *this;
+	//std::cout << "in room" << std::endl;
+	Game game{players};
+	for (;;) {
+		game.runGame();
+		std::this_thread::sleep_for(std::chrono::nanoseconds(10000));	
+		//std::cout << "size inside of the room : " << players->size() << std::endl;
+	}
 }

@@ -1,7 +1,7 @@
 /**
- * @file DlLoaderWindows.hpp
+ * \file DlLoaderWindows.hpp
  * 
- * @brief file for DLLoader for windows
+ * \brief file for DLLoader for windows
  */
 
 #ifndef DLLOADERWINDOWS_HPP_
@@ -21,8 +21,8 @@
      */
     class DlLoaderWindows {
         public:
-            using allocClass = AMonster*(*)();
-            using deleteClass = void(*)(IElement*);
+            using allocClass = rtype::AMonster*(*)();
+            using deleteClass = void(*)(rtype::IElement*);
 
         public:
             /**
@@ -47,14 +47,14 @@
             virtual ~DlLoaderWindows() = default;
 
             /**
-             * \fn DlLoaderWindows& operator=(const DlLoaderWindows &other) = default
+             * \fn auto operator=(const DlLoaderWindows &other) -> DlLoaderWindows& = default
              * 
              * \brief Default operator= overload
              */
-            DlLoaderWindows& operator=(const DlLoaderWindows &other) = default;
+            auto operator=(const DlLoaderWindows &other) -> DlLoaderWindows& = default;
 
             /**
-             * \fn HMODULE loadLib(std::string path)
+             * \fn auto loadLib(const std::string &path) -> HMODULE
              * 
              * \param path dynlib to load
              * 
@@ -62,10 +62,10 @@
              * 
              * \return loaded lib
              */
-            HMODULE loadLib(const std::string &path);
+            auto loadLib(const std::string &path) -> HMODULE;
 
             /**
-             * \fn allocClass loadFunc(std::string &function, HMODULE hDLL)
+             * \fn auto loadFunc(const std::string &function, HMODULE hDLL) -> allocClass
              * 
              * \param function to load
              * 
@@ -75,16 +75,16 @@
              * 
              * \return loaded function
              */
-            allocClass loadFunc(const std::string &function, HMODULE hDLL);
+            auto loadFunc(const std::string &function, HMODULE hDLL) -> allocClass;
 
             /**
-             * \fn void closeLib(HMODULE hDLL)
+             * \fn auto closeLib(HMODULE hDLL) -> void
              * 
              * \param hDLL dynlib previously loaded
              * 
              * \brief close a loaded dynlib
              */
-            void closeLib(HMODULE hDLL);
+            auto closeLib(HMODULE hDLL) -> void;
     };
 
 #endif /* !DLLOADERWINDOWS_HPP_ */

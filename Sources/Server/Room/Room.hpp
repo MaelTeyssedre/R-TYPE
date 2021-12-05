@@ -8,99 +8,60 @@
 #ifndef ROOM_HPP_
     #define ROOM_HPP_
 
-    #include <string>
+
+    #include "Buffer.hpp"
+    #include "Registry.hpp"
+    #include "JsonWrapper.hpp"
+    #include "RequestComponent.hpp"
+    #include "PlayerData.hpp"
     #include <thread>
     #include <vector>
-    #include "Buffer.hpp"
+    #include <memory>
 
     /**
-     * \class Room
+     * \namespace rtype
      * 
-     * \brief class for Room, a room represent a game
+     * \brief namespace for rtype project
      * 
      */
-    class Room {
-        public:
+    namespace rtype {
+        
+        /**
+         * \class Room Room.hpp
+         * 
+         * \brief class that containt Room
+         */
+        class Room {
+            public:
+                /**
+                 * \fn explicit Room(std::vector<PlayerData> *players)
+                 * 
+                 * \brief Construct a room
+                 * 
+                 */
+                explicit Room(std::vector<PlayerData> *players);
+                
+                /**
+                 * \fn virtual ~Room() = default
+                 * 
+                 * \brief Destroy the room
+                 * 
+                 */
+                virtual ~Room() = default;
 
-            /**
-             * \fn explicit Room() = default
-             * 
-             * \brief Construct a new Room object
-             * 
-             */
-            explicit Room() = default;
-
-            /**
-             * \fn explicit Room(size_t id)
-             * 
-             * \brief Construct a new Room object
-             * 
-             * \param id id of te room
-             */
-            explicit Room(size_t id);
-
-            /**
-             * \fn explicit Room(Room &)
-             * 
-             * \brief Construct a new Room object from another
-             * 
-             * \param room the room to copy
-             * 
-             */
-            explicit Room(Room &room);
-
-            /**
-             * \fn virtuel ~Room() = default
-             * 
-             * \brief Destroy the Room object
-             * 
-             */
-            virtual ~Room() = default;
-
-            /**
-             * \fn size_t getId() const
-             * 
-             * \brief Get the Id object
-             * 
-             * \return the id 
-             */
-            size_t getId() const;
+            private:
             
-            /**
-             * \fn std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> getRoomBuffer() const
-             * 
-             * \brief Get the Room Buffer object
-             * 
-             * \return std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> 
-             */
-            std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> getRoomBuffer() const;
-
-            /**
-             * \fn Room& operator=(Room &room)
-             * 
-             * \brief assignation operator overload
-             * 
-             * \param room room to assign
-             * 
-             * \return assignation reference
-             */
-            Room& operator=(Room &room);
-
-            /**
-             * \fn void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer)
-             * 
-             * \brief Set the Room Buffer object
-             * 
-             * \param roomBuffer the pointer the set
-             * 
-             */
-            void setRoomBuffer(std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> &roomBuffer);
-    
-        private:
-
-            std::shared_ptr<std::vector<std::pair<Buffer, Buffer>>> _roomBuffers; /*! I/O buffer of all player in the room */
-            size_t _id; /*! id of the room */
-
-    };
+                /**
+                 * \fn static auto _runThread(std::vector<PlayerData>* players) -> void
+                 * 
+                 * \brief Run a thread
+                 * 
+                 * \param players Vector of player data inside the thread
+                 */
+                static auto _runThread(std::vector<PlayerData>* players) -> void;
+            private:
+                std::unique_ptr<std::thread> _threadPtr; /*! pointer on the room thread */
+        };
+    }
 
 #endif /* !ROOM_HPP_ */

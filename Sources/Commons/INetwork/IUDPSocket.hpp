@@ -26,22 +26,24 @@
             virtual ~IUDPSocket() = default;
 
             /**
-             * \fn virtual void send(IPacket &data) = 0
+             * \fn virtual auto send(IPacket &data) -> void = 0
+             * 
+             * \brief send data
              * 
              * \param data 
              */
-            virtual void send(IPacket &data) = 0;
+            virtual auto send(IPacket &data) -> void = 0;
 
             /**
-             * \fn virtual void receive() = 0
+             * \fn virtual auto receive() -> void = 0
              * 
-             * \brief 
+             * \brief receive data
              * 
              * \param data 
              * 
              * \return data received from network
              */
-            virtual void receive() = 0;
+            virtual auto receive() -> void = 0;
     };
 
 #endif /* !IUDPSOCKET_HPP_ */

@@ -10,68 +10,75 @@
     #include "IElement.hpp"
 
     /**
-     * \class Player
+     * \namespace rtype
      * 
-     * \brief class Player that inherit of IElement
+     * \brief global namespace for the rtype project
+     * 
      */
-    class Player : public IElement {
-        public:
+    namespace rtype {
+        /**
+         * \class Player
+         * 
+         * \brief class Player that inherit of IElement
+         */
+        class Player : public IElement {
+            public:
 
-            /**
-             * \fn explicit Player() = default
-             * 
-             * \brief Construct a new Player object
-             * 
-             */
-            explicit Player() = default;
+                /**
+                 * \fn explicit Player() = default
+                 * 
+                 * \brief Construct a new Player object
+                 * 
+                 */
+                explicit Player() = default;
 
-            /**
-             * \fn virtual ~Player() = default
-             * 
-             * \brief Destroy the Player object
-             * 
-             */
-            virtual ~Player() = default;
+                /**
+                 * \fn virtual ~Player() = default
+                 * 
+                 * \brief Destroy the Player object
+                 * 
+                 */
+                virtual ~Player() = default;
 
-            /**
-             * \fn void init(Registry &) override
-             * 
-             * \brief init the Player
-             * 
-             */
-            void init(Registry &) override;
+                /**
+                 * \fn auto init(Registry &) -> void override
+                 * 
+                 * \brief init the Player
+                 * 
+                 */
+                auto init(Registry &) -> void override;
 
-            /**
-             * \fn void update(void) override
-             * 
-             * \brief update the player during the game
-             * 
-             */
-            void update(void) override;
+                /**
+                 * \fn auto update(void) -> void override
+                 * 
+                 * \brief update the player during the game
+                 * 
+                 */
+                auto update(void) -> void override;
 
-            /**
-             * \fn void setName(std::string &name)
-             * 
-             * \brief Set the Name object
-             * 
-             * \param name the name to set
-             */
-            void setName(std::string &name);
+                /**
+                 * \fn auto setName(std::string &name) -> void
+                 * 
+                 * \brief Set the Name object
+                 * 
+                 * \param name the name to set
+                 */
+                auto setName(std::string &name) -> void;
 
-            /**
-             * \fn std::string &getName()
-             * 
-             * \brief Get the Name object
-             * 
-             * \return std::string& the name of the player
-             */
-            std::string &getName();
+                /**
+                 * \fn auto getName() -> std::string &
+                 * 
+                 * \brief Get the Name object
+                 * 
+                 * \return std::string& the name of the player
+                 */
+                auto getName() -> std::string &;
 
-        private:
+            private:
 
-            Registry _registry; /*! registry*/
-            std::string _name; /*! name of the player */
-            size_t _idx; /*! Entity id of the player */
-    };
+                Registry _registry; /*! registry*/
+                std::string _name; /*! name of the player */
+        };
+    }
 
 #endif /* !PLAYER_HPP_ */

@@ -10,19 +10,27 @@
     /**
      * \namespace rtype
      * 
-     * \brief global namespace for rtype project
+     * \brief namespace for the R-Type
      * 
      */
     namespace rtype {
         /**
-         * \struct fireFrequence_s
+         * \namespace components
          * 
-         * \brief fireFrequence component
+         * \brief namespace for ECS components
          * 
          */
-        struct fireFrequence_s {
-            size_t fireFrequence;
-        };
+        namespace components {
+            /**
+             * \struct fireFrequence_s
+             * 
+             * \brief fireFrequence component
+             * 
+             */
+            struct fireFrequence_s {
+                size_t fireFrequence;
+            };
+        }
     }
 
 #endif /* !FIREFREQUENCE_HPP_ */

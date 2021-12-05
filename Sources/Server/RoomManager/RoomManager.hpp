@@ -8,96 +8,87 @@
 #ifndef ROOMMANAGER_HPP_
     #define ROOMMANAGER_HPP_
 
-    #include <string>
     #include <thread>
     #include <vector>
     #include <mutex>
-    #include <memory>
-    #include <array>
-    #include <optional>
     #include "Buffer.hpp"
     #include "PlayerData.hpp"
 
     /**
-     * \class RoomManager
+     * \namespace rtype
      * 
-     * @brief Manager of the Rooms
+     * \brief namespace for the R-Type
      * 
      */
-    class RoomManager {
-        public:
+    namespace rtype {
+        /**
+         * \class RoomManager
+         * 
+         * \brief Manager of the Rooms
+         * 
+         */
+        class RoomManager {
+            public:
 
-            /**
-             * \fn explicit RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
-             * 
-             * \brief Construct a new Room Manager object
-             * 
-             * \param roomList all the rooms and the player data that contain all needed info to communicate with the player 
-             * \param bufferIn Input buffer to get request from PacketManager
-             * \param bufferOut Output buffer to send request to PacketManager
-             */
-            explicit RoomManager(std::shared_ptr<std::vector<std::vector<PlayerData>>> roomList, std::shared_ptr<Buffer> bufferIn, std::shared_ptr<Buffer>bufferOut);
+                /**
+                 * \fn explicit RoomManager(std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList, std::shared_ptr<std::vector<size_t>> idCreator, std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner)
+                 * 
+                 * \brief Room manager ctor
+                 *
+                 * \param roomlist A list of room with information on the players who joins each room
+                 *
+                 * \param idCreator A pointer on a vector of id of players who have created room
+                 *
+                 * \param idJoiner A pointer on a vector of id of players who have joined room
+                 */
+                explicit RoomManager(std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList, std::shared_ptr<std::vector<size_t>> idCreator, std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner);
 
-            /**
-             * \fn virtual ~RoomManager()
-             * 
-             * \brief Destroy the Room Manager object
-             */
-            virtual ~RoomManager();
-            
-            /**
-             * \fn std::string joinRoom(std::string &packet)
-             * 
-             * \brief put a player inside a room
-             * 
-             * \param packet packet from the packetManager
-             * 
-             * \return return the response for the packetManager
-             */
-            std::string joinRoom(std::string &packet);
-            
-            /**
-             * \fn void manageRoom()
-             * 
-             * \brief fill the packet list
-             * 
-             */
-            void manageRoom();
-            
-            /**
-             * \fn void redirectRequest(std::vector<std::string> &)
-             * 
-             * \brief call the proper function according to the packet received
-             * 
-             * \param packetList list of packet received from the PacktInterpreter
-             * 
-             */
-            void redirectRequest(std::vector<std::string> &packetList);
-            
-            /**
-             * \fn void createRoom(std::string &packet)
-             * 
-             * \brief Create a Room object
-             * 
-             * \param packet packet received from the PacketManager
-             */
-            void createRoom(std::string &packet);
-            
-            /**
-             * \fn void isRoom(size_t id)
-             * 
-             * \brief execute the Room
-             * 
-             * \param id id of the room
-             */
-            void isRoom(size_t id);
+                /**
+                 * \fn virtual ~RoomManager()
+                 * 
+                 * \brief Destroy the Room Manager object
+                 */
+                virtual ~RoomManager() = default;
+                
+                /**
+                 * \fn auto joinRoom() -> void
+                 * 
+                 * \brief put a player inside a room
+                 * 
+                 */
+                auto joinRoom() -> void;
+                
+                /**
+                 * \fn auto manageRoom() -> void
+                 * 
+                 * \brief fill the packet list
+                 * 
+                 */
+                auto manageRoom() -> void;
+                
+                /**
+                 * \fn auto createRoom() -> void
+                 * 
+                 * \brief Create a Room object
+                 *
+                 */
+                auto createRoom() -> void;
 
-        private:
+                /**
+                 * \fn auto getIdToCreate() -> size_t
+                 * 
+                 * \brief Get an id to create a room
+                 *
+                 * \return the getted id
+                 */
+                auto getIdToCreate() -> size_t;
 
-            std::vector<std::thread> _threadList; /*! list of thread for rooms */
-            std::shared_ptr<std::vector<std::vector<PlayerData>>> _roomList; /*! list of room who contain list of playerData */
-            std::shared_ptr<Buffer> _bufferIn; /*! ptr to input buffer that communicate with PackeManager */
-            std::shared_ptr<Buffer> _bufferOut; /*! ptr to output buffer that communicate with PackeManager */
-    };
+            private:
+
+                std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> _roomList; /*! list of room who contain list of playerData */
+                std::shared_ptr<std::vector<size_t>> _idCreator; /*! A vector of player that have created room */
+                std::shared_ptr<std::vector<std::pair<size_t, size_t>>> _idJoiner; /*! A vector of player that have joined room */
+        };
+    }
 
 #endif /* !ROOMMANAGER_HPP_ */
