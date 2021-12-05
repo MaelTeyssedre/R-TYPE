@@ -53,7 +53,7 @@
                 virtual ~UpdateNetwork() = default;
 
                 /**
-                 * \fn void operator()(Registry &r, SparseArray<components::network_s> &networks)
+                 * \fn auto operator()(Registry &r, SparseArray<components::network_s> &networks) -> void
                  *
                  * \brief operator to be used by the ECS
                  * 

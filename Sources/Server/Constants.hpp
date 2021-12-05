@@ -42,6 +42,12 @@
                 NETWORK_UPDATE = 1,
             };
         }
+
+        namespace types {
+            enum TYPES {
+                MONSTER = 0,
+            };
+        }
     }
 
 #endif /* !CONSTANTS_HPP_ */

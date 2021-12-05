@@ -4,10 +4,10 @@
 void rtype::Wall::init(Registry &registry)
 {
     struct components::position_s pos {100, 100};
-    
-    _registry = registry;
-    _idx = _registry.spawnEntity();
+    //struct components::size_s size {100, 100};
+    Entity _idx = registry.spawnEntity();
     registry.addComponent<components::position_s>(registry.entityFromIndex(_idx), std::move(pos));
+    //registry.addComponent<components::size_s>(registry.entityFromIndex(_idx), std::move(size));
 }
 
 void rtype::Wall::update()

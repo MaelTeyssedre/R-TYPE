@@ -11,26 +11,9 @@
 rtype::RoomManager::RoomManager(std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList, std::shared_ptr<std::vector<size_t>> idCreator, std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner)
     : _roomList(roomList), _idCreator(idCreator), _idJoiner(idJoiner) {}
 
-auto rtype::RoomManager::getIdToCreate() -> size_t
-{
-    if (!(_roomList->size()))
-        return 0;
-    for (auto i = 0; i < _roomList->size(); i++)
-    {
-        auto idAlreadyExit = false;
-        for (auto j : *_roomList)
-            idAlreadyExit = (j.second == i) ? true: idAlreadyExit;
-        if (!idAlreadyExit)
-            return i;
-    }
-    throw std::runtime_error("no free id");
-}
-
 auto rtype::RoomManager::createRoom() -> void
 {
-    std::cout << "in create Room" << std::endl;
-    auto id = getIdToCreate();
-    _roomList->push_back(std::pair(std::vector<PlayerData>{}, id));
+    _roomList->push_back(std::pair(std::vector<PlayerData>{}, _roomList->size()));
     _roomList->back().first.push_back(PlayerData(_idCreator->front()));
     _idCreator->clear();
     Room* room = new Room(&(_roomList->back().first));

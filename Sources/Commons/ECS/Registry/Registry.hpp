@@ -44,7 +44,7 @@
 
         public:
             /**
-             * \fn bool isKilled(Entity const &e)
+             * \fn auto isKilled(Entity const &e) -> bool
              * 
              * \brief boolean function to know if an entity is already killed
              *
@@ -55,7 +55,7 @@
             auto isKilled(Entity const &e) -> bool;
 
             /**
-             * \fn Entity spawnEntity()
+             * \fn auto spawnEntity() -> Entity
              * 
              * \brief create a new entity
              *
@@ -64,7 +64,7 @@
             auto spawnEntity() -> Entity;
 
             /**
-             * \fn Entity entityFromIndex(size_t idx)
+             * \fn auto entityFromIndex(size_t idx) -> Entity
              * 
              * \brief getter of an entity from his index
              *
@@ -75,7 +75,7 @@
             auto entityFromIndex(size_t idx) -> Entity;
 
             /**
-             * \fn void killEntity(Entity const &e)
+             * \fn auto killEntity(Entity const& e) -> void
              * 
              * \brief kill an intity
              *
@@ -98,7 +98,7 @@
             }
 
             /**
-             * \fn void run_system()
+             * \fn auto run_system() -> void
              * 
              * \brief run all the systems in the order they are stocked
              */
@@ -107,7 +107,7 @@
         public:
 
             /**
-             * \fn template <class Component> SparseArray<Component> &registerComponent(std::function<void(Registry &, Entity const &)> constructor, std::function<void(Registry &, Entity const &)> destructor)
+             * \fn template <class Component> auto registerComponent(std::function<void(Registry &, Entity const &)> constructor, std::function<void(Registry &, Entity const &)> destructor) -> SparseArray<Component>&
              * 
              * \brief register a component in the registry
              *
@@ -128,7 +128,7 @@
             }
 
             /**
-             * \fn template <class Component> SparseArray<Component> &getComponents()
+             * \fn template <class Component> auto getComponents() -> SparseArray<Component>&
              * 
              * \brief getter for sparseArray of the component
              * 
@@ -143,7 +143,8 @@
             }
 
             /**
-             * \fn template <class Component> SparseArray<Component> const &getComponents() const
+             * \fn template <class Component> auto getComponents() const -> SparseArray<Component> const&
+            {
              * 
              * \brief getter for sparseArray of the component
              * 
@@ -178,7 +179,7 @@
             }
 
             /**
-             * \fn template <typename Component, typename ...Params> typename SparseArray<Component>::reference_type emplaceComponent(Entity const &to, Params &&...p)
+             * \fn template <typename Component, typename ...Params> auto emplaceComponent(Entity const &to, Params &&...p) -> typename SparseArray<Component>::reference_type
              * 
              * \brief create a component for an specified entity
              * 
@@ -199,7 +200,7 @@
             }
 
             /**
-             * \fn template <typename Component> void removeComponent(Entity const &from)
+             * \fn template <typename Component> auto removeComponent(Entity const &from) -> void
              * 
              * \brief remove a component of an entity
              * 
@@ -214,7 +215,7 @@
             }
 
             /**
-             * \fn template <typename Function, class ...Components> void addSystem(Function &&f, Components &&...components)
+             * \fn template <typename Function, class ...Components> auto addSystem(Function &&f, Components &&...components) -> void
              * 
              * \brief add a system the registry
              * 
@@ -232,7 +233,7 @@
             }
 
             /**
-             * \fn template <typename Function, class ...Components> void addSystem(Function const &f, Components &...components)
+             * \fn template <typename Function, class ...Components> auto addSystem(Function const &f, Components &...components) -> void
              * 
              * \brief add a system the registry
              * 

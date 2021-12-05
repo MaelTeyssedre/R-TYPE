@@ -20,6 +20,12 @@
     #include <nlohmann/json.hpp>
     #include <vector>
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief global namespace for the rtype project
+     * 
+     */
     namespace rtype {
         /**
          * \class IJsonWrapper
@@ -38,41 +44,41 @@
                 virtual ~IJsonWrapper() = default;
 
                 /**
-                 * \fn virtual std::string &jsonToString() = 0
+                 * \fn virtual auto jsonToString() -> std::string = 0
                  * 
                  * \brief Convert and return content of a json file as a string
                  * 
                  * \return std::string & Le contenu du file .json
                  */ 
-                virtual std::string jsonToString() = 0;
+                virtual auto jsonToString() -> std::string = 0;
                 
                 /**
-                 * \fn virtual void fillComposantList() = 0
+                 * \fn virtual auto fillComposantList() -> void = 0
                  * 
                  * \brief Fill a object list with the content of a JSON file
                  */
-                virtual void fillComposantList() = 0;
+                virtual auto fillComposantList() -> void = 0;
                 
                 /**
-                 * \fn virtual void addPlayer() = 0
+                 * \fn virtual auto addPlayer() -> void = 0
                  * 
                  * \brief Fill a object list with a player object
                  */
-                virtual void addPlayer() = 0;
+                virtual auto addPlayer() -> void = 0;
 
                 /**
-                 * \fn virtual void addMonster() = 0
+                 * \fn virtual auto addMonster() -> void = 0
                  * 
                  * \brief Fill a object list with a monster object
                  */
-                virtual void addMonster() = 0;
+                virtual auto addMonster() -> void = 0;
                 
                 /**
-                 * \fn virtual void addWall() = 0
+                 * \fn virtual auto addWall() -> void = 0
                  * 
                  * \brief Fill a object list with a wall object
                  */
-                virtual void addWall() = 0;
+                virtual auto addWall() -> void = 0;
         };
     }
 

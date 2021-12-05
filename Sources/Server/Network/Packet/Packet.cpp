@@ -2,8 +2,6 @@
 
 size_t rtype::Packet::pack(std::vector<uint8_t> data)
 {
-    if (data.size())
-        std::cout << "size of data " << data[0] << std::endl;
     _packetSize = data.size();
     for (int i = 0; i != data.size(); i++)
         _rawData.push_back(data[i]);

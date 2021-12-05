@@ -31,8 +31,9 @@ int main(int ac, char **av)
         packetManager.setBufferI(server->getBuffer());
         packetManager.managePacket();
         auto &toSend = packetManager.getRequestsToSend();
-        for (auto i : toSend)
+        for (auto i : toSend) {
             server->send(i);
+        }
         toSend.clear();
         roomManager.manageRoom();
         packetManager.manageResponse();

@@ -13,8 +13,7 @@ void rtype::Player::init(Registry &registry)
     struct rtype::components::weapon_s weapon {10};
     struct rtype::components::fireFrequence_s fireFrequence {2};
     
-    _registry = registry;
-    _idx = _registry.spawnEntity();
+    Entity _idx = registry.spawnEntity();
     registry.addComponent<rtype::components::position_s>(registry.entityFromIndex(_idx), std::move(pos));
 	registry.addComponent<rtype::components::velocity_s>(registry.entityFromIndex(_idx), std::move(vel));
 	registry.addComponent<rtype::components::weapon_s>(registry.entityFromIndex(_idx), std::move(weapon));

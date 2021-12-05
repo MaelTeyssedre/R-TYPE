@@ -7,11 +7,17 @@
 #ifndef POSITION_HPP_
     #define POSITION_HPP_
 
+    /**
+     * \namespace rtype
+     * 
+     * \brief namespace for the R-Type
+     * 
+     */
     namespace rtype {
         /**
-         * \namespace rtype
+         * \namespace components
          * 
-         * \brief global namespace for rtype project
+         * \brief namespace for ECS components
          * 
          */
         namespace components {

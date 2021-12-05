@@ -39,6 +39,12 @@
                  * \brief dtor UpdateTime
                  */
                 virtual ~UpdateTime() = default;
+
+                /**
+                 * \fn auto operator()(Registry &r, SparseArray<components::myTime_s> &times) -> void
+                 *
+                 * \brief dtor UpdateTime
+                 */
                 auto operator()(Registry &r, SparseArray<components::myTime_s> &times) -> void;
             private:
                 std::chrono::nanoseconds _currentDeltaTime; /*! The current delta time*/

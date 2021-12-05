@@ -40,7 +40,7 @@ void rtype::BasicMonster::init(Registry &registry)
 	setVelocity(std::pair(10, 0));
 	setFireFrequence(3);
 	_registry = registry;
-	_idx = _registry.spawnEntity();
+	Entity _idx = _registry.spawnEntity();
 	registry.registerComponent<components::position_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
 	registry.registerComponent<components::velocity_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});
 	registry.registerComponent<components::weapon_s>([](Registry &, Entity const &) -> void {}, [](Registry &, Entity const &) -> void {});

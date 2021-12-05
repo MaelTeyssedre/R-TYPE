@@ -10,9 +10,7 @@ rtype::TCPServer::TCPServer(asio::io_context &context, std::uint16_t port)
 
 void rtype::TCPServer::send(IPacket *data)
 {
-    std::cout << "in tcpServer::send" << std::endl;
     _mapUser[data->getId()]->addToQueue(data->unpack());
-    //std::cout << "queue size before" << _queue.size() << std::endl;
     _mapUser[data->getId()]->write();
 }
 
@@ -62,8 +60,6 @@ std::queue<IPacket *> *rtype::TCPServer::getBuffer()
     
     for (size_t i = 0; i < _mapUser.size(); i++)
     {
-        if (_mapUser[i]->getInput().size())
-            std::cout << "sizeof input inside : " << _mapUser[i]->getInput().at(0) << std::endl;
         IPacket *packetPtr = new rtype::Packet;
         auto tmp = _mapUser[i]->getInput();
         packetPtr->pack(tmp);
@@ -71,6 +67,7 @@ std::queue<IPacket *> *rtype::TCPServer::getBuffer()
         packetPtr->setId(i);
         if (packetPtr->unpack().size())
             _buffers.emplace(packetPtr);
+        _mapUser[i]->clearInput();
     }
     return (&_buffers);
 }

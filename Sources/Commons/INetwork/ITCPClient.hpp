@@ -28,41 +28,48 @@
             virtual ~ITCPClient() = default;
 
             /**
-             * \fn virtual void send(IPacket &data) = 0
+             * \fn virtual auto send(IPacket &data) -> void = 0
              * 
              * \brief send data
              * 
              * \param data to send
              */
-            virtual void send(IPacket &data) = 0;
+            virtual auto send(IPacket &data) -> void = 0;
 
             /**
-             * \fn virtual IPacket &receive() = 0 
+             * \fn virtual auto receive() -> void = 0 
              * 
              * \brief receive data
              * 
              * \return return data in packet
              */
-            virtual void receive() = 0;
+            virtual auto receive() -> void = 0;
 
             /**
-             * \fn virtual void disconnect() = 0
+             * \fn virtual auto disconnect() -> void = 0
              * 
              * \brief disconnect to the socket
              * 
              */
-            virtual void disconnect() = 0;
+            virtual auto disconnect() -> void = 0;
 
             /**
-             * \fn std::shared_ptr<Buffer> getData()
+             * \fn virtual auto getBuffer() -> std::shared_ptr<Buffer> = 0
              * 
              * \brief Get the Data object
              * 
              * \return std::shared_ptr<Buffer> 
              */
-            virtual std::shared_ptr<Buffer> getBuffer() = 0;
+            virtual auto getBuffer() -> std::shared_ptr<Buffer> = 0;
 
-            virtual bool isConnected() = 0;
+            /**
+             * \fn virtual auto isConnected() -> bool = 0
+             * 
+             * \brief Check if the client is connected
+             * 
+             * \return true if the client is connected, false otherwise
+             */
+            virtual auto isConnected() -> bool = 0;
     };
 
 #endif /* !ITCPCLIENT_HPP_ */
