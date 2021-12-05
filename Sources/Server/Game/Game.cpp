@@ -8,11 +8,14 @@ rtype::Game::Game(std::vector<PlayerData>* players)
 	_registerComponents();
     _setupComponents();
 	_initGame();
+    /*for (;;) {
+        if (players.size() == 4) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::nanoseconds(100000));
+    }
+	_sendRequestsToAll();*/
 }
-
-
-//TODO add type
-
 
 auto rtype::Game::_initGame() -> void
 {
@@ -35,16 +38,24 @@ auto rtype::Game::runGame() -> void
 	std::cout << "Player List size : " << _jsonWrapper.getWallList().size() << std::endl;
 }
 
+auto rtype::Game::_sendRequestsToAll() -> void
+{
+
+}
+
 auto rtype::Game::_registerMonster(rtype::AMonster *monster) ->void
 {
     Entity idx = _r.spawnEntity();
+
     struct rtype::components::index_s index {(size_t)idx};
+    struct rtype::components::types_s type {constants::WALL};
 
     _r.addComponent<rtype::components::position_s>(_r.entityFromIndex(idx), monster->getPosition());
 	_r.addComponent<rtype::components::velocity_s>(_r.entityFromIndex(idx), monster->getVelocity());
 	_r.addComponent<rtype::components::weapon_s>(_r.entityFromIndex(idx), monster->getWeapon());
 	_r.addComponent<rtype::components::healPoint_s>(_r.entityFromIndex(idx), monster->getHealPoint());
 	_r.addComponent<rtype::components::fireFrequence_s>(_r.entityFromIndex(idx), monster->getFireFrequence());
+    _r.addComponent<rtype::components::types_s>(_r.entityFromIndex(idx), std::move(type));
 	_r.addComponent<rtype::components::index_s>(_r.entityFromIndex(idx), std::move(index));
 }
 
@@ -62,6 +73,17 @@ auto rtype::Game::_registerComponents() -> void
             (void)e;
         });
     _r.registerComponent<components::fireFrequence_s>(
+        [](Registry& r, Entity const& e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry& r, Entity const& e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
+    _r.registerComponent<components::size_s>(
         [](Registry& r, Entity const& e) -> void
         {
             (void)r;
@@ -128,6 +150,17 @@ auto rtype::Game::_registerComponents() -> void
             (void)e;
         });
     _r.registerComponent<components::types_s>(
+        [](Registry& r, Entity const& e) -> void
+        {
+            (void)r;
+            (void)e;
+        },
+        [](Registry& r, Entity const& e) -> void
+        {
+            (void)r;
+            (void)e;
+        });
+    _r.registerComponent<components::index_s>(
         [](Registry& r, Entity const& e) -> void
         {
             (void)r;

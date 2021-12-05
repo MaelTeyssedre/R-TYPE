@@ -22,7 +22,7 @@
          */
         class Wall : public IElement {
             public:
-
+                
                 /**
                  * \fn explicit Wall() = default
                  * 

@@ -41,11 +41,11 @@
                 TIME_UPDATE = 0,
                 NETWORK_UPDATE = 1,
             };
-        }
 
-        namespace types {
             enum TYPES {
-                MONSTER = 0,
+                PLAYER = 0,
+                MONSTER = 1,
+                WALL = 2
             };
         }
     }

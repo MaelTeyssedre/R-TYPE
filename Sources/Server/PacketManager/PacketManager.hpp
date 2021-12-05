@@ -72,17 +72,8 @@
                  */
                 auto manageResponse() -> void;
 
-                /**
-                 * \fn auto sendToClient(PlayerData &player, std::vector<uint8_t> request) -> void
-                 * 
-                 * \brief send request to a player
-                 *
-                 * \param player A reference to the player who will received the request
-                 *
-                 * \param request The request we want to send
-                 * 
-                 */
-                auto sendToClient(PlayerData &player, std::vector<uint8_t> request) -> void;                
+
+                auto sendToPlayer(PlayerData &player, std::vector<uint8_t>) -> void;
 
                 /**
                  * \fn auto setBufferI(std::queue<IPacket *> * buffer) -> void
@@ -163,17 +154,7 @@
                  */
                 auto _getNbPlayersInRoom(size_t idRoom) -> size_t;
 
-                /**
-                 * \fn auto _findPlayer(size_t id) -> bool
-                 * 
-                 * \brief find a player 
-                 *
-                 * \param id id of the searched player
-                 * 
-                 * \return true if the player is find false otherwise
-                 * 
-                 */
-                auto _findPlayer(size_t id) -> bool;
+                auto _findPlayer(size_t id) -> PlayerData*;
 
             private:
                 std::queue<IPacket*> _packetsIn; /*! A queue of pointer of packet getted */
