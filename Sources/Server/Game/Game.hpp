@@ -52,6 +52,7 @@ namespace rtype {
         
         auto runGame() -> void;
 
+
     private:
         auto _initGame() -> void;
 
@@ -59,13 +60,14 @@ namespace rtype {
         auto _registerComponents() ->void;
         auto _registerMonster(rtype::AMonster *monster) ->void;
         auto _setupComponents() ->void;
+        auto _sendRequestsToAll() -> void;
         
     private:
         auto _setupTimeComponent() -> void;
 
     private:
         JsonWrapper _jsonWrapper;
-        std::vector<PlayerData>* _players;
+        std::vector<PlayerData> *_players;
         Registry _r;
     };
 }

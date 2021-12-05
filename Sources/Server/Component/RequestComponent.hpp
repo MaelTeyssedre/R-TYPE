@@ -1,11 +1,11 @@
 /**
- * \file NetworkComponent.hpp
+ * \file request.hpp
  * 
- * \brief file for NetworkComponent component 
+ * \brief file for request component 
  */
 
-#ifndef NETWORKCOMPONENT_HPP_
-    #define NETWORKCOMPONENT_HPP_
+#ifndef REQUEST_HPP_
+    #define REQUEST_HPP_
 
     #include <vector>
 
@@ -29,15 +29,16 @@
              * \brief network component
              *
              */
-            struct network_s {
+            struct request_s {
                 std::vector<std::vector<uint8_t>> request5; /*! Request with opcode 5 */
                 std::vector<std::vector<uint8_t>> request6; /*! Request with opcode 6 */
                 std::vector<std::vector<uint8_t>> request16; /*! Request with opcode 16 */
                 std::vector<std::vector<uint8_t>> request17; /*! Request with opcode 17 */
                 std::vector<std::vector<uint8_t>> request18; /*! Request with opcode 18 */
                 std::vector<std::vector<uint8_t>> request19; /*! Request with opcode 19 */
-            }; 
+                std::vector<std::vector<uint8_t>> requestSend; /*! Request with opcode 19 */
+            };
         }
     }
 
-#endif /*!NETWORKCOMPONENT_HPP_ */
+#endif /*!REQUEST_HPP_ */

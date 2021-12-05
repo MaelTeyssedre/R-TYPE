@@ -22,11 +22,9 @@ auto rtype::PacketManager::_getRooms(IPacket *packet) ->void
     _isGetSended.push_back(std::pair(false, packet->getId()));
 }
 
-auto rtype::PacketManager::sendToClient(rtype::PlayerData &player, std::vector<uint8_t> request) -> void
+auto rtype::PacketManager::sendToPlayer(rtype::PlayerData &player, std::vector<uint8_t> request) -> void
 {
-    player._mutexOut->lock();
-    player.getBufOut()->push_back(request);
-    player._mutexOut->unlock();
+    player.getBufIn()->push_back(request);
 }
 
 auto rtype::PacketManager::managePacket() -> void
@@ -38,7 +36,7 @@ auto rtype::PacketManager::managePacket() -> void
         {
             if (tmp.at(0) == 18)
             {
-                if (_roomList->size() <= 5 && !_findPlayer(_packetsIn.front()->getId())) //check value return
+                if (_roomList->size() <= 5 && !_findPlayer(_packetsIn.front()->getId()))
                     _createRoom(_packetsIn.front());
             }
             else if (tmp.at(0) == 19)
@@ -52,7 +50,8 @@ auto rtype::PacketManager::managePacket() -> void
             }
             else
             {
-                std::cerr << "Packet received from " << _packetsIn.front()->getId() << " is undefined size : " << tmp.size() << " | opcode : " << (int)(tmp.at(0)) << std::endl;
+                sendToPlayer(*_findPlayer(_packetsIn.front()->getId()), tmp);
+                //std::cerr << "Packet received from " << _packetsIn.front()->getId() << " is undefined size : " << tmp.size() << " | opcode : " << (int)(tmp.at(0)) << std::endl;
             }
         }
         _packetsIn.pop();
@@ -106,15 +105,15 @@ auto rtype::PacketManager::_getRoomByPlayer(size_t id) -> size_t
     throw std::invalid_argument("invalid id user");
 }
 
-auto rtype::PacketManager::_findPlayer(size_t id) -> bool
+auto rtype::PacketManager::_findPlayer(size_t id) -> PlayerData*
 {
    for (auto room : *_roomList) {
         for (auto player: room.first) {
             if (id == player.getId())
-                return (true);
+                return (&player);
         }
     }
-   return (false);
+   return (nullptr);
 }
 
 auto rtype::PacketManager::manageResponse() -> void

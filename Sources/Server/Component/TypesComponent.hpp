@@ -5,34 +5,35 @@
  */
 
 #ifndef TYPESCOMPONENT_HPP_
-#define TYPESCOMPONENT_HPP_
+    #define TYPESCOMPONENT_HPP_
 
-#include "Components.hpp"
+    #include "Components.hpp"
+    #include "Constants.hpp"
 
- /**
- * \namespace rtype
- *
- * \brief namespace for the R-Type
- *
- */
-namespace rtype {
-    /**
-     * \namespace components
+     /**
+     * \namespace rtype
      *
-     * \brief namespace for ECS components
+     * \brief namespace for the R-Type
      *
      */
-    namespace components {
+    namespace rtype {
         /**
-         * \struct types_s
+         * \namespace components
          *
-         * \brief the type component
+         * \brief namespace for ECS components
          *
          */
-        struct types_s {
-            enum TYPES;
-        };
+        namespace components {
+            /**
+             * \struct types_s
+             *
+             * \brief the type component
+             *
+             */
+            struct types_s {
+                constants::TYPES type;
+            };
+        }
     }
-}
 
 #endif /* !TIMECOMPONENT_HPP_ */

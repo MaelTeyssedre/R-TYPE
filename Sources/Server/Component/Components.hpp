@@ -16,6 +16,7 @@
 #include "Weapon.hpp"
 #include "IndexComponent.hpp"
 #include "TypesComponent.hpp"
+#include "SizeComponent.hpp" 
 
 
 #endif /* !COMPONENTS_HPP_ */
