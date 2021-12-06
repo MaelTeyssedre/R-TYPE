@@ -35,7 +35,7 @@ auto rtype::Game::_initGame() -> void
 
 auto rtype::Game::runGame() -> void
 {
-	std::cout << "Player List size : " << _jsonWrapper.getWallList().size() << std::endl;
+	//std::cout << "Player List size : " << _jsonWrapper.getWallList().size() << std::endl;
 }
 
 auto rtype::Game::_sendRequestsToAll() -> void

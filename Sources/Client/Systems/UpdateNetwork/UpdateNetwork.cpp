@@ -7,17 +7,12 @@ rtype::UpdateNetwork::UpdateNetwork(ITCPClient *client, IUDPSocket *socket)
 
 void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::network_s> &networks)
 {
-    static int t = 0;
     (void)r;
     for (auto &&[network] : Zipper(networks)) {
         std::uint8_t opCode = 0;
         std::vector<uint8_t> reply;
         _tcpClient->receive();
-        std::shared_ptr<Buffer> buffer{_tcpClient->getBuffer()};
-        if (!t) {
-            buffer->cleanBuffer();
-            t++;
-        }
+        std::shared_ptr<Buffer> buffer = _tcpClient->getBuffer();
         buffer->readFromBuffer(1, &opCode);
         switch (opCode)
         {
@@ -133,10 +128,9 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         }
         case 22: {
             std::vector<uint8_t> tmpBuf{};
-            buffer->readFromBuffer(1, reply);
             tmpBuf.push_back(opCode);
+            buffer->readFromBuffer(1, tmpBuf);
             network.request22.push_back(std::move(tmpBuf));
-            network.request22.back().insert(network.request22.back().end(), reply.begin(), reply.end());
             break;
         }
         default:
@@ -145,6 +139,7 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         if (!(network.sendRequest.empty())) {
             IPacket* packet = new Packet();
             packet->pack(network.sendRequest.front());
+            std::cout << "Sending: " << (int)packet->unpack().at(0) << " nb bytes: " << packet->unpack().size() << std::endl;
             _tcpClient->send(*packet);
             network.sendRequest.erase(network.sendRequest.begin());
         }

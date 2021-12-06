@@ -16,7 +16,9 @@ void rtype::NetworkManager::stop()
 
 void rtype::NetworkManager::startNetworkThread(NetworkManager *netManager)
 {
+    std::cout << "Network thread before run" << std::endl;
     netManager->_context.run();
+    std::cout << "Network thread after run" << std::endl;
 }
 
 ITCPServer *rtype::NetworkManager::createTCPServer(int port)

@@ -62,12 +62,10 @@ std::queue<IPacket *> *rtype::TCPServer::getBuffer()
     {
         IPacket *packetPtr = new rtype::Packet;
         auto tmp = _mapUser[i]->getInput();
-        _mapUser[i]->delInput(packetPtr->pack(tmp)),
-        tmp.clear();
+        _mapUser[i]->delInput(packetPtr->pack(tmp));
         packetPtr->setId(i);
         if (packetPtr->unpack().size())
             _buffers.emplace(packetPtr);
-        _mapUser[i]->clearInput();
     }
     return (&_buffers);
 }

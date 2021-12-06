@@ -13,20 +13,23 @@ void rtype::tcpUser::addToQueue(std::vector<uint8_t> message)
 
 void rtype::tcpUser::read()
 {
-    std::memset(_data, 0, sizeof(_data));
-    _socket->async_read_some(asio::buffer(_data, 1), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
-    std::memset(_data, 0, MAX_LENGTH);
+    _socket->async_read_some(asio::buffer(_data, sizeof(_data)), std::bind(&rtype::tcpUser::doRead, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
+    std::cout << "doRead ec=" << ec << " nbBytes=" << bytes << std::endl;
     if (!ec)
-    { 
-        uint8_t tmp = (uint8_t)_data[0];
-        _input->push_back(std::move(tmp));
+    {
+        for (int i = 0; i < bytes; i++) {
+            uint8_t tmp = (uint8_t)_data[i];
+            std::cout << "data[" << i << "] = " << (int)tmp << std::endl;
+            _input->push_back(std::move(tmp));
+        }
         _sizeInput += bytes;
-        read();
+        std::memset(_data, 0, bytes);
     }
+    read();
 }
 
 void rtype::tcpUser::write()
@@ -42,9 +45,8 @@ void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transf
     if (!ec)
     {
         _queue.pop();
-        if (!_queue.empty())
-            write();
     }
+    write();
 }
 
 auto rtype::tcpUser::getInput()->std::vector<uint8_t>
@@ -69,4 +71,5 @@ size_t &rtype::tcpUser::getSizeInput()
 void rtype::tcpUser::delInput(size_t length)
 {
     _input->erase(_input->begin(), _input->begin() + length);
+    _sizeInput -= length;
 }
