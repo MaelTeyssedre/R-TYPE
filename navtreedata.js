@@ -24,47 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "R-Type", "index.html", [
-    [ "README", "md__r_e_a_d_m_e.html", null ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
-      ] ]
-    ] ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
-    ] ]
-  ] ]
+  [ "My Project", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"_a_monster_8cpp.html",
-"_sparse_array_8hpp_source.html",
-"classrtype_1_1_graphical_lib.html#a177c4e8ed17400ba51221f37de449575",
-"classrtype_1_1_sprite.html#ac6457f03eba6362bc8aa491992bd85bb",
-"namespacertype_1_1constants.html#a4a9e6dcc1115f30fc3fe0979158daf53a98878f3bfc5483c65f2915dfec585149"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
