@@ -6,70 +6,70 @@
  */
 
 #ifndef GAME_HPP_
-#define GAME_HPP_
+    #define GAME_HPP_
 
 
-#include "Buffer.hpp"
-#include "Registry.hpp"
-#include "JsonWrapper.hpp"
-#include "RequestComponent.hpp"
-#include "PlayerData.hpp"
-#include <thread>
-#include <vector>
-#include <memory>
+    #include "Buffer.hpp"
+    #include "Registry.hpp"
+    #include "JsonWrapper.hpp"
+    #include "RequestComponent.hpp"
+    #include "PlayerData.hpp"
+    #include <thread>
+    #include <vector>
+    #include <memory>
 
- /**
-  * \namespace rtype
-  *
-  * \brief namespace for rtype project
-  *
-  */
-namespace rtype {
-
-    /**
-     * \class GAME GAME.hpp
-     *
-     * \brief class that containt GAME
-     */
-    class Game {
-    public:
+     /**
+      * \namespace rtype
+      *
+      * \brief namespace for rtype project
+      *
+      */
+    namespace rtype {
 
         /**
-         * \fn explicit GAME(std::vector<PlayerData> *players)
+         * \class GAME GAME.hpp
          *
-         * \brief Construct a GAME
-         *
+         * \brief class that containt GAME
          */
-        explicit Game(std::vector<PlayerData>* players);
+        class Game {
+        public:
 
-        /**
-         * \fn virtual ~GAME() = default
-         *
-         * \brief Destroy the GAME
-         *
-         */
-        virtual ~Game() = default;
+            /**
+             * \fn explicit GAME(std::vector<PlayerData> *players)
+             *
+             * \brief Construct a GAME
+             *
+             */
+            explicit Game(std::vector<PlayerData>* players);
+
+            /**
+             * \fn virtual ~GAME() = default
+             *
+             * \brief Destroy the GAME
+             *
+             */
+            virtual ~Game() = default;
         
-        auto runGame() -> void;
+            auto runGame() -> void;
 
 
-    private:
-        auto _initGame() -> void;
+        //private:
+            //auto _initGame() -> void;
 
-    private:
-        auto _registerComponents() ->void;
-        auto _registerMonster(rtype::AMonster *monster) ->void;
-        auto _setupComponents() ->void;
-        auto _sendRequestsToAll() -> void;
+        private:
+            auto _registerComponents() ->void;
+            //auto _registerMonster(rtype::AMonster *monster) ->void;
+            auto _setupComponents() ->void;
+            //auto _sendRequestsToAll() -> void;
         
-    private:
-        auto _setupTimeComponent() -> void;
+        private:
+            auto _setupTimeComponent() -> void;
 
-    private:
-        JsonWrapper _jsonWrapper;
-        std::vector<PlayerData> *_players;
-        Registry _r;
-    };
-}
+        private:
+            JsonWrapper _jsonWrapper;
+            std::vector<PlayerData> *_players;
+            Registry _r;
+        };
+    }
 
 #endif /* !GAME_HPP_ */

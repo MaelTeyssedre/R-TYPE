@@ -168,13 +168,6 @@
                 auto _setupUpdateDirectionSystem() -> void;
 
                 /**
-                 * \fn auto _setupUpdateScene() -> void
-                 *
-                 * \brief setup the scene updater on the client
-                 */
-                auto _setupUpdateScene() -> void;
-
-                /**
                  * \fn auto _setupUpdateClickable() -> void
                  *
                  * \brief setup the clickable component updater on the client

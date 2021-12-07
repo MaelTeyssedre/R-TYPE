@@ -7,7 +7,8 @@ rtype::Game::Game(std::vector<PlayerData>* players)
 {
 	_registerComponents();
     _setupComponents();
-	_initGame();
+    std::cout << "in game ctor" << std::endl;
+	//_initGame();
     /*for (;;) {
         if (players.size() == 4) {
             break;
@@ -17,47 +18,28 @@ rtype::Game::Game(std::vector<PlayerData>* players)
 	_sendRequestsToAll();*/
 }
 
-auto rtype::Game::_initGame() -> void
-{
-	std::vector<std::shared_ptr<rtype::Wall>> &wallList = _jsonWrapper.getWallList();
-    for (auto &it : wallList) {
-        it->init(_r);
-    }
-    std::vector<std::shared_ptr<rtype::Player>> &playerList = _jsonWrapper.getPlayerList();
-    for (auto &it : playerList) {
-        it->init(_r);
-    }
-    std::vector<rtype::AMonster *> &monsterList = _jsonWrapper.getMonsterList();
-    for (auto &it : monsterList) {
-        _registerMonster(it);
-    }
-}
+//auto rtype::Game::_initGame() -> void
+//{
+//	std::vector<std::shared_ptr<rtype::Wall>> &wallList = _jsonWrapper.getWallList();
+//    for (auto &it : wallList) {
+//        it->init(_r);
+//    }
+//    std::vector<std::shared_ptr<rtype::Player>> &playerList = _jsonWrapper.getPlayerList();
+//    for (auto &it : playerList) {
+//        it->init(_r);
+//    }
+//    //std::vector<rtype::AMonster *> &monsterList = _jsonWrapper.getMonsterList();
+//}
 
 auto rtype::Game::runGame() -> void
 {
 	//std::cout << "Player List size : " << _jsonWrapper.getWallList().size() << std::endl;
 }
 
-auto rtype::Game::_sendRequestsToAll() -> void
-{
-
-}
-
-auto rtype::Game::_registerMonster(rtype::AMonster *monster) ->void
-{
-    Entity idx = _r.spawnEntity();
-
-    struct rtype::components::index_s index {(size_t)idx};
-    struct rtype::components::types_s type {constants::WALL};
-
-    _r.addComponent<rtype::components::position_s>(_r.entityFromIndex(idx), monster->getPosition());
-	_r.addComponent<rtype::components::velocity_s>(_r.entityFromIndex(idx), monster->getVelocity());
-	_r.addComponent<rtype::components::weapon_s>(_r.entityFromIndex(idx), monster->getWeapon());
-	_r.addComponent<rtype::components::healPoint_s>(_r.entityFromIndex(idx), monster->getHealPoint());
-	_r.addComponent<rtype::components::fireFrequence_s>(_r.entityFromIndex(idx), monster->getFireFrequence());
-    _r.addComponent<rtype::components::types_s>(_r.entityFromIndex(idx), std::move(type));
-	_r.addComponent<rtype::components::index_s>(_r.entityFromIndex(idx), std::move(index));
-}
+//auto rtype::Game::_sendRequestsToAll() -> void
+//{
+//
+//}
 
 auto rtype::Game::_registerComponents() -> void
 {

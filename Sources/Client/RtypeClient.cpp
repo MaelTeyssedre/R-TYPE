@@ -457,13 +457,6 @@ auto rtype::RtypeClient::_setupUpdateDirectionSystem() -> void
 
 auto rtype::RtypeClient::_setupUpdateGraphSystem() -> void
 {
-    //UpdateGraph graphSystem {};
-    _r.addSystem(_graphSystem, _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>(), _r.getComponents<components::currentScene_s>());
-}
-
-auto rtype::RtypeClient::_setupUpdateScene() -> void
-{
-    //UpdateGraph graphSystem {};
     _r.addSystem(_graphSystem, _r.getComponents<components::mouseState_s>(), _r.getComponents<components::keyState_s>(), _r.getComponents<components::currentScene_s>());
 }
 

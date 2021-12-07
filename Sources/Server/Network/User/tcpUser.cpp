@@ -18,7 +18,6 @@ void rtype::tcpUser::read()
 
 void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
-    std::cout << "doRead ec=" << ec << " nbBytes=" << bytes << std::endl;
     if (!ec)
     {
         for (int i = 0; i < bytes; i++) {
@@ -42,6 +41,8 @@ void rtype::tcpUser::write()
 void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
     (void)bytes_transfered;
+    for (int i = 0; _queue.size() && i < _queue.front().size();i++)
+        std::cout << "send: "<< (int)_queue.front().at(i) << std::endl;
     if (!ec)
     {
         _queue.pop();
@@ -70,6 +71,8 @@ size_t &rtype::tcpUser::getSizeInput()
 
 void rtype::tcpUser::delInput(size_t length)
 {
+    if (!length)
+        return;
     _input->erase(_input->begin(), _input->begin() + length);
     _sizeInput -= length;
 }

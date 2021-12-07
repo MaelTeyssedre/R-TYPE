@@ -110,11 +110,11 @@ size_t rtype::Packet::pack(std::vector<uint8_t> data)
             bytes = 1;
             break;
         case 16:
-            if (data.size() < 9)
+            if (data.size() < 2)
                 return 0;
-            for (int i = 0; i != 9; i++)
+            for (int i = 0; i < 2; i++)
                 _rawData.push_back(data[i]);
-            bytes = 9;
+            bytes = 2;
             break;
         case 17:
             if (data.size() < 6)
