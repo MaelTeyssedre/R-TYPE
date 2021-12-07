@@ -26,6 +26,8 @@ void rtype::TCPClient::receive()
     auto i = 0;
     for (; _reply[i] != 42; i++) {}
     _buffer->putInBuffer(i, _reply);
+    for (int x = 0; i != 0 && x != i; x++)
+        std::cout << _reply[x] << std::endl;
     std::memset(_reply, 42, 8192);
 }
 
