@@ -22,7 +22,6 @@ void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
     {
         for (int i = 0; i < bytes; i++) {
             uint8_t tmp = (uint8_t)_data[i];
-            std::cout << "data[" << i << "] = " << (int)tmp << std::endl;
             _input->push_back(std::move(tmp));
         }
         _sizeInput += bytes;

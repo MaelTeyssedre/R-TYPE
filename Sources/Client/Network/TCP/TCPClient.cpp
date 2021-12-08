@@ -17,7 +17,7 @@ rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip:
     str.append(host);
     str.append(", and port: ");
     str.append(port);
-    _logger.logln(str);
+    std::cout << str << std::endl;
 }
 
 void rtype::TCPClient::receive()

@@ -47,6 +47,34 @@
         #define BUF_READ_SIZE 4
     #endif
 
+    #ifndef BACKGROUND_SELECT_ROOM
+        #define BACKGROUND_SELECT_ROOM "ressources/MainMenu.jpg"
+    #endif
+
+    #ifndef LOGO_SELECT_ROOM
+        #define LOGO_SELECT_ROOM "ressources/logo.png"
+    #endif
+
+    #ifndef BUTTON_1_SELECT_ROOM
+        #define BUTTON_1_SELECT_ROOM "ressources/room1.png"
+    #endif
+
+    #ifndef BUTTON_2_SELECT_ROOM
+        #define BUTTON_2_SELECT_ROOM "ressources/room2.png"
+    #endif
+
+    #ifndef BUTTON_3_SELECT_ROOM
+        #define BUTTON_3_SELECT_ROOM "ressources/room3.png"
+    #endif
+
+    #ifndef BUTTON_4_SELECT_ROOM
+        #define BUTTON_4_SELECT_ROOM "ressources/room4.png"
+    #endif
+
+    #ifndef BUTTON_5_SELECT_ROOM
+        #define BUTTON_5_SELECT_ROOM "ressources/room5.png"
+    #endif
+
     /**
      * \namespace rtype
      * 

@@ -42,7 +42,7 @@ std::vector<std::shared_ptr<rtype::AMonster>> *rtype::LibLoader::getLibs() {
 void rtype::LibLoader::loadLib() {
     try {
         for (size_t i = _libs.size(); i < _libsfiles.size(); i++) {
-            std::cout << "path:" << _libsfiles[i] << std::endl;
+            //std::cout << "path:" << _libsfiles[i] << std::endl;
             #ifdef __linux__
                 _libsPtrUnix.push_back(_dlLoaderUnix.loadLib(_libsfiles[i]));
                 _libs.push_back(std::shared_ptr<rtype::AMonster>((rtype::AMonster*)_dlLoaderUnix.loadFunc(std::string("allocator"), _libsPtrUnix[i])()));

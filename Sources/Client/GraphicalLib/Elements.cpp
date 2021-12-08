@@ -256,6 +256,7 @@ rtype::Music::Music(std::string path)
 {
     if (!_music.openFromFile(_path))
         throw std::runtime_error("Fail to load music");
+    _music.setVolume(0.f);
 }
 
 auto rtype::Music::getMusic() -> sf::Music &

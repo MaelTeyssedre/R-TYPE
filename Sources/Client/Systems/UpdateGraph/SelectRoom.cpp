@@ -48,7 +48,7 @@ auto rtype::UpdateGraph::_createSelectRoom1ButtonSelectRoom(Registry &r) -> Enti
 {
     auto &roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
     Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, "ressources/room1.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, BUTTON_1_SELECT_ROOM};
     struct components::clickable_s clickable = {
         false,
         false, [this](Registry &r, size_t id) -> void
@@ -90,7 +90,7 @@ auto rtype::UpdateGraph::_createSelectRoom2ButtonSelectRoom(Registry &r) -> Enti
     auto &roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
 
     Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, "ressources/room2.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, BUTTON_2_SELECT_ROOM };
     struct components::clickable_s clickable = {
         false,
         false, [this](Registry &r, size_t id) -> void
@@ -131,7 +131,7 @@ auto rtype::UpdateGraph::_createSelectRoom3ButtonSelectRoom(Registry &r) -> Enti
     auto &roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
 
     Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, "ressources/room3.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, BUTTON_3_SELECT_ROOM };
     struct components::clickable_s clickable = {
         false,
         false, [this](Registry &r, size_t id) -> void
@@ -215,7 +215,7 @@ auto rtype::UpdateGraph::_createSelectRoom4ButtonSelectRoom(Registry &r) -> Enti
     auto &roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
 
     Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, "ressources/room4.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, BUTTON_4_SELECT_ROOM };
     struct components::clickable_s clickable = {
         false,
         false, [this](Registry &r, size_t id) -> void
@@ -258,7 +258,7 @@ auto rtype::UpdateGraph::_createSelectRoom5ButtonSelectRoom(Registry &r) -> Enti
     auto &roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
 
     Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, "ressources/room5.png"};
+    struct components::sprite_s sprite = {(float)0.5, (float)0.5, 0, 0, 800, 215, BUTTON_5_SELECT_ROOM };
     struct components::clickable_s clickable = {
         false,
         false, [this](Registry &r, size_t id) -> void
@@ -323,31 +323,16 @@ auto rtype::UpdateGraph::_setupSelectRoomScene() -> void
         [this](Registry& r, SparseArray<components::currentScene_s>& currentScenes) -> void
         {
             auto roomList{ r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value() };
-            if (roomList.room1)
-            {
-                Entity room1Id{ _createSelectRoom1ButtonSelectRoom(r) };
-                _graphicalLib->createSprite(room1Id, r.getComponents<components::sprite_s>()[room1Id].value().scaleX, r.getComponents<components::sprite_s>()[room1Id].value().scaleY, r.getComponents<components::sprite_s>()[room1Id].value().rectX, r.getComponents<components::sprite_s>()[room1Id].value().rectY, r.getComponents<components::sprite_s>()[room1Id].value().rectWidth, r.getComponents<components::sprite_s>()[room1Id].value().rectHeight, r.getComponents<components::sprite_s>()[room1Id].value().path);
-            }
-            if (roomList.room2)
-            {
-                Entity room2Id{ _createSelectRoom2ButtonSelectRoom(r) };
-                _graphicalLib->createSprite(room2Id, r.getComponents<components::sprite_s>()[room2Id].value().scaleX, r.getComponents<components::sprite_s>()[room2Id].value().scaleY, r.getComponents<components::sprite_s>()[room2Id].value().rectX, r.getComponents<components::sprite_s>()[room2Id].value().rectY, r.getComponents<components::sprite_s>()[room2Id].value().rectWidth, r.getComponents<components::sprite_s>()[room2Id].value().rectHeight, r.getComponents<components::sprite_s>()[room2Id].value().path);
-            }
-            if (roomList.room3)
-            {
-                Entity room3Id{ _createSelectRoom3ButtonSelectRoom(r) };
-                _graphicalLib->createSprite(room3Id, r.getComponents<components::sprite_s>()[room3Id].value().scaleX, r.getComponents<components::sprite_s>()[room3Id].value().scaleY, r.getComponents<components::sprite_s>()[room3Id].value().rectX, r.getComponents<components::sprite_s>()[room3Id].value().rectY, r.getComponents<components::sprite_s>()[room3Id].value().rectWidth, r.getComponents<components::sprite_s>()[room3Id].value().rectHeight, r.getComponents<components::sprite_s>()[room3Id].value().path);
-            }
-            if (roomList.room4)
-            {
-                Entity room4Id{ _createSelectRoom4ButtonSelectRoom(r) };
-                _graphicalLib->createSprite(room4Id, r.getComponents<components::sprite_s>()[room4Id].value().scaleX, r.getComponents<components::sprite_s>()[room4Id].value().scaleY, r.getComponents<components::sprite_s>()[room4Id].value().rectX, r.getComponents<components::sprite_s>()[room4Id].value().rectY, r.getComponents<components::sprite_s>()[room4Id].value().rectWidth, r.getComponents<components::sprite_s>()[room4Id].value().rectHeight, r.getComponents<components::sprite_s>()[room4Id].value().path);
-            }
-            if (roomList.room5)
-            {
-                Entity room5Id{ _createSelectRoom5ButtonSelectRoom(r) };
-                _graphicalLib->createSprite(room5Id, r.getComponents<components::sprite_s>()[room5Id].value().scaleX, r.getComponents<components::sprite_s>()[room5Id].value().scaleY, r.getComponents<components::sprite_s>()[room5Id].value().rectX, r.getComponents<components::sprite_s>()[room5Id].value().rectY, r.getComponents<components::sprite_s>()[room5Id].value().rectWidth, r.getComponents<components::sprite_s>()[room5Id].value().rectHeight, r.getComponents<components::sprite_s>()[room5Id].value().path);
-            }
+            Entity room1Id{ _createSelectRoom1ButtonSelectRoom(r) };
+            _graphicalLib->createSprite(room1Id, r.getComponents<components::sprite_s>()[room1Id].value().scaleX, r.getComponents<components::sprite_s>()[room1Id].value().scaleY, r.getComponents<components::sprite_s>()[room1Id].value().rectX, r.getComponents<components::sprite_s>()[room1Id].value().rectY, r.getComponents<components::sprite_s>()[room1Id].value().rectWidth, r.getComponents<components::sprite_s>()[room1Id].value().rectHeight, r.getComponents<components::sprite_s>()[room1Id].value().path);
+            Entity room2Id{ _createSelectRoom2ButtonSelectRoom(r) };
+            _graphicalLib->createSprite(room2Id, r.getComponents<components::sprite_s>()[room2Id].value().scaleX, r.getComponents<components::sprite_s>()[room2Id].value().scaleY, r.getComponents<components::sprite_s>()[room2Id].value().rectX, r.getComponents<components::sprite_s>()[room2Id].value().rectY, r.getComponents<components::sprite_s>()[room2Id].value().rectWidth, r.getComponents<components::sprite_s>()[room2Id].value().rectHeight, r.getComponents<components::sprite_s>()[room2Id].value().path);
+            Entity room3Id{ _createSelectRoom3ButtonSelectRoom(r) };
+            _graphicalLib->createSprite(room3Id, r.getComponents<components::sprite_s>()[room3Id].value().scaleX, r.getComponents<components::sprite_s>()[room3Id].value().scaleY, r.getComponents<components::sprite_s>()[room3Id].value().rectX, r.getComponents<components::sprite_s>()[room3Id].value().rectY, r.getComponents<components::sprite_s>()[room3Id].value().rectWidth, r.getComponents<components::sprite_s>()[room3Id].value().rectHeight, r.getComponents<components::sprite_s>()[room3Id].value().path);
+            Entity room4Id{ _createSelectRoom4ButtonSelectRoom(r) };
+            _graphicalLib->createSprite(room4Id, r.getComponents<components::sprite_s>()[room4Id].value().scaleX, r.getComponents<components::sprite_s>()[room4Id].value().scaleY, r.getComponents<components::sprite_s>()[room4Id].value().rectX, r.getComponents<components::sprite_s>()[room4Id].value().rectY, r.getComponents<components::sprite_s>()[room4Id].value().rectWidth, r.getComponents<components::sprite_s>()[room4Id].value().rectHeight, r.getComponents<components::sprite_s>()[room4Id].value().path);
+            Entity room5Id{ _createSelectRoom5ButtonSelectRoom(r) };
+            _graphicalLib->createSprite(room5Id, r.getComponents<components::sprite_s>()[room5Id].value().scaleX, r.getComponents<components::sprite_s>()[room5Id].value().scaleY, r.getComponents<components::sprite_s>()[room5Id].value().rectX, r.getComponents<components::sprite_s>()[room5Id].value().rectY, r.getComponents<components::sprite_s>()[room5Id].value().rectWidth, r.getComponents<components::sprite_s>()[room5Id].value().rectHeight, r.getComponents<components::sprite_s>()[room5Id].value().path);
             if (!roomList.room1 && !roomList.room2 && !roomList.room3 && !roomList.room4 && !roomList.room5)
             {
                 Entity logoId{ _createSelectRoom5NoRoom(r) };
@@ -373,19 +358,17 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
     _execScene[rtype::constants::SELECT_ROOM] = std::function(
         [this](Registry& r, SparseArray<components::currentScene_s>& currentScenes) -> void
         {
+            auto roomList{ r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value() };
             static std::chrono::duration dtime = std::chrono::nanoseconds(0);
-            static std::chrono::duration dtimeAnim = std::chrono::nanoseconds(0);
+            auto& time = r.getComponents<components::myTime_s>()[constants::RESERVED_ID::TIME_UPDATE];
+            dtime += time.value().deltaTime;
             std::vector<int> myZAxises;
             std::map<int, size_t> zAxisMap;
-            auto& net = r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE];
-            auto& times = r.getComponents<components::myTime_s>();
-            auto& time = times[constants::RESERVED_ID::TIME_UPDATE];
-            dtimeAnim += time.value().deltaTime;
-            dtime += time.value().deltaTime;
+            auto& net = r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value();
             _graphicalLib->clearScreen();
             for (auto&& [pos, sprite, scene, drawable, index, zaxis, roomData] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>(), r.getComponents<components::roomData_s>()))
             {
-                if (!(drawable.drawable) || scene.scene != currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene)
+                if (!drawable.drawable || scene.scene != currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene && !roomData.room)
                     continue;
                 myZAxises.push_back((int)zaxis.zAxis);
                 zAxisMap[(int)zaxis.zAxis] = index.idx;
@@ -417,13 +400,18 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
                 _graphicalLib->draw(zAxisMap[i]);
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
-            if (net.value().request10.size())
+            if (dtime.count() > 1500000000) {
+                net.sendRequest.push_back(std::vector<uint8_t>{23});
+                dtime = std::chrono::nanoseconds(0);
+            }
+            if (net.request17.size() && net.request17.front().size() == 6)
             {
-                net.value().request10.erase(net.value().request10.begin());
-                struct components::playerList_s playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value();
-                r.addComponent<components::playerList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(playerList));
-                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
-                r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;
+                std::cout << "received request 17" << std::endl;
+                roomList.room1 = (net.request17.front()[1]) ? true : false;
+                roomList.room2 = (net.request17.front()[2]) ? true : false;
+                roomList.room3 = (net.request17.front()[3]) ? true : false;
+                roomList.room4 = (net.request17.front()[4]) ? true : false;
+                roomList.room5 = (net.request17.front()[5]) ? true : false;
             }
         }
     );

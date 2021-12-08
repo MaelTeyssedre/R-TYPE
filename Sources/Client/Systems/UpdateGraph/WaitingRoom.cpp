@@ -208,8 +208,7 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
         {
             (void)currentScenes;
             static std::chrono::duration dtime = std::chrono::nanoseconds(0);
-            auto& times = r.getComponents<components::myTime_s>();
-            auto& time = times[constants::RESERVED_ID::TIME_UPDATE];
+            auto& time = r.getComponents<components::myTime_s>()[constants::RESERVED_ID::TIME_UPDATE];
             dtime += time.value().deltaTime;
             std::vector<size_t> savedIdx {};
             auto &playerList = r.getComponents<components::playerList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
