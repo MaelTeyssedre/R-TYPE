@@ -18,52 +18,20 @@
 
         public:
 
-           /**
-            * \fn explicit Logger(std::string fileName)
-            * 
-            * \brief Create a log file
-            * 
-            * \param Name of the log file
-            */
-            explicit Logger(std::string fileName);
+            explicit Logger();
 
-            
-            /**
-             * \fn virtual ~Logger()
-             * 
-             * \brief Close a log file
-             */
             virtual ~Logger();
-            
-            /**
-             * \fn auto log(std::string message) -> void override
-             * 
-             * \brief log message into a file
-             * 
-             * \param message to log
-             */
+
             auto log(std::string message) -> void override;
-            
-            /**
-             * \fn auto logln(std::string message) -> void override
-             * 
-             * \brief log message into a file and and an endline
-             * 
-             * \param message to log
-             */
+
             auto logln(std::string message) -> void override;
 
-            /**
-             * \fn auto operator<<(std::string buffer) -> void override
-             * 
-             * \brief Add a message to the log file // Same as log()
-             * 
-             * \param Content to add
-             */
             auto operator<<(std::string buffer) -> void override;
 
         private:
+            std::string file_name;
             std::ofstream _file; /*! File containing the logs*/
+            std::mutex lock;
     };
 
 #endif /* !LOGGER_HPP_ */
