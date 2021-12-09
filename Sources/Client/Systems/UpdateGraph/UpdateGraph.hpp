@@ -79,7 +79,6 @@
                 auto _createSelectRoom4ButtonSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom5ButtonSelectRoom(Registry &r) -> Entity;
                 auto _createSelectRoom5NoRoom(Registry& r)->Entity;
-                auto _createSelectBackButtonSelectRoom(Registry& r)->Entity;
                 
             private:
                 rtype::IGraphicalLib *_graphicalLib;

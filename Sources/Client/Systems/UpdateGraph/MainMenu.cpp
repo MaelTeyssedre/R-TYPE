@@ -206,7 +206,9 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
                 _graphicalLib->draw(zAxisMap[i]);
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
-            if (!(net.value().request12.empty()) && !(net.value().request12.front().empty())) {
+            if (!(net.value().request12.empty()) && !(net.value().request12.front().empty()))
+            {
+                std::cout << "received request 12" << std::endl;
                 struct components::currentRoom_s currRoom { net.value().request12[0][1] };
                 struct components::playerList_s playerList = {1, 1};
                 net.value().request12.erase(net.value().request12.begin());
@@ -218,6 +220,7 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
             }
             if (!(net.value().request17.empty()) && !(net.value().request17.front().empty()))
             {
+                std::cout << "received request 17" << std::endl;
                 std::vector<size_t> tmp;
                 struct components::roomList_s roomList = {false, false, false, false, false};
                 if (net.value().request17.front().at(1) == 1)
@@ -233,7 +236,7 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
                 r.addComponent<components::roomList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(roomList));
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::SELECT_ROOM;
-                net.value().request17.erase(net.value().request17.begin());
+                //net.value().request17.erase(net.value().request17.begin());
             }
             (void)currentScenes;
         });

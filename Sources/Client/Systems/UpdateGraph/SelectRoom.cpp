@@ -168,48 +168,6 @@ auto rtype::UpdateGraph::_createSelectRoom3ButtonSelectRoom(Registry &r) -> Enti
     return id;
 }
 
-auto rtype::UpdateGraph::_createSelectBackButtonSelectRoom(Registry& r) -> Entity
-{
-    auto& roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
-
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = { (float)0.5, (float)0.5, 0, 0, 583, 183, "ressources/backbtn.png" };
-    struct components::clickable_s clickable = {
-        false,
-        false, [this](Registry& r, size_t id) -> void
-        { r.getComponents<components::sprite_s>()[id].value().rectX = 583; },
-        [this](Registry& r, size_t id) -> void
-        {
-            r.getComponents<components::sprite_s>()[id].value().rectX = 0;
-            r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::MAIN_MENU;
-            r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
-        } };
-    struct components::position_s pos = { 0.f, 0.f};
-    struct components::direction_s dir = { 0, 0 };
-    struct components::velocity_s vel = { 0, 0 };
-    struct components::drawable_s drawable = { true };
-    struct components::mouseState_s mouse = { 0, 0, false, false };
-    struct components::index_s idx = { id };
-    struct components::scene_s my_scene = { constants::SCENE::SELECT_ROOM };
-    struct components::zaxis_s zaxis = { 3 };
-    struct components::mySize_s size = { 400, 215 };
-    struct components::roomData_s roomData = { roomList.value().room3 };
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::clickable_s>(r.entityFromIndex(id), std::move(clickable));
-    r.addComponent<components::mouseState_s>(r.entityFromIndex(id), std::move(mouse));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-    r.addComponent<components::mySize_s>(r.entityFromIndex(id), std::move(size));
-    r.addComponent<components::roomData_s>(r.entityFromIndex(id), std::move(roomData));
-
-    return id;
-}
-
 auto rtype::UpdateGraph::_createSelectRoom4ButtonSelectRoom(Registry &r) -> Entity
 {
     auto &roomList = r.getComponents<components::roomList_s>()[constants::RESERVED_ID::GRAPH_UPDATE];
@@ -343,8 +301,6 @@ auto rtype::UpdateGraph::_setupSelectRoomScene() -> void
                 Entity logoId{ _createLogoMainMenu(r) };
                 _graphicalLib->createSprite(logoId, r.getComponents<components::sprite_s>()[logoId].value().scaleX, r.getComponents<components::sprite_s>()[logoId].value().scaleY, r.getComponents<components::sprite_s>()[logoId].value().rectX, r.getComponents<components::sprite_s>()[logoId].value().rectY, r.getComponents<components::sprite_s>()[logoId].value().rectWidth, r.getComponents<components::sprite_s>()[logoId].value().rectHeight, r.getComponents<components::sprite_s>()[logoId].value().path);
             }
-            Entity backButton { _createSelectBackButtonSelectRoom(r) };
-            _graphicalLib->createSprite(backButton, r.getComponents<components::sprite_s>()[backButton].value().scaleX, r.getComponents<components::sprite_s>()[backButton].value().scaleY, r.getComponents<components::sprite_s>()[backButton].value().rectX, r.getComponents<components::sprite_s>()[backButton].value().rectY, r.getComponents<components::sprite_s>()[backButton].value().rectWidth, r.getComponents<components::sprite_s>()[backButton].value().rectHeight, r.getComponents<components::sprite_s>()[backButton].value().path);
             Entity backgroundId { _createBackgroundMainMenu(r) };
             _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_s>()[backgroundId].value().scaleX, r.getComponents<components::sprite_s>()[backgroundId].value().scaleY, r.getComponents<components::sprite_s>()[backgroundId].value().rectX, r.getComponents<components::sprite_s>()[backgroundId].value().rectY, r.getComponents<components::sprite_s>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_s>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_s>()[backgroundId].value().path);
             auto &scene = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
@@ -364,11 +320,11 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
             dtime += time.value().deltaTime;
             std::vector<int> myZAxises;
             std::map<int, size_t> zAxisMap;
-            auto& net = r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value();
+            auto& net = r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE];
             _graphicalLib->clearScreen();
             for (auto&& [pos, sprite, scene, drawable, index, zaxis, roomData] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>(), r.getComponents<components::roomData_s>()))
             {
-                if (!drawable.drawable || scene.scene != currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene && !roomData.room)
+                if (!drawable.drawable || scene.scene != currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene || !roomData.room)
                     continue;
                 myZAxises.push_back((int)zaxis.zAxis);
                 zAxisMap[(int)zaxis.zAxis] = index.idx;
@@ -382,7 +338,10 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
             }
             for (auto&& [pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
             {
-                if (!(drawable.drawable))
+                bool alreadyDrawed = false;
+                for (auto i : myZAxises)
+                    alreadyDrawed = (i == zaxis.zAxis) ? true : alreadyDrawed;
+                if (alreadyDrawed || !(drawable.drawable))
                     continue;
                 myZAxises.push_back((int)zaxis.zAxis);
                 zAxisMap[(int)zaxis.zAxis] = index.idx;
@@ -401,17 +360,18 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
             _graphicalLib->HandleClose();
             _graphicalLib->refresh();
             if (dtime.count() > 1500000000) {
-                net.sendRequest.push_back(std::vector<uint8_t>{23});
+                net.value().sendRequest.push_back(std::vector<uint8_t>{23});
                 dtime = std::chrono::nanoseconds(0);
             }
-            if (net.request17.size() && net.request17.front().size() == 6)
+            if (net.value().request17.size() && net.value().request17.front().size() == 6)
             {
                 std::cout << "received request 17" << std::endl;
-                roomList.room1 = (net.request17.front()[1]) ? true : false;
-                roomList.room2 = (net.request17.front()[2]) ? true : false;
-                roomList.room3 = (net.request17.front()[3]) ? true : false;
-                roomList.room4 = (net.request17.front()[4]) ? true : false;
-                roomList.room5 = (net.request17.front()[5]) ? true : false;
+                roomList.room1 = (net.value().request17.front()[1] == 1) ? true : false;
+                roomList.room2 = (net.value().request17.front()[2] == 2) ? true : false;
+                roomList.room3 = (net.value().request17.front()[3] == 3) ? true : false;
+                roomList.room4 = (net.value().request17.front()[4] == 4) ? true : false;
+                roomList.room5 = (net.value().request17.front()[5] == 5) ? true : false;
+                net.value().request17.erase(net.value().request17.begin());
             }
         }
     );
@@ -450,7 +410,7 @@ auto rtype::UpdateGraph::_setupDeleteSelectRoomScene() -> void
             {
                 if (scene.scene == constants::SCENE::SELECT_ROOM)
                 {
-                    r.getComponents<components::scene_s>().erase(index.idx);
+                    r.getComponents<components::scene_s>().erase(index.idx);    
                     r.getComponents<components::index_s>().erase(index.idx);
                     r.killEntity(r.entityFromIndex(index.idx));
                 }

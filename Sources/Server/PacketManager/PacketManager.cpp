@@ -167,10 +167,10 @@ auto rtype::PacketManager::manageResponse() -> void
             for (auto i = 0; i < 5; i++) {
                 bool indexExist = false;
                 for (auto it : *_roomList) {
-                    indexExist = (it.second == i) ? vec.push_back((uint8_t)i), true : indexExist;
+                    indexExist = (it.second == i) ? vec.push_back((uint8_t)i + 1), true : indexExist;
                 }
                 if (!indexExist)
-                    vec.push_back((uint8_t)6);
+                    vec.push_back((uint8_t)0);
             }
             packet->pack(vec);
             _packetsOut.push_back(packet);
