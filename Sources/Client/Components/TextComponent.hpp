@@ -30,11 +30,11 @@
              * \brief the text component
              *
              */
-            struct text_s {
+            typedef struct text_s {
                 int fontSize; /*!< size of the font */
                 std::string fontPath; /*!< path of the font */
                 std::string text; /*!< content of the text */
-            };
+            } text_t;
         }   
     }
 

@@ -29,9 +29,9 @@
              * \brief the reserved component
              *
              */
-            struct reserved_s {
+            typedef struct reserved_s {
                 bool reserved; /*!< Is this id reserved */
-            };
+            } reserved_t;
         }
     }
 

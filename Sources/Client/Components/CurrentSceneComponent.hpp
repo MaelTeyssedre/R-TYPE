@@ -29,10 +29,10 @@
              * \brief the currentScene component
              *
              */
-            struct currentScene_s {
+            typedef struct currentScene_s {
                 constants::SCENE scene; /*!< scene */
                 bool isLoaded; /*!< is the scene loaded */
-            };
+            } currentScene_t;
         }
     }
 

@@ -10,9 +10,9 @@
 
     namespace rtype {
         namespace components {
-            struct currentRoom_s {
+            typedef struct currentRoom_s {
                 size_t id;
-            };
+            } currentRoom_t;
         }
     }
 

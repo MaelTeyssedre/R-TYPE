@@ -27,9 +27,9 @@
              * \brief loot component
              * 
              */
-            struct loot_s {
+            typdef struct loot_s {
                 bool loot;
-            };
+            } loot_t;
         }
     }
 

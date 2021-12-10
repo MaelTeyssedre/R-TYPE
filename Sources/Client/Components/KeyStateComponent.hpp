@@ -29,14 +29,14 @@
              * \brief the keyState component
              *
              */
-            struct keyState_s {
+            typedef struct keyState_s {
                 bool keyUp; /*!< status of the keyUp */
                 bool keyDown; /*!< status of the keyDown */
                 bool keyRight; /*!< status of the keyRight */
                 bool keyLeft; /*!< status of the keyLeft */
                 bool keyEnter; /*!< status of the keyEnter */
                 bool keySpace; /*!< status of the keySpace */
-            };
+            } keyState_t;
         }
     }
 

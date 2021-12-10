@@ -1,60 +1,13 @@
 #include "UpdateGraph.hpp"
 
-Entity rtype::UpdateGraph::_createBackgroundLoadingMenu(Registry &r)
+
+
+auto rtype::UpdateGraph::_createMusicLoadingMenu(Registry &r) -> Entity
 {
     Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.96, (float)0.81, 0, 0, 1800, 1200, "ressources/LoadingMenu.jpg"};
-    struct components::position_s pos = {0, 0};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::scene_s my_scene = {constants::SCENE::LOADING_MENU};
-    struct components::index_s index = {id};
-    struct components::zaxis_s zaxis = {10};
-
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(index));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-
-    return id;
-}
-
-Entity rtype::UpdateGraph::_createTransitionLoadingMenu(Registry &r)
-{
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)WINDOW_SIZE_X / 250, (float)WINDOW_SIZE_Y / 250, 0, 0, 1920, 1080, "ressources/noir.jpg"};
-    struct components::position_s pos = {0, 0};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::scene_s my_scene = {constants::SCENE::LOADING_MENU};
-    struct components::index_s index = {id};
-    struct components::zaxis_s zaxis = {0};
-
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(index));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-
-    return id;
-}
-
-Entity rtype::UpdateGraph::_createMusicLoadingMenu(Registry &r)
-{
-    Entity id = r.spawnEntity();
-    struct components::music_s path = {"ressources/MenuMusic.ogg"};
-    struct components::scene_s scene = {constants::SCENE::WAITING_ROOM};
-    struct components::index_s index = {id};
+    components::music_t path = {"ressources/MenuMusic.ogg"};
+    components::scene_t scene = {constants::SCENE::WAITING_ROOM};
+    components::index_t index = {id};
 
     r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(scene));
     r.addComponent<components::music_s>(r.entityFromIndex(id), std::move(path));
@@ -69,11 +22,11 @@ void rtype::UpdateGraph::_setupLoadingMenuScene()
         [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes)
         {
             auto &scene = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
-            size_t backgroundId = _createBackgroundLoadingMenu(r);
-            size_t transitionId = _createTransitionLoadingMenu(r);
-            size_t musicId = _createMusicLoadingMenu(r);
-            _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_s>()[backgroundId].value().scaleX, r.getComponents<components::sprite_s>()[backgroundId].value().scaleY, r.getComponents<components::sprite_s>()[backgroundId].value().rectX, r.getComponents<components::sprite_s>()[backgroundId].value().rectY, r.getComponents<components::sprite_s>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_s>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_s>()[backgroundId].value().path);
-            _graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_s>()[transitionId].value().scaleX, r.getComponents<components::sprite_s>()[transitionId].value().scaleY, r.getComponents<components::sprite_s>()[transitionId].value().rectX, r.getComponents<components::sprite_s>()[transitionId].value().rectY, r.getComponents<components::sprite_s>()[transitionId].value().rectWidth, r.getComponents<components::sprite_s>()[transitionId].value().rectHeight, r.getComponents<components::sprite_s>()[transitionId].value().path);
+            Entity backgroundId{ _addSpriteToScene(r, components::sprite_t{0.96f, 0.81f, 0, 0, 1800, 1200, "ressources/LoadingMenu.jpg"}, components::position_t{0, 0}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::SCENE::LOADING_MENU}, components::zaxis_t{10}) };
+            Entity transitionId{ _addSpriteToScene(r, components::sprite_t{ static_cast<float>(WINDOW_SIZE_X / 250), static_cast<float>(WINDOW_SIZE_Y / 250), 0, 0, 1920, 1080, "ressources/noir.jpg" }, components::position_t{0, 0}, components::direction_t{ 0, 0 }, components::velocity_t{ 0, 0 }, components::drawable_t{ true }, components::scene_t{ constants::SCENE::LOADING_MENU }, components::zaxis_t{  }) };
+            Entity musicId = _createMusicLoadingMenu(r);
+            _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_t>()[backgroundId].value().scaleX, r.getComponents<components::sprite_t>()[backgroundId].value().scaleY, r.getComponents<components::sprite_t>()[backgroundId].value().rectX, r.getComponents<components::sprite_t>()[backgroundId].value().rectY, r.getComponents<components::sprite_t>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_t>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_t>()[backgroundId].value().path);
+            _graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_t>()[transitionId].value().scaleX, r.getComponents<components::sprite_t>()[transitionId].value().scaleY, r.getComponents<components::sprite_t>()[transitionId].value().rectX, r.getComponents<components::sprite_t>()[transitionId].value().rectY, r.getComponents<components::sprite_t>()[transitionId].value().rectWidth, r.getComponents<components::sprite_t>()[transitionId].value().rectHeight, r.getComponents<components::sprite_t>()[transitionId].value().path);
             _graphicalLib->createMusic(musicId, r.getComponents<components::music_s>()[musicId].value().path);
             _graphicalLib->setSpriteColorAlpha(transitionId, 255);
             _graphicalLib->play(musicId);
@@ -85,23 +38,23 @@ void rtype::UpdateGraph::_setupLoadingMenuScene()
 void rtype::UpdateGraph::_setupExecLoadingMenuScene()
 {
     _execScene[rtype::constants::LOADING_MENU] = std::function(
-        [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes)
+        [this](Registry &r, SparseArray<components::currentScene_t> &currentScenes)
         {
             static std::chrono::duration dtime = std::chrono::nanoseconds(0);
             static std::chrono::duration dtimeAnim = std::chrono::nanoseconds(0);
             std::vector<int> myZAxises;
             std::map<int, size_t> zAxisMap;
-            auto &times = r.getComponents<components::myTime_s>();
+            auto &times = r.getComponents<components::myTime_t>();
             auto &time = times[constants::RESERVED_ID::TIME_UPDATE];
             dtime += time.value().deltaTime;
             dtimeAnim += time.value().deltaTime;
             _graphicalLib->clearScreen();
-            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
+            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_t>(), r.getComponents<components::sprite_t>(), r.getComponents<components::scene_t>(), r.getComponents<components::drawable_t>(), r.getComponents<components::index_t>(), r.getComponents<components::zaxis_t>()))
             {
                 if (!(drawable.drawable))
                     continue;
                 myZAxises.push_back((int)zaxis.zAxis);
-                zAxisMap[(int)zaxis.zAxis] = index.idx;
+                zAxisMap[static_cast<int>(zaxis.zAxis)] = index.idx;
                 _graphicalLib->setSpritePosX(index.idx, pos.x);
                 _graphicalLib->setSpritePosY(index.idx, pos.y);
                 _graphicalLib->setSpriteScale(index.idx, sprite.scaleX, sprite.scaleY);
@@ -124,7 +77,7 @@ void rtype::UpdateGraph::_setupExecLoadingMenuScene()
                     }
                 }
             }
-            if (r.getComponents<components::keyState_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().keySpace) {
+            if (r.getComponents<components::keyState_t>()[constants::RESERVED_ID::GRAPH_UPDATE].value().keySpace) {
                 currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                 currentScenes[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::MAIN_MENU;
                 _graphicalLib->clearScreen();
@@ -160,7 +113,7 @@ void rtype::UpdateGraph::_setupDeleteLoadingMenuScene()
         {
             _graphicalLib->clearScreen();
 
-            for (auto &&[scene, index, music] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::music_s>()))
+            for (auto &&[scene, index, music] : Zipper(r.getComponents<components::scene_t>(), r.getComponents<components::index_t>(), r.getComponents<components::music_t>()))
             {
                 if (scene.scene == constants::SCENE::LOADING_MENU)
                 {
@@ -168,16 +121,16 @@ void rtype::UpdateGraph::_setupDeleteLoadingMenuScene()
                     _graphicalLib->deleteMusic(index.idx);
                 }
             }
-            for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::sprite_s>()))
+            for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_t>(), r.getComponents<components::index_t>(), r.getComponents<components::sprite_t>()))
             {
                 if (scene.scene == constants::SCENE::LOADING_MENU) {
                     _graphicalLib->deleteSprite(index.idx);
                 }
             }
-            for (auto &&[scene, index] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>()))
+            for (auto &&[scene, index] : Zipper(r.getComponents<components::scene_t>(), r.getComponents<components::index_t>()))
                 if (scene.scene == constants::SCENE::LOADING_MENU) {
-                    r.getComponents<components::scene_s>().erase(index.idx);
-                    r.getComponents<components::index_s>().erase(index.idx);
+                    r.getComponents<components::scene_t>().erase(index.idx);
+                    r.getComponents<components::index_t>().erase(index.idx);
                     r.killEntity(r.entityFromIndex(index.idx));
                 }
         });

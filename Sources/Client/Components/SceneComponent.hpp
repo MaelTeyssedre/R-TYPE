@@ -29,9 +29,9 @@
              * \brief the scene component
              *
              */
-            struct scene_s {
+            typedef struct scene_s {
                 rtype::constants::SCENE scene; /*!< Scene of the entity */
-            };
+            } scene_t;
         }
     }
 

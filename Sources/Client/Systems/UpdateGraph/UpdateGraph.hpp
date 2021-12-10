@@ -20,72 +20,54 @@
                 UpdateGraph();
                 UpdateGraph(UpdateGraph &&other) noexcept;
                 ~UpdateGraph() = default;
-                void operator()(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes);
+                auto operator()(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes) -> void;
                 
             private:
-                void _updateEvent(SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates);
-                void _updateGraph(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes);
+                auto _updateEvent(SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates) -> void;
+                auto _updateGraph(Registry &r, SparseArray<components::mouseState_s> &mouseStates, SparseArray<components::keyState_s> &keyStates, SparseArray<components::currentScene_s> &currentScenes) -> void;
                 struct intCmp {
                     bool operator() (int i, int j) {return i<j;}
                 } myCmp;
 
             private:
-                void _setupScenes();
-                void _setupExecScene();
-                void _setupDeleteScene();
+                auto _setupScenes() -> void;
+                auto _setupExecScene() -> void;
+                auto _setupDeleteScene() -> void;
+                auto _addSpriteToScene(Registry &r, components::sprite_t sprite, components::position_t pos, components::direction_t dir, components::velocity_t vel, components::drawable_t draw, components::scene_t scene, components::zaxis_t zaxis) -> Entity;
+                auto _addButtonToScene(Registry &r, components::sprite_t sprite, components::position_t pos, components::direction_t dir, components::velocity_t vel, components::drawable_t draw, components::scene_t scene, components::zaxis_t zaxis, components::clickable_t clickable, components::mouseState_t mouse, components::mySize_t size) -> Entity;
 
             // * Loading Menu functions
             private:
-                void _setupLoadingMenuScene();
-                void _setupExecLoadingMenuScene();
-                void _setupDeleteLoadingMenuScene();
-                Entity _createBackgroundLoadingMenu(Registry &r);
-                Entity _createTransitionLoadingMenu(Registry &r);
-                Entity _createMusicLoadingMenu(Registry &r);
+                auto _setupLoadingMenuScene() -> void;
+                auto _setupExecLoadingMenuScene() -> void;
+                auto _setupDeleteLoadingMenuScene() -> void;
+                auto rtype::UpdateGraph::_createMusicLoadingMenu(Registry& r) -> Entity;
 
             // * Main Menu functions
             private:
                 auto _setupMainMenuScene() -> void;
                 auto _setupExecMainMenuScene() -> void;
                 auto _setupDeleteMainMenuScene() -> void;
-                auto _createBackgroundMainMenu(Registry &r) -> Entity;
-                auto _createLogoMainMenu(Registry &r) -> Entity;
-                auto _createTransitionMainMenu(Registry &r) -> Entity;
-                auto _createPlayButtonMainMenu(Registry &r) -> Entity;
-                auto _createNewGameButtonMainMenu(Registry &r) -> Entity;
 
             // * Waiting Room functions
             private:
                 auto _setupWaitingRoomScene() -> void;
                 auto _setupExecWaitingRoomScene() -> void;
                 auto _setupDeleteWaitingRoomScene() -> void;
-                auto _createBackgroundWaitingRoom(Registry &r) -> Entity;
-                auto _createYouWaitingRoom(Registry &r) -> Entity;
-                auto _createPlayer1WaitingRoom(Registry &r) -> Entity;
-                auto _createPlayer2WaitingRoom(Registry &r) -> Entity;
-                auto _createPlayer3WaitingRoom(Registry &r) -> Entity;
-                auto _createPlayer4WaitingRoom(Registry &r) -> Entity;
+
 
             // * Select Room functions
             private:
                 auto _setupSelectRoomScene() -> void;
                 auto _setupExecSelectRoomScene() -> void;
                 auto _setupDeleteSelectRoomScene() -> void;
-                auto _createBackgroundSelectRoom(Registry &r) -> Entity;
-                auto _createLogoSelectRoom(Registry &r) -> Entity;
-                auto _createSelectRoom1ButtonSelectRoom(Registry &r) -> Entity;
-                auto _createSelectRoom2ButtonSelectRoom(Registry &r) -> Entity;
-                auto _createSelectRoom3ButtonSelectRoom(Registry &r) -> Entity;
-                auto _createSelectRoom4ButtonSelectRoom(Registry &r) -> Entity;
-                auto _createSelectRoom5ButtonSelectRoom(Registry &r) -> Entity;
-                auto _createSelectRoom5NoRoom(Registry& r)->Entity;
-                
+
             private:
                 rtype::IGraphicalLib *_graphicalLib;
-
                 std::map<rtype::constants::SCENE, std::function<void(Registry &, SparseArray<components::currentScene_s> &)>> _setupScene;
                 std::map<rtype::constants::SCENE, std::function<void(Registry &, SparseArray<components::currentScene_s> &currentScenes)>> _execScene;
                 std::map<rtype::constants::SCENE, std::function<void(Registry &)>> _deleteScene;
+                std::map<rtype::constants::SCENE, std::any> _scenePlaceholders;
         };
     }
 

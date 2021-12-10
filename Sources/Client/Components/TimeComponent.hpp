@@ -29,9 +29,9 @@
              * \brief the time component
              *
              */
-            struct myTime_s {
+            typedef struct myTime_s {
                 std::chrono::nanoseconds deltaTime; /*!< time elapsed */
-            };
+            } myTime_t;
         }
     }
 

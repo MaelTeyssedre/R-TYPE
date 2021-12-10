@@ -29,10 +29,10 @@
              * \brief the size component
              *
              */
-            struct mySize_s {
+            typedef struct mySize_s {
                 size_t width; /*!< Width */
                 size_t heigth; /*!< Height */
-            };
+            } mySize_t;
         }
     }
 

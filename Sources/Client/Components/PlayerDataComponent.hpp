@@ -27,10 +27,10 @@
              * \brief the playerData component
              *
              */
-            struct playerData_s {
+            typedef struct playerData_s {
                 size_t id; /*!< id of the player */
                 bool self; /*!< is this your player */
-            };
+            } playerData_t;
         }
     }
 

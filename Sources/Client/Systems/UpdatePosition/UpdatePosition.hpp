@@ -51,7 +51,7 @@
                  * 
                  * \param velocities reference to a sparseArray of velocity components
                  */
-                auto operator()(Registry &r, SparseArray<components::position_s> &positions, SparseArray<components::direction_s> &directions, SparseArray<components::velocity_s> &velocities) -> void;
+                auto operator()(Registry &r, SparseArray<components::position_s> &positions, SparseArray<components::direction_s> &directions, SparseArray<components::velocity_t> &velocities) -> void;
         };
     }
 

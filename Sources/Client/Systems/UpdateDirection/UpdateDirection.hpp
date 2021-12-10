@@ -49,7 +49,7 @@
                  *
                  * \param keys reference to a sparseArray of key components
                  */
-                auto operator()(Registry &r, SparseArray<components::direction_s> &directions, SparseArray<components::keyState_s> &keys) -> void;
+                auto operator()(Registry &r, SparseArray<components::direction_t> &directions, SparseArray<components::keyState_t> &keys) -> void;
         };
     }
 

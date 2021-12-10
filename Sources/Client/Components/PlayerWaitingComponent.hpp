@@ -27,10 +27,10 @@
              * \brief the playerWaiting component
              *
              */
-            struct playerWaiting_s {
+            typedef struct playerWaiting_s {
                 size_t nb; /*!< number of player */
                 size_t self;  /*!< position of your player */
-            };
+            } playerWaiting_t;
         }
     }
 

@@ -29,9 +29,9 @@
              * \brief the strength component
              *
              */
-            struct strength_s {
+            typedef struct strength_s {
                 size_t strength; /*!< Strength of the object */
-            };
+            } strength_t;
         }
     }
 

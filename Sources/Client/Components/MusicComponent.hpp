@@ -30,9 +30,9 @@
              * \brief the music component
              *
              */
-            struct music_s {
+            typedef struct music_s {
                 std::string path; /*!< path of the music */
-            };
+            } music_t;
         }   
     }
 

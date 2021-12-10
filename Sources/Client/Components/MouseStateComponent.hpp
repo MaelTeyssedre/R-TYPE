@@ -29,12 +29,12 @@
              * \brief the mouseState component
              *
              */
-            struct mouseState_s {
+            typedef struct mouseState_s {
                 int mousePosX; /*!< mouse X position */
                 int mousePosY; /*!< mouse Y position */
                 bool mouseRightClick; /*!< status of the right click */
                 bool mouseLeftClick; /*!< status of the left click */
-            };
+            } mouseState_t;
         }
     }
 

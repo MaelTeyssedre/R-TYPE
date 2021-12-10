@@ -29,10 +29,10 @@
              * \brief the position component
              *
              */
-            struct position_s {
+            typedef struct position_s {
                 float x; /*!< X position */
                 float y; /*!< Y position */
-            };
+            } position_t;
         }
     }
 

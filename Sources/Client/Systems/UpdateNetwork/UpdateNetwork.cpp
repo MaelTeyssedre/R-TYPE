@@ -139,7 +139,7 @@ void rtype::UpdateNetwork::operator()(Registry &r, SparseArray<components::netwo
         if (!(network.sendRequest.empty())) {
             IPacket* packet = new Packet();
             packet->pack(network.sendRequest.front());
-            std::cout << "Sending: " << (int)packet->unpack().at(0) << " nb bytes: " << packet->unpack().size() << std::endl;
+            std::cout << "Sending: " << static_cast<int>(packet->unpack().at(0)) << " nb bytes: " << packet->unpack().size() << std::endl;
             _tcpClient->send(*packet);
             network.sendRequest.erase(network.sendRequest.begin());
         }

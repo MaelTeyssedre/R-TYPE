@@ -27,10 +27,10 @@
              * \brief size component
              * 
              */
-            struct size_s {
+            typedef struct size_s {
                 int width;
                 int height;
-            };
+            } size_t;
         }
     }
 

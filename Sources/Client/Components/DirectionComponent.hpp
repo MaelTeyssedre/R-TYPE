@@ -29,10 +29,10 @@
              * \brief the direction component
              *
              */
-            struct direction_s {
+            typedef struct direction_s {
                 int x; /*!< x direction */
                 int y; /*!< y direction */
-            };
+            } direction_t;
         }
     }
 

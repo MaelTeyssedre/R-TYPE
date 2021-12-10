@@ -29,9 +29,9 @@
              * \brief the weaponType component component
              *
              */
-            struct weaponType_s {
+            typedef struct weaponType_s {
                 rtype::constants::WEAPON_TYPE weaponType; /*!< weapon type */
-            };
+            } weaponType_t;
         }
     }
 

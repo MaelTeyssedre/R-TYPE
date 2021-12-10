@@ -27,9 +27,9 @@
              * \brief weapon component
              * 
              */
-            struct weapon_s {
+            typedef struct weapon_s {
                 size_t weapon;
-            };
+            } weapon_t;
         }
     }
 

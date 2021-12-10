@@ -30,7 +30,7 @@
              * \brief the sprite component
              *
              */
-            struct sprite_s {
+            typedef struct sprite_s {
                 float scaleX; /*!< Scale X of the sprite */
                 float scaleY; /*!< Scale Y of the sprite */
                 int rectX; /*!< Position X of the texture */
@@ -38,7 +38,7 @@
                 int rectWidth; /*!< Width of the texture */
                 int rectHeight; /*!< Height of the texture */
                 std::string path; /*!< Path of the texture */
-            };
+            } sprite_t;
         }   
     }
     

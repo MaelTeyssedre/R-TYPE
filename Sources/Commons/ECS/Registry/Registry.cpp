@@ -33,7 +33,7 @@ auto Registry::entityFromIndex(size_t idx) -> Entity
 auto Registry::isKilled(Entity const &e) -> bool
 {
     for (size_t i = 0; i < _killedEntities.size(); i++)
-        if ((size_t)e == (size_t)_killedEntities[i])
+        if ((size_t)e == static_cast<size_t>(_killedEntities[i]))
             return true;
     return false;
 }

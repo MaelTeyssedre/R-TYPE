@@ -30,9 +30,9 @@
              * \brief the entityType component
              *
              */
-            struct entityType_s {
+            typedef struct entityType_s {
                 rtype::constants::ENTITY_TYPE entityType;  /*!< type of the entity */
-            };
+            } entityType_t;
         }
     }
 

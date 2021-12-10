@@ -27,10 +27,10 @@
              * \brief position component
              * 
              */
-            struct position_s {
+            typedef struct position_s {
                 int x;
                 int y;
-            };
+            } position_t;
         }
     }
 

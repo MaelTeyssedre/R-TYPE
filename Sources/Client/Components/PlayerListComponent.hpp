@@ -27,10 +27,10 @@
              * \brief the player list component
              *
              */
-            struct playerList_s {
+            typedef struct playerList_s {
                 size_t players; /*!< number of player */
                 size_t self; /*!< position of your player */
-            };
+            } playerList_t;
         }
     }
 

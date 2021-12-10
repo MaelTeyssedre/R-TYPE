@@ -27,7 +27,7 @@
              * \brief the network component
              *
              */
-            struct network_s {
+            typedef struct network_s {
                 std::vector<std::vector<uint8_t>> request1; /*!< request 1 vector */
                 std::vector<std::vector<uint8_t>> request2; /*!< request 2 vector */
                 std::vector<std::vector<uint8_t>> request3; /*!< request 3 vector */
@@ -45,7 +45,7 @@
                 std::vector<std::vector<uint8_t>> request17; /*!< request 17 vector */
                 std::vector<std::vector<uint8_t>> request22; /*!< request 22 vector */
                 std::vector<std::vector<uint8_t>> sendRequest; /*!< send request vector */
-            };
+            } network_t;
         }
     }
 

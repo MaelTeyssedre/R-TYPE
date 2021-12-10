@@ -27,9 +27,9 @@
              * \brief the roomData component
              *
              */
-            struct roomData_s {
+            typedef struct roomData_s {
                 bool room; /*!< Is the room exist */
-            };
+            } roomData_t;
         }
     }
 

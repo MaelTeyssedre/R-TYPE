@@ -29,9 +29,9 @@
              * \brief the health component
              *
              */
-            struct health_s {
+            typedef struct health_s {
                 size_t health; /*!< health of the object */
-            };
+            } health_t;
         }
     }
 

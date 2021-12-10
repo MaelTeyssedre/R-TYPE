@@ -29,10 +29,10 @@
              * \brief the velocity component
              *
              */
-            struct velocity_s {
+            typedef struct velocity_s {
                 size_t x; /*!< x velocity */
                 size_t y; /*!< y velocity */
-            };
+            } velocity_t;
         }
     }
 

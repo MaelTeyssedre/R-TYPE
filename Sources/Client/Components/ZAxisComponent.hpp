@@ -28,9 +28,9 @@
              * \brief the zaxis component
              *
              */
-            struct zaxis_s {
+            typedef struct zaxis_t {
                 size_t zAxis; /*!< Zaxis of the object */
-            };
+            } zaxis_t;
         }   
     }
     

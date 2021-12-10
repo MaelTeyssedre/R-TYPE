@@ -84,7 +84,7 @@ auto rtype::RtypeClient::_registerComponents() -> void
             (void)r;
             (void)e;
         });
-    _r.registerComponent<components::direction_s>(
+    _r.registerComponent<components::direction_t>(
         [](Registry &r, Entity const &e) -> void
         {
             (void)r;
@@ -183,7 +183,7 @@ auto rtype::RtypeClient::_registerComponents() -> void
             (void)r;
             (void)e;
         });
-    _r.registerComponent<components::velocity_s>(
+    _r.registerComponent<components::velocity_t>(
         [](Registry &r, Entity const &e) -> void
         {
             (void)r;
@@ -216,7 +216,7 @@ auto rtype::RtypeClient::_registerComponents() -> void
             (void)r;
             (void)e;
         });
-    _r.registerComponent<components::sprite_s>(
+    _r.registerComponent<components::sprite_t>(
         [](Registry &r, Entity const &e) -> void
         {
             (void)r;
@@ -260,7 +260,7 @@ auto rtype::RtypeClient::_registerComponents() -> void
             (void)r;
             (void)e;
         });
-    _r.registerComponent<components::zaxis_s>(
+    _r.registerComponent<components::zaxis_t>(
         [](Registry &r, Entity const &e) -> void
         {
             (void)r;
@@ -435,7 +435,7 @@ auto rtype::RtypeClient::_setupKeyStateComponent() -> void
 auto rtype::RtypeClient::_setupUpdatePositionSystem() -> void
 {
     UpdatePosition posSystem{};
-    _r.addSystem(std::move(posSystem), _r.getComponents<components::position_s>(), _r.getComponents<components::direction_s>(), _r.getComponents<components::velocity_s>());
+    _r.addSystem(std::move(posSystem), _r.getComponents<components::position_s>(), _r.getComponents<components::direction_t>(), _r.getComponents<components::velocity_t>());
 }
 
 auto rtype::RtypeClient::_setupUpdateTimeSystem() -> void
@@ -452,7 +452,7 @@ auto rtype::RtypeClient::_setupUpdateNetworkSystem() -> void
 auto rtype::RtypeClient::_setupUpdateDirectionSystem() -> void
 {
     UpdateDirection dirSystem{};
-    _r.addSystem(std::move(dirSystem), _r.getComponents<components::direction_s>(), _r.getComponents<components::keyState_s>());
+    _r.addSystem(std::move(dirSystem), _r.getComponents<components::direction_t>(), _r.getComponents<components::keyState_s>());
 }
 
 auto rtype::RtypeClient::_setupUpdateGraphSystem() -> void
@@ -468,5 +468,5 @@ auto rtype::RtypeClient::checkStatus() -> bool
 auto rtype::RtypeClient::_setupUpdateClickable() -> void
 {
     UpdateClickable clickable{};
-    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(), _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>(), _r.getComponents<components::currentScene_s>(), _r.getComponents<components::sprite_s>());
+    _r.addSystem(std::move(clickable), _r.getComponents<components::clickable_s>(), _r.getComponents<components::mouseState_s>(), _r.getComponents<components::position_s>(), _r.getComponents<components::mySize_s>(), _r.getComponents<components::index_s>(), _r.getComponents<components::scene_s>(), _r.getComponents<components::currentScene_s>(), _r.getComponents<components::sprite_t>());
 }

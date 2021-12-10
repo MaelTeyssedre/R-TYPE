@@ -30,9 +30,9 @@
              * \brief the type component
              *
              */
-            struct types_s {
+            typedef struct types_s {
                 constants::TYPES type;
-            };
+            } types_t;
         }
     }
 

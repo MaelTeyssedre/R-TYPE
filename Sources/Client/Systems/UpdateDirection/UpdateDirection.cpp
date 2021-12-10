@@ -1,7 +1,7 @@
 
 #include "UpdateDirection.hpp"
 
-void rtype::UpdateDirection::operator()(Registry &r, SparseArray<rtype::components::direction_s> &directions, SparseArray<rtype::components::keyState_s> &keys)
+void rtype::UpdateDirection::operator()(Registry &r, SparseArray<rtype::components::direction_t> &directions, SparseArray<rtype::components::keyState_t> &keys)
 {
     (void)r;
     for (size_t i = 0; i < directions.size() && i < keys.size(); i++) {

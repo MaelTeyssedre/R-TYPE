@@ -28,13 +28,13 @@
              * \brief the roomList component
              *
              */
-            struct roomList_s {
+            typedef struct roomList_s {
                 bool room1; /*!< Is the room exist */
                 bool room2; /*!< Is the room exist */
                 bool room3; /*!< Is the room exist */
                 bool room4; /*!< Is the room exist */
                 bool room5; /*!< Is the room exist */
-            };
+            } roomList_t;
         }   
     }
     

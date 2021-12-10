@@ -1,163 +1,23 @@
 #include "UpdateGraph.hpp"
 
-auto rtype::UpdateGraph::_createLogoMainMenu(Registry &r) -> Entity
-{
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.9, (float)0.9, 0, 0, 663, 369, "ressources/logo.png"};
-    struct components::position_s pos = {(WINDOW_SIZE_X / 2) - ((663) / 2), 150};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::index_s idx = {id};
-    struct components::scene_s my_scene = {constants::SCENE::MAIN_MENU};
-    struct components::zaxis_s zaxis = {7};
-
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-    return id;
-}
-
-auto rtype::UpdateGraph::_createBackgroundMainMenu(Registry &r) -> Entity
-{
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.9, (float)0.9, 0, 0, 1920, 1080, "ressources/MainMenu.jpg"};
-    struct components::position_s pos = {0, 0};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::index_s idx = {id};
-    struct components::scene_s my_scene = {constants::SCENE::MAIN_MENU};
-    struct components::zaxis_s zaxis = {10};
-
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-    return id;
-}
-
-auto rtype::UpdateGraph::_createTransitionMainMenu(Registry &r) -> Entity
-{
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)WINDOW_SIZE_X / 250, (float)WINDOW_SIZE_Y / 250, 0, 0, 1920, 1080, "ressources/noir.jpg"};
-    struct components::position_s pos = {0, 0};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::index_s idx = {id};
-    struct components::scene_s my_scene = {constants::SCENE::MAIN_MENU};
-    struct components::zaxis_s zaxis = {0};
-
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-
-    return id;
-}
-
-auto rtype::UpdateGraph::_createPlayButtonMainMenu(Registry &r) -> Entity
-{
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.7, (float)0.7, 0, 0, 584, 183, "ressources/playButton.png"};
-    struct components::clickable_s clickable = {false, false, [this](Registry &r, size_t id) -> void
-                                                { r.getComponents<components::sprite_s>()[id].value().rectX = 584; },
-                                                [this](Registry &r, size_t id) -> void
-                                                {
-                                                    r.getComponents<components::sprite_s>()[id].value().rectX = 0;
-                                                    r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{23}); //request get rooms
-                                                }};
-    struct components::position_s pos = {100 , (WINDOW_SIZE_Y / 2) + 200};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::index_s idx = {id};
-    struct components::scene_s my_scene = {constants::SCENE::MAIN_MENU};
-    struct components::mouseState_s mouse = {0, 0, false, false};
-    struct components::zaxis_s zaxis = {8};
-    struct components::mySize_s size = {600, 200};
-
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::clickable_s>(r.entityFromIndex(id), std::move(clickable));
-    r.addComponent<components::mouseState_s>(r.entityFromIndex(id), std::move(mouse));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-    r.addComponent<components::mySize_s>(r.entityFromIndex(id), std::move(size));
-
-    return id;
-}
-
-auto rtype::UpdateGraph::_createNewGameButtonMainMenu(Registry &r) -> Entity
-{
-    Entity id = r.spawnEntity();
-    struct components::sprite_s sprite = {(float)0.7, (float)0.7, 0, 0, 584, 183, "ressources/newGame.png"};
-    struct components::clickable_s clickable = {
-        false,
-        false, [this](Registry &r, size_t id) -> void
-        { r.getComponents<components::sprite_s>()[id].value().rectX = 584; },
-        [this](Registry &r, size_t id) -> void
-        {
-            r.getComponents<components::sprite_s>()[id].value().rectX = 0;
-            r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{18}); //request create room
-        }};
-    struct components::position_s pos = {1220, (WINDOW_SIZE_Y / 2) + 200};
-    struct components::direction_s dir = {0, 0};
-    struct components::velocity_s vel = {0, 0};
-    struct components::drawable_s drawable = {true};
-    struct components::mouseState_s mouse = {0, 0, false, false};
-    struct components::index_s idx = {id};
-    struct components::scene_s my_scene = {constants::SCENE::MAIN_MENU};
-    struct components::zaxis_s zaxis = {9};
-    struct components::mySize_s size = {600, 200};
-    r.addComponent<components::sprite_s>(r.entityFromIndex(id), std::move(sprite));
-    r.addComponent<components::index_s>(r.entityFromIndex(id), std::move(idx));
-    r.addComponent<components::position_s>(r.entityFromIndex(id), std::move(pos));
-    r.addComponent<components::velocity_s>(r.entityFromIndex(id), std::move(vel));
-    r.addComponent<components::direction_s>(r.entityFromIndex(id), std::move(dir));
-    r.addComponent<components::scene_s>(r.entityFromIndex(id), std::move(my_scene));
-    r.addComponent<components::drawable_s>(r.entityFromIndex(id), std::move(drawable));
-    r.addComponent<components::clickable_s>(r.entityFromIndex(id), std::move(clickable));
-    r.addComponent<components::mouseState_s>(r.entityFromIndex(id), std::move(mouse));
-    r.addComponent<components::zaxis_s>(r.entityFromIndex(id), std::move(zaxis));
-    r.addComponent<components::mySize_s>(r.entityFromIndex(id), std::move(size));
-    return id;
-}
-
 auto rtype::UpdateGraph::_setupMainMenuScene() -> void
 {
     _setupScene[rtype::constants::MAIN_MENU] = std::function(
-        [this](Registry &r, SparseArray<components::currentScene_s> &currentScenes) -> void
+        [this](Registry& r, SparseArray<components::currentScene_t>& currentScenes) -> void
         {
-            Entity backgroundId = _createBackgroundMainMenu(r);
-            Entity logoId = _createLogoMainMenu(r);
-            Entity transitionId = _createTransitionMainMenu(r);
-            Entity playButtonId = _createPlayButtonMainMenu(r);
-            Entity NewGameButtonId = _createNewGameButtonMainMenu(r);
+            Entity backgroundId{ _addSpriteToScene(r, components::sprite_t{static_cast<float>(0.9), static_cast<float>(0.9), 0, 0, 1920, 1080, "ressources/MainMenu.jpg"}, components::position_t{0, 0}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::SCENE::MAIN_MENU}, components::zaxis_t{10}) };
+            Entity logoId{ _addSpriteToScene(r, components::sprite_t{ static_cast<float>(0.9), static_cast<float>(0.9), 0, 0, 663, 369, "ressources/logo.png" }, components::position_t{ (WINDOW_SIZE_X / 2) - ((663) / 2), 150 }, components::direction_t{ 0, 0 }, components::velocity_t{ 0, 0 }, components::drawable_t{ true }, components::scene_t{ constants::SCENE::MAIN_MENU }, components::zaxis_t{ 7 }) };
+            Entity transitionId{ _addSpriteToScene(r, components::sprite_t{ static_cast<float>(WINDOW_SIZE_X / 250), static_cast<float>(WINDOW_SIZE_Y / 250), 0, 0, 1920, 1080, "ressources/noir.jpg" }, components::position_t{ 0, 0 }, components::direction_t{ 0, 0 }, components::velocity_t{ 0, 0 }, components::drawable_t{ true }, components::scene_t{ constants::SCENE::MAIN_MENU }, components::zaxis_t{ 0 }) };
+          
+            Entity playButtonId{ _addButtonToScene(r, components::sprite_t{ static_cast<float>(0.7), static_cast<float>(0.7), 0, 0, 584, 183, "ressources/playButton.png"}, components::position_t{ 100 , (WINDOW_SIZE_Y / 2) + 200 }, components::direction_t{ 0, 0 }, components::velocity_t{ 0, 0 }, components::drawable_t{ true }, components::scene_t{ constants::SCENE::MAIN_MENU }, components::zaxis_t{ 8 }, components::clickable_t{ false, false, [this](Registry& r, size_t id) -> void { r.getComponents<components::sprite_t>()[id].value().rectX = 584; }, [this](Registry& r, size_t id) -> void {r.getComponents<components::sprite_t>()[id].value().rectX = 0; r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{23}); } }, components::mouseState_t { 0, 0, false, false }, components::mySize_t {600, 200}) };
+          
+            Entity NewGameButtonId{ _addButtonToScene(r, components::sprite_t{ static_cast<float>(0.7), static_cast<float>(0.7), 0, 0, 584, 183, "ressources/newGame.png" }, components::position_t{ 1220, (WINDOW_SIZE_Y / 2) + 200 }, components::direction_t{ 0, 0 }, components::velocity_t{ 0, 0 }, components::drawable_t{ true }, components::scene_t{ constants::SCENE::MAIN_MENU }, components::zaxis_t{ 9 }, components::clickable_t{ false, false, [this](Registry& r, size_t id) -> void { r.getComponents<components::sprite_t>()[id].value().rectX = 584; }, [this](Registry& r, size_t id) -> void {r.getComponents<components::sprite_t>()[id].value().rectX = 0; r.getComponents<components::network_s>()[constants::RESERVED_ID::NETWORK_UPDATE].value().sendRequest.push_back(std::vector<uint8_t>{18}); } }, components::mouseState_t { 0, 0, false, false }, components::mySize_t {600, 200}) };
 
-            _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_s>()[backgroundId].value().scaleX, r.getComponents<components::sprite_s>()[backgroundId].value().scaleY, r.getComponents<components::sprite_s>()[backgroundId].value().rectX, r.getComponents<components::sprite_s>()[backgroundId].value().rectY, r.getComponents<components::sprite_s>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_s>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_s>()[backgroundId].value().path);
-            _graphicalLib->createSprite(logoId, r.getComponents<components::sprite_s>()[logoId].value().scaleX, r.getComponents<components::sprite_s>()[logoId].value().scaleY, r.getComponents<components::sprite_s>()[logoId].value().rectX, r.getComponents<components::sprite_s>()[logoId].value().rectY, r.getComponents<components::sprite_s>()[logoId].value().rectWidth, r.getComponents<components::sprite_s>()[logoId].value().rectHeight, r.getComponents<components::sprite_s>()[logoId].value().path);
-            _graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_s>()[transitionId].value().scaleX, r.getComponents<components::sprite_s>()[transitionId].value().scaleY, r.getComponents<components::sprite_s>()[transitionId].value().rectX, r.getComponents<components::sprite_s>()[transitionId].value().rectY, r.getComponents<components::sprite_s>()[transitionId].value().rectWidth, r.getComponents<components::sprite_s>()[transitionId].value().rectHeight, r.getComponents<components::sprite_s>()[transitionId].value().path);
-            _graphicalLib->createSprite(playButtonId, r.getComponents<components::sprite_s>()[playButtonId].value().scaleX, r.getComponents<components::sprite_s>()[playButtonId].value().scaleY, r.getComponents<components::sprite_s>()[playButtonId].value().rectX, r.getComponents<components::sprite_s>()[playButtonId].value().rectY, r.getComponents<components::sprite_s>()[playButtonId].value().rectWidth, r.getComponents<components::sprite_s>()[playButtonId].value().rectHeight, r.getComponents<components::sprite_s>()[playButtonId].value().path);
-            _graphicalLib->createSprite(NewGameButtonId, r.getComponents<components::sprite_s>()[NewGameButtonId].value().scaleX, r.getComponents<components::sprite_s>()[NewGameButtonId].value().scaleY, r.getComponents<components::sprite_s>()[NewGameButtonId].value().rectX, r.getComponents<components::sprite_s>()[NewGameButtonId].value().rectY, r.getComponents<components::sprite_s>()[NewGameButtonId].value().rectWidth, r.getComponents<components::sprite_s>()[NewGameButtonId].value().rectHeight, r.getComponents<components::sprite_s>()[NewGameButtonId].value().path);
+            _graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_t>()[backgroundId].value().scaleX, r.getComponents<components::sprite_t>()[backgroundId].value().scaleY, r.getComponents<components::sprite_t>()[backgroundId].value().rectX, r.getComponents<components::sprite_t>()[backgroundId].value().rectY, r.getComponents<components::sprite_t>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_t>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_t>()[backgroundId].value().path);
+            _graphicalLib->createSprite(logoId, r.getComponents<components::sprite_t>()[logoId].value().scaleX, r.getComponents<components::sprite_t>()[logoId].value().scaleY, r.getComponents<components::sprite_t>()[logoId].value().rectX, r.getComponents<components::sprite_t>()[logoId].value().rectY, r.getComponents<components::sprite_t>()[logoId].value().rectWidth, r.getComponents<components::sprite_t>()[logoId].value().rectHeight, r.getComponents<components::sprite_t>()[logoId].value().path);
+            _graphicalLib->createSprite(transitionId, r.getComponents<components::sprite_t>()[transitionId].value().scaleX, r.getComponents<components::sprite_t>()[transitionId].value().scaleY, r.getComponents<components::sprite_t>()[transitionId].value().rectX, r.getComponents<components::sprite_t>()[transitionId].value().rectY, r.getComponents<components::sprite_t>()[transitionId].value().rectWidth, r.getComponents<components::sprite_t>()[transitionId].value().rectHeight, r.getComponents<components::sprite_t>()[transitionId].value().path);
+            _graphicalLib->createSprite(playButtonId, r.getComponents<components::sprite_t>()[playButtonId].value().scaleX, r.getComponents<components::sprite_t>()[playButtonId].value().scaleY, r.getComponents<components::sprite_t>()[playButtonId].value().rectX, r.getComponents<components::sprite_t>()[playButtonId].value().rectY, r.getComponents<components::sprite_t>()[playButtonId].value().rectWidth, r.getComponents<components::sprite_t>()[playButtonId].value().rectHeight, r.getComponents<components::sprite_t>()[playButtonId].value().path);
+            _graphicalLib->createSprite(NewGameButtonId, r.getComponents<components::sprite_t>()[NewGameButtonId].value().scaleX, r.getComponents<components::sprite_t>()[NewGameButtonId].value().scaleY, r.getComponents<components::sprite_t>()[NewGameButtonId].value().rectX, r.getComponents<components::sprite_t>()[NewGameButtonId].value().rectY, r.getComponents<components::sprite_t>()[NewGameButtonId].value().rectWidth, r.getComponents<components::sprite_t>()[NewGameButtonId].value().rectHeight, r.getComponents<components::sprite_t>()[NewGameButtonId].value().path);
             _graphicalLib->setSpriteColorAlpha(transitionId, 255);
             auto &scene = currentScenes[constants::RESERVED_ID::GRAPH_UPDATE];
             if (scene)
@@ -180,11 +40,11 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
             dtimeAnim += time.value().deltaTime;
             dtime += time.value().deltaTime;
             _graphicalLib->clearScreen();
-            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_s>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_s>()))
+            for (auto &&[pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_s>(), r.getComponents<components::sprite_t>(), r.getComponents<components::scene_s>(), r.getComponents<components::drawable_s>(), r.getComponents<components::index_s>(), r.getComponents<components::zaxis_t>()))
             {
                 if (!(drawable.drawable))
                     continue;
-                myZAxises.push_back((int)zaxis.zAxis);
+                myZAxises.push_back(static_cast<int>(zaxis.zAxis));
                 zAxisMap[(int)zaxis.zAxis] = index.idx;
                 _graphicalLib->setSpritePosX(index.idx, pos.x);
                 _graphicalLib->setSpritePosY(index.idx, pos.y);
@@ -218,20 +78,20 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;
             }
-            if (!(net.value().request17.empty()) && !(net.value().request17.front().empty()))
+            if (!(net.value().request17.empty()) && !(net.value().request17.back().empty()))
             {
                 std::cout << "received request 17" << std::endl;
                 std::vector<size_t> tmp;
                 struct components::roomList_s roomList = {false, false, false, false, false};
-                if (net.value().request17.front().at(1) == 1)
+                if (net.value().request17.back().at(1) == 1)
                     roomList.room1 = true;
-                if (net.value().request17.front().at(2) == 2)
+                if (net.value().request17.back().at(2) == 2)
                     roomList.room2 = true;
-                if (net.value().request17.front().at(3) == 3)
+                if (net.value().request17.back().at(3) == 3)
                     roomList.room3 = true;
-                if (net.value().request17.front().at(4) == 4)
+                if (net.value().request17.back().at(4) == 4)
                     roomList.room4 = true;
-                if (net.value().request17.front().at(5) == 5)
+                if (net.value().request17.back().at(5) == 5)
                     roomList.room5 = true;
                 r.addComponent<components::roomList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(roomList));
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
@@ -257,7 +117,7 @@ auto rtype::UpdateGraph::_setupDeleteMainMenuScene() -> void
                     _graphicalLib->deleteMusic(index.idx);
                 }
             }
-            for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::sprite_s>()))
+            for (auto &&[scene, index, sprite] : Zipper(r.getComponents<components::scene_s>(), r.getComponents<components::index_s>(), r.getComponents<components::sprite_t>()))
             {
                 if (scene.scene == constants::SCENE::MAIN_MENU)
                 {

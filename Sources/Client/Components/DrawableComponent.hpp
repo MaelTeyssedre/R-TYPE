@@ -27,9 +27,9 @@
              * \brief the drawable component
              *
              */
-            struct drawable_s {
+            typedef struct drawable_s {
                 bool drawable; /*!< is the object drawable */
-            };
+            } drawable_t;
         }
     }
 

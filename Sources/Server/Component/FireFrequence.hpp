@@ -27,9 +27,9 @@
              * \brief fireFrequence component
              * 
              */
-            struct fireFrequence_s {
+            typedef struct fireFrequence_s {
                 size_t fireFrequence;
-            };
+            } fireFrequence_t;
         }
     }
 

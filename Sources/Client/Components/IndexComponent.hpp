@@ -27,9 +27,9 @@
              * \brief the index component
              *
              */
-            struct index_s {
+            typedef struct index_s {
                 size_t idx; /*!< index of the object */
-            };
+            } index_t;
         }
     }
 
