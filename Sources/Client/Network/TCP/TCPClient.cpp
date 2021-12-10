@@ -1,7 +1,7 @@
 #include "TCPClient.hpp"
 
 rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip::tcp::socket> socket, std::string host, std::string port)
-    : _context(context), _resolver(context), _socket(socket), _logger("log.txt"), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false), _worker(context)
+    : _context(context), _resolver(context), _socket(socket), _logger(), _buffer(new Buffer(BUF_SIZE)) , _isConnected(false), _worker(context)
 {
     std::memset(_reply, 42, 8192);
     std::string str = "Client connected to host: ";
