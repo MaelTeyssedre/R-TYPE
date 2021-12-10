@@ -27,7 +27,7 @@
              * \brief the index component
              *
              */
-            typedef fpstruct index_s {
+            typedef struct index_s {
                 size_t idx; /*!< index of the object */
             } index_t;
         }

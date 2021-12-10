@@ -27,7 +27,7 @@
              * \brief healPoint component
              * 
              */
-            typedef fstruct healPoint_s {
+            typedef struct healPoint_s {
                 size_t healPoint;
             } healPoint_t;
         }
