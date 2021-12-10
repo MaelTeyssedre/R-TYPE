@@ -8,6 +8,7 @@
     #define ILOGGER_HPP_
 
     #include <iostream>
+    #include <string>
     #include <fstream>
     #include <mutex>
     #include <exception>

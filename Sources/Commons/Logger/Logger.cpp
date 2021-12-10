@@ -10,8 +10,18 @@ Logger::Logger()
     struct tm *ti;
     time(&tt);
     ti = localtime(&tt);
-    //file_name += asctime(ti);
+    file_name += "_";
+    file_name += std::to_string(ti->tm_mday);
+    file_name += "-"; 
+    file_name += std::to_string(ti->tm_mon);
+    file_name += "_";
+    file_name += std::to_string(ti->tm_hour);
+    file_name += "-";
+    file_name += std::to_string(ti->tm_min);
+    file_name += "-";
+    file_name += std::to_string(ti->tm_sec);
     file_name += ".txt";
+    std::cout << file_name << std::endl;
     _file.open(file_name);
     _file.close();
 }
