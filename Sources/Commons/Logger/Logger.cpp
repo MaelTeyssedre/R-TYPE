@@ -33,7 +33,7 @@ Logger::~Logger()
 void Logger::log(std::string message)
 {
     lock.lock();
-    _file.open(file_name);
+    _file.open(file_name, std::fstream::app);
     _file << message;
     _file.flush();
     _file.close();
@@ -42,8 +42,14 @@ void Logger::log(std::string message)
 
 void Logger::logln(std::string message)
 {
+    auto tp = std::chrono::system_clock::now();
+	auto dur = tp.time_since_epoch();
+	auto time = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+    std::thread::id this_id = std::this_thread::get_id();
+
     lock.lock();
-    _file.open(file_name);
+    _file.open(file_name, std::fstream::app);
+    _file << time << " : " << std::this_thread::get_id() << " -> ";
     _file << message << std::endl;
     _file.flush();
     _file.close();
@@ -52,9 +58,15 @@ void Logger::logln(std::string message)
 
 void Logger::operator<<(std::string buffer)
 {
+    auto tp = std::chrono::system_clock::now();
+	auto dur = tp.time_since_epoch();
+	auto time = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+    std::thread::id this_id = std::this_thread::get_id();
+
     lock.lock();
-    _file.open(file_name);
-    _file << buffer;
+    _file.open(file_name, std::fstream::app);
+    _file << time << " : " << std::this_thread::get_id() << " -> ";
+    _file << buffer << std::endl;
     _file.flush();
     _file.close();
     lock.unlock();
