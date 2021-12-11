@@ -32,8 +32,9 @@ auto Buffer::putInBuffer(size_t size, void *data) -> void
     }
     _usedSize = ((_usedSize + size) > _size) ? size : _usedSize + size;
     castedData = static_cast<uint8_t *>(data);
-    for (size_t i = 0; i < size && castedData[i]; i++)
+    for (size_t i = 0; i < size ; i++)
     {
+        std::cout << "adding to the buffer : " << (int)castedData[i] << std::endl;
         _byteList[_writeCursor] = castedData[i];
         _writeCursor = ((_writeCursor + 1) == _size) ? 0 : _writeCursor + 1;
     }
@@ -49,6 +50,7 @@ auto Buffer::readFromBuffer(size_t size, void *data) -> void
     castedData = static_cast<uint8_t *>(data);
     for (size_t i = 0; i < size; i++)
     {
+        std::cout << "getting into the buffer : " << (int)castedData[i] << std::endl;
         castedData[i] = _byteList[_readCursor];
         _readCursor = ((_readCursor + 1) == _size) ? 0 : _readCursor + 1;
         _usedSize--;
@@ -85,6 +87,7 @@ auto Buffer::readFromBuffer(size_t size, std::vector<uint8_t> &data) -> void
     //}
     for (size_t i = 0; i < size; i++)
     {
+        std::cout << "getting into the buffer : " << (int)_byteList[_readCursor] << std::endl;
         data.push_back(_byteList[_readCursor]);
         _readCursor = ((_readCursor + 1) == _size) ? 0 : _readCursor + 1;
         _usedSize--;

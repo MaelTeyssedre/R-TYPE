@@ -74,7 +74,7 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
                 net.value().request12.erase(net.value().request12.begin());
                 r.addComponent<components::playerList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(playerList));
                 r.addComponent<components::currentRoom_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(currRoom));
-                // get id de la room après 12
+                // get id de la room aprï¿½s 12
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;
             }
@@ -83,15 +83,15 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
                 std::cout << "received request 17" << std::endl;
                 std::vector<size_t> tmp;
                 struct components::roomList_s roomList = {false, false, false, false, false};
-                if (net.value().request17.back().at(1) == 1)
+                if (net.value().request17.front().at(1) == 1)
                     roomList.room1 = true;
-                if (net.value().request17.back().at(2) == 2)
+                if (net.value().request17.front().at(2) == 2)
                     roomList.room2 = true;
-                if (net.value().request17.back().at(3) == 3)
+                if (net.value().request17.front().at(3) == 3)
                     roomList.room3 = true;
-                if (net.value().request17.back().at(4) == 4)
+                if (net.value().request17.front().at(4) == 4)
                     roomList.room4 = true;
-                if (net.value().request17.back().at(5) == 5)
+                if (net.value().request17.front().at(5) == 5)
                     roomList.room5 = true;
                 r.addComponent<components::roomList_s>(r.entityFromIndex(constants::RESERVED_ID::GRAPH_UPDATE), std::move(roomList));
                 r.getComponents<components::currentScene_s>()[constants::RESERVED_ID::GRAPH_UPDATE].value().isLoaded = false;

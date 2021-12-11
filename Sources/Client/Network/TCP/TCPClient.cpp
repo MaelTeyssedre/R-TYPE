@@ -22,24 +22,44 @@ rtype::TCPClient::TCPClient(asio::io_context &context, std::shared_ptr<asio::ip:
 
 void rtype::TCPClient::receive()
 {
+    
     asio::async_read(*_socket, asio::buffer(_reply, 8192), std::bind(&rtype::TCPClient::doRead, this, std::placeholders::_1, std::placeholders::_2));
+    std::this_thread::sleep_for(std::chrono::nanoseconds(10000));
+
     auto i = 0;
-    for (; _reply[i] != 42; i++) {}
+    std::chrono::steady_clock::time_point lastTick = std::chrono::steady_clock::now();
+    std::chrono::nanoseconds dtime;
+    while ( dtime.count() < 10000) {
+        std::chrono::steady_clock::time_point currentTick = std::chrono::steady_clock::now();
+        if (_reply[0] != 42)
+            break;
+        dtime = currentTick - lastTick;
+        lastTick = currentTick;
+    }
+    std::cout << static_cast<int>(_reply[0]) << " " << static_cast<int>(_reply[1]) << " " << static_cast<int>(_reply[2]) << " " << static_cast<int>(_reply[3]) << " " << static_cast<int>(_reply[4]) << std::endl;
+    for (; _reply[i] != 42; i++) { std::cout << "i" << std::endl; }
+    std::cout << static_cast<int>(_reply[0]) << " " << static_cast<int>(_reply[1]) << " " << static_cast<int>(_reply[2]) << " " << static_cast<int>(_reply[3]) << " " << static_cast<int>(_reply[4]) << std::endl;
+    if (_reply[0] == 17)
+        std::cout << "";
     _buffer->putInBuffer(i, _reply);
-    for (int x = 0; i != 0 && x != i; x++)
-        std::cout << static_cast<int>(_reply[x]) << std::endl;
+    std::cout << static_cast<int>(_reply[0]) << " " << static_cast<int>(_reply[1]) << " " << static_cast<int>(_reply[2]) << " " << static_cast<int>(_reply[3]) << " " << static_cast<int>(_reply[4]) << std::endl;
+
     std::memset(_reply, 42, 8192);
+    
 }
 
 void rtype::TCPClient::doRead(const std::error_code &ec, size_t bytes)
 {
     (void)bytes;
+    assert(1 == 2);
     (void)ec;
 }
 
 void rtype::TCPClient::send(IPacket &packet)
 {
+
     asio::async_write(*_socket, asio::buffer(packet.unpack()), std::bind(&rtype::TCPClient::doWrite, this, std::placeholders::_1, std::placeholders::_2));
+
 }
 
 void rtype::TCPClient::doWrite(const std::error_code &ec, size_t bytes)

@@ -46,7 +46,8 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
             dtime += time.value().deltaTime;
             std::vector<int> myZAxises;
             std::map<int, size_t> zAxisMap;
-            auto& net = r.getComponents<components::network_t>()[constants::RESERVED_ID::NETWORK_UPDATE];
+            auto& netArray = r.getComponents<components::network_t>();
+            auto &net = netArray[constants::RESERVED_ID::NETWORK_UPDATE];
             _graphicalLib->clearScreen();
             for (auto&& [pos, sprite, scene, drawable, index, zaxis] : Zipper(r.getComponents<components::position_t>(), r.getComponents<components::sprite_t>(), r.getComponents<components::scene_t>(), r.getComponents<components::drawable_t>(), r.getComponents<components::index_t>(), r.getComponents<components::zaxis_t>()))
             {
@@ -72,7 +73,7 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
                 net.value().sendRequest.push_back(std::vector<uint8_t>{23});
                 dtime = std::chrono::nanoseconds(0);
             }
-            if (!(net.value().request17.empty()) && !(net.value().request17.back().empty()))
+            if (!(net.value().request17.empty()) && !(net.value().request17.front().empty()))
             {
                 std::cout << "received request 17" << std::endl;
                 auto &drawableRoom1 = r.getComponents<components::drawable_t>();
@@ -80,12 +81,14 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
                 auto &drawableRoom3 = r.getComponents<components::drawable_t>();
                 auto &drawableRoom4 = r.getComponents<components::drawable_t>();
                 auto &drawableRoom5 = r.getComponents<components::drawable_t>();
-                drawableRoom1[localEntities[0]].value().drawable = (net.value().request17.back()[1] == 1) ? true : false;
-                drawableRoom2[localEntities[1]].value().drawable = (net.value().request17.back()[2] == 2) ? true : false;
-                drawableRoom3[localEntities[2]].value().drawable = (net.value().request17.back()[3] == 3) ? true : false;
-                drawableRoom4[localEntities[3]].value().drawable = (net.value().request17.back()[4] == 4) ? true : false;
-                drawableRoom5[localEntities[4]].value().drawable = (net.value().request17.back()[5] == 5) ? true : false;
-                //net.value().request17.erase(net.value().request17.begin());
+                drawableRoom1[localEntities[0]].value().drawable = (net.value().request17.front()[1] == 1) ? true : false;
+                drawableRoom2[localEntities[1]].value().drawable = (net.value().request17.front()[2] == 2) ? true : false;
+                drawableRoom3[localEntities[2]].value().drawable = (net.value().request17.front()[3] == 3) ? true : false;
+                drawableRoom4[localEntities[3]].value().drawable = (net.value().request17.front()[4] == 4) ? true : false;
+                drawableRoom5[localEntities[4]].value().drawable = (net.value().request17.front()[5] == 5) ? true : false;
+                std::cout << "before erase, size : " << net.value().request17.size() << std::endl;
+                net.value().request17.erase(net.value().request17.begin());
+                std::cout << "after erase, size : " << net.value().request17.size() << std::endl;
             }
         }
     );
