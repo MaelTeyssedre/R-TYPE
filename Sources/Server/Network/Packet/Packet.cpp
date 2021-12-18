@@ -131,7 +131,8 @@ size_t rtype::Packet::pack(std::vector<uint8_t> data)
             break;
          case 19:
             _rawData.push_back(data[0]);
-            bytes = 1;
+            _rawData.push_back(data[1]);
+            bytes = 2;
             break;
          case 20:
             _rawData.push_back(data[0]);

@@ -32,45 +32,43 @@ auto rtype::PacketManager::sendToPlayer(rtype::PlayerData &player, std::vector<u
     player.getBufIn()->push_back(request);
 }
 
+auto rtype::PacketManager::_roomExist(size_t id) -> bool
+{
+    for (auto i : *_roomList)
+        if (i.second == id)
+            return true;
+    return false;
+}
+
 auto rtype::PacketManager::managePacket() -> void
 {
     if (_packetsIn.size() && _packetsIn.front()->unpack().size())
     {
         auto tmp = _packetsIn.front()->unpack();
         if (!tmp.empty())
-        {
-            if (tmp.at(0) == 18)
-            {
+            if (tmp.at(0) == 18) {
                 if (_roomList->size() <= 5 && !_findPlayer(_packetsIn.front()->getId()))
                     _createRoom(_packetsIn.front());
             }
-            else if (tmp.at(0) == 19)
-            {
-                if (!_findPlayer(_packetsIn.front()->getId()) && _roomList->size() >= tmp[1] && _getNbPlayersInRoom(_packetsIn.front()->unpack().at(1)) < 4)
+            else if (tmp.at(0) == 19) {
+                if (_roomExist(_packetsIn.front()->unpack().at(1)) && !_findPlayer(_packetsIn.front()->getId()) && _getNbPlayersInRoom(_packetsIn.front()->unpack().at(1)) < 5)
                     _joinRoom(_packetsIn.front());
             }
             else if (tmp.at(0) == 23)
-            {
                 _getRooms(_packetsIn.front());
-            }
             else if (tmp.at(0) == 22)
             {
                 IPacket* p = new Packet();
-                for (auto i = 0; i < _roomList->size(); i++) {
+                for (auto i = 0; i < _roomList->size(); i++)
                     if (_roomList->at(i).second == tmp[1]) {
                         p->pack(std::vector<uint8_t>{16, (uint8_t)_roomList->at(i).first.size()});
                         p->setId(_packetsIn.front()->getId());
                         break;
                     }
-                }
                 _packetsOut.push_back(p);
             }
             else
-            {
                 sendToPlayer(*_findPlayer(_packetsIn.front()->getId()), tmp);
-                std::cerr << "Packet received from " << _packetsIn.front()->getId() << " is undefined size : " << tmp.size() << " | opcode : " << (int)(tmp.at(0)) << std::endl;
-            }
-        }
         _packetsIn.pop();
     }
     
@@ -104,21 +102,15 @@ auto rtype::PacketManager::_getNbPlayersInRoom(size_t idRoom) -> size_t
     for (auto it : *_roomList)
         if (idRoom == it.second)
             return(it.first.size());
-    throw std::invalid_argument("invalid id user");
-
+    throw std::invalid_argument("invalid room id");
 }
 
 auto rtype::PacketManager::_getRoomByPlayer(size_t id) -> size_t
 {
-    size_t idRoom = 0;
-
-    for (auto room : *_roomList) {
-        for (auto player: room.first) {
+    for (auto room : *_roomList)
+        for (auto player: room.first)
             if (id == player.getId())
-                return (idRoom);
-        }
-        idRoom++;
-    }
+                return (room.second);
     throw std::invalid_argument("invalid id user");
 }
 
@@ -138,7 +130,8 @@ auto rtype::PacketManager::manageResponse() -> void
    static std::vector<size_t> dataRooms {};
 
    for (auto &i : _isCreateSended)
-       if (!i.first) {
+       if (!i.first)
+       { 
             IPacket* packet = new Packet();
             packet->setId(i.second);
             std::vector<uint8_t> vec{};
@@ -148,26 +141,31 @@ auto rtype::PacketManager::manageResponse() -> void
             _packetsOut.push_back(packet);
             i.first = true;
             _isCreateSended.erase(_isCreateSended.begin());
-      }
-   for (auto &i : _isJoinSended)
+       }
+   for (auto &i : _isJoinSended) // id player : id room
        if (!i.first) {
             IPacket* packet = new Packet();
             packet->setId(i.second);
             packet->pack(std::vector<uint8_t> {10});
             _packetsOut.push_back(packet);
             i.first = true;
-            _isJoinSended.erase(_isGetSended.begin());
+            _isJoinSended.erase(_isJoinSended.begin());
        }
     for (auto &i : _isGetSended)
        if (!i.first) {
             IPacket* packet = new Packet();
             packet->setId(i.second);
-            std::vector<uint8_t> vec{};
-            vec.push_back((uint8_t)17);
-            for (auto i = 0; i < 5; i++) {
-                bool indexExist = false;
-                for (auto it : *_roomList) {
-                    indexExist = (it.second == i) ? vec.push_back((uint8_t)i + 1), true : indexExist;
+            std::vector<uint8_t> vec {17};
+            for (auto i = 0; i < 5; i++)
+            {
+                bool indexExist {false};
+                for (auto it : *_roomList)
+                {
+                    if (it.second == i + 1) {
+                        vec.push_back((uint8_t)it.second);
+                        indexExist = true;
+                        break;
+                    }
                 }
                 if (!indexExist)
                     vec.push_back((uint8_t)0);

@@ -64,8 +64,14 @@ std::queue<IPacket *> *rtype::TCPServer::getBuffer()
         auto tmp = _mapUser[i]->getInput();
         _mapUser[i]->delInput(packetPtr->pack(tmp));
         packetPtr->setId(i);
-        if (packetPtr->unpack().size())
+        if (packetPtr->unpack().size()) {
             _buffers.emplace(packetPtr);
+            std::cout << "received : ";
+            for (auto i : packetPtr->unpack())
+                std::cout << (int)i << " ";
+            std::cout << std::endl;
+        }
+        
     }
     return (&_buffers);
 }

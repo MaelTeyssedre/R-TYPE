@@ -57,13 +57,13 @@
             //auto _initGame() -> void;
 
         private:
-            auto _registerComponents() ->void;
+            //auto _registerComponents() ->void;
             //auto _registerMonster(rtype::AMonster *monster) ->void;
-            auto _setupComponents() ->void;
+            //auto _setupComponents() ->void;
             //auto _sendRequestsToAll() -> void;
         
         private:
-            auto _setupTimeComponent() -> void;
+            //auto _setupTimeComponent() -> void;
 
         private:
             JsonWrapper _jsonWrapper;

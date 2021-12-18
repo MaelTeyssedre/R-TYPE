@@ -8,8 +8,6 @@ rtype::Room::Room(std::vector<PlayerData>* players)
 auto rtype::Room::_runThread(std::vector<PlayerData>* players) -> void
 {
 	Game game {players};
-	for (;;) {
-		game.runGame();
-		std::this_thread::sleep_for(std::chrono::nanoseconds(10000));	
-	}
+	game.runGame();
+	std::cout << "end of game" << std::endl;;
 }

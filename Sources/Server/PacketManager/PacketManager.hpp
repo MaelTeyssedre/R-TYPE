@@ -144,7 +144,7 @@
 
                 auto _getPlayersInRoom(IPacket *packet) -> void;
 
-                
+                auto _roomExist(size_t id) -> bool;
                 /**
                  * \fn auto _getNbPlayersInRoom(size_t idRoom) -> size_t
                  * 
