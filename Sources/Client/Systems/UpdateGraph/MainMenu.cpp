@@ -62,6 +62,7 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
 				_graphicalLib->draw(zAxisMap[i]);
 			_graphicalLib->HandleClose();
 			_graphicalLib->refresh();
+			// 10 roomID nbPlayer
 			if (!(net.value().request12.empty()) && !(net.value().request12.front().empty()))
 			{
 				r.addComponent<components::playerList_t>(r.entityFromIndex(constants::GRAPH_UPDATE), std::move(components::playerList_t{ 1, 1 }));
