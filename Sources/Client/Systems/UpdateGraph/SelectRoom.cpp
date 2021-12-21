@@ -5,6 +5,7 @@ auto rtype::UpdateGraph::_setupSelectRoomScene() -> void
 	_setupScene[constants::SELECT_ROOM] = std::function(
 		[this](Registry& r, SparseArray<components::currentScene_t>& currentScenes) -> void
 		{
+			r.addComponent<components::currentRoom_t>(r.entityFromIndex(constants::GRAPH_UPDATE), components::currentRoom_t{ 0 });
 			auto roomList{ r.getComponents<components::roomList_t>()[constants::GRAPH_UPDATE].value() };
 			auto room1Id{ _addButtonToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 800, 215, BUTTON_1_SELECT_ROOM}, components::position_t{ WINDOW_SIZE_X * 0.1, WINDOW_SIZE_Y * 0.5 }, components::direction_t{ 0, 0 }, components::velocity_t{ 0, 0 }, components::drawable_t{ true }, components::scene_t{ constants::SELECT_ROOM }, components::zaxis_t{ 9 }, components::clickable_t{ false, false,
 				[this](Registry& r, size_t id) -> void {
@@ -146,12 +147,14 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
 			// request 10 : 
 			if (!net.value().request10.empty() && !net.value().request10.front().empty())
 			{
-				r.addComponent<components::playerList_t>(r.entityFromIndex(constants::GRAPH_UPDATE), std::move(components::playerList_t{ net.value().request10[0][2], net.value().request10[0][2] }));
-				r.addComponent<components::currentRoom_t>(r.entityFromIndex(constants::GRAPH_UPDATE), std::move(components::currentRoom_t{ net.value().request10[0][1] }));
+				//r.addComponent<components::playerList_t>(r.entityFromIndex(constants::GRAPH_UPDATE), std::move(components::playerList_t{ net.value().request10[0][2], net.value().request10[0][2] }));
+				r.addComponent<components::playerList_t>(r.entityFromIndex(constants::GRAPH_UPDATE), components::playerList_t{ 2, 2});
+				//r.addComponent<components::currentRoom_t>(r.entityFromIndex(constants::GRAPH_UPDATE), std::move(components::currentRoom_t{ net.value().request10[0][1] }));
+				r.addComponent<components::currentRoom_t>(r.entityFromIndex(constants::GRAPH_UPDATE), components::currentRoom_t{ 1 });
 				r.getComponents<components::currentScene_t>()[constants::GRAPH_UPDATE].value().isLoaded = false;
 				r.getComponents<components::currentScene_t>()[constants::GRAPH_UPDATE].value().scene = constants::SCENE::WAITING_ROOM;
-				while (!net.value().request10.front().empty())
-					net.value().request10.erase(net.value().request10.begin());
+				//while (!net.value().request10.front().empty())
+				//	net.value().request10.erase(net.value().request10.begin());
 			}
 		}
 	);

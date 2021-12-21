@@ -49,12 +49,12 @@ auto rtype::UpdateGraph::_setupExecMainMenuScene() -> void
 				_graphicalLib->setSpriteRectY(index.idx, sprite.rectY);
 				_graphicalLib->setSpriteRectWidth(index.idx, sprite.rectWidth);
 				_graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
-				if (!(zaxis.zAxis))
-					if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
-					{
-						dtimeAnim = std::chrono::nanoseconds(0);
-						_graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) - 1);
-					}
+				if (!(zaxis.zAxis)) {
+					//if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
+					//{
+						//dtimeAnim = std::chrono::nanoseconds(0);
+						_graphicalLib->setSpriteColorAlpha(index.idx, 0);
+				}
 			}
 			std::sort(myZAxises.begin(), myZAxises.end(), myCmp);
 			std::reverse(myZAxises.begin(), myZAxises.end());

@@ -58,16 +58,16 @@ void rtype::UpdateGraph::_setupExecLoadingMenuScene()
 				_graphicalLib->setSpriteRectHeigth(index.idx, sprite.rectHeight);
 				if (!zaxis.zAxis)
 				{
-					if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
-					{
-						dtimeAnim = std::chrono::nanoseconds(0);
-						_graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) - 1);
-					}
-					if (dtime.count() > 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx) < 255)
-					{
-						dtimeAnim = std::chrono::nanoseconds(0);
-						_graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) + 1);
-					}
+					//if (dtime.count() < 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx))
+					//{
+						//dtimeAnim = std::chrono::nanoseconds(0);
+						_graphicalLib->setSpriteColorAlpha(index.idx, 0);
+					//}
+					//if (dtime.count() > 8000000000 && dtimeAnim.count() > 5000000 && _graphicalLib->getSpriteColorAlpha(index.idx) < 255)
+					//{
+					//	dtimeAnim = std::chrono::nanoseconds(0);
+					//	_graphicalLib->setSpriteColorAlpha(index.idx, _graphicalLib->getSpriteColorAlpha(index.idx) + 1);
+					//}
 				}
 			}
 			if (r.getComponents<components::keyState_t>()[constants::GRAPH_UPDATE].value().keySpace) {
