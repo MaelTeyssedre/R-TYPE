@@ -49,7 +49,7 @@
                  * 
                  * \param filename filename of a json file
                  */
-                explicit JsonWrapper(std::string &filename);
+                explicit JsonWrapper(std::string filename);
 
 
                 /**

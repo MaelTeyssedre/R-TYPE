@@ -33,7 +33,7 @@ rtype::Game::Game(std::vector<PlayerData>* players)
 
 auto rtype::Game::runGame() -> void
 {
-    int nbPlayers = 0;
+    size_t nbPlayers = 0;
     std::cout << "running the game" << std::endl;
     for (;;) {
         if (nbPlayers != _players->size()) {

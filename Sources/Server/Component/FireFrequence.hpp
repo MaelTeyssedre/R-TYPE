@@ -7,6 +7,8 @@
 #ifndef FIREFREQUENCE_HPP_
     #define FIREFREQUENCE_HPP_
 
+    #include <iostream>
+    
     /**
      * \namespace rtype
      * 

@@ -99,6 +99,7 @@ auto rtype::UpdateGraph::_setupExecSelectRoomScene() -> void
 	_execScene[constants::SELECT_ROOM] = std::function(
 		[this](Registry& r, SparseArray<components::currentScene_t>& currentScenes) -> void
 		{
+			(void)currentScenes;
 			auto localEntities = std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]);
 			static auto dtime = std::chrono::nanoseconds(0);
 			auto& time = r.getComponents<components::myTime_t>()[constants::TIME_UPDATE];

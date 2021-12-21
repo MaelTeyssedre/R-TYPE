@@ -1,4 +1,3 @@
-
 #include "UpdateGraph.hpp"
 #include <algorithm>
 #include <vector>
@@ -6,9 +5,6 @@
 rtype::UpdateGraph::UpdateGraph()
 {
 	_graphicalLib = new rtype::GraphicalLib();
-	_setupScene;
-	_execScene;
-	_deleteScene;
 	_setupScenes();
 	_setupExecScene();
 	_setupDeleteScene();

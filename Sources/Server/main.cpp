@@ -37,6 +37,7 @@ int main(int ac, char **av)
     {
         server->receive();
         std::queue<IPacket *> *ptr = nullptr;
+        (void)ptr;
         packetManager.setBufferI(server->getBuffer());
         packetManager.managePacket();
         auto &toSend = packetManager.getRequestsToSend();

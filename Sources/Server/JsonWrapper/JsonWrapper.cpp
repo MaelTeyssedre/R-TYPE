@@ -1,6 +1,6 @@
 #include "JsonWrapper.hpp"
 
-rtype::JsonWrapper::JsonWrapper(std::string &filename)
+rtype::JsonWrapper::JsonWrapper(std::string filename)
 {
     _filename = filename;
     std::ifstream ifs(_filename);

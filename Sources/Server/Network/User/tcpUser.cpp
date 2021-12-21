@@ -20,7 +20,7 @@ void rtype::tcpUser::doRead(const std::error_code &ec, size_t bytes)
 {
     if (!ec)
     {
-        for (int i = 0; i < bytes; i++) {
+        for (size_t i = 0; i < bytes; i++) {
             uint8_t tmp = (uint8_t)_data[i];
             _input->push_back(std::move(tmp));
         }
@@ -40,7 +40,7 @@ void rtype::tcpUser::write()
 void rtype::tcpUser::doWrite(const std::error_code &ec, std::size_t bytes_transfered)
 {
     (void)bytes_transfered;
-    for (int i = 0; _queue.size() && i < _queue.front().size();i++)
+    for (size_t i = 0; _queue.size() && i < _queue.front().size();i++)
         std::cout << "send: "<< (int)_queue.front().at(i) << std::endl;
     if (!ec)
     {

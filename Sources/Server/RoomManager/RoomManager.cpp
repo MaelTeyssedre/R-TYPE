@@ -13,7 +13,7 @@ rtype::RoomManager::RoomManager(std::shared_ptr<std::vector<std::pair<std::vecto
 
 auto rtype::RoomManager::getIdToCreate()->size_t
 {
-    for (int i = 0; i < 5; i++)
+    for (size_t i = 0; i < 5; i++)
     {
         bool idExist = false;
         for (auto j : *_roomList)
@@ -35,6 +35,7 @@ auto rtype::RoomManager::createRoom() -> void
     _roomList->back().first.push_back(PlayerData(_idCreator->front()));
     _idCreator->erase(_idCreator->begin());
     Room* room = new Room(&(_roomList->back().first));
+    (void)room;
 }
 
 auto rtype::RoomManager::joinRoom() -> void

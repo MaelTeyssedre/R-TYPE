@@ -7,6 +7,8 @@
 #ifndef HEALPOINT_HPP_
     #define HEALPOINT_HPP_
 
+    #include <iostream>
+    
     /**
      * \namespace rtype
      * 

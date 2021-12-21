@@ -41,7 +41,7 @@
                 auto _setupLoadingMenuScene() -> void;
                 auto _setupExecLoadingMenuScene() -> void;
                 auto _setupDeleteLoadingMenuScene() -> void;
-                auto rtype::UpdateGraph::_createMusicLoadingMenu(Registry& r) -> Entity;
+                auto _createMusicLoadingMenu(Registry& r) -> Entity;
 
             // * Main Menu functions
             private:

@@ -5,52 +5,60 @@ auto rtype::UpdateGraph::_setupWaitingRoomScene() -> void
 	_setupScene[constants::WAITING_ROOM] = std::function(
 		[this](Registry& r, SparseArray<components::currentScene_t>& currentScenes) -> void
 		{
+			_scenePlaceholders.try_emplace(constants::SELECT_ROOM, std::vector<Entity> {});
 			auto playerList = r.getComponents<components::playerList_t>()[constants::GRAPH_UPDATE].value();
 			if (playerList.self == 1)
 			{
 				auto player1{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/you.png"}, components::position_t{200, 250}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{9}) };
 				_graphicalLib->createSprite(player1, r.getComponents<components::sprite_t>()[player1].value().scaleX, r.getComponents<components::sprite_t>()[player1].value().scaleY, r.getComponents<components::sprite_t>()[player1].value().rectX, r.getComponents<components::sprite_t>()[player1].value().rectY, r.getComponents<components::sprite_t>()[player1].value().rectWidth, r.getComponents<components::sprite_t>()[player1].value().rectHeight, r.getComponents<components::sprite_t>()[player1].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player1);
 			}
 			else
 			{
 				auto player1{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/player-1-connected.png"}, components::position_t{200, 250}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{8}) };
 				_graphicalLib->createSprite(player1, r.getComponents<components::sprite_t>()[player1].value().scaleX, r.getComponents<components::sprite_t>()[player1].value().scaleY, r.getComponents<components::sprite_t>()[player1].value().rectX, r.getComponents<components::sprite_t>()[player1].value().rectY, r.getComponents<components::sprite_t>()[player1].value().rectWidth, r.getComponents<components::sprite_t>()[player1].value().rectHeight, r.getComponents<components::sprite_t>()[player1].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player1);
 			}
 			if (playerList.self == 2)
 			{
 				auto player2{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/you.png"}, components::position_t{1520, 250}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{9}) };
 				_graphicalLib->createSprite(player2, r.getComponents<components::sprite_t>()[player2].value().scaleX, r.getComponents<components::sprite_t>()[player2].value().scaleY, r.getComponents<components::sprite_t>()[player2].value().rectX, r.getComponents<components::sprite_t>()[player2].value().rectY, r.getComponents<components::sprite_t>()[player2].value().rectWidth, r.getComponents<components::sprite_t>()[player2].value().rectHeight, r.getComponents<components::sprite_t>()[player2].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player2);
 			}
 			else
 			{
 				auto player2{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/player-2-connected.png"}, components::position_t{1520, 250}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{7}) };
 				_graphicalLib->createSprite(player2, r.getComponents<components::sprite_t>()[player2].value().scaleX, r.getComponents<components::sprite_t>()[player2].value().scaleY, r.getComponents<components::sprite_t>()[player2].value().rectX, r.getComponents<components::sprite_t>()[player2].value().rectY, r.getComponents<components::sprite_t>()[player2].value().rectWidth, r.getComponents<components::sprite_t>()[player2].value().rectHeight, r.getComponents<components::sprite_t>()[player2].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player2);
 			}
 			if (playerList.self == 3)
 			{
 				auto player3{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/you.png"}, components::position_t{200, 600}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{9}) };
 				_graphicalLib->createSprite(player3, r.getComponents<components::sprite_t>()[player3].value().scaleX, r.getComponents<components::sprite_t>()[player3].value().scaleY, r.getComponents<components::sprite_t>()[player3].value().rectX, r.getComponents<components::sprite_t>()[player3].value().rectY, r.getComponents<components::sprite_t>()[player3].value().rectWidth, r.getComponents<components::sprite_t>()[player3].value().rectHeight, r.getComponents<components::sprite_t>()[player3].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player3);
 			}
 			else
 			{
 				auto player3{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/player-3-connected.png"}, components::position_t{200, 600}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{6}) };
 				_graphicalLib->createSprite(player3, r.getComponents<components::sprite_t>()[player3].value().scaleX, r.getComponents<components::sprite_t>()[player3].value().scaleY, r.getComponents<components::sprite_t>()[player3].value().rectX, r.getComponents<components::sprite_t>()[player3].value().rectY, r.getComponents<components::sprite_t>()[player3].value().rectWidth, r.getComponents<components::sprite_t>()[player3].value().rectHeight, r.getComponents<components::sprite_t>()[player3].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player3);
 			}
 			if (playerList.self == 4)
 			{
 				auto player4{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/you.png"}, components::position_t{1520, 600}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{9}) };
 				_graphicalLib->createSprite(player4, r.getComponents<components::sprite_t>()[player4].value().scaleX, r.getComponents<components::sprite_t>()[player4].value().scaleY, r.getComponents<components::sprite_t>()[player4].value().rectX, r.getComponents<components::sprite_t>()[player4].value().rectY, r.getComponents<components::sprite_t>()[player4].value().rectWidth, r.getComponents<components::sprite_t>()[player4].value().rectHeight, r.getComponents<components::sprite_t>()[player4].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player4);
 			}
 			else
 			{
 				auto player4{ _addSpriteToScene(r, components::sprite_t{0.5f, 0.5f, 0, 0, 835, 227, "ressources/player-4-connected.png"}, components::position_t{1520, 600}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{5}) };
 				_graphicalLib->createSprite(player4, r.getComponents<components::sprite_t>()[player4].value().scaleX, r.getComponents<components::sprite_t>()[player4].value().scaleY, r.getComponents<components::sprite_t>()[player4].value().rectX, r.getComponents<components::sprite_t>()[player4].value().rectY, r.getComponents<components::sprite_t>()[player4].value().rectWidth, r.getComponents<components::sprite_t>()[player4].value().rectHeight, r.getComponents<components::sprite_t>()[player4].value().path);
+				std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::SELECT_ROOM]).push_back(player4);
 			}
 			auto backgroundId{ _addSpriteToScene(r, components::sprite_t{0.9f, 0.9f, 0, 0, 1920, 1080, "ressources/MainMenu.jpg"}, components::position_t{0, 0}, components::direction_t{0, 0}, components::velocity_t{0, 0}, components::drawable_t{true}, components::scene_t{constants::WAITING_ROOM}, components::zaxis_t{10}) };
 			_graphicalLib->createSprite(backgroundId, r.getComponents<components::sprite_t>()[backgroundId].value().scaleX, r.getComponents<components::sprite_t>()[backgroundId].value().scaleY, r.getComponents<components::sprite_t>()[backgroundId].value().rectX, r.getComponents<components::sprite_t>()[backgroundId].value().rectY, r.getComponents<components::sprite_t>()[backgroundId].value().rectWidth, r.getComponents<components::sprite_t>()[backgroundId].value().rectHeight, r.getComponents<components::sprite_t>()[backgroundId].value().path);
 			if (currentScenes[constants::GRAPH_UPDATE])
 				currentScenes[constants::GRAPH_UPDATE].value().isLoaded = true;
-			_scenePlaceholders.try_emplace(constants::SELECT_ROOM, std::vector<Entity> {player1, player2, player3, player4});
 		});
 }
 
@@ -59,6 +67,7 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
 	_execScene[constants::WAITING_ROOM] = std::function(
 		[this](Registry& r, SparseArray<components::currentScene_t>& currentScenes) -> void
 		{
+			(void)currentScenes;
 			auto localEntities = std::any_cast<std::vector<Entity>>(_scenePlaceholders[constants::WAITING_ROOM]);
 			static auto dtime = std::chrono::nanoseconds(0);
 			auto& time = r.getComponents<components::myTime_t>()[constants::TIME_UPDATE];
@@ -94,7 +103,7 @@ auto rtype::UpdateGraph::_setupExecWaitingRoomScene() -> void
 					_graphicalLib->draw(zAxisMap[i].first);
 			_graphicalLib->HandleClose();
 			_graphicalLib->refresh();
-			if (!net.value().request16.empty() && !net.value().request16.front().size() == 2)
+			if (!net.value().request16.empty() && (net.value().request16.front().size() == 2))
 				playerList.value().players = net.value().request16.front()[1];
 			if (dtime.count() > 1500000000)
 			{

@@ -1,7 +1,7 @@
 #include "PacketManager.hpp"
 
 rtype::PacketManager::PacketManager(std::shared_ptr<std::vector<size_t>> idCreator,  std::shared_ptr<std::vector<std::pair<size_t, size_t>>> idJoiner, std::shared_ptr<std::vector<std::pair<std::vector<PlayerData>, size_t>>> roomList)
-    : _idCreator(idCreator), _idJoiner(idJoiner), _roomList(roomList)
+    : _roomList(roomList), _idCreator(idCreator), _idJoiner(idJoiner)
 {
 }
 
@@ -45,7 +45,7 @@ auto rtype::PacketManager::managePacket() -> void
     if (_packetsIn.size() && _packetsIn.front()->unpack().size())
     {
         auto tmp = _packetsIn.front()->unpack();
-        if (!tmp.empty())
+        if (!tmp.empty()) {
             if (tmp.at(0) == 18) {
                 if (_roomList->size() <= 5 && !_findPlayer(_packetsIn.front()->getId()))
                     _createRoom(_packetsIn.front());
@@ -59,7 +59,7 @@ auto rtype::PacketManager::managePacket() -> void
             else if (tmp.at(0) == 22)
             {
                 IPacket* p = new Packet();
-                for (auto i = 0; i < _roomList->size(); i++)
+                for (size_t i = 0; i < _roomList->size(); i++)
                     if (_roomList->at(i).second == tmp[1]) {
                         p->pack(std::vector<uint8_t>{16, (uint8_t)_roomList->at(i).first.size()});
                         p->setId(_packetsIn.front()->getId());
@@ -69,6 +69,7 @@ auto rtype::PacketManager::managePacket() -> void
             }
             else
                 sendToPlayer(*_findPlayer(_packetsIn.front()->getId()), tmp);
+        }
         _packetsIn.pop();
     }
     
@@ -117,7 +118,7 @@ auto rtype::PacketManager::_getRoomByPlayer(size_t id) -> size_t
 auto rtype::PacketManager::_findPlayer(size_t id) -> PlayerData*
 {
    for (auto room : *_roomList) {
-        for (int i = 0; i < room.first.size(); i++) {
+        for (size_t i = 0; i < room.first.size(); i++) {
             if (id == room.first[i].getId())
                 return (&room.first[i]);
         }
@@ -156,7 +157,7 @@ auto rtype::PacketManager::manageResponse() -> void
             IPacket* packet = new Packet();
             packet->setId(i.second);
             std::vector<uint8_t> vec {17};
-            for (auto i = 0; i < 5; i++)
+            for (size_t i = 0; i < 5; i++)
             {
                 bool indexExist {false};
                 for (auto it : *_roomList)
